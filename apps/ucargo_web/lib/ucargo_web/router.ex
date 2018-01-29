@@ -27,7 +27,7 @@ defmodule UcargoWeb.Router do
   # Other scopes may use custom stacks.
   scope "/api/v1", UcargoWeb do
     pipe_through :api
-    scope "/users" do
+    scope "/drivers" do
       scope "/" do
         post "/sign_in", SessionController, :sign_in
         post "/log_in", SessionController, :login
