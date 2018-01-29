@@ -1,4 +1,7 @@
 defmodule UcargoWeb.Application do
+  @moduledoc """
+  Aplication
+  """
   use Application
 
   def start(_type, _args) do

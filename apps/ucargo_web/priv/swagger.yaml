@@ -1,0 +1,94 @@
+swagger: '2.0'
+info:
+  description: |
+    uCargo A.P.I. Version 1.0
+    out more about Swagger at 
+    [http://swagger.io](http://swagger.io) or on 
+    [irc.freenode.net, #swagger](http://swagger.io/irc/).
+  version: 1.0.0
+  title: uCargo A.P.I. Version 1.0
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: apiteam@swagger.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+# host: petstore.swagger.io
+# basePath: /v2
+tags:
+- name: user
+  description: Everything about your user
+  externalDocs:
+    description: Find out more
+    url: http://swagger.io
+# schemes:
+# - http
+paths:
+  /api/v1/login:
+    x-swagger-router-controller: user
+    post:
+      tags:
+        - user
+      description: login to uCargo
+      parameters:
+        - name: login
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/LoginRequest'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/LoginResponse'
+        '400':
+          description: Error 400
+          schema:
+            $ref: '#/definitions/ApiResponse'
+definitions:
+  LoginRequest:
+    title: RequestLogin
+    type: object
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    example:
+      email: 'test@example.com'
+      password: '1234'
+  LoginResponse:
+    title: SuccessLoginResponse
+    type: object
+    properties:
+      user_id: 
+        type: integer
+      auth_token:
+        type: string
+    example:
+      user:
+        user_id: 1
+        auth_token: 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJVc2VyOjEiLCJleHAiOjE1MTk3NzQxMDgsImlhdCI6MTUxNzE4MjEwOCwiaXNzIjoiVWNhcmdvIiwianRpIjoiM2NjY2NkYjYtZWE2NS00MzRlLTliMzAtOTk5YWUzYTk5OGZlIiwicGVtIjp7fSwic3ViIjoiVXNlcjoxIiwidHlwIjoiYWNjZXNzIn0.7vYk1DN5MHx9MsXNmR_GtC1aB-X3xxdBixZcN0FLgatRLXuCM3w3jRb10uriHVOHTNE4PqdPTE_VkRZiSAgW1Q'
+  ApiResponse:
+    type: object
+    properties:
+      error:
+        type: string
+    example:
+      error: 'Email or password is incorrect'
+  ApiBadResponse:
+    type: object
+    properties:
+      error:
+        type: string
+    example:
+      error: 'Bloked'
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+# Added by API Auto Mocking Plugin
+host: virtserver.swaggerhub.com
+basePath: /personal597/ucargo/1.0.0
+schemes:
+ - https
+ - http

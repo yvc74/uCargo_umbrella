@@ -44,7 +44,8 @@ defmodule UcargoWeb.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:ucargo, in_umbrella: true},
-      {:cowboy, "~> 1.0"}
+      {:cowboy, "~> 1.0"},
+      {:ex_json_schema, "~> 0.5.4"}
     ]
   end
 
