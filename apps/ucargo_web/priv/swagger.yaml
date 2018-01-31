@@ -24,11 +24,32 @@ tags:
 # schemes:
 # - http
 paths:
-  /api/v1/login:
-    x-swagger-router-controller: user
+  /api/v1/drivers/sign_in:
+    x-swagger-router-controller: driver
     post:
       tags:
-        - user
+        - driver
+      description: signin to uCargo
+      parameters:
+        - name: signin
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/SigninRequest'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/LoginResponse'
+        '400':
+          description: Error 400
+          schema:
+            $ref: '#/definitions/ApiResponse'
+  /api/v1/drivers/login:
+    x-swagger-router-controller: driver
+    post:
+      tags:
+        - driver
       description: login to uCargo
       parameters:
         - name: login
@@ -45,18 +66,70 @@ paths:
           description: Error 400
           schema:
             $ref: '#/definitions/ApiResponse'
+  /api/v1/drivers/me:
+    x-swagger-router-controller: driver
+    post:
+      tags:
+        - driver
+      description: info for driver
+      parameters:
+        - name: x-auth-token
+          in: header
+          description: token
+          required: true
+          type: string
+          format: string
+        - name: x-api-key
+          in: header
+          description: API key
+          required: true
+          type: string
+          format: string
+          default: e70e918f-8035-48fc-a707-4507e1fd85c1
+          
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/LoginResponse'
+        '400':
+          description: Error 400
+          schema:
+            $ref: '#/definitions/ApiResponse'
 definitions:
+  SigninRequest:
+    title: RequestSignin
+    type: object
+    properties:
+      driver:
+        type: object
+        properties:
+          email:
+            type: string
+          password:
+            type: string
+          username:
+            type: string
+    example: 
+      driver:
+        email: 'driver@dominio.com'
+        password: '1234test!'
+        username: 'driver1'
   LoginRequest:
     title: RequestLogin
     type: object
     properties:
-      email:
-        type: string
-      password:
-        type: string
+      driver:
+        type: object
+        properties:
+          username:
+            type: string
+          password:
+           type: string
     example:
-      email: 'test@example.com'
-      password: '1234'
+      driver:
+        username: 'driver1'
+        password: 'test1234!'
   LoginResponse:
     title: SuccessLoginResponse
     type: object
@@ -66,9 +139,7 @@ definitions:
       auth_token:
         type: string
     example:
-      user:
-        user_id: 1
-        auth_token: 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJVc2VyOjEiLCJleHAiOjE1MTk3NzQxMDgsImlhdCI6MTUxNzE4MjEwOCwiaXNzIjoiVWNhcmdvIiwianRpIjoiM2NjY2NkYjYtZWE2NS00MzRlLTliMzAtOTk5YWUzYTk5OGZlIiwicGVtIjp7fSwic3ViIjoiVXNlcjoxIiwidHlwIjoiYWNjZXNzIn0.7vYk1DN5MHx9MsXNmR_GtC1aB-X3xxdBixZcN0FLgatRLXuCM3w3jRb10uriHVOHTNE4PqdPTE_VkRZiSAgW1Q'
+      token: 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJVc2VyOjEiLCJleHAiOjE1MTk3NzQxMDgsImlhdCI6MTUxNzE4MjEwOCwiaXNzIjoiVWNhcmdvIiwianRpIjoiM2NjY2NkYjYtZWE2NS00MzRlLTliMzAtOTk5YWUzYTk5OGZlIiwicGVtIjp7fSwic3ViIjoiVXNlcjoxIiwidHlwIjoiYWNjZXNzIn0.7vYk1DN5MHx9MsXNmR_GtC1aB-X3xxdBixZcN0FLgatRLXuCM3w3jRb10uriHVOHTNE4PqdPTE_VkRZiSAgW1Q'
   ApiResponse:
     type: object
     properties:
@@ -88,7 +159,9 @@ externalDocs:
   url: http://swagger.io
 # Added by API Auto Mocking Plugin
 host: virtserver.swaggerhub.com
-basePath: /personal597/ucargo/1.0.0
+# basePath: /personal597/ucargo/1.0.0
 schemes:
  - https
  - http
+# Added by API Auto Mocking Plugin
+basePath: /ucargo/ucargo/1.0.0
