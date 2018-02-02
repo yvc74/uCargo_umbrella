@@ -23,9 +23,13 @@ defmodule UcargoWeb.DriverJsonValidation do
               "email" => %{
                 "description" => "Driver email",
                 "type" => "string"
+              },
+              "picture" => %{
+                "description" => "User picture",
+                "type" => "string"
               }
             },
-            "required" => ["username", "password", "email"]
+            "required" => ["username", "password", "email", "picture"]
           },
         },
         "additionalProperties" => :false,

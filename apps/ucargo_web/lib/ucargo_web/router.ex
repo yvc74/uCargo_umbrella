@@ -18,6 +18,11 @@ defmodule UcargoWeb.Router do
     plug Ucargo.Apiauth
   end
 
+  pipeline :login do
+    plug UcargoWeb.BasicHeadersValidation
+    plug Ucargo.BasicAuth
+  end
+
   scope "/", UcargoWeb do
     pipe_through :browser # Use the default browser stack
 
@@ -29,14 +34,15 @@ defmodule UcargoWeb.Router do
     pipe_through :api
     scope "/drivers" do
       scope "/" do
-        post "/sign_in", SessionController, :sign_in
-        post "/log_in", SessionController, :login
+        post "/account", SessionController, :signup
+        patch "/account", DriverController, :update
       end
 
       scope "/" do
-        pipe_through :authorized
-        get "/me", DriverController, :show
+        pipe_through :login
+        get "/account", SessionController, :signin
       end
+
     end
   end
 end
