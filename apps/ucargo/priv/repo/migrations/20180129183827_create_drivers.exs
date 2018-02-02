@@ -7,6 +7,7 @@ defmodule Ucargo.Repo.Migrations.CreateUsers do
       add :name, :string
       add :email, :string
       add :password, :string
+      add :picture, :string
       timestamps()
     end
 

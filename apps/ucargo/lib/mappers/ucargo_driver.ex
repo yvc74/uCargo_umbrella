@@ -11,14 +11,16 @@ defmodule Ucargo.Driver do
     field :email, :string
     field :password, :string
     field :username, :string
+    field :name, :string
+    field :picture, :string
     field :password_conf, :string, virtual: true
     timestamps()
   end
 
   def signup_changeset(%Driver{} = driver, attrs) do
     driver
-      |> cast(attrs, [:username, :email, :password])
-      |> validate_required([:username, :email, :password])
+      |> cast(attrs, [:username, :email, :password, :picture, :name])
+      |> validate_required([:username, :email, :password, :picture, :name])
       |> unique_constraint(:email)
       |> unique_constraint(:username)
   end
