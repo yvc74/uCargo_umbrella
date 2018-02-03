@@ -9,7 +9,7 @@ defmodule UcargoWeb.DriverJsonValidation do
         "type" => "object",
         "maxProperties" => 1,
         "properties" => %{
-          "driver" => %{
+          "account" => %{
             "type" => "object",
             "properties" => %{
              "username" =>  %{
@@ -27,9 +27,13 @@ defmodule UcargoWeb.DriverJsonValidation do
               "picture" => %{
                 "description" => "User picture",
                 "type" => "string"
+              },
+              "name" => %{
+                "description" => "User name",
+                "type" => "string"
               }
             },
-            "required" => ["username", "password", "email", "picture"]
+            "required" => ["username", "password", "email", "picture", "name"]
           },
         },
         "additionalProperties" => :false,
