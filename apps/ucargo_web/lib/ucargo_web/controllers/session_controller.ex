@@ -16,10 +16,7 @@ defmodule UcargoWeb.SessionController do
         {:ok, token, _resource} = Guardian.encode_and_sign(driver)
         conn
           |> put_status(201)
-          |> json(%{account: %{name: driver.name,
-                               email: driver.email,
-                               picture: driver.picture,
-                               token: token}})
+          |> render("driver.json", %{user: driver, token: token})
       else
         changeset.errors
       end
@@ -36,10 +33,7 @@ defmodule UcargoWeb.SessionController do
       {:ok, token, _resource} = Guardian.encode_and_sign(driver)
       conn
         |> put_status(201)
-        |> json(%{account: %{name: driver.name,
-                             email: driver.email,
-                             picture: driver.picture,
-                             token: token}})
+        |> render("driver.json", %{user: driver, token: token})
     else
       {:error, error} ->
         {:error, error}
