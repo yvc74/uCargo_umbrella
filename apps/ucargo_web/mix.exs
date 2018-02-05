@@ -45,7 +45,8 @@ defmodule UcargoWeb.Mixfile do
       {:gettext, "~> 0.11"},
       {:ucargo, in_umbrella: true},
       {:cowboy, "~> 1.0"},
-      {:ex_json_schema, "~> 0.5.4"}
+      {:ex_json_schema, "~> 0.5.4"},
+      {:timex, "~> 3.1"}
     ]
   end
 
