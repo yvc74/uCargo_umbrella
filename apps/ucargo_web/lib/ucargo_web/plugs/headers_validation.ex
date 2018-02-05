@@ -10,7 +10,6 @@ defmodule UcargoWeb.HeadersValidation do
     result =
     with  {:ok, conn} <- read_header(conn, "x-api-key"),
           {:ok, conn} <- read_header(conn, "x-auth-token"),
-          {:ok, conn} <- read_header(conn, "authorization"),
       do: {:ok, conn}
 
     case result do
