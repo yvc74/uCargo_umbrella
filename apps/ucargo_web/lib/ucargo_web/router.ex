@@ -43,6 +43,11 @@ defmodule UcargoWeb.Router do
         get "/account", SessionController, :signin
       end
 
+      scope "/" do
+        pipe_through :authorized
+        get "/settings", SettingsController, :settings
+      end
+
     end
   end
 end
