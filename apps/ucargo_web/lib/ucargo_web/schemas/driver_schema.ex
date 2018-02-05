@@ -37,12 +37,12 @@ defmodule UcargoWeb.DriverJsonValidation do
           },
         },
         "additionalProperties" => :false,
-        "required" => ["driver"]
+        "required" => ["account"]
       }
       |> ExJsonSchema.Schema.resolve
 
     with :ok <- ExJsonSchema.Validator.validate(schema, params) do
-      %{"driver" => driver_params} = params
+      %{"account" => driver_params} = params
       {:ok, driver_params}
     else
       {:error, errors} -> json_error_parser(errors)
