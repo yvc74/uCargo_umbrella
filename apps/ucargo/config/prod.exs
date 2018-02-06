@@ -1,3 +1,8 @@
 use Mix.Config
 
-import_config "prod.secret.exs"
+config :ucargo, Ucargo.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  username: "postgres",
+  password: "postgres",
+  database: "ucargo_prod",
+  pool_size: 15
