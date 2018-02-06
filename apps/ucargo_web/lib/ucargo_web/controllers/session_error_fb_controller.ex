@@ -6,7 +6,7 @@ defmodule UcargoWeb.SessionFallbackController do
 
   def call(conn, {:error, errors}) do
     conn
-      |> put_status(400)
+      |> put_status(401)
       |> json(creation_error(errors))
   end
 
