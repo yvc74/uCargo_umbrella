@@ -41,13 +41,24 @@ paths:
           description: Error 400
           schema:
             $ref: '#/definitions/ApiResponse'
-  /api/v1/drivers/login:
-    x-swagger-router-controller: driver
-    post:
+    get:
       tags:
         - driver
       description: login to uCargo
       parameters:
+        - name: x-auth-token
+          in: header
+          description: token obtenido del del método POST
+          required: true
+          type: string
+          format: string
+        - name: x-api-key
+          in: header
+          description: API key
+          required: true
+          type: string
+          format: string
+          default: e70e918f-8035-48fc-a707-4507e1fd85c1
         - name: login
           in: body
           required: true
@@ -62,16 +73,14 @@ paths:
           description: Error 400
           schema:
             $ref: '#/definitions/ApiResponse'
-  /api/v1/drivers/me:
-    x-swagger-router-controller: driver
-    post:
+    patch:
       tags:
         - driver
-      description: info for driver
+      description: login to uCargo
       parameters:
         - name: x-auth-token
           in: header
-          description: token
+          description: token obtenido del del método POST
           required: true
           type: string
           format: string
@@ -82,6 +91,11 @@ paths:
           type: string
           format: string
           default: e70e918f-8035-48fc-a707-4507e1fd85c1
+        - name: login
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/LoginRequest'
       responses:
         '200':
           description: Success
