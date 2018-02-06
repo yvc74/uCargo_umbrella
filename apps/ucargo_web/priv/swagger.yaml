@@ -7,24 +7,20 @@ info:
     [irc.freenode.net, #swagger](http://swagger.io/irc/).
   version: 1.0.0
   title: uCargo A.P.I. Version 1.0
-  termsOfService: http://swagger.io/terms/
+  termsOfService: 'http://swagger.io/terms/'
   contact:
     email: apiteam@swagger.io
   license:
     name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
-# host: petstore.swagger.io
-# basePath: /v2
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 tags:
-- name: user
-  description: Everything about your user
-  externalDocs:
-    description: Find out more
-    url: http://swagger.io
-# schemes:
-# - http
+  - name: user
+    description: Everything about your user
+    externalDocs:
+      description: Find out more
+      url: 'http://swagger.io'
 paths:
-  /api/v1/drivers/sign_in:
+  /api/v1/drivers/account:
     x-swagger-router-controller: driver
     post:
       tags:
@@ -86,7 +82,6 @@ paths:
           type: string
           format: string
           default: e70e918f-8035-48fc-a707-4507e1fd85c1
-          
       responses:
         '200':
           description: Success
@@ -101,7 +96,7 @@ definitions:
     title: RequestSignin
     type: object
     properties:
-      driver:
+      account:
         type: object
         properties:
           email:
@@ -110,58 +105,78 @@ definitions:
             type: string
           username:
             type: string
-    example: 
-      driver:
-        email: 'driver@dominio.com'
-        password: '1234test!'
-        username: 'driver1'
+          name:
+            type: string
+          picture:
+            type: string
+    example:
+      account:
+        email: driver@dominio.com
+        password: 1234test!
+        username: test
+        name: test
+        picture: picture_path
   LoginRequest:
     title: RequestLogin
     type: object
     properties:
-      driver:
+      account:
         type: object
         properties:
           username:
             type: string
           password:
-           type: string
+            type: string
     example:
-      driver:
-        username: 'driver1'
-        password: 'test1234!'
+      account:
+        username: driver1
+        password: test1234!
   LoginResponse:
     title: SuccessLoginResponse
     type: object
     properties:
-      user_id: 
-        type: integer
-      auth_token:
-        type: string
+      account:
+        type: object
+        properties:
+          token:
+            type: string
+          email:
+            type: string
+          password:
+            type: string
+          username:
+            type: string
+          name:
+            type: string
+          picture:
+            type: string
     example:
-      token: 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJVc2VyOjEiLCJleHAiOjE1MTk3NzQxMDgsImlhdCI6MTUxNzE4MjEwOCwiaXNzIjoiVWNhcmdvIiwianRpIjoiM2NjY2NkYjYtZWE2NS00MzRlLTliMzAtOTk5YWUzYTk5OGZlIiwicGVtIjp7fSwic3ViIjoiVXNlcjoxIiwidHlwIjoiYWNjZXNzIn0.7vYk1DN5MHx9MsXNmR_GtC1aB-X3xxdBixZcN0FLgatRLXuCM3w3jRb10uriHVOHTNE4PqdPTE_VkRZiSAgW1Q'
+      account:
+        token: eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ1Y2FyZ28iLCJleHAiOjE1MjAyMTg1MTcsImlhdCI6MTUxNzc5OTMxNywiaXNzIjoidWNhcmdvIiwianRpIjoiMjM5YWE3YmEtMWIxMC00NTVjLWIzMGQtZjY5Mjk4ZWNmNzJhIiwibmJmIjoxNTE3Nzk5MzE2LCJzdWIiOiIxIiwidHlwIjoiYWNjZXNzIn0.riUHO7W-l42U9WhQC1ZC5DPNlNCkhULG-tcvVraTjAGjaX49wLwIaKa2FpzzCXtfrzVq0OJj8zgYABIHQ8PRsA
+        email: driver@dominio.com
+        password: 1234test!
+        username: test
+        name: test
+        picture: picture_path
   ApiResponse:
     type: object
     properties:
       error:
         type: string
     example:
-      error: 'Email or password is incorrect'
+      error: Email or password is incorrect
   ApiBadResponse:
     type: object
     properties:
       error:
         type: string
     example:
-      error: 'Bloked'
+      error: Bloked
 externalDocs:
   description: Find out more about Swagger
-  url: http://swagger.io
-# Added by API Auto Mocking Plugin
+  url: 'http://swagger.io'
 host: virtserver.swaggerhub.com
-# basePath: /personal597/ucargo/1.0.0
 schemes:
- - https
- - http
-# Added by API Auto Mocking Plugin
+  - https
+  - http
 basePath: /ucargo/ucargo/1.0.0
