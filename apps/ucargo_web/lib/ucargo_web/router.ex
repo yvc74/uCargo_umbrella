@@ -46,7 +46,7 @@ defmodule UcargoWeb.Router do
       scope "/" do
         pipe_through :authorized
         get "/settings", SettingsController, :settings
-        get "orders", DriverController, :orders
+        get "/orders", DriverController, :orders
       end
 
     end
