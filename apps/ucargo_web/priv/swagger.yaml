@@ -46,31 +46,20 @@ paths:
         - driver
       description: login to uCargo
       parameters:
-        - name: x-auth-token
+        - name: Authorization
           in: header
-          description: token obtenido del del método POST
+          description: Http Basic Auth
           required: true
           type: string
           format: string
-        - name: x-api-key
-          in: header
-          description: API key
-          required: true
-          type: string
-          format: string
-          default: e70e918f-8035-48fc-a707-4507e1fd85c1
-        - name: login
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/LoginRequest'
+          default: Basic QWxhZGRpbjpPcGVuU2VzYW1l
       responses:
         '200':
           description: Success
           schema:
             $ref: '#/definitions/LoginResponse'
-        '400':
-          description: Error 400
+        '401':
+          description: Error 401 Unauthorized
           schema:
             $ref: '#/definitions/ApiResponse'
     patch:
@@ -126,7 +115,6 @@ definitions:
     example:
       account:
         email: driver@dominio.com
-        password: 1234test!
         username: test
         name: test
         picture: picture_path
@@ -156,8 +144,6 @@ definitions:
             type: string
           email:
             type: string
-          password:
-            type: string
           username:
             type: string
           name:
@@ -168,7 +154,6 @@ definitions:
       account:
         token: eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ1Y2FyZ28iLCJleHAiOjE1MjAyMTg1MTcsImlhdCI6MTUxNzc5OTMxNywiaXNzIjoidWNhcmdvIiwianRpIjoiMjM5YWE3YmEtMWIxMC00NTVjLWIzMGQtZjY5Mjk4ZWNmNzJhIiwibmJmIjoxNTE3Nzk5MzE2LCJzdWIiOiIxIiwidHlwIjoiYWNjZXNzIn0.riUHO7W-l42U9WhQC1ZC5DPNlNCkhULG-tcvVraTjAGjaX49wLwIaKa2FpzzCXtfrzVq0OJj8zgYABIHQ8PRsA
         email: driver@dominio.com
-        password: 1234test!
         username: test
         name: test
         picture: picture_path
