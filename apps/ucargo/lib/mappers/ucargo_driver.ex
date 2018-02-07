@@ -25,6 +25,13 @@ defmodule Ucargo.Driver do
       |> unique_constraint(:username)
   end
 
+  def update_changeset(%Driver{} = driver, attrs) do
+    driver
+      |> cast(attrs, [:username, :email, :password, :picture, :name])
+      |> unique_constraint(:email)
+      |> unique_constraint(:username)
+  end
+
   def log_in(username, password) do
     with {:ok, driver} <- get_by_username(username) do
       if driver.password == password do
@@ -40,6 +47,10 @@ defmodule Ucargo.Driver do
 
   def create(changeset) do
     Repo.insert!(changeset)
+  end
+
+  def update(changeset) do
+    Repo.update!(changeset)
   end
 
   def get_by_username(username) do

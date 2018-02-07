@@ -25,4 +25,15 @@ defmodule UcargoWeb.DriverView do
       status: order.status
     }
   end
+
+  def render("driver.json", %{user: driver, token: token}) do
+    %{
+      account: %{
+        name: driver.name,
+        email: driver.email,
+        picture: driver.picture,
+        token: token
+      }
+    }
+  end
 end
