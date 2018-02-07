@@ -94,6 +94,35 @@ paths:
           description: Error 400
           schema:
             $ref: '#/definitions/ApiResponse'
+  /api/v1/drivers/orders:
+    x-swagger-router-controller: driver
+    get:
+      tags:
+        - driver
+      description: Orders for uCargo driver
+      parameters:
+        - name: x-auth-token
+          in: header
+          description: token obtenido del login
+          required: true
+          type: string
+          format: string
+        - name: x-api-key
+          in: header
+          description: API key
+          required: true
+          type: string
+          format: string
+          default: e70e918f-8035-48fc-a707-4507e1fd85c1
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/OrdersResponse'
+        '400':
+          description: Error 400
+          schema:
+            $ref: '#/definitions/ApiBadResponse'
 definitions:
   SigninRequest:
     title: RequestSignin
@@ -157,6 +186,91 @@ definitions:
         username: test
         name: test
         picture: picture_path
+  OrdersResponse:
+    title: OrderResponse
+    type: object
+    properties:
+      orders:
+        type: array
+        items: {
+          $ref: '#/definitions/OrderObject'
+        }
+  OrderObject:
+    title: Order Object
+    type: object
+    properties:
+      comments:
+        type: string
+      deadline:
+        type: string
+      distance:
+        type: integer
+      favorite:
+        type: string
+      merchandise_type:
+        type: string
+      order_number:
+        type: integer
+      pick_up_schedule:
+        type: string
+      pick_up_address:
+        type: string
+      score:
+        type: integer
+      status:
+        type: string
+      transport:
+        type: string
+      type:
+        type: integer
+      weight:
+        type: string
+      origin:
+        type: object
+        properties:
+          child:
+            $ref: '#/definitions/SpotObject'
+      destination:
+        type: object
+        properties:
+          child:
+            $ref: '#/definitions/SpotObject'
+    example: 
+      comments: None
+      deadline: 2018-02-07T12:26:58-06:00
+      distance: 400
+      favorite: true
+      merchandise_type: Plastic
+      order_number: 11233
+      pick_up_schedule: Mexico City, 10350
+      pick_up_address: Edo Mex, 54956
+      score: 4
+      status: New
+      transport: pick-up
+      type: 1
+      weight: 800
+      origin:
+        name: name
+        latitude: '19.565331'
+        longitude: '-99.239541'
+      destination:
+        name: destination
+        latitude: '19.2059251'
+        longitude: '-104.6792362'
+  SpotObject:
+    title: Order Object
+    type: object
+    properties:
+      name:
+        type: string
+      latitude:
+        type: string
+      longitude:
+        type: string
+    example: 
+      name: Spot name
+      latitude: '19.565331'
+      longitude: '-99.239541'
   ApiResponse:
     type: object
     properties:
