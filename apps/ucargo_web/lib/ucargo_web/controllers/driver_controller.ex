@@ -2,9 +2,13 @@ defmodule UcargoWeb.DriverController do
   @moduledoc """
   Controller for drivers
   """
-  alias Ucargo.Order  
   use UcargoWeb, :controller
+  alias Ucargo.Order
+  alias Ucargo.Driver
+  alias Ucargo.Guardian
+  alias UcargoWeb.DriverJsonValidation
   require Logger
+  action_fallback UcargoWeb.SessionFallbackController
 
   def show(conn, _params) do
     driver = conn.assigns[:driver]
@@ -13,6 +17,24 @@ defmodule UcargoWeb.DriverController do
       |> json(%{driver: %{username: driver.username, email: driver.email}})
   end
 
+  def update(conn, params) do
+    driver = conn.assigns[:driver]
+    with {:ok, driver_params} <- DriverJsonValidation.update(params) do
+      changeset = Driver.update_changeset(driver, driver_params)
+      if changeset.valid? do
+        driver = Driver.update(changeset)
+        {:ok, token, _resource} = Guardian.encode_and_sign(driver)
+        conn
+          |> put_status(200)
+          |> render("driver.json", %{user: driver, token: token})
+      else
+        changeset.errors
+      end
+    else
+      {:error, error} ->
+        {:error, error}
+    end
+  end
 
   def orders(conn, _params) do    
     origin = %{name: "origin 1", 

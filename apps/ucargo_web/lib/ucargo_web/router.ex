@@ -35,7 +35,6 @@ defmodule UcargoWeb.Router do
     scope "/drivers" do
       scope "/" do
         post "/account", SessionController, :signup
-        patch "/account", DriverController, :update
       end
 
       scope "/" do
@@ -47,6 +46,7 @@ defmodule UcargoWeb.Router do
         pipe_through :authorized
         get "/settings", SettingsController, :settings
         get "/orders", DriverController, :orders
+        patch "/account", DriverController, :update
       end
 
     end
