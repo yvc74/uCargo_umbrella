@@ -1,13 +1,13 @@
 defmodule UcargoWeb.DriverView do
-	use UcargoWeb, :view
-	alias UcargoWeb.DriverView
-	require Logger
+  use UcargoWeb, :view
+  alias UcargoWeb.DriverView
+  require Logger
 
-	def render("orders.json", %{orders: orders}) do	
-    render_many(orders, DriverView, "order.json", as: :order)
+  def render("orders.json", %{orders: orders}) do
+    %{orders: render_many(orders, DriverView, "order.json", as: :order)}
   end
 
-	def render("order.json", %{order: order}) do
+  def render("order.json", %{order: order}) do
   	%{order_number: order.order_number,
     	origin: order.origin,
       destination: order.destination,

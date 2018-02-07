@@ -65,11 +65,11 @@ paths:
     patch:
       tags:
         - driver
-      description: login to uCargo
+      description: Update for uCargo driver
       parameters:
         - name: x-auth-token
           in: header
-          description: token obtenido del del método POST
+          description: token obtenido del login
           required: true
           type: string
           format: string
@@ -80,11 +80,11 @@ paths:
           type: string
           format: string
           default: e70e918f-8035-48fc-a707-4507e1fd85c1
-        - name: login
+        - name: update
           in: body
           required: true
           schema:
-            $ref: '#/definitions/LoginRequest'
+            $ref: '#/definitions/SigninRequest'
       responses:
         '200':
           description: Success
