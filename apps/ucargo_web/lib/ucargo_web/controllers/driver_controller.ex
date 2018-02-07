@@ -1,8 +1,10 @@
-defmodule UcargoWeb.DriverController do
+defmodule UcargoWeb.DriverController do  
   @moduledoc """
   Controller for drivers
   """
+  alias Ucargo.Order  
   use UcargoWeb, :controller
+  require Logger
 
   def show(conn, _params) do
     driver = conn.assigns[:driver]
@@ -12,9 +14,7 @@ defmodule UcargoWeb.DriverController do
   end
 
 
-  def orders(conn, _params) do
-    
-
+  def orders(conn, _params) do    
     origin = %{name: "origin 1", 
               latitude: "19.565331", 
               longitude: "-99.239541"
@@ -26,7 +26,7 @@ defmodule UcargoWeb.DriverController do
                   }
     
 
-    order = %{order_number: "123",
+    order = %Order{order_number: "123",
               origin: origin,
               destination: destination,
               type: 1,
@@ -42,9 +42,14 @@ defmodule UcargoWeb.DriverController do
               comments: "None",
               status: "New"
             }
+
+    orders = [order, order]
+
+    Logger.info "orders ====> #{inspect orders}"
+
     conn
-      |> put_status(200)
-      |> json(%{orders: [order,order]})
+      |> put_status(200)      
+      |> render("orders.json", orders: orders)
   end
 
 
