@@ -36,4 +36,28 @@ defmodule UcargoWeb.DriverView do
       }
     }
   end
+
+  def render("order_delete.json", %{message: status}) do
+      %{
+        message: status
+      }
+  end
+
+  def render("order_quotes.json", %{quotes: price}) do 
+    %{
+      quotes: price
+    }
+  end
+
+  def render("order_favorite.json", %{message: status}) do
+    %{
+      message: status
+    }
+  end
+
+  def render("order_favorite_delete.json", %{message: status}) do
+    %{
+      message: status
+    }
+  end
 end
