@@ -47,6 +47,10 @@ defmodule UcargoWeb.Router do
         get "/settings", SettingsController, :settings
         get "/orders", DriverController, :orders
         patch "/account", DriverController, :update
+        delete "/orders/:order_number", DriverController, :order_delete
+        post "/orders/:order_number/quotes", DriverController, :order_quotes
+        post "/orders/:order_number/fav",  DriverController, :order_favorite
+        delete "/orders/:order_number/fav", DriverController, :order_favorite_delete
       end
 
     end

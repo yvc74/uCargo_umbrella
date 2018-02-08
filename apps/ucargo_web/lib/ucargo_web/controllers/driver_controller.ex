@@ -1,9 +1,8 @@
-defmodule UcargoWeb.DriverController do  
+defmodule UcargoWeb.DriverController do
   @moduledoc """
   Controller for drivers
   """
   use UcargoWeb, :controller
-  alias Ucargo.Order
   alias Ucargo.Driver
   alias Ucargo.Guardian
   alias UcargoWeb.DriverJsonValidation
@@ -36,7 +35,8 @@ defmodule UcargoWeb.DriverController do
     end
   end
 
-  def orders(conn, _params) do    
+  def orders(conn, _params) do
+
     origin = %{name: "origin 1", 
               latitude: "19.565331", 
               longitude: "-99.239541"
@@ -48,7 +48,7 @@ defmodule UcargoWeb.DriverController do
                   }
     
 
-    order = %Order{order_number: "123",
+    order = %{order_number: "123",
               origin: origin,
               destination: destination,
               type: 1,
@@ -64,18 +64,12 @@ defmodule UcargoWeb.DriverController do
               comments: "None",
               status: "New"
             }
-
-    orders = [order, order]
-
-    Logger.info "orders ====> #{inspect orders}"
-
     conn
-      |> put_status(200)      
-      |> render("orders.json", orders: orders)
+      |> put_status(200)
+      |> json(%{orders: [order, order]})
   end
 
-
-  defp generate_iso_date() do
+  defp generate_iso_date do
     date = Timex.now |> Timex.shift(days: 7)
     case Timex.format(date, "{ISO:Basic}") do
       {:ok, value_date} ->
@@ -85,4 +79,29 @@ defmodule UcargoWeb.DriverController do
     end
 
   end
+
+  def order_delete(conn, _params) do
+    conn
+      |> put_status(200)
+      |> render("order_delete.json", %{message: "Success"})
+  end
+
+  def order_quotes(conn, _params) do 
+    conn
+      |> put_status(200)
+      |> render("order_quotes.json", %{quotes: "23500"})
+  end
+
+  def order_favorite(conn, _params) do
+    conn
+      |> put_status(200)
+      |> render("order_favorite.json", %{message: "Success"})
+  end
+
+  def order_favorite_delete(conn, _params) do
+    conn
+    |> put_status(200)
+    |> render("order_favorite_delete.json", %{message: "Success favorite delete"})
+  end
+
 end
