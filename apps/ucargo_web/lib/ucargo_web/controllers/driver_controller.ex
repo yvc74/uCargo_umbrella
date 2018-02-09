@@ -104,4 +104,27 @@ defmodule UcargoWeb.DriverController do
     |> render("order_favorite_delete.json", %{message: "Success favorite delete"})
   end
 
+  def order_onroute(conn, _params) do
+    conn
+      |> put_status(200)
+      |> render("order_onroute.json", %{order: "0001"})
+  end
+
+  def events(conn, _params) do
+    track = %{
+      latitude: "19.2059251",
+      longitude: "-104.6792362"
+    }
+    event = %{
+      id: "0987654321098765",
+      name: "Begin",
+      picture: "www.google.com",
+      track: track,
+      date: "08/02/2018",
+      mobile: "saved",
+    }
+    conn
+      |> put_status(200)
+      |> render("events.json", %{event: event})
+  end
 end

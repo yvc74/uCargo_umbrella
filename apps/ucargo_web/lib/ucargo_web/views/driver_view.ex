@@ -60,4 +60,16 @@ defmodule UcargoWeb.DriverView do
       message: status
     }
   end
+
+  def render("order_onroute.json", %{order: order_id}) do
+    %{
+      order: order_id
+    }
+  end
+
+  def render("events.json", %{event: event}) do
+    %{
+      event: event 
+    }
+  end
 end
