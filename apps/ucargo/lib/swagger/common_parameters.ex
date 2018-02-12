@@ -12,7 +12,7 @@ defmodule Ucargo.CommonParameters do
 
   def order_id(path = %PathObject{}) do
     path
-    |> parameter(:order_id, :path, :integer, "The order id", require: true)
+    |> parameter(:order_id, :path, :integer, "The order id")
   end
 
   def sorting(path = %PathObject{}) do
