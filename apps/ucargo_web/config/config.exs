@@ -26,6 +26,11 @@ config :logger, :console,
 config :ucargo_web, :generators,
   context_app: :ucargo
 
+config :ucargo_web, :phoenix_swagger,  
+  router: UcargoWeb.Router,
+  output: "priv/static/swagger.json"    
+  
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"

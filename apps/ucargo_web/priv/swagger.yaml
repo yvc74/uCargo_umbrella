@@ -14,8 +14,8 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 tags:
-  - name: user
-    description: Everything about your user
+  - name: driver
+    description: Everything about your driver
     externalDocs:
       description: Find out more
       url: 'http://swagger.io'

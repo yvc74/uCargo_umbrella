@@ -55,4 +55,18 @@ defmodule UcargoWeb.Router do
 
     end
   end
+
+  scope "/api/swagger" do
+      forward "/", PhoenixSwagger.Plug.SwaggerUI, otp_app: :ucargo_web, swagger_file: "swagger.json"
+    end
+
+  def swagger_info do
+    %{
+      info: %{
+        version: "1.0",
+        title: "ucargo_web"
+      }
+    }
+  end
+
 end

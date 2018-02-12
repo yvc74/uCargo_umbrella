@@ -46,7 +46,8 @@ defmodule UcargoWeb.Mixfile do
       {:ucargo, in_umbrella: true},
       {:cowboy, "~> 1.0"},
       {:ex_json_schema, "~> 0.5.4"},
-      {:timex, "~> 3.1"}
+      {:timex, "~> 3.1"},
+      {:phoenix_swagger, git: "https://github.com/xerions/phoenix_swagger.git"}
     ]
   end
 

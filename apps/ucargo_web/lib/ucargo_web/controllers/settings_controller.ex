@@ -1,5 +1,12 @@
 defmodule UcargoWeb.SettingsController do
   use UcargoWeb, :controller
+  use PhoenixSwagger
+
+  	swagger_path :settings do
+  		get "/settings"
+  		description "Settings driver"
+  		response 200, "Success"
+		end
 
     def settings(conn, _params) do
       conn
