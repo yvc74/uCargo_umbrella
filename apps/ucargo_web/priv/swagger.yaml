@@ -94,6 +94,35 @@ paths:
           description: Error 400
           schema:
             $ref: '#/definitions/ApiResponse'
+  /api/v1/driver/settings:
+    get:
+      tags:
+        - driver        
+      description: Driver's Settings
+      produces: [application/json]
+      operationId: UcargoWeb.SettingsController.settings
+      parameters:
+        - name: x-auth-token
+          in: header
+          type: string
+          required: true      
+          description: Access token
+          format: string
+        - name: x-api-key
+          in: header
+          type: string
+          required: true
+          description: API key
+          default: e70e918f-8035-48fc-a707-4507e1fd85c1
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/SettingsObject'                       
+        '400':
+          description: Error 400
+          schema:
+            $ref: '#/definitions/ApiBadResponse'
   /api/v1/drivers/orders:
     x-swagger-router-controller: driver
     get:
@@ -271,6 +300,16 @@ definitions:
       name: Spot name
       latitude: '19.565331'
       longitude: '-99.239541'
+  SettingsObject:
+    type: object
+    title: Settings
+    description: Driver's Settings
+    properties:
+      help_number: 
+        type: string
+        description: Help number              
+    example:
+        help_number: 01800822746932
   ApiResponse:
     type: object
     properties:
