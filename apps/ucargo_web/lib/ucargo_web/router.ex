@@ -1,5 +1,6 @@
 defmodule UcargoWeb.Router do
   use UcargoWeb, :router
+  alias PhoenixSwagger.Plug.Validate
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -26,7 +27,7 @@ defmodule UcargoWeb.Router do
   scope "/", UcargoWeb do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    #get "/", PageController, :index
   end
 
   # Other scopes may use custom stacks.
@@ -57,8 +58,8 @@ defmodule UcargoWeb.Router do
   end
 
   scope "/api/swagger" do
-      forward "/", PhoenixSwagger.Plug.SwaggerUI, otp_app: :ucargo_web, swagger_file: "swagger.json"
-    end
+    forward "/", PhoenixSwagger.Plug.SwaggerUI, otp_app: :ucargo_web, swagger_file: "swagger.json"
+  end
 
   def swagger_info do
     %{

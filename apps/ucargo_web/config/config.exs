@@ -10,6 +10,14 @@ config :ucargo_web,
   namespace: UcargoWeb,
   ecto_repos: [Ucargo.Repo]
 
+config :ucargo_web, :phoenix_swagger,  
+  swagger_files: %{
+    "priv/static/swagger.json" => [
+      router: UcargoWeb.Router,     # phoenix routes will be converted to swagger paths
+      endpoint: UcargoWeb.Endpoint  # (optional) endpoint config used to set host, port and https schemes.
+    ]
+  }
+
 # Configures the endpoint
 config :ucargo_web, UcargoWeb.Endpoint,
   url: [host: "localhost"],
@@ -26,9 +34,7 @@ config :logger, :console,
 config :ucargo_web, :generators,
   context_app: :ucargo
 
-config :ucargo_web, :phoenix_swagger,  
-  router: UcargoWeb.Router,
-  output: "priv/static/swagger.json"    
+    
   
 
 # Import environment specific config. This must remain at the bottom
