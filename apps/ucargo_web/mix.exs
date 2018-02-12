@@ -11,7 +11,7 @@ defmodule UcargoWeb.Mixfile do
       lockfile: "../../mix.lock",
       elixir: "~> 1.4",
       elixirc_paths: elixirc_paths(Mix.env),
-      compilers: [:phoenix, :gettext] ++ Mix.compilers,
+      compilers: [:phoenix, :gettext, :phoenix_swagger] ++ Mix.compilers,
       start_permanent: Mix.env == :prod,
       aliases: aliases(),
       deps: deps()
@@ -46,7 +46,8 @@ defmodule UcargoWeb.Mixfile do
       {:ucargo, in_umbrella: true},
       {:cowboy, "~> 1.0"},
       {:ex_json_schema, "~> 0.5.4"},
-      {:timex, "~> 3.1"}
+      {:timex, "~> 3.1"},
+      {:phoenix_swagger, git: "https://github.com/xerions/phoenix_swagger.git"}
     ]
   end
 
@@ -55,6 +56,7 @@ defmodule UcargoWeb.Mixfile do
   #
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
-    ["test": ["ecto.create --quiet", "ecto.migrate", "test"]]
+    ["test": ["ecto.create --quiet", "ecto.migrate", "test"],
+    "swagger": ["phx.swagger.generate priv/static/swagger.json"]]
   end
 end

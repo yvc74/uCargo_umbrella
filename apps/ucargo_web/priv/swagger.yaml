@@ -14,8 +14,8 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 tags:
-  - name: user
-    description: Everything about your user
+  - name: driver
+    description: Everything about your driver
     externalDocs:
       description: Find out more
       url: 'http://swagger.io'
@@ -25,6 +25,7 @@ paths:
     post:
       tags:
         - driver
+      summary: Driver's account
       description: signin to uCargo
       parameters:
         - name: signin
@@ -45,6 +46,7 @@ paths:
       tags:
         - driver
       description: login to uCargo
+      summary: Driver's account
       parameters:
         - name: Authorization
           in: header
@@ -66,6 +68,7 @@ paths:
       tags:
         - driver
       description: Update for uCargo driver
+      summary: Driver's account
       parameters:
         - name: x-auth-token
           in: header
@@ -94,12 +97,145 @@ paths:
           description: Error 400
           schema:
             $ref: '#/definitions/ApiResponse'
+  /api/v1/driver/settings:
+    get:
+      tags:
+        - driver        
+      description: Driver's Settings
+      produces: [application/json]
+      operationId: UcargoWeb.SettingsController.settings
+      summary: Driver's settings
+      parameters:
+        - name: x-auth-token
+          in: header
+          type: string
+          required: true      
+          description: Access token
+          format: string
+        - name: x-api-key
+          in: header
+          type: string
+          required: true
+          description: API key
+          default: e70e918f-8035-48fc-a707-4507e1fd85c1
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/SettingsObject'                       
+        '400':
+          description: Error 400
+          schema:
+            $ref: '#/definitions/ApiBadResponse'
+  /api/v1/driver/orders/{orderId}: 
+    delete: 
+      tags: 
+        - driver
+      operationId: UcargoWeb.DriverController.order_delete
+      description: Delete a order from id
+      summary: Driver's order delete
+      parameters: 
+      - name: X-Auth-Token
+        type: string
+        required: true        
+        in: header
+        description: Access token                    
+      - name: X-Api-Key
+        in: header
+        description: API key
+        default: e70e918f-8035-48fc-a707-4507e1fd85c1          
+        type: string
+        required: false
+      - name: "orderId"
+        in: "path"
+        description: "Order to delete"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses: 
+        '200': 
+          description: Success
+          schema: 
+            $ref: '#/definitions/OrderDeleteObjectSuccess'
+        '400':
+          description: Error 400
+          schema:
+           $ref: '#/definitions/ApiBadResponse'
+  /api/v1/driver/orders/{orderId}/quotes: 
+    post: 
+      tags: 
+        - driver
+      operationId: UcargoWeb.DriverController.order_quotes
+      description: Quotes a order from id
+      summary: Driver's order quotes
+      parameters: 
+      - name: X-Auth-Token
+        type: string
+        required: true        
+        in: header
+        description: Access token                    
+      - name: X-Api-Key
+        in: header
+        description: API key
+        default: e70e918f-8035-48fc-a707-4507e1fd85c1          
+        type: string
+        required: false
+      - name: "orderId"
+        in: "path"
+        description: "Order to quotes"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses: 
+        '200': 
+          description: Success
+          schema: 
+            $ref: '#/definitions/OrderDeleteObjectSuccess'
+        '400':
+          description: Error 400
+          schema:
+           $ref: '#/definitions/ApiBadResponse'
+  /api/v1/driver/orders/{orderId}/fav: 
+    post: 
+      tags: 
+        - driver
+      operationId: UcargoWeb.DriverController.order_favorite
+      description: Quotes a order from id
+      summary: Driver's order fav
+      parameters: 
+      - name: X-Auth-Token
+        type: string
+        required: true        
+        in: header
+        description: Access token                    
+      - name: X-Api-Key
+        in: header
+        description: API key
+        default: e70e918f-8035-48fc-a707-4507e1fd85c1          
+        type: string
+        required: false
+      - name: "orderId"
+        in: "path"
+        description: "Order to fav"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses: 
+        '200': 
+          description: Success
+          schema: 
+            $ref: '#/definitions/OrderDeleteObjectSuccess'
+        '400':
+          description: Error 400
+          schema:
+           $ref: '#/definitions/ApiBadResponse'              
   /api/v1/drivers/orders:
     x-swagger-router-controller: driver
     get:
       tags:
         - driver
       description: Orders for uCargo driver
+      summary: Driver's orders
       parameters:
         - name: x-auth-token
           in: header
@@ -271,6 +407,26 @@ definitions:
       name: Spot name
       latitude: '19.565331'
       longitude: '-99.239541'
+  SettingsObject:
+    type: object
+    title: Settings
+    description: Driver's Settings
+    properties:
+      help_number: 
+        type: string
+        description: Help number              
+    example:
+        help_number: 01800822746932
+  OrderDeleteObjectSuccess: 
+    type: object
+    title: DeleteOrderSuccessObject
+    properties: 
+      message: 
+        type: string
+        description: Success message  
+    example: 
+      message: Success
+      description: Driver's order delete success    
   ApiResponse:
     type: object
     properties:
