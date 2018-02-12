@@ -123,6 +123,39 @@ paths:
           description: Error 400
           schema:
             $ref: '#/definitions/ApiBadResponse'
+  /api/v1/driver/orders/:order_id: 
+    delete: 
+      tags: 
+        - driver
+        operationId: UcargoWeb.DriverController.order_delete
+        description: Delete a order from id
+        summary: Driver's order delete
+        parameters: 
+          - name: X-Auth-Token
+            type: string
+            required: true        
+            in: header
+            description: Access token                    
+            type: string
+            required: true
+          - name: X-Api-Key
+            in: header
+            description: API key
+            default: e70e918f-8035-48fc-a707-4507e1fd85c1          
+            type: integer
+            required: false
+          - name: order_id
+            in: query
+            description: The order id                
+        responses: 
+          '200': 
+            description: OK
+            schema: 
+              $ref: '#/definitions/OrderDeleteObjectSuccess'
+          '400':
+            description: Error 400
+            schema:
+            $ref: '#/definitions/ApiBadResponse'              
   /api/v1/drivers/orders:
     x-swagger-router-controller: driver
     get:
@@ -310,6 +343,16 @@ definitions:
         description: Help number              
     example:
         help_number: 01800822746932
+  OrderDeleteObjectSuccess: 
+    type: object
+    title: DeleteOrderSuccessObject
+    properties: 
+      message: 
+        type: string
+        description: Success message  
+    example: 
+      message: Success
+      description: Driver's order delete success    
   ApiResponse:
     type: object
     properties:
