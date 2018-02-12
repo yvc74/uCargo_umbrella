@@ -10,6 +10,11 @@ defmodule Ucargo.CommonParameters do
     |> parameter("X-Api-Key", :header, :string, "API key", default: "e70e918f-8035-48fc-a707-4507e1fd85c1", required: true)
   end
 
+  def order_id(path = %PathObject{}) do
+    path
+    |> parameter(:order_id, :query, :integer, "The order id")
+  end
+
   def sorting(path = %PathObject{}) do
     path
     |> parameter(:sort_by, :query, :string, "The property to sort by")

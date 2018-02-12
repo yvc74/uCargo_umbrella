@@ -3,9 +3,8 @@ defmodule UcargoWeb.DriverController do
   Controller for drivers
   """
   use UcargoWeb, :controller
-  alias Ucargo.Driver
-  alias Ucargo.Guardian
-  alias UcargoWeb.DriverJsonValidation
+  use PhoenixSwagger
+  alias Ucargo.{Driver, Guardian, DriverJsonValidation, CommonParameters}  
   require Logger
   action_fallback UcargoWeb.SessionFallbackController
 
@@ -77,7 +76,33 @@ defmodule UcargoWeb.DriverController do
       _->
         ""
     end
+  end
 
+  def swagger_definitions do
+    %{
+      OrderDeleteObjectSuccess: swagger_schema do
+        title "DeleteOrderSuccessObject"
+        description "Driver's order delete success"
+        properties do
+          message :string, "Success message"          
+        end
+        example %{
+          message: "Success"          
+        }
+      end      
+    }
+  end
+
+  swagger_path(:order_delete) do
+    delete "/api/v1/driver/orders/{:order_id}"
+    summary "Driver's order delete"
+    description "Delete a order from id"
+    produces "application/json"
+    CommonParameters.authorization
+    CommonParameters.order_id
+    response 200, "OK", Schema.ref(:OrderDeleteObjectSuccess), example: %{
+      help_number: "01800822746932"
+    }
   end
 
   def order_delete(conn, _params) do
