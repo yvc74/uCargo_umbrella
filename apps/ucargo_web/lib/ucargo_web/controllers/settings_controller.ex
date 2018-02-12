@@ -1,7 +1,7 @@
 defmodule UcargoWeb.SettingsController do
   use UcargoWeb, :controller
   use PhoenixSwagger
-
+  alias Ucargo.CommonParameters
   	
 
     def swagger_definitions do
@@ -24,6 +24,7 @@ defmodule UcargoWeb.SettingsController do
     summary "Driver's Settings"
     description "Obtaing a herl number for Driver"
     produces "application/json"
+    CommonParameters.authorization
     response 200, "OK", Schema.ref(:Settings), example: %{
       help_number: "01800822746932"
     }
