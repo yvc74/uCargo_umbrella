@@ -151,6 +151,7 @@ defmodule UcargoWeb.DriverController do
     response 200, "OK", Schema.ref(:OrderDeleteObjectSuccess), example: %{
       help_number: "01800822746932"
     }
+  end
 
   def order_favorite(conn, _params) do
     conn
@@ -168,6 +169,7 @@ defmodule UcargoWeb.DriverController do
     response 200, "OK", Schema.ref(:OrderDeleteObjectSuccess), example: %{
       help_number: "01800822746932"
     }
+  end
 
   def order_favorite_delete(conn, _params) do
     conn
