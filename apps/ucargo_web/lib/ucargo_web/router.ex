@@ -52,6 +52,8 @@ defmodule UcargoWeb.Router do
         post "/orders/:order_number/quotes", DriverController, :order_quotes
         post "/orders/:order_number/fav",  DriverController, :order_favorite
         delete "/orders/:order_number/fav", DriverController, :order_favorite_delete
+        get "/orders/onroute", DriverController, :order_onroute
+        post "/orders/:order_numer/events", DriverController, :events
       end
 
     end
