@@ -4,7 +4,8 @@ defmodule UcargoWeb.DriverController do
   """
   use UcargoWeb, :controller
   use PhoenixSwagger
-  alias Ucargo.{Driver, Guardian, DriverJsonValidation, CommonParameters}  
+  alias Ucargo.{Driver, Guardian, CommonParameters}  
+  alias UcargoWeb.{DriverJsonValidation}
   require Logger
   action_fallback UcargoWeb.SessionFallbackController
 
@@ -162,17 +163,6 @@ defmodule UcargoWeb.DriverController do
     }
   end
 
-  swagger_path(:order_favorite) do
-    post "/api/v1/driver/orders/{orderId}/fav"
-    summary "Driver's order quote"
-    description "quote a order from id"
-    produces "application/json"
-    CommonParameters.authorization
-    CommonParameters.order_id
-    response 200, "OK", Schema.ref(:OrderDeleteObjectSuccess), example: %{
-      help_number: "01800822746932"
-    }
-  end
 
   def order_favorite(conn, _params) do
     conn

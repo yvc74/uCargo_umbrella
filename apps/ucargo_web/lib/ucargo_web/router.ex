@@ -1,6 +1,5 @@
 defmodule UcargoWeb.Router do
-  use UcargoWeb, :router
-  alias PhoenixSwagger.Plug.Validate
+  use UcargoWeb, :router  
 
   pipeline :browser do
     plug :accepts, ["html"]
