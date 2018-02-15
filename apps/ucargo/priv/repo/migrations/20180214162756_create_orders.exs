@@ -5,8 +5,16 @@ defmodule Ucargo.Repo.Migrations.CreateOrders do
     create table(:orders) do
       add :favorite, :boolean
       add :score, :integer
+      add :status, :string
+      add :type, :integer
       add :deadline, :naive_datetime
-      add :user_id, references(:users, on_delete: :nothing)
+      add :distance, :string
+      add :merchandise_type, :string
+      add :order_number, :integer
+      add :transport, :string
+      add :weight, :string 
+      add :comments, :string           
+      add :user_id, references(:drivers, on_delete: :nothing)
       timestamps()
     end
   end

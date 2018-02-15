@@ -11,13 +11,23 @@ defmodule Ucargo.Order do
     field :favorite, :boolean
     field :score, :integer
     field :deadline, :naive_datetime
+    field :status, :string
+    field :type, :integer
+    field :distance, :string
+    field :merchandise_type, :string
+    field :order_number, :integer
+    field :transport, :string
+    field :weight, :string
+    field :comments, :string
     belongs_to :driver, Ucargo.Driver
+    has_one :pickup, Ucargo.Pickup
+    has_one :delivery, Ucargo.Delivery
     timestamps()
   end
 
   def signup_changeset(%Order{} = order, attrs) do
     order
-      |> cast(attrs, [:favorite, :score, :deadline, :user_id])
+      |> cast(attrs, [:favorite, :score, :deadline, :status, :type, :distance, :merchandise_type, :order_number, :transport, :weight, :comments, :user_id])
       |> validate_required([:deadline])
       |> assoc_constraint(:driver)
   end
