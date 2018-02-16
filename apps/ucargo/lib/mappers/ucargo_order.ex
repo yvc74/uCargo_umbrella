@@ -25,11 +25,10 @@ defmodule Ucargo.Order do
     timestamps()
   end
 
-  def signup_changeset(%Order{} = order, attrs) do
+  def create_changeset(%Order{} = order, attrs) do
     order
-      |> cast(attrs, [:favorite, :score, :deadline, :status, :type, :distance, :merchandise_type, :order_number, :transport, :weight, :comments, :user_id])
+      |> cast(attrs, [:favorite, :score, :deadline, :status, :type, :distance, :merchandise_type, :order_number, :transport, :weight, :comments, :driver_id])
       |> validate_required([:deadline])
       |> assoc_constraint(:driver)
   end
-
 end

@@ -3,8 +3,8 @@ defmodule Ucargo.Repo.Migrations.Deliveries do
 
   def change do
     create table(:deliveries) do
-      add :latitude, :string
-      add :longitude, :string
+      add :latitude, :decimal, precision: 8, scale: 6
+      add :longitude, :decimal, precision: 8, scale: 6
       add :name, :string
       add :address, :string
       add :schedule, :string
