@@ -4,24 +4,12 @@ defmodule Ucargo.DriverTest do
   """
   use Ucargo.DataCase
 
-  alias Ucargo.Order
-  alias Ucargo.Pickup
+  alias Ucargo.Driver
 
-  test "Create Order" do
-    order = %Ucargo.Order{}
-    order_chs = Order.create_changeset(order,
-                %{deadline: NaiveDateTime.utc_now()})
-    assert order_chs.valid? == true
-  end
-
-  test "Create order with pick up" do
-    order = %Order{}
-    order_chs = Order.create_changeset(order,
-                %{deadline: NaiveDateTime.utc_now()})
-    pick_up = %Pickup{}
-    pick_chgset = Pickup.create_changeset(pick_up,
-                %{latitude: 34.332345, longitude: -99.345678})
-    order_with_pick = Ecto.Changeset.put_assoc(order_chs, :pickup, pick_chgset)
-    assert order_with_pick.valid? == true
+  test "Create Driver" do
+    changeset = Driver.signup_changeset(%Driver{},
+    %{username: "johndoe", password: "12345678",
+      email: "john@doe.com", picture: "picture", name: "John Doe"})
+    assert changeset.valid? == true
   end
 end
