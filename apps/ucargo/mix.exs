@@ -39,7 +39,8 @@ defmodule Ucargo.Mixfile do
       {:postgrex, ">= 0.0.0"},
       {:ecto, "~> 2.1"},
       {:guardian, "~> 1.0"},
-      {:bcrypt_elixir, "~> 1.0"}
+      {:bcrypt_elixir, "~> 1.0"},
+      {:fsm, "~> 0.3.0"}
     ]
   end
 
