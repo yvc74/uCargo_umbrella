@@ -4,8 +4,9 @@ defmodule Ucargo.Order do
   """
   use Ecto.Schema
   import Ecto.Changeset
+  import Ecto.Query
   alias Ucargo.Order
-  #alias Ucargo.Repo
+  alias Ucargo.Repo
 
   schema "orders" do
     field :favorite, :boolean
@@ -30,5 +31,11 @@ defmodule Ucargo.Order do
       |> cast(attrs, [:favorite, :score, :deadline, :status, :type, :distance, :merchandise_type, :order_number, :transport, :weight, :comments, :driver_id])
       |> validate_required([:deadline])
       |> assoc_constraint(:driver)
+  end
+
+  def find_all do
+    query = from o in Order,
+            preload: [:pickup, :delivery]
+    Repo.all(query)
   end
 end

@@ -3,8 +3,8 @@ defmodule Ucargo.Repo.Migrations.CreatePickUps do
 
   def change do
     create table(:pick_ups) do
-      add :latitude, :decimal, precision: 8, scale: 6
-      add :longitude, :decimal, precision: 8, scale: 6
+      add :latitude, :decimal, precision: 9, scale: 6
+      add :longitude, :decimal, precision: 9, scale: 6
       add :name, :string
       add :address, :string
       add :schedule, :string

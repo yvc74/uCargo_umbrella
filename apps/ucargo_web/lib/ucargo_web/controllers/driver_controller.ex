@@ -35,60 +35,60 @@ defmodule UcargoWeb.DriverController do
     end
   end
 
-  def orders(conn, _params) do
+  # def orders(conn, _params) do
 
-    origin = %{name: "origin 1", 
-              latitude: "19.565331", 
-              longitude: "-99.239541"
-            }
+  #   origin = %{name: "origin 1", 
+  #             latitude: "19.565331", 
+  #             longitude: "-99.239541"
+  #           }
 
-    destination = %{name: "destination 1", 
-                    latitude: "19.2059251", 
-                    longitude: "-104.6792362"
-                  }
-    details_distance = %{label: "distance",
-                    value: "400",
-                    url: "https://farm5.staticflickr.com/4716/26376232958_95aa4c1021.jpg"
-                    }
-    details_merchandise_type = %{label: "merchandise_type",
-                                value: "Plastic",
-                                url: "https://farm5.staticflickr.com/4674/25377049917_3d4437b5fb_b.jpg"
-                    }
-    details_order_number = %{label: "order_number",
-                    value: "123",
-                    url: "http://www.misaelpc.com/s3/developer.miio.com/uploads/baby_bowser.png"
-                  }
-    details_transport = %{label: "transport",
-                  value: "pick-up",
-                  url: "https://farm5.staticflickr.com/4621/25377093267_fc192d8caa.jpg"
-      }
-    details_weight = %{label: "weight",
-      value: "800",
-      url: "https://farm5.staticflickr.com/4649/38437918860_417994b09d.jpg"
-    }
+  #   destination = %{name: "destination 1", 
+  #                   latitude: "19.2059251", 
+  #                   longitude: "-104.6792362"
+  #                 }
+  #   details_distance = %{label: "distance",
+  #                   value: "400",
+  #                   url: "https://farm5.staticflickr.com/4716/26376232958_95aa4c1021.jpg"
+  #                   }
+  #   details_merchandise_type = %{label: "merchandise_type",
+  #                               value: "Plastic",
+  #                               url: "https://farm5.staticflickr.com/4674/25377049917_3d4437b5fb_b.jpg"
+  #                   }
+  #   details_order_number = %{label: "order_number",
+  #                   value: "123",
+  #                   url: "http://www.misaelpc.com/s3/developer.miio.com/uploads/baby_bowser.png"
+  #                 }
+  #   details_transport = %{label: "transport",
+  #                 value: "pick-up",
+  #                 url: "https://farm5.staticflickr.com/4621/25377093267_fc192d8caa.jpg"
+  #     }
+  #   details_weight = %{label: "weight",
+  #     value: "800",
+  #     url: "https://farm5.staticflickr.com/4649/38437918860_417994b09d.jpg"
+  #   }
 
     
-    order = %{order_number: "123",
-              origin: origin,
-              destination: destination,
-              type: 1,
-              deadline: generate_iso_date(),
-              favorite: true,
-              distance: "400",
-              transport: "pick-up",
-              weight: "800",
-              merchandise_type: "Plastic",
-              pick_up_address: "Mexico City, 10350",
-              pick_up_schedule: "February 10, 2018",
-              score: 4,
-              comments: "None",
-              status: "New",
-              details: [details_distance, details_merchandise_type, details_order_number, details_transport, details_weight]
-            }
-    conn
-      |> put_status(200)
-      |> json(%{orders: [order, order]})
-  end
+  #   order = %{order_number: "123",
+  #             origin: origin,
+  #             destination: destination,
+  #             type: 1,
+  #             deadline: generate_iso_date(),
+  #             favorite: true,
+  #             distance: "400",
+  #             transport: "pick-up",
+  #             weight: "800",
+  #             merchandise_type: "Plastic",
+  #             pick_up_address: "Mexico City, 10350",
+  #             pick_up_schedule: "February 10, 2018",
+  #             score: 4,
+  #             comments: "None",
+  #             status: "New",
+  #             details: [details_distance, details_merchandise_type, details_order_number, details_transport, details_weight]
+  #           }
+  #   conn
+  #     |> put_status(200)
+  #     |> json(%{orders: [order, order]})
+  # end
 
   defp generate_iso_date do
     date = Timex.now |> Timex.shift(days: 7)
