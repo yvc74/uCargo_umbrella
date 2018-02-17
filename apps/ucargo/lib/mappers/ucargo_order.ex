@@ -9,7 +9,7 @@ defmodule Ucargo.Order do
   alias Ucargo.Repo
 
   schema "orders" do
-    field :favorite, :boolean
+    field :favourite, :boolean
     field :score, :integer
     field :deadline, :naive_datetime
     field :status, :string
@@ -28,7 +28,7 @@ defmodule Ucargo.Order do
 
   def create_changeset(%Order{} = order, attrs) do
     order
-      |> cast(attrs, [:favorite, :score, :deadline, :status, :type, :distance, :merchandise_type, :order_number, :transport, :weight, :comments, :driver_id])
+      |> cast(attrs, [:favourite, :score, :deadline, :status, :type, :distance, :merchandise_type, :order_number, :transport, :weight, :comments, :driver_id])
       |> validate_required([:deadline])
       |> assoc_constraint(:driver)
   end

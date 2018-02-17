@@ -3,7 +3,7 @@ defmodule Ucargo.Repo.Migrations.CreateOrders do
 
   def change do
     create table(:orders) do
-      add :favorite, :boolean
+      add :favourite, :boolean, default: false
       add :score, :integer
       add :status, :string
       add :type, :integer
@@ -12,8 +12,8 @@ defmodule Ucargo.Repo.Migrations.CreateOrders do
       add :merchandise_type, :string
       add :order_number, :integer
       add :transport, :string
-      add :weight, :string 
-      add :comments, :string           
+      add :weight, :string
+      add :comments, :string         
       add :driver_id, references(:drivers, on_delete: :nothing)
       timestamps()
     end

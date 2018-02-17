@@ -7,7 +7,7 @@ defmodule UcargoWeb.OrderView do
   end
 
   def render("order.json", %{order: order}) do
-    %{favorite: order.favorite,
+    %{favorite: order.favourite,
       score: order.score,
       status: order.status,
       type: order.type,
@@ -24,7 +24,7 @@ defmodule UcargoWeb.OrderView do
                 address: order.pickup.address,
                 schedule: order.pickup.schedule
                },
-      details: [ %{label: "distance", value: order.distance},
+      details: [%{label: "distance", value: order.distance},
                 %{label: "merchandise_type", value: order.merchandise_type},
                 %{label: "order_number", value: order.order_number},
                 %{label: "transport", value: order.transport},
