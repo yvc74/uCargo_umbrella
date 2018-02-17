@@ -4,6 +4,7 @@ defmodule Ucargo.Umbrella.Mixfile do
   def project do
     [
       apps_path: "apps",
+      test_coverage: [tool: ExCoveralls],
       start_permanent: Mix.env == :prod,
       deps: deps()
     ]
@@ -23,6 +24,7 @@ defmodule Ucargo.Umbrella.Mixfile do
   # and cannot be accessed from applications inside the apps folder
   defp deps do
     [{:credo, "0.8.10", only: [:dev, :test], runtime: false},
+     {:excoveralls, "~> 0.8", only: :test},
      {:distillery, "~> 1.5", runtime: false}]
   end
 end

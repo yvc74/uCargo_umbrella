@@ -14,6 +14,7 @@ defmodule Ucargo.Driver do
     field :name, :string
     field :picture, :string
     field :password_conf, :string, virtual: true
+    has_many :orders, Ucargo.Order
     timestamps()
   end
 
