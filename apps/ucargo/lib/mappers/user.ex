@@ -1,4 +1,7 @@
 defmodule Ucargo.User do
+  @moduledoc """
+  Ecto User Mapper
+  """
   use Ecto.Schema
   import Ecto.Changeset  
   alias Ucargo.{Repo, User, Role}
