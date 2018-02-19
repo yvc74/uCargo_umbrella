@@ -4,13 +4,13 @@ defmodule Ucargo.Role do
   """
   use Ecto.Schema
   import Ecto.Changeset
-  alias Ucargo.{Repo, Role}
+  alias Ucargo.{Repo, Role, User}
 
 
   schema "roles" do
     field :admin, :boolean, default: false
     field :name, :string
-
+    has_many :users, User
     timestamps()
   end
 

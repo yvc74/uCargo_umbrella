@@ -11,7 +11,7 @@ defmodule Ucargo.User do
     field :email, :string
     field :password_digest, :string
     field :username, :string
-    belongs_to :role, Role
+    belongs_to :roles, Role, foreign_key: :role_id
     timestamps()
   end
 
@@ -20,6 +20,7 @@ defmodule Ucargo.User do
     user
     |> cast(attrs, [:username, :email, :password_digest])
     |> validate_required([:username, :email, :password_digest])
+    |> foreign_key_constraint(:role_id)
   end
 
    @doc """
@@ -32,7 +33,7 @@ defmodule Ucargo.User do
 
   """
   def list_users do
-    Repo.all(User)
+    Repo.all(User) |> Repo.preload(:roles)
   end
 
   @doc """
@@ -100,7 +101,7 @@ defmodule Ucargo.User do
 
   """
   def delete_user(%User{} = user) do
-    Repo.delete(user)
+    Repo.delete(user) |> foreign_key_constraint(:users, name: :users_role_id_fkey, message: "exist with this role")
   end
 
   @doc """
