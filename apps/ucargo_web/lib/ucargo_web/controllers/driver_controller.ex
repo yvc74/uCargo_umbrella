@@ -90,15 +90,15 @@ defmodule UcargoWeb.DriverController do
   #     |> json(%{orders: [order, order]})
   # end
 
-  defp generate_iso_date do
-    date = Timex.now |> Timex.shift(days: 7)
-    case Timex.format(date, "{ISO:Basic}") do
-      {:ok, value_date} ->
-        value_date
-      _->
-        ""
-    end
-  end
+  # defp generate_iso_date do
+  #   date = Timex.now |> Timex.shift(days: 7)
+  #   case Timex.format(date, "{ISO:Basic}") do
+  #     {:ok, value_date} ->
+  #       value_date
+  #     _->
+  #       ""
+  #   end
+  # end
 
   def swagger_definitions do
     %{

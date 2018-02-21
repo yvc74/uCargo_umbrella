@@ -17,6 +17,7 @@ defmodule Ucargo.User do
 
   @doc false
   def changeset(%User{} = user, attrs) do
+
     user
     |> cast(attrs, [:username, :email, :password_digest])
     |> validate_required([:username, :email, :password_digest])
@@ -33,7 +34,11 @@ defmodule Ucargo.User do
 
   """
   def list_users do
-    Repo.all(User) |> Repo.preload(:roles)
+    user = User    
+
+    user
+    |>Repo.all
+    |> Repo.preload(:roles)
   end
 
   @doc """
@@ -101,7 +106,9 @@ defmodule Ucargo.User do
 
   """
   def delete_user(%User{} = user) do
-    Repo.delete(user) |> foreign_key_constraint(:users, name: :users_role_id_fkey, message: "exist with this role")
+    user 
+    |> Repo.delete 
+    |> foreign_key_constraint(:users, name: :users_role_id_fkey, message: "exist with this role")
   end
 
   @doc """

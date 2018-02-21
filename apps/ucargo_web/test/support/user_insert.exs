@@ -1,4 +1,7 @@
-defmodule OrderInsertHelper do
+defmodule UserInsertHelper do
+  @moduledoc """
+  Test file for user insert helper
+  """
   alias Ucargo.{User, Role}
   alias Ucargo.Repo
 

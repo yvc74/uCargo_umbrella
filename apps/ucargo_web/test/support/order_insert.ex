@@ -1,4 +1,7 @@
 defmodule OrderInsertHelper do
+  @moduledoc """
+  Test file for order insert helper
+  """
   alias Ucargo.Order
   alias Ucargo.Pickup
   alias Ucargo.Delivery
