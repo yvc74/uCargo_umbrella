@@ -1,0 +1,451 @@
+swagger: '2.0'
+info:
+  description: |
+    uCargo A.P.I. Version 1.0
+    out more about Swagger at 
+    [http://swagger.io](http://swagger.io) or on 
+    [irc.freenode.net, #swagger](http://swagger.io/irc/).
+  version: 1.0.0
+  title: uCargo A.P.I. Version 1.0
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    email: apiteam@swagger.io
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  - name: driver
+    description: Everything about your driver
+    externalDocs:
+      description: Find out more
+      url: 'http://swagger.io'
+paths:
+  /api/v1/drivers/account:
+    x-swagger-router-controller: driver
+    post:
+      tags:
+        - driver
+      summary: Driver's account
+      description: signin to uCargo
+      parameters:
+        - name: signin
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/SigninRequest'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/LoginResponse'
+        '400':
+          description: Error 400
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    get:
+      tags:
+        - driver
+      description: login to uCargo
+      summary: Driver's account
+      parameters:
+        - name: Authorization
+          in: header
+          description: Http Basic Auth
+          required: true
+          type: string
+          format: string
+          default: Basic QWxhZGRpbjpPcGVuU2VzYW1l
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/LoginResponse'
+        '401':
+          description: Error 401 Unauthorized
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    patch:
+      tags:
+        - driver
+      description: Update for uCargo driver
+      summary: Driver's account
+      parameters:
+        - name: x-auth-token
+          in: header
+          description: token obtenido del login
+          required: true
+          type: string
+          format: string
+        - name: x-api-key
+          in: header
+          description: API key
+          required: true
+          type: string
+          format: string
+          default: e70e918f-8035-48fc-a707-4507e1fd85c1
+        - name: update
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/SigninRequest'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/LoginResponse'
+        '400':
+          description: Error 400
+          schema:
+            $ref: '#/definitions/ApiResponse'
+  /api/v1/driver/settings:
+    get:
+      tags:
+        - driver        
+      description: Driver's Settings
+      produces: [application/json]
+      operationId: UcargoWeb.SettingsController.settings
+      summary: Driver's settings
+      parameters:
+        - name: x-auth-token
+          in: header
+          type: string
+          required: true      
+          description: Access token
+          format: string
+        - name: x-api-key
+          in: header
+          type: string
+          required: true
+          description: API key
+          default: e70e918f-8035-48fc-a707-4507e1fd85c1
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/SettingsObject'                       
+        '400':
+          description: Error 400
+          schema:
+            $ref: '#/definitions/ApiBadResponse'
+  /api/v1/driver/orders/{orderId}: 
+    delete: 
+      tags: 
+        - driver
+      operationId: UcargoWeb.DriverController.order_delete
+      description: Delete a order from id
+      summary: Driver's order delete
+      parameters: 
+      - name: X-Auth-Token
+        type: string
+        required: true        
+        in: header
+        description: Access token                    
+      - name: X-Api-Key
+        in: header
+        description: API key
+        default: e70e918f-8035-48fc-a707-4507e1fd85c1          
+        type: string
+        required: false
+      - name: "orderId"
+        in: "path"
+        description: "Order to delete"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses: 
+        '200': 
+          description: Success
+          schema: 
+            $ref: '#/definitions/OrderDeleteObjectSuccess'
+        '400':
+          description: Error 400
+          schema:
+           $ref: '#/definitions/ApiBadResponse'
+  /api/v1/driver/orders/{orderId}/quotes: 
+    post: 
+      tags: 
+        - driver
+      operationId: UcargoWeb.DriverController.order_quotes
+      description: Quotes a order from id
+      summary: Driver's order quotes
+      parameters: 
+      - name: X-Auth-Token
+        type: string
+        required: true        
+        in: header
+        description: Access token                    
+      - name: X-Api-Key
+        in: header
+        description: API key
+        default: e70e918f-8035-48fc-a707-4507e1fd85c1          
+        type: string
+        required: false
+      - name: "orderId"
+        in: "path"
+        description: "Order to quotes"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses: 
+        '200': 
+          description: Success
+          schema: 
+            $ref: '#/definitions/OrderDeleteObjectSuccess'
+        '400':
+          description: Error 400
+          schema:
+           $ref: '#/definitions/ApiBadResponse'
+  /api/v1/driver/orders/{orderId}/fav: 
+    post: 
+      tags: 
+        - driver
+      operationId: UcargoWeb.DriverController.order_favorite
+      description: Quotes a order from id
+      summary: Driver's order fav
+      parameters: 
+      - name: X-Auth-Token
+        type: string
+        required: true        
+        in: header
+        description: Access token                    
+      - name: X-Api-Key
+        in: header
+        description: API key
+        default: e70e918f-8035-48fc-a707-4507e1fd85c1          
+        type: string
+        required: false
+      - name: "orderId"
+        in: "path"
+        description: "Order to fav"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses: 
+        '200': 
+          description: Success
+          schema: 
+            $ref: '#/definitions/OrderDeleteObjectSuccess'
+        '400':
+          description: Error 400
+          schema:
+           $ref: '#/definitions/ApiBadResponse'              
+  /api/v1/drivers/orders:
+    x-swagger-router-controller: driver
+    get:
+      tags:
+        - driver
+      description: Orders for uCargo driver
+      summary: Driver's orders
+      parameters:
+        - name: x-auth-token
+          in: header
+          description: token obtenido del login
+          required: true
+          type: string
+          format: string
+        - name: x-api-key
+          in: header
+          description: API key
+          required: true
+          type: string
+          format: string
+          default: e70e918f-8035-48fc-a707-4507e1fd85c1
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/OrdersResponse'
+        '400':
+          description: Error 400
+          schema:
+            $ref: '#/definitions/ApiBadResponse'
+definitions:
+  SigninRequest:
+    title: RequestSignin
+    type: object
+    properties:
+      account:
+        type: object
+        properties:
+          email:
+            type: string
+          password:
+            type: string
+          username:
+            type: string
+          name:
+            type: string
+          picture:
+            type: string
+    example:
+      account:
+        email: driver@dominio.com
+        username: test
+        name: test
+        picture: picture_path
+  LoginRequest:
+    title: RequestLogin
+    type: object
+    properties:
+      account:
+        type: object
+        properties:
+          username:
+            type: string
+          password:
+            type: string
+    example:
+      account:
+        username: driver1
+        password: test1234!
+  LoginResponse:
+    title: SuccessLoginResponse
+    type: object
+    properties:
+      account:
+        type: object
+        properties:
+          token:
+            type: string
+          email:
+            type: string
+          username:
+            type: string
+          name:
+            type: string
+          picture:
+            type: string
+    example:
+      account:
+        token: eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ1Y2FyZ28iLCJleHAiOjE1MjAyMTg1MTcsImlhdCI6MTUxNzc5OTMxNywiaXNzIjoidWNhcmdvIiwianRpIjoiMjM5YWE3YmEtMWIxMC00NTVjLWIzMGQtZjY5Mjk4ZWNmNzJhIiwibmJmIjoxNTE3Nzk5MzE2LCJzdWIiOiIxIiwidHlwIjoiYWNjZXNzIn0.riUHO7W-l42U9WhQC1ZC5DPNlNCkhULG-tcvVraTjAGjaX49wLwIaKa2FpzzCXtfrzVq0OJj8zgYABIHQ8PRsA
+        email: driver@dominio.com
+        username: test
+        name: test
+        picture: picture_path
+  OrdersResponse:
+    title: OrderResponse
+    type: object
+    properties:
+      orders:
+        type: array
+        items: {
+          $ref: '#/definitions/OrderObject'
+        }
+  OrderObject:
+    title: Order Object
+    type: object
+    properties:
+      comments:
+        type: string
+      deadline:
+        type: string
+      distance:
+        type: integer
+      favorite:
+        type: string
+      merchandise_type:
+        type: string
+      order_number:
+        type: integer
+      pick_up_schedule:
+        type: string
+      pick_up_address:
+        type: string
+      score:
+        type: integer
+      status:
+        type: string
+      transport:
+        type: string
+      type:
+        type: integer
+      weight:
+        type: string
+      origin:
+        type: object
+        properties:
+          child:
+            $ref: '#/definitions/SpotObject'
+      destination:
+        type: object
+        properties:
+          child:
+            $ref: '#/definitions/SpotObject'
+    example: 
+      comments: None
+      deadline: 2018-02-07T12:26:58-06:00
+      distance: 400
+      favorite: true
+      merchandise_type: Plastic
+      order_number: 11233
+      pick_up_schedule: Mexico City, 10350
+      pick_up_address: Edo Mex, 54956
+      score: 4
+      status: New
+      transport: pick-up
+      type: 1
+      weight: 800
+      origin:
+        name: name
+        latitude: '19.565331'
+        longitude: '-99.239541'
+      destination:
+        name: destination
+        latitude: '19.2059251'
+        longitude: '-104.6792362'
+  SpotObject:
+    title: Order Object
+    type: object
+    properties:
+      name:
+        type: string
+      latitude:
+        type: string
+      longitude:
+        type: string
+    example: 
+      name: Spot name
+      latitude: '19.565331'
+      longitude: '-99.239541'
+  SettingsObject:
+    type: object
+    title: Settings
+    description: Driver's Settings
+    properties:
+      help_number: 
+        type: string
+        description: Help number              
+    example:
+        help_number: 01800822746932
+  OrderDeleteObjectSuccess: 
+    type: object
+    title: DeleteOrderSuccessObject
+    properties: 
+      message: 
+        type: string
+        description: Success message  
+    example: 
+      message: Success
+      description: Driver's order delete success    
+  ApiResponse:
+    type: object
+    properties:
+      error:
+        type: string
+    example:
+      error: Email or password is incorrect
+  ApiBadResponse:
+    type: object
+    properties:
+      error:
+        type: string
+    example:
+      error: Bloked
+externalDocs:
+  description: Find out more about Swagger
+  url: 'http://swagger.io'
+host: virtserver.swaggerhub.com
+schemes:
+  - https
+  - http
+basePath: /ucargo/ucargo/1.0.0
