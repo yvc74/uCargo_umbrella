@@ -1,6 +1,6 @@
 defmodule Ucargo.UserTest do
   @moduledoc """
-    Test File for drivers data layer
+    Test File for user data layer
   """
   use Ucargo.DataCase
 
