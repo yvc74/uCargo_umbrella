@@ -17,6 +17,7 @@ defmodule Ucargo.User do
 
   @doc false
   def changeset(%User{} = user, attrs) do
+
     user
     |> cast(attrs, [:username, :email, :password_digest])
     |> validate_required([:username, :email, :password_digest])
@@ -34,6 +35,8 @@ defmodule Ucargo.User do
   """
   def list_users do
     user = User    
+
+    user
     |>Repo.all
     |> Repo.preload(:roles)
   end
