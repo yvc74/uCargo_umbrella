@@ -23,9 +23,9 @@ defmodule Ucargo.Order do
     belongs_to :driver, Ucargo.Driver
     has_one :pickup, Ucargo.Pickup
     has_one :delivery, Ucargo.Delivery
-    has_many :assigner_orders, Ucargo.AssignedOrders
-    has_one :planings, Ucargo.Planings 
-    has_many :available_orders, Ucargo.AvailableOrders
+    #has_many :assigner_orders, Ucargo.AssignedOrders
+    #has_one :planings, Ucargo.Planings 
+    #has_many :available_orders, Ucargo.AvailableOrders
     timestamps()
   end
 

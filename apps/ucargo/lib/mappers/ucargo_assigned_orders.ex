@@ -1,4 +1,4 @@
-defmodule Ucargo.AssignedOrders do
+defmodule Ucargo.AssignedOrder do
     @moduledoc """
     Ecto AssignedOrders Mapper
     """

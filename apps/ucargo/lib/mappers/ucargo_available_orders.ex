@@ -1,4 +1,4 @@
-defmodule Ucargo.AvailableOrders do
+defmodule Ucargo.AvailableOrder do
     @moduledoc """
     Ecto AvailableOrders Mapper
     """
