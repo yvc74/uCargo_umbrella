@@ -15,6 +15,7 @@ defmodule Ucargo.Repo.Migrations.CreateOrders do
       add :weight, :string
       add :comments, :string         
       add :driver_id, references(:drivers, on_delete: :nothing)
+      add :order_id, references(:orders)
       timestamps()
     end
   end
