@@ -1,0 +1,24 @@
+<section class='container'>
+  <div class='titleBox'>
+    <div class='title'>
+      <span>CARGOBOT</span>
+    </div>
+    <div class='subtitle'>
+      <span>Connecting shippers and carriers transparently.</span>
+    </div>
+    <div class='text'>
+      <span>Connecting shippers and carriers through the power of technology backed by a<br></br>committed team.</span>
+    </div>
+    <div class='buttons'>
+      <div class='buttonShippers'>
+        <input type="button" value="For Shippers" />
+      </div>
+      <div class='buttonCarriers'>
+        <input type="button" value="For Carriers" />
+      </div>
+      <div class='buttonVideo'>
+        <input type="button" value="Watch Video"/>
+      </div>
+    </div>
+  </div>
+</section>

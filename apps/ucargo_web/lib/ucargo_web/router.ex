@@ -27,7 +27,7 @@ defmodule UcargoWeb.Router do
     pipe_through :browser # Use the default browser stack
     resources "/users", UserController
     resources "/roles", RoleController
-    #get "/", PageController, :index
+    get "/", IntroController, :index
   end
 
   # Other scopes may use custom stacks.

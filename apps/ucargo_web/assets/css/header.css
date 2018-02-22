@@ -1,0 +1,73 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  height: 105px;
+  background: #2A2825;
+}
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 103px;
+  width: 190px;
+}
+.logo img {
+  height: 55px;
+  width: 72px;
+}
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+}
+.home a, .home i {
+  color: white;
+  margin-right: 8px;
+  text-decoration: none;
+}
+.shippers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+}
+.shippers a, .shippers i {
+  color: white;
+  margin-right: 8px;
+  text-decoration: none;
+}
+.carriers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+}
+.carriers a, .carriers i {
+  color: white;
+  margin-right: 8px;
+  text-decoration: none;
+}
+.ourStory {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+}
+.ourStory a, .ourStory i {
+  color: white;
+  margin-right: 8px;
+  text-decoration: none;
+}
+.faq {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+}
+.faq a, .faq i {
+  color: white;
+  margin-right: 8px;
+  text-decoration: none;
+}

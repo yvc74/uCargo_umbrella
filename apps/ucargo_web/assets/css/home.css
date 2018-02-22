@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background: url('../images/camion.jpg') no-repeat;
+  background-size: cover;
+  color: white;
+}
+.titleBox {
+  width: 86%;
+  margin-left: auto;
+}
+.title {
+  display: flex;
+  align-items: flex-end;
+  font-size: 45px;
+  height: 100px;
+}
+.subtitle {
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+  height: 62px;
+}
+.text {
+  display: flex;
+  align-items: flex-start;
+  font-size: 17px;
+  height: 100px;
+}
+.buttons {
+  display: flex;
+  justify-content: flex-start;
+  height: 403px;
+}
+.buttonShippers {
+  width: 175px;
+}
+.buttonShippers input {
+  border: 0px;
+  height: 50px;
+  width: 165px;
+  background: #EEB70B;
+}
+.buttonCarriers {
+  width: 175px;
+}
+.buttonCarriers input {
+  border: 0px;
+  height: 50px;
+  width: 165px;
+  background: #EEB70B;
+}
+.buttonVideo {
+  width: 175px;
+}
+.buttonVideo input {
+  border: 0px;
+  height: 50px;
+  width: 165px;
+  background: #304256;
+  color: #EEB70B;
+}
