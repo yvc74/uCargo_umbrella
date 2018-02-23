@@ -3,7 +3,9 @@ defmodule Ucargo.Repo.Migrations.CreateAvailableOrders do
 
   def change do
     create table(:available_orders) do
-      add :name, :string
+      add :driver_id, references(:drivers)
+      add :order_id, references(:orders)
     end
+    create unique_index(:available_orders, [:driver_id, :order_id])    
   end
 end

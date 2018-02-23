@@ -26,6 +26,7 @@ defmodule Ucargo.Order do
     #has_many :assigner_orders, Ucargo.AssignedOrders
     #has_one :planings, Ucargo.Planings 
     #has_many :available_orders, Ucargo.AvailableOrders
+    many_to_many :drivers, Ucargo.Driver, join_through: "available_orders"
     timestamps()
   end
 
