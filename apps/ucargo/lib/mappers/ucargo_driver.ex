@@ -14,12 +14,11 @@ defmodule Ucargo.Driver do
     field :name, :string
     field :picture, :string
     field :password_conf, :string, virtual: true
-    # has_many :orders, Ucargo.Order
-    #has_many :favourite_drivers, Ucargo.FavouriteDrivers
-    #has_many :assigned_orders, Ucargo.AssignedOrder
-    #has_many :available_order, Ucargo.AvailableOrder
     many_to_many :custom_brokers, Ucargo.CustomBroker, join_through: "favourite_drivers"
     many_to_many :orders, Ucargo.Order, join_through: "available_orders"
+    many_to_many :assigned_orders, Ucargo.Driver,
+                                  join_through: "assigned_orders",
+                                  join_keys: [driver_id: :id, order_id: :id]
     timestamps()
   end
 
