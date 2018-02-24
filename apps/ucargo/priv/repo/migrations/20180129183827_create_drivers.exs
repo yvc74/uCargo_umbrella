@@ -1,4 +1,4 @@
-defmodule Ucargo.Repo.Migrations.CreateUsers do
+defmodule Ucargo.Repo.Migrations.CreateDrivers do
   use Ecto.Migration
 
   def change do
