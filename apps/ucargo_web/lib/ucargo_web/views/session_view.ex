@@ -7,7 +7,9 @@ defmodule UcargoWeb.SessionView do
         name: driver.name,
         email: driver.email,
         picture: driver.picture,
-        token: token
+        token: token,
+        phone: driver.phone,
+        score: driver.score
       }
     }
   end
