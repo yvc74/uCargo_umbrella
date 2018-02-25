@@ -14,6 +14,7 @@
 import "phoenix_html"
 
 import login from "./login"
+import sidebar from "./sidebar"
 // Import local files
 //
 // Local files can be imported directly using relative

@@ -1,0 +1,78 @@
+<main>
+   <nav>
+      <ul class="navContent">
+         <li class="navContentItem active">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>PLANIFICACIÓN</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>ASIGNACIONES</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>SEGUIMIENTO</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>HISTORIAL</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>FINANZAS</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>FAVORITOS</p>
+            </a>
+         </li>
+      </ul>
+   </nav>
+   <section class="container" id="planning">
+      <h1 class="panelHeading">
+         PLANIFICACIÓN
+      </h1>
+      <a href="/plannings/new" class="btn planningNew">
+      NUEVO SERVICIO
+      </a>
+      <div class="tableContainer">
+         <table class="table">
+            <thead class="tableHead">
+               <tr>
+                  <th>REF U.CARGO</th>
+                  <th>PUJA</th>
+                  <th>PRECIO</th>
+                  <th>ORIGEN</th>
+                  <th>DESTINO</th>
+                  <th>REF TRANSPORTISTA</th>
+                  <th>IMP/EXP</th>
+                  <th>MERCANCIA</th>
+               </tr>
+            </thead>
+            <tbody class="tableBody">
+               <tr>
+                  <td>Lorem</td>
+                  <td>Lorem</td>
+                  <td>Lorem</td>
+                  <td>Lorem</td>
+                  <td>Lorem</td>
+                  <td>Lorem</td>
+                  <td>Lorem</td>
+                  <td>Lorem</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </section>
+</main>
