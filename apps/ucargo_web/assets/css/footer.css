@@ -1,0 +1,79 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  height: 70px;
+  background: #EEEDEC;
+  color: #808080;
+}
+.socialNetworks {
+  display: flex;
+  width: 700px;
+}
+.facebook {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 140px;
+}
+.facebook a, .facebook i{
+  color: #808080;
+  margin-right: 8px;
+  text-decoration: none;
+}
+.instagram {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 120px;
+}
+.instagram a, .instagram i {
+  color: #808080;
+  margin-right: 8px;
+  text-decoration: none;
+}
+.linkedin {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 120px;
+}
+.linkedin a, .linkedin i {
+  color: #808080;
+  margin-right: 8px;
+  text-decoration: none;
+}
+.twitter {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 120px;
+}
+.twitter a, .twitter i {
+  color: #808080;
+  margin-right: 8px;
+  text-decoration: none;
+}
+.information {
+  display: flex;
+  justify-content: flex-end;
+  width: 700px;
+}
+.conditions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+}
+.privacy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+}
+.text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+}

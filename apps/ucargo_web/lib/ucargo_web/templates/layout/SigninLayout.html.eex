@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vegas/2.4.0/vegas.min.css" />
+  <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+</head>
+<body>
+	<main>
+		<section class="container" id="login">
+			<div class="titleContainer">
+				<h1 class="title">CargoBot, Conectando los puntos</h1>
+				<p  class="subTitle">Una forma dinámica y poderosa de conectar empresas de transporte y transportistas</p>
+			</div>
+			<form>
+				<div class="inputContainer">
+					<input type="text" placeholder="Nombre de usuario">
+					<div class="remenber">
+						<input type="checkbox">
+						<label for="">Recordarme</label>
+					</div>
+				</div>
+				<div class="inputContainer">
+					<input type="password" placeholder="Contraseña">
+				</div>
+				<div class="inputContainer">
+					<button type="submit">
+						Iniciar Sesión
+					</button>
+					<div class="recover">
+						<a>¿Olvidaste la contraseña?</a>
+					</div>
+				</div>
+			</form>
+		</section>
+	</main>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vegas/2.4.0/vegas.min.js"></script>
+  <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+  <script>
+  $("main").vegas({
+    slides: [
+        { src: "../images/Cargobot_background1.jpg" },
+        { src: "../images/Cargobot_background2.jpg" },
+        { src: "../images/Cargobot_background3.jpg" },
+        { src: "../images/Cargobot_background4.jpg" }
+    ]
+})
+  </script> 
+</body>
+</html>
