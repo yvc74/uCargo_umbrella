@@ -8,6 +8,8 @@ defmodule Ucargo.Repo.Migrations.CreateDrivers do
       add :email, :string
       add :password, :string
       add :picture, :string
+      add :score, :integer, default: 5
+      add :phone, :string
       timestamps()
     end
 

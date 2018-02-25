@@ -12,6 +12,8 @@ defmodule Ucargo.Driver do
     field :password, :string
     field :username, :string
     field :name, :string
+    field :score, :integer
+    field :phone, :string
     field :picture, :string
     field :password_conf, :string, virtual: true
     many_to_many :custom_brokers, Ucargo.CustomBroker, join_through: "favourite_drivers"
@@ -24,15 +26,15 @@ defmodule Ucargo.Driver do
 
   def signup_changeset(%Driver{} = driver, attrs) do
     driver
-      |> cast(attrs, [:username, :email, :password, :picture, :name])
-      |> validate_required([:username, :email, :password, :picture, :name])
+      |> cast(attrs, [:username, :email, :password, :picture, :name, :phone, :score])
+      |> validate_required([:username, :email, :password, :picture, :name, :phone])
       |> unique_constraint(:email)
       |> unique_constraint(:username)
   end
 
   def update_changeset(%Driver{} = driver, attrs) do
     driver
-      |> cast(attrs, [:username, :email, :password, :picture, :name])
+      |> cast(attrs, [:username, :email, :password, :picture, :name, :score, :phone])
       |> unique_constraint(:email)
       |> unique_constraint(:username)
   end
