@@ -31,9 +31,17 @@ defmodule UcargoWeb.DriverJsonValidation do
               "name" => %{
                 "description" => "User name",
                 "type" => "string"
+              },
+              "score" => %{
+                "description" => "User score",
+                "type" => "integer"
+              },
+              "phone" => %{
+                "description" => "User Phone",
+                "type" => "string"
               }
             },
-            "required" => ["username", "password", "email", "picture", "name"]
+            "required" => ["username", "password", "email", "picture", "name", "phone"]
           },
         },
         "additionalProperties" => :false,
@@ -77,6 +85,14 @@ defmodule UcargoWeb.DriverJsonValidation do
               },
               "name" => %{
                 "description" => "User name",
+                "type" => "string"
+              },
+              "score" => %{
+                "description" => "User score",
+                "type" => "integer"
+              },
+              "phone" => %{
+                "description" => "User Phone",
                 "type" => "string"
               }
             }
