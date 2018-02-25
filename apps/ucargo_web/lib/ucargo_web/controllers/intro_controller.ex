@@ -3,7 +3,7 @@ defmodule UcargoWeb.IntroController do
 
   plug :put_layout, "IntroLayout.html"
 
-  def index(conn, params) do
+  def index(conn, _params) do
     render conn, "index.html"
   end
 
