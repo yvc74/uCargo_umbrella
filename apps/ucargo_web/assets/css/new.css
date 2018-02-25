@@ -1,4 +1,4 @@
-.container {
+.newPlanContainer {
   border: 1px solid white;
   display: flex;
 }
@@ -409,4 +409,4 @@
 .map {
   border: 1px solid white;
   width: 535px;
-}
+} 

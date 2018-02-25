@@ -40,15 +40,5 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vegas/2.4.0/vegas.min.js"></script>
   <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
-  <script>
-  $("main").vegas({
-    slides: [
-        { src: "../images/Cargobot_background1.jpg" },
-        { src: "../images/Cargobot_background2.jpg" },
-        { src: "../images/Cargobot_background3.jpg" },
-        { src: "../images/Cargobot_background4.jpg" }
-    ]
-})
-  </script> 
 </body>
 </html>
