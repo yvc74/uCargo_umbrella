@@ -30,6 +30,7 @@ defmodule UcargoWeb.DriverView do
     %{
       account: %{
         name: driver.name,
+        username: driver.username,
         email: driver.email,
         picture: driver.picture,
         token: token,
