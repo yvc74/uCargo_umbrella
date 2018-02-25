@@ -1,0 +1,412 @@
+.container {
+  border: 1px solid white;
+  display: flex;
+}
+.newService {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 696px;
+}
+.transportationRequest {
+  height: 175px;
+  width: 595px;
+}
+.requestTitle {
+  border-bottom: 1px solid #D5D6D8;
+  display: flex;
+  align-items: center;
+  height: 68px;
+  font-size: 20px;
+  color: #222222;
+}
+.mandatoryCampus {
+  display: flex;
+  align-items: flex-end;
+  height: 38px;
+  font-size: 15px;
+  color: #8A8A8A;
+}
+.routeInformationTitle {
+  border-bottom: 1px solid #222222;
+  display: flex;
+  align-items: center;
+  height: 68px;
+  font-size: 22px;
+  color: #222222;
+}
+.routeInformation {
+  height: 595px;
+  width: 595px;
+  color: #222222;
+}
+.country {
+  display: flex;
+  justify-content: space-between;
+  height: 85px;
+}
+.oneCountry {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 282px;
+}
+.twoCountry {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 282px;
+}
+.oneCountry input, .twoCountry input {
+  border: 1px solid #8A8A8A;
+  border-radius: 5px;
+  height: 30px;
+  width: 280px;
+  margin-top: 5px;
+}
+.zip {
+  display: flex;
+  justify-content: space-between;
+}
+.collectionZip {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 282px;
+}
+.deliveryZip {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 60px;
+  width: 282px;
+}
+.collectionZip input, .deliveryZip input {
+  border: 1px solid #8A8A8A;
+  border-radius: 5px;
+  height: 30px;
+  width: 280px;
+  margin-top: 5px;
+}
+.status {
+  display: flex;
+  justify-content: space-between;
+}
+.collectionStatus {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 282px;
+}
+.deliveryStatus {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 60px;
+  width: 282px;
+}
+.collectionStatus input, .deliveryStatus input {
+  border: 1px solid #8A8A8A;
+  border-radius: 5px;
+  height: 30px;
+  width: 280px;
+  margin-top: 5px;
+}
+.city {
+  display: flex;
+  justify-content: space-between;
+}
+.collectionCity {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 282px;
+}
+.deliveryCity {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 60px;
+  width: 282px;
+}
+.collectionCity input, .deliveryCity input {
+  border: 1px solid #8A8A8A;
+  border-radius: 5px;
+  height: 30px;
+  width: 280px;
+  margin-top: 5px;
+}
+.lumperFee {
+  display: flex;
+  height: 82px;
+  justify-content: space-between;
+}
+.oneLumperFee {
+  width: 282px;
+  padding-top: 8px;
+}
+.twoLumperFee {
+  width: 282px;
+  padding-top: 8px;
+}
+.oneLumperFee input, .twoLumperFee input {
+  margin-right: 6px;
+}
+.observations {
+  display: flex;
+  flex-direction: column;
+  height: 95px;
+  font-size: 16px;
+}
+.observations input {
+  border: 1px solid #8A8A8A;
+  border-radius: 5px;
+  height: 50px;
+  padding-left: 6px;
+  font-size: 15px;
+}
+.prices {
+  display: flex;
+  justify-content: space-between;
+  height: 95px;
+}
+.quantity {
+  display: flex;
+  flex-direction: column;
+  width: 282px;
+}
+.recommendedPrice {
+  display: flex;
+  flex-direction: column;
+  width: 282px;
+}
+.quantity input, .recommendedPrice input {
+  border: 1px solid #8A8A8A;
+  border-radius: 5px;
+  height: 30px;
+  width: 280px;
+  margin-top: 5px;
+}
+.infoTransportersTitle {
+  border-bottom: 1px solid #222222;
+  height: 45px;
+  font-size: 22px;
+  color: #222222;
+}
+.informationTransporters {
+  height: 265px;
+  width: 595px;
+}
+.dateAndTime {
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  padding-top: 10px;
+}
+.pickUpDate {
+  width: 112px;
+}
+.pickUpDate input {
+  border: 1px solid #8A8A8A;
+  border-radius: 5px;
+  height: 30px;
+  width: 104px;
+  font-size: 15px;
+  margin-top: 6px;
+  padding-left: 6px;
+}
+.dateOfDelivery {
+  width: 112px;
+}
+.dateOfDelivery input {
+  border: 1px solid #8A8A8A;
+  border-radius: 5px;
+  height: 30px;
+  width: 104px;
+  font-size: 15px;
+  margin-top: 6px;
+  padding-left: 6px;
+}
+.expiryTime {
+  width: 280px;
+}
+.expiryTimeText {
+
+}
+.hours {
+  display: flex;
+  margin-top: 6px;
+}
+.hours input {
+  border: 1px solid #8A8A8A;
+  border-radius: 5px;
+  height: 30px;
+  width: 50px;
+  margin-right: 6px;
+}
+.hours span {
+  margin-right: 6px;
+}
+.typeOfTruck {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+}
+.typeOfTruck input {
+  border: 1px solid #8A8A8A;
+  border-radius: 5px;
+  height: 30px;
+  margin-top: 6px;
+}
+.chargingInfoTitle {
+  border-bottom: 1px solid #222222;
+  height: 45px;
+  font-size: 22px;
+  color: #222222;
+}
+.chargingInformation {
+  height: 290px;
+  width: 595px;
+}
+.salesRepresentative {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80px;
+}
+.salesRepresentative input {
+  border: 1px solid #8A8A8A;
+  border-radius: 5px;
+  height: 30px;
+  margin-top: 6px;
+  font-size: 14px;
+  padding-left: 6px;
+}
+.commodity {
+  display: flex;
+  flex-direction: column;
+  height: 74px;
+}
+.commodity input {
+  border: 1px solid #8A8A8A;
+  border-radius: 5px;
+  height: 30px;
+  margin-top: 6px;
+  font-size: 14px;
+  padding-left: 6px;
+}
+.pounds {
+  display: flex;
+  flex-direction: column;
+  height: 85px;
+}
+.pounds input {
+  border: 1px solid #8A8A8A;
+  border-radius: 5px;
+  height: 30px;
+  width: 170px;
+  margin-top: 6px;
+  font-size: 14px;
+  padding-left: 6px;
+}
+.specialRequirementTitle {
+  border-bottom: 1px solid #222222;
+  height: 45px;
+  font-size: 22px;
+  color: #222222;
+}
+.specialRequirement {
+  border-bottom: 1px solid #222222;
+  height: 324px;
+  width: 595px;
+}
+.otherRequirements {
+  display: flex;
+  align-items: center;
+  height: 116px;
+}
+.otherRequirements input {
+  border: 1px solid #8A8A8A;
+  border-radius: 5px;
+  height: 30px;
+  margin-top: 6px;
+  font-size: 14px;
+  padding-left: 6px;
+}
+.configuration {
+  display: flex;
+  height: 204px;
+}
+.pickupConfiguration {
+  display: flex;
+  flex-direction: column;
+  width: 195px;
+}
+.pickupConfText, .deliveryConfText, .multipleConfText {
+  height: 60px;
+  font-weight: bold;
+  color: #222222;
+}
+.deliveryConfiguration {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+.multipleConfiguration {
+  display: flex;
+  flex-direction: column;
+  width: 205px;
+}
+.collectionOptions, .deliveryOptions, .multipleOptions {
+  height: 45px;
+}
+.collectionOptions input, .deliveryOptions input, .multipleOptions input {
+  margin-right: 6px;
+}
+.publishingConfiguration {
+  width: 595px;
+}
+.publishingConfiTitle {
+  display: flex;
+  align-items: flex-end;
+  height: 50px;
+  font-weight: bold;
+}
+.options {
+  display: flex;
+  height: 95px;
+}
+.any {
+  display: flex;
+  align-items: center;
+  width: 210px;
+}
+.addCarriers {
+  display: flex;
+  align-items: center;
+  width: 280px;
+}
+.sendCarriers {
+  display: flex;
+  align-items: center;
+  width: 230px;
+}
+.any input, .addCarriers input, .sendCarriers input {
+  margin-right: 6px;
+}
+.sendButton {
+  display: flex;
+  justify-content: flex-end;
+  height: 50px;
+}
+.sendButton input {
+  border: 0px;
+  height: 34px;
+  width: 200px;
+  background: #EEB70B;
+  color: #222222;
+}
+.map {
+  border: 1px solid white;
+  width: 535px;
+}

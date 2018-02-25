@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <title>Hello Ucargo!</title>
+      <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+   </head>
+   <body>
+      <header class='container'>
+         <div class='logo'>
+            <img src="images/logo.png" />
+         </div>
+         <div class='home'>
+            <a href="#"><i class="fa fa-home" aria-hidden="true"></i><span>Home</span></a>
+         </div>
+         <div class='shippers'>
+            <a href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i><span>For Shippers</span></a>
+         </div>
+         <div class='carriers'>
+            <a href="#"><i class="fa fa-circle-o" aria-hidden="true"></i><span>For Carriers</span></a>
+         </div>
+         <div class='ourStory'>
+            <a href="#"><i class="fa fa-refresh" aria-hidden="true"></i><span>Our Story</span></a>
+         </div>
+         <div class='faq'>
+            <a href="#"><i class="fa fa-question-circle-o" aria-hidden="true"></i><span>FAQ</span></a>
+         </div>
+      </header>
+      <%= render @view_module, @view_template, assigns %>
+      <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+      <footer class='container'>
+         <div class='socialNetworks'>
+            <div class='facebook'>
+               <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i><span>Facebook</span></a>
+            </div>
+            <div class='instagram'>
+               <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
+            </div>
+            <div class='linkedin'>
+               <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i><span>Linkedin</span></a>
+            </div>
+            <div class='twitter'>
+               <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twitter</span></a>
+            </div>
+         </div>
+         <div class='information'>
+            <div class='conditions'>
+               <p>Terms and Conditions</p>
+            </div>
+            <div class='privacy'>
+               <p>Privacy Policy</p>
+            </div>
+            <div class='text'>
+               <p>2018</p>
+            </div>
+         </div>
+      </footer>
+   </body>
+</html>

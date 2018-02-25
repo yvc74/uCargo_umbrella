@@ -1,0 +1,89 @@
+/* Header */
+header{
+	height: 40px;
+  background: #fcb911;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 5px;
+}
+.headerBrand{
+	height: 100%;
+}
+.headerBrand img{
+	 height: 100%;
+}
+.headerInfo {
+  display: flex;
+  align-items: flex-end;
+}
+.headerUser {
+	height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 10px;
+}
+.headerUser .fas{
+	font-size: 24px;
+}
+.headerUserInfo{
+	height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.headerUserAvatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 5px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0px 10px;
+}
+
+/*Nav*/
+nav{
+	height: 100%;
+  width: 125px;
+  background: #363c41;
+  overflow: hidden;
+}
+.navContent{
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+}
+.navContentItem{
+	height: 87px;
+	width: 100%;
+	position: relative;
+}
+.navContentItem.active:before{
+	border-width: 7px;
+  border-style: solid;
+  border-color: transparent #fff transparent transparent;
+  content: '';
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 52px;
+}
+.navContentItem a{
+	width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-decoration: none;
+}
+.navContentItem a img{
+	width: 24px;
+	margin-bottom: 5px;
+}
+.navContentItem a p{
+	color: #ffF;
+	font-size: 14px;
+}

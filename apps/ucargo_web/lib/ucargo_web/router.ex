@@ -28,6 +28,7 @@ defmodule UcargoWeb.Router do
     resources "/users", UserController
     resources "/roles", RoleController
     get "/", IntroController, :index
+    get "/signin", WebSessionController, :signin
   end
 
   # Other scopes may use custom stacks.
