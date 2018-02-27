@@ -38,5 +38,6 @@ defmodule Ucargo.OrderTest do
     order_with_pick = Ecto.Changeset.put_assoc(order_chs, :pickup, pick_chgset)
     order_with_delivery = Ecto.Changeset.put_assoc(order_with_pick, :delivery, deliver_chgset)
     assert order_with_pick.valid? == true
+    assert order_with_delivery.valid? == true
   end
 end
