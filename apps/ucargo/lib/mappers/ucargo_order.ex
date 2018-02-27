@@ -32,9 +32,8 @@ defmodule Ucargo.Order do
 
   def create_changeset(%Order{} = order, attrs) do
     order
-      |> cast(attrs, [:favourite, :score, :deadline, :status, :type, :distance, :merchandise_type, :order_number, :transport, :weight, :comments, :driver_id])
+      |> cast(attrs, [:favourite, :score, :deadline, :status, :type, :distance, :merchandise_type, :order_number, :transport, :weight, :comments])
       |> validate_required([:deadline])
-      |> assoc_constraint(:driver)
   end
 
   def find_all do
