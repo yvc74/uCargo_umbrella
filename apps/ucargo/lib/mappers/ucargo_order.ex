@@ -20,7 +20,7 @@ defmodule Ucargo.Order do
     field :transport, :string
     field :weight, :string
     field :comments, :string
-    belongs_to :driver, Ucargo.Driver
+    belongs_to :planning, Ucargo.Planning
     has_one :pickup, Ucargo.Pickup
     has_one :delivery, Ucargo.Delivery
     many_to_many :drivers, Ucargo.Driver, join_through: "available_orders"
