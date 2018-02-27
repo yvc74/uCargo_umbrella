@@ -6,6 +6,7 @@ defmodule Ucargo.Planning do
 
   schema "plannings" do
     belongs_to :custom_broker, Ucargo.CustomBroker
-    belongs_to :order, Ucargo.Order
+    has_one :order, Ucargo.Order
+    has_one :auction, Ucargo.Auction
   end
 end
