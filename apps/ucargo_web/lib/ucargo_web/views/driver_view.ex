@@ -35,7 +35,8 @@ defmodule UcargoWeb.DriverView do
         picture: driver.picture,
         token: token,
         phone: driver.phone,
-        score: driver.score
+        score: driver.score,
+        driver_id: driver.id
       }
     }
   end

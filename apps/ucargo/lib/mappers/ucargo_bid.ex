@@ -5,6 +5,8 @@ defmodule Ucargo.Bid do
   use Ecto.Schema
 
   schema "bids" do
+    field :price, :decimal
+    field :winner, :boolean
     belongs_to :auction, Ucargo.Auction
   end
 end

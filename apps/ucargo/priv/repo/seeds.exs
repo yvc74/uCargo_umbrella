@@ -13,6 +13,7 @@ alias Ucargo.Order
 alias Ucargo.Pickup
 alias Ucargo.Delivery
 alias Ucargo.Repo
+alias Ucargo.Planning
 
 orders_params = %{score: 4, deadline: NaiveDateTime.utc_now(),
                   status: "New", type: 1, distance: "350",
@@ -35,4 +36,9 @@ deliver_chgset = Delivery.create_changeset(delivery,
 order_with_pick = Ecto.Changeset.put_assoc(order_chs, :pickup, pick_chgset)
 order_with_delivery = Ecto.Changeset.put_assoc(order_with_pick, :delivery, deliver_chgset)
 
-Repo.insert! order_with_delivery
+order = Repo.insert! order_with_delivery
+
+pl_changeset = Planning.create_changeset(%Planning{}, %{})
+pl_with_order = Ecto.Changeset.put_assoc(pl_changeset, :order, order)
+
+Repo.insert! pl_with_order
