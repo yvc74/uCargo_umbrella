@@ -61,16 +61,18 @@
                </tr>
             </thead>
             <tbody class="tableBody">
-               <tr>
-                  <td>Lorem</td>
-                  <td>Lorem</td>
-                  <td>Lorem</td>
-                  <td>Lorem</td>
-                  <td>Lorem</td>
-                  <td>Lorem</td>
-                  <td>Lorem</td>
-                  <td>Lorem</td>
-               </tr>
+              <%= for planning <- @plannings do %>
+                  <tr>
+                      <td>Lorem</td>
+                      <td>Lorem</td>
+                      <td>Lorem</td>
+                      <td><%= planning.order.pickup.name %></td>
+                      <td>Lorem</td>
+                      <td>Lorem</td>
+                      <td>Lorem</td>
+                      <td>Lorem</td>
+                  </tr>
+              <% end %>
             </tbody>
          </table>
       </div>
