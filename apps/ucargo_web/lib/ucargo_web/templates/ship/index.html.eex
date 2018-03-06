@@ -62,7 +62,7 @@
             </thead>
             <tbody class="tableBody">
               <%= for planning <- @plannings do %>
-                  <tr>
+                  <tr onclick="navigate('/plannings/<%= planning.order.planning_id %>');">
                       <td><%= planning.order.planning_id %></td>
                       <td><%= render_difference_date(planning.auction.begin_date, planning.auction.end_date) %> horas</td>
                       <td><%= planning.auction.ask_price%> MXN</td>
@@ -78,3 +78,9 @@
       </div>
    </section>
 </main>
+<script type="text/javascript">
+  function navigate(url)
+  {
+    document.location.href = url;
+  }
+</script>

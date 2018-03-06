@@ -12,6 +12,8 @@ defmodule Ucargo.Pickup do
     field :name, :string
     field :address, :string
     field :schedule, :string
+    field :hour, :string, virtual: true
+    field :minute, :string, virtual: true
     belongs_to :order, Ucargo.Order
     timestamps()
   end
