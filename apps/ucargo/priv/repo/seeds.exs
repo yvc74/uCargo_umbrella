@@ -14,6 +14,8 @@ alias Ucargo.Pickup
 alias Ucargo.Delivery
 alias Ucargo.Repo
 alias Ucargo.Planning
+alias Ucargo.Auction
+alias Ucargo.Bid
 
 orders_params = %{score: 4, deadline: NaiveDateTime.utc_now(),
                   status: "New", type: 1, distance: "350",
@@ -38,7 +40,28 @@ order_with_delivery = Ecto.Changeset.put_assoc(order_with_pick, :delivery, deliv
 
 order = Repo.insert! order_with_delivery
 
+date_now = NaiveDateTime.utc_now()
+
+auction_chgs = Auction.create_changeset(%Auction{},
+                   %{begin_date: date_now,
+                     end_date: NaiveDateTime.add(date_now, 86400, :second),
+                     ask_price: 10500.45})
+
+bid_chgs = Bid.create_changeset(%Bid{}, %{price: 324443, winner: true})
+auction_with_bids = Ecto.Changeset.put_assoc(auction_chgs, :bids, [bid_chgs])
+
+auction = Repo.insert! auction_with_bids
+
 pl_changeset = Planning.create_changeset(%Planning{}, %{})
 pl_with_order = Ecto.Changeset.put_assoc(pl_changeset, :order, order)
+pl_with_auction = Ecto.Changeset.put_assoc(pl_with_order, :auction, auction)
 
-Repo.insert! pl_with_order
+
+#Repo.insert! pl_with_order
+
+
+Repo.insert! pl_with_auction
+
+# bid_params = Bid.create_changeset(%Bid{}, %{price: 324443, winner: true})
+# auction_with_bid = Ecto.Changeset.put_assoc(auction_params, :bids, [bid_params])
+# Repo.insert! auction_with_bid
