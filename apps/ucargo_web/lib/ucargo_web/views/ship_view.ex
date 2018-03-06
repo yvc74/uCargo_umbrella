@@ -9,4 +9,9 @@ defmodule UcargoWeb.ShipView do
       ""
     end
   end
+
+  def render_difference_date(begin_date_auction, end_date_auction) do
+    difference = NaiveDateTime.diff(end_date_auction,begin_date_auction)
+    hours = difference/3600
+  end
 end

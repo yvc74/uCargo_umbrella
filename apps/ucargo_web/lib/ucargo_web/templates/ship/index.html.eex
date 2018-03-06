@@ -64,11 +64,11 @@
               <%= for planning <- @plannings do %>
                   <tr>
                       <td><%= planning.order.planning_id %></td>
-                      <td></td>
-                      <td>Lorem</td>
+                      <td><%= render_difference_date(planning.auction.begin_date, planning.auction.end_date) %> horas</td>
+                      <td><%= planning.auction.ask_price%> MXN</td>
                       <td><%= planning.order.pickup.name %></td>
                       <td><%= planning.order.delivery.name %></td>
-                      <td>Lorem</td>
+                      <td></td>
                       <td><%= render_order_type(planning.order.type) %></td>
                       <td><%= planning.order.merchandise_type %></td>
                   </tr>
