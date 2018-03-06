@@ -25,4 +25,13 @@ defmodule Ucargo.Planning do
             preload: [auction: [:bids], order: [:pickup, :delivery]]
     Repo.all(query)
   end
+
+  def create_with_order(order_chs, pick_chgset, deliver_chgset) do
+    order_with_pick = Ecto.Changeset.put_assoc(order_chs, :pickup, pick_chgset)
+    order_with_delivery = Ecto.Changeset.put_assoc(order_with_pick, :delivery, deliver_chgset)
+    order = Repo.insert! order_with_delivery
+    pl_changeset = Planning.create_changeset(%Planning{}, %{})
+    pl_with_order = Ecto.Changeset.put_assoc(pl_changeset, :order, order)
+    Repo.insert! pl_with_order
+  end
 end

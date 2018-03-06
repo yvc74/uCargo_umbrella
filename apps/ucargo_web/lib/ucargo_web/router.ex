@@ -31,6 +31,8 @@ defmodule UcargoWeb.Router do
     get "/signin", WebSessionController, :signin
     get "/plannings", ShipController, :index
     get "/plannings/new", ShipController, :create
+    post "/plannings/submit", ShipController, :new
+    
   end
 
   # Other scopes may use custom stacks.

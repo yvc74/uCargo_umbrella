@@ -12,6 +12,13 @@ defmodule Ucargo.Delivery do
     field :name, :string
     field :address, :string
     field :schedule, :string
+    field :hour, :string, virtual: true
+    field :minute, :string, virtual: true
+    field :street, :string, virtual: true
+    field :ext, :string, virtual: true
+    field :int, :string, virtual: true
+    field :neighborhood, :string, virtual: true
+    field :state, :string, virtual: true
     belongs_to :order, Ucargo.Order
     timestamps()
   end

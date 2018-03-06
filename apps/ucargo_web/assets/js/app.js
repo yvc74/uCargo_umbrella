@@ -13,11 +13,15 @@
 // to also remove its path from "config.paths.watched".
 import "phoenix_html"
 
-import login from "./login"
+//import login from "./login"
 import sidebar from "./sidebar"
+import jsCalendar from "./jsCalendar"
+import setupcalendar from "./setupcalendar"
+import launch from "./launch"
 // Import local files
 //
 // Local files can be imported directly using relative
 // paths "./socket" or full ones "web/static/js/socket".
 
-// import socket from "./socket"
+//import socket from "./socket"
+
