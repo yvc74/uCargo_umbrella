@@ -63,14 +63,14 @@
             <tbody class="tableBody">
               <%= for planning <- @plannings do %>
                   <tr>
-                      <td>Lorem</td>
-                      <td>Lorem</td>
+                      <td><%= planning.order.planning_id %></td>
+                      <td></td>
                       <td>Lorem</td>
                       <td><%= planning.order.pickup.name %></td>
+                      <td><%= planning.order.delivery.name %></td>
                       <td>Lorem</td>
-                      <td>Lorem</td>
-                      <td>Lorem</td>
-                      <td>Lorem</td>
+                      <td><%= render_order_type(planning.order.type) %></td>
+                      <td><%= planning.order.merchandise_type %></td>
                   </tr>
               <% end %>
             </tbody>

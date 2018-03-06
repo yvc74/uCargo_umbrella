@@ -22,7 +22,7 @@ defmodule Ucargo.Planning do
 
   def find_all do
     query = from p in Planning,
-            preload: [order: [:pickup, :delivery]]
+            preload: [auction: [:bids], order: [:pickup, :delivery]]
     Repo.all(query)
   end
 end
