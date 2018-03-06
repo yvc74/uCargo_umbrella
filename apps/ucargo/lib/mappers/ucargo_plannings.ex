@@ -28,6 +28,13 @@ defmodule Ucargo.Planning do
     Repo.all(query)
   end
 
+  def find_by(:id, planning_id) do
+    query = from p in Planning,
+            where: p.id == ^planning_id,
+            preload: [auction: [:bids], order: [:pickup, :delivery]]
+    Repo.one(query)
+  end
+
   def create_with_order(order_chs, pick_chgset, deliver_chgset) do
     order_with_pick = Ecto.Changeset.put_assoc(order_chs, :pickup, pick_chgset)
     order_with_delivery = Ecto.Changeset.put_assoc(order_with_pick, :delivery, deliver_chgset)

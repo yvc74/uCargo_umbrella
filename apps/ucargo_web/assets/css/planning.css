@@ -3,3 +3,12 @@
   margin: 10px auto;
   display: block;
 }
+
+tr:hover { 
+   background: #F6BB42; 
+}
+td a { 
+   display: block; 
+   border: 1px solid black;
+   padding: 16px; 
+}

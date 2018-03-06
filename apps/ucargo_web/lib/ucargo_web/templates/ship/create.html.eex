@@ -61,7 +61,7 @@
             <div class="country">
                <div class="collectionZip">
                   <span>* Nombre de la Aduana</span>
-                  <%=  select(pick_up, :name, ["Aduana Tijuana": 1, "Aduana Monterrey": 2]) %>
+                  <%=  select(pick_up, :name, ["Aduana Tijuana": "Aduana Tijuana", "Aduana Monterrey": "Aduana Monterrey"]) %>
                </div>
             </div>
             <div class="country">
