@@ -46,8 +46,8 @@ Repo.insert! pl_with_order
 
 date_now = NaiveDateTime.utc_now()
 auction_params = Auction.create_changeset(%Auction{}, %{begin_date: date_now, end_date: NaiveDateTime.add(date_now, 86400, :second), ask_price: 10500.45 })
-# pl_with_auction = Ecto.Changeset.put_assoc(pl_changeset, :auction, auction_params)
-Repo.insert! auction_params
+pl_with_auction = Ecto.Changeset.put_assoc(pl_changeset, :auction, auction_params)
+Repo.insert! pl_with_auction
 
 # bid_params = Bid.create_changeset(%Bid{}, %{price: 324443, winner: true})
 # auction_with_bid = Ecto.Changeset.put_assoc(auction_params, :bids, [bid_params])
