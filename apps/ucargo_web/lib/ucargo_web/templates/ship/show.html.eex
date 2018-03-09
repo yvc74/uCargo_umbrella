@@ -45,23 +45,23 @@
 			      <div class="information-order__import">
 							<div class="import__import-box">
 								<div class=import-box__import>
-									<p>IMPORTACIÓN</p>
+									<p><%= render_order_type_complete(@planning.order.type) %></p>
 								</div>
 								<div class="import-box__puja">
 									<p class="container__text-gray">PUJA:</p>
 								</div>
 								<div class="import-box__hours">
-									<p class="container__text-blue">27:00 HORAS</p>
+									<p class="container__text-blue"><%= render_difference_date(@planning.auction.begin_date, @planning.auction.end_date) %> HORAS </p>
 								</div>
 							</div>
 							<div class="import__place">
 								<div class="place__departure">
 									<i class="fas fa-angle-up"></i>
-									<p>ADUANA VERACRUZ</p>
+									<p><%= render_uppercase(@planning.order.pickup.name) %></p>
 								</div>
 								<div class="place__arrival">
 									<i class="fas fa-angle-down"></i>
-									<p>MEXICO, D.F.</p>
+									<p><%= render_uppercase(@planning.order.delivery.name) %></p>
 								</div>
 							</div>
 						</div>
@@ -97,7 +97,7 @@
 									<p class="container__text-gray">TRANSPORTE</p>
 								</div>
 								<div class="transport-box__description">
-									<p class="container__text-blue">CONTENEDOR 40 PIES</p>
+									<p class="container__text-blue"><%= render_uppercase(@planning.order.transport) %></p>
 								</div>
 							</div>
 							<div class="transport__commodity-box">
@@ -105,7 +105,7 @@
 									<p class="container__text-gray">MERCANCÍA</p>
 								</div>
 								<div class="commodity-box__description">
-									<p class="container__text-blue">CARPAS INDUSTRIALES</p>
+									<p class="container__text-blue"><%= render_uppercase(@planning.order.merchandise_type) %></p>
 								</div>
 							</div>
 						</div>
@@ -123,7 +123,7 @@
 									<p class="container__text-gray">PESO</p>
 								</div>
 								<div class="weight__description">
-									<p class="container__text-blue">2 TONELADAS</p>
+									<p class="container__text-blue"><%= render_uppercase(@planning.order.weight) %></p>
 								</div>
 							</div>
 						</div>
@@ -152,18 +152,18 @@
 								<p>DIRECCIÓN DE ORIGEN</p>
 							</div>
 							<div class="origin-address__shipping-place">
-								<p class="container__text-blue">ADUANA VERACRUZ</p>
+								<p class="container__text-blue"><%= render_uppercase(@planning.order.pickup.address) %></p>
 							</div>
 							<div class="origin-address__date-responsable">
 								<div class="origin-address__date-collection">
-									<p class="container__text-gray">FECHA DE RECOLECCION:<span class="container__text-blue">MARZO, 03</span></p>
+									<p class="container__text-gray">FECHA DE RECOLECCION:<span class="container__text-blue"><%= @planning.order.pickup.date %></span></p>
 								</div>
 								<div class="origin-address__responsible-name">
-									<p class="container__text-gray">RESPONSABLE:<span class="container__text-blue">JOEL PEREZ</span></p>
+									<p class="container__text-gray">RESPONSABLE:<span class="container__text-blue"><%= render_uppercase(@planning.order.pickup.responsible) %></span></p>
 								</div>
 							</div>
 							<div class="origin-address__collection-time">
-								<p class="container__text-gray">HORARIO DE RECOLECCION:<span class="container__text-blue">08:30 -14:00 HORAS</span></p>
+								<p class="container__text-gray">HORARIO DE RECOLECCION:<span class="container__text-blue"> <%= @planning.order.pickup.schedule %> HORAS</span></p>
 							</div>
 			      </div>
 			      <div class="container__destination-address">
@@ -171,23 +171,21 @@
 								<p>DIRECCIÓN DE DESTINO</p>
 							</div>
 							<div class="destination-address__delivery-address">
-								<p class="container__text-blue">CALLE SINALOA 129, PEÑON DE LOS BAÑOS 15520 VENUSTIANO
-			            CARRANZA, DISTRITO FEDERAL, CDMX (FRENTE A GASOLINERA
-			            PEMEX, EDIFICIO VERDE)</p>
+								<p class="container__text-blue"><%= render_uppercase(@planning.order.delivery.address) %></p>
 							</div>
 							<div class="destination-address__date-delivery">
-								<p class="container__text-gray">FECHA DE ENTREGA:<span class="container__text-blue">MARZO, 06</span></p>
+								<p class="container__text-gray">FECHA DE ENTREGA:<span class="container__text-blue"><%= @planning.order.delivery.date %></span></p>
 							</div>
 							<div class="destination-address__delivery-time">
-								<p class="container__text-gray">HORARIO DE ENTREGA:<span class="container__text-blue">08:30 -14:00 HORAS</span></p>
+								<p class="container__text-gray">HORARIO DE ENTREGA:<span class="container__text-blue"><%= @planning.order.delivery.schedule %> HORAS</span></p>
 							</div>
 							<div class="destination-address__responsable">
-								<p class="container__text-gray">RESPONSABLE:<span class="container__text-blue">DIANA RUIZ 55 5785 8016</span></p>
+								<p class="container__text-gray">RESPONSABLE:<span class="container__text-blue"><%= render_uppercase(@planning.order.delivery.responsible) %></span></p>
 							</div>
 			      </div>
 			      <div class="container__price">
 							<div class="price__box">
-								<p>$5,500.00<span>MXN+IVA</span></p>
+								<p>$ <%= @planning.auction.ask_price %> <span>MXN+IVA</span></p>
 							</div>
 			      </div>
 			      <div class="container__favorite-carrier">
