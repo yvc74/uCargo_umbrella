@@ -29,12 +29,16 @@ pick_chgset = Pickup.create_changeset(pick_up,
             %{latitude: 32.5498703, longitude: -116.9378327,
               name: "Aduana de Tijuana", 
               address: "Garita Internacional, Perimetral Nte., 22430 Tijuana, B.C.",
-              schedule: "sábado	9–15"})
+              schedule: "sábado	9–15",
+              responsible: "Joel Sanchez",
+              date: "2018-03-10"})
 deliver_chgset = Delivery.create_changeset(delivery,
             %{latitude: 20.5848521, longitude: -100.3965839,
               name: "Plaza de toros Queretaro", 
               address: "Avenida Constituyentes, s/n, La Granja, 76190 Santiago de Querétaro, Qro.",
-              schedule: "Lunes 9–15"})
+              schedule: "Lunes 9–15",
+              responsible: "Carlos Sanchez",
+              date: "2018-03-18"})
 order_with_pick = Ecto.Changeset.put_assoc(order_chs, :pickup, pick_chgset)
 order_with_delivery = Ecto.Changeset.put_assoc(order_with_pick, :delivery, deliver_chgset)
 

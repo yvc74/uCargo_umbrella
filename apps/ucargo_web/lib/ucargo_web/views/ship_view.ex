@@ -12,6 +12,14 @@ defmodule UcargoWeb.ShipView do
 
   def render_difference_date(begin_date_auction, end_date_auction) do
     difference = NaiveDateTime.diff(end_date_auction, begin_date_auction)
-    difference/3600
+    Integer.floor_div(difference, 3600)
+  end
+
+  def render_uppercase(string) do
+    String.upcase(string)
+  end
+
+  def render_order_type_complete(order_type) do
+    if order_type== 0, do: "IMPORTACIÓN", else: "EXPORTACIÓN" 
   end
 end

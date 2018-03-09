@@ -8,6 +8,8 @@ defmodule Ucargo.Repo.Migrations.Deliveries do
       add :name, :string
       add :address, :string
       add :schedule, :string
+      add :responsible, :string
+      add :date, :date
       add :order_id, references(:orders, on_delete: :nothing)
       timestamps()
     end
