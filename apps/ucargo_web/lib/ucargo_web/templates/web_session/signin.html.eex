@@ -1,0 +1,28 @@
+<main>
+	<section class="container" id="login">
+		<div class="titleContainer">
+			<h1 class="title">CargoBot, Conectando los puntos</h1>
+			<p  class="subTitle">Una forma dinámica y poderosa de conectar empresas de transporte y transportistas</p>
+		</div>
+			<%= form_for @changeset, "/login", fn f -> %>
+			<div class="inputContainer">
+				<%= text_input f, :username, placeholder: "Nombre de usuario", autofocus: "autofocus" %>
+				<div class="remenber">
+					<input type="checkbox">
+					<label for="">Recordarme</label>
+				</div>
+			</div>
+			<div class="inputContainer">
+				<%= password_input f, :password, placeholder: "Contraseña", autofocus: "autofocus" %>
+			</div>
+			<div class="inputContainer">
+				<button type="submit">
+					Iniciar Sesión
+				</button>
+				<div class="recover">
+					<a>¿Olvidaste la contraseña?</a>
+				</div>
+			</div>
+			<% end %>
+	</section>
+</main>

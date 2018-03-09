@@ -34,8 +34,10 @@ config :logger, :console,
 config :ucargo_web, :generators,
   context_app: :ucargo
 
-    
-  
+config :ucargo_web, UcargoWeb.Guardian,
+  issuer: "ucargo",
+  error_handler: UcargoWeb.WebAuthErrorHandler,
+  secret_key: "/SYNjtAF0/dajy8dwXKc37hTYqUwHlWOHrhUE8MteA3Ru49jb7j4Rh6W2XPsdPWD"
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

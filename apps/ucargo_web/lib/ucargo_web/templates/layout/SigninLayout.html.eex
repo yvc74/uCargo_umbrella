@@ -9,34 +9,7 @@
   <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
 </head>
 <body>
-	<main>
-		<section class="container" id="login">
-			<div class="titleContainer">
-				<h1 class="title">CargoBot, Conectando los puntos</h1>
-				<p  class="subTitle">Una forma dinámica y poderosa de conectar empresas de transporte y transportistas</p>
-			</div>
-			<form>
-				<div class="inputContainer">
-					<input type="text" placeholder="Nombre de usuario">
-					<div class="remenber">
-						<input type="checkbox">
-						<label for="">Recordarme</label>
-					</div>
-				</div>
-				<div class="inputContainer">
-					<input type="password" placeholder="Contraseña">
-				</div>
-				<div class="inputContainer">
-					<button type="submit">
-						Iniciar Sesión
-					</button>
-					<div class="recover">
-						<a>¿Olvidaste la contraseña?</a>
-					</div>
-				</div>
-			</form>
-		</section>
-	</main>
+	<%= render @view_module, @view_template, assigns %>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vegas/2.4.0/vegas.min.js"></script>
   <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
