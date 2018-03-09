@@ -16,6 +16,14 @@ alias Ucargo.Repo
 alias Ucargo.Planning
 alias Ucargo.Auction
 alias Ucargo.Bid
+alias Ucargo.CustomBroker
+
+custom_broker = %CustomBroker{name: "Joel de la Peña",
+                          username: "joel65",
+                          password: "12345678",
+                           company: "Exportadora del Pácifico"}
+
+Repo.insert!(custom_broker)
 
 orders_params = %{score: 4, deadline: NaiveDateTime.utc_now(),
                   status: "New", type: 1, distance: "350",

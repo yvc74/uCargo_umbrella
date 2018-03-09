@@ -1,5 +1,5 @@
 defmodule UcargoWeb.Router do
-  use UcargoWeb, :router  
+  use UcargoWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -18,6 +18,17 @@ defmodule UcargoWeb.Router do
     plug Ucargo.Apiauth
   end
 
+  pipeline :browser_session do
+    plug Guardian.Plug.Pipeline, module: UcargoWeb.Guardian,
+                             error_handler: UcargoWeb.WebAuthErrorHandler
+    plug Guardian.Plug.VerifySession
+    plug Guardian.Plug.LoadResource
+  end
+
+  pipeline :require_login do
+    plug Guardian.Plug.EnsureAuthenticated, handler: Ucargo.Guardian
+  end
+
   pipeline :login do
     plug UcargoWeb.BasicHeadersValidation
     plug Ucargo.BasicAuth
@@ -29,6 +40,13 @@ defmodule UcargoWeb.Router do
     resources "/roles", RoleController
     get "/", IntroController, :index
     get "/signin", WebSessionController, :signin
+    post "/login", WebSessionController, :login
+  end
+
+  scope "/", UcargoWeb do
+    pipe_through :browser # Use the default browser stack
+    pipe_through :browser_session
+    pipe_through :require_login
     get "/plannings", ShipController, :index
     get "/plannings/new", ShipController, :create
     get "/plannings/:id", ShipController, :show
