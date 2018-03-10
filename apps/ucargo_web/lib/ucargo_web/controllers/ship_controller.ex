@@ -5,11 +5,12 @@ defmodule UcargoWeb.ShipController do
   alias Ucargo.Pickup
   alias Ucargo.Delivery
   alias Ucargo.Guardian
+  alias Ucargo.CustomBroker
 
   def index(conn, _params) do
-    _resource = Guardian.Plug.current_resource(conn)
-    plannings = Planning.find_all
-    render conn, "index.html", plannings: plannings
+    resouuce = Guardian.Plug.current_resource(conn)
+    broker = CustomBroker.fetch_plannings(resouuce)
+    render conn, "index.html", plannings: broker.plannings, broker: broker
   end
 
   def create(conn, _params) do
