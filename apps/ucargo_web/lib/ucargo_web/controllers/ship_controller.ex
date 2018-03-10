@@ -4,8 +4,10 @@ defmodule UcargoWeb.ShipController do
   alias Ucargo.Order
   alias Ucargo.Pickup
   alias Ucargo.Delivery
+  alias Ucargo.Guardian
 
   def index(conn, _params) do
+    _resource = Guardian.Plug.current_resource(conn)
     plannings = Planning.find_all
     render conn, "index.html", plannings: plannings
   end
