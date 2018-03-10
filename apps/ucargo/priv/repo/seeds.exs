@@ -23,7 +23,7 @@ custom_broker = %CustomBroker{name: "Joel de la Peña",
                           password: "12345678",
                            company: "Exportadora del Pácifico"}
 
-Repo.insert!(custom_broker)
+broker = Repo.insert!(custom_broker)
 
 orders_params = %{score: 4, deadline: NaiveDateTime.utc_now(),
                   status: "New", type: 1, distance: "350",
@@ -64,7 +64,7 @@ auction_with_bids = Ecto.Changeset.put_assoc(auction_chgs, :bids, [bid_chgs])
 
 auction = Repo.insert! auction_with_bids
 
-pl_changeset = Planning.create_changeset(%Planning{}, %{})
+pl_changeset = Planning.create_changeset(%Planning{}, %{custom_broker_id: broker.id})
 pl_with_order = Ecto.Changeset.put_assoc(pl_changeset, :order, order)
 pl_with_auction = Ecto.Changeset.put_assoc(pl_with_order, :auction, auction)
 

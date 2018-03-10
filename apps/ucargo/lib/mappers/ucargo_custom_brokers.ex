@@ -19,7 +19,7 @@ defmodule Ucargo.CustomBroker do
 
   def create_changeset(%CustomBroker{} = custombroker, attrs) do
     custombroker
-      |> cast(attrs, [:username, :password])
+      |> cast(attrs, [:username, :password, :name, :company])
   end
 
   def login_changeset(%CustomBroker{} = broker, params) do
@@ -75,6 +75,10 @@ defmodule Ucargo.CustomBroker do
       broker ->
         {:ok, broker}
     end
+  end
+
+  def fetch_plannings(broker) do
+    Repo.preload(broker, plannings: [auction: [:bids], order: [:pickup, :delivery]])
   end
 
   defp get_password(username) do
