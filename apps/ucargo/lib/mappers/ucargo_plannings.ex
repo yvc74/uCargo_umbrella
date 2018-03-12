@@ -11,6 +11,8 @@ defmodule Ucargo.Planning do
   alias Ucargo.Bid
 
   schema "plannings" do
+    field :master_reference, :string
+    field :house_reference, :string
     belongs_to :custom_broker, Ucargo.CustomBroker
     has_one :order, Ucargo.Order
     has_one :auction, Ucargo.Auction
@@ -18,7 +20,7 @@ defmodule Ucargo.Planning do
 
   def create_changeset(planning, attrs) do
     planning
-      |> cast(attrs, [:custom_broker_id])
+      |> cast(attrs, [:master_reference, :house_reference, :custom_broker_id])
       |> assoc_constraint(:custom_broker)
   end
 
@@ -31,7 +33,7 @@ defmodule Ucargo.Planning do
   def find_by(:id, planning_id) do
     query = from p in Planning,
             where: p.id == ^planning_id,
-            preload: [auction: [:bids], order: [:pickup, :delivery]]
+            preload: [:custom_broker, auction: [:bids], order: [:pickup, :delivery]]
     Repo.one(query)
   end
 
