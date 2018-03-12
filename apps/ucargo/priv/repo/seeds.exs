@@ -64,7 +64,10 @@ auction_with_bids = Ecto.Changeset.put_assoc(auction_chgs, :bids, [bid_chgs])
 
 auction = Repo.insert! auction_with_bids
 
-pl_changeset = Planning.create_changeset(%Planning{}, %{custom_broker_id: broker.id})
+pl_changeset = Planning.create_changeset(%Planning{}, 
+                      %{master_reference: "115403",
+                        house_reference: "142-3442-2576",
+                        custom_broker_id: broker.id})
 pl_with_order = Ecto.Changeset.put_assoc(pl_changeset, :order, order)
 pl_with_auction = Ecto.Changeset.put_assoc(pl_with_order, :auction, auction)
 

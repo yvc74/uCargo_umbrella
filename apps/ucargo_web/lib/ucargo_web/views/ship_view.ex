@@ -1,7 +1,7 @@
 defmodule UcargoWeb.ShipView do
   use UcargoWeb, :view
   def render_order_type(order_type) do
-    if order_type== 0, do: "IMP", else: "EXP" 
+    if order_type== 0, do: "IMPORTACIÓN", else: "EXPORTACIÓN"
   end
 
   def render_bid_status(auction) do
@@ -19,7 +19,4 @@ defmodule UcargoWeb.ShipView do
     String.upcase(string)
   end
 
-  def render_order_type_complete(order_type) do
-    if order_type== 0, do: "IMPORTACIÓN", else: "EXPORTACIÓN" 
-  end
 end
