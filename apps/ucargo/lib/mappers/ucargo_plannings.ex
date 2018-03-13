@@ -7,6 +7,9 @@ defmodule Ucargo.Planning do
   import Ecto.Query
   alias Ucargo.Planning
   alias Ucargo.Repo
+  alias Ucargo.Driver
+  alias Kraken.Mailer
+  alias Kraken.Mail
   alias Ucargo.Auction
   alias Ucargo.Bid
 
@@ -37,11 +40,12 @@ defmodule Ucargo.Planning do
     Repo.one(query)
   end
 
-  def create_with_order(order_chs, pick_chgset, deliver_chgset) do
+  def create_with_order(order_chs, pick_chgset, deliver_chgset, broker_id) do
     order_with_pick = Ecto.Changeset.put_assoc(order_chs, :pickup, pick_chgset)
     order_with_delivery = Ecto.Changeset.put_assoc(order_with_pick, :delivery, deliver_chgset)
     order = Repo.insert! order_with_delivery
-    pl_changeset = Planning.create_changeset(%Planning{}, %{})
+    notify_to_drivers(order)
+    pl_changeset = Planning.create_changeset(%Planning{}, %{custom_broker_id: broker_id})
     date_now = NaiveDateTime.utc_now()
     auction_chgs = Auction.create_changeset(%Auction{},
                    %{begin_date: date_now,
@@ -57,5 +61,15 @@ defmodule Ucargo.Planning do
     pl_with_auction = Ecto.Changeset.put_assoc(pl_with_order, :auction, auction)
     
     Repo.insert! pl_with_auction
+  end
+
+  def notify_to_drivers(_order) do
+    driver_mails = Driver.fetch_all_mails
+    driver_mails
+      |> Mail.new_planning_avalaible
+      |> Mailer.deliver_later
+  end
+
+  def notify_to__favourite_drivers do
   end
 end
