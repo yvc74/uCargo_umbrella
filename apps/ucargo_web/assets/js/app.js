@@ -17,6 +17,7 @@ import "phoenix_html"
 import sidebar from "./sidebar"
 import jsCalendar from "./jsCalendar"
 import setupcalendar from "./setupcalendar"
+import setupdeliverycalendar from "./setupdeliverycalendar.js"
 import launch from "./launch"
 // Import local files
 //

@@ -93,7 +93,7 @@
                <div class="collectionZip">
                   <span>* Fecha Entrega</span>
                   <%= text_input delivery, :schedule %>
-                  <div id="date-picker-calendar" style="display:none;"></div>
+                  <div id="date-delivery-picker-calendar" style="display:none;"></div>
                </div>
                <div class="collectionZip">
                   <span>* Horario de recolección</span>
