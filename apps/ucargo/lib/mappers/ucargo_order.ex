@@ -23,6 +23,7 @@ defmodule Ucargo.Order do
     belongs_to :planning, Ucargo.Planning
     has_one :pickup, Ucargo.Pickup
     has_one :delivery, Ucargo.Delivery
+    has_one :custom, Ucargo.Custom
     many_to_many :drivers, Ucargo.Driver, join_through: "available_orders"
     many_to_many :assigned_drivers, Ucargo.Driver,
                            join_through: "assigned_orders",

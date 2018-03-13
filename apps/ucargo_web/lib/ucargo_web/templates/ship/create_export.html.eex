@@ -1,0 +1,142 @@
+<main>
+   <nav>
+      <ul class="navContent">
+         <li class="navContentItem active">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>PLANIFICACIÓN</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>ASIGNACIONES</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>SEGUIMIENTO</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>HISTORIAL</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>FINANZAS</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>FAVORITOS</p>
+            </a>
+         </li>
+      </ul>
+   </nav>
+   <section class="newPlanContainer" id="new">
+      <%= form_for @changeset, "/plannings/submit", fn f -> %>
+      <div class="newService">
+         <div class="transportationRequest">
+            <div class="requestTitle">
+               <span>INFORMACIÓN DE NUEVO CARGAMENTO</span>
+            </div>
+            <div class="mandatoryCampus">
+               <span>(*) Campos obligatorios</span>
+            </div>
+         </div>
+         <div class="routeInformation">
+            <%= inputs_for f, :order, fn order -> %>
+            <%= radio_button(order, :type, "Exportación") %>  Exportación
+            <%= radio_button(order, :type, "Importación") %>  Importación
+            <div class="requestTitle">
+               <span>DIRECCIÓN DE ORIGEN</span>
+            </div>
+            <%= inputs_for order, :pickup, fn pick_up -> %>
+            <div class="country">
+               <div class="collectionZip">
+                  <span>* Nombre de la Aduana</span>
+                  <%=  select(pick_up, :name, ["Aduana Tijuana": "Aduana Tijuana", "Aduana Monterrey": "Aduana Monterrey"]) %>
+               </div>
+            </div>
+            <div class="country">
+               <div class="collectionZip">
+                  <span>* Fecha de recolección</span>
+                  <%= text_input pick_up, :schedule %>
+                  <div id="date-picker-calendar" style="display:none;"></div>
+               </div>
+               <div class="collectionZip">
+                  <span>* Horario de recolección</span>
+                  <div class="hours">
+                     <%=  select(pick_up, :hour, ["12:00": 12, "13:00": 13]) %>
+                     <%=  select(pick_up, :minute, ["00": 13, "30": 30]) %>
+                  </div>
+               </div>
+            </div>
+            <div class="zip">
+               <div class="collectionZip">
+                  <span>* Responsable</span>
+                  <input type="text" value="" />
+               </div>
+            </div>
+            <% end %>
+            <%= inputs_for order, :delivery, fn delivery -> %>
+            <div class="requestTitle">
+               <span>DIRECCIÓN DE DESTINO</span>
+            </div>
+            <div class="country">
+               <div class="collectionZip">
+                  <span>* Fecha Entrega</span>
+                  <%= text_input delivery, :schedule %>
+                  <div id="date-delivery-picker-calendar" style="display:none;"></div>
+               </div>
+               <div class="collectionZip">
+                  <span>* Horario de recolección</span>
+                  <div class="hours">
+                     <%=  select(delivery, :hour, ["12:00": 12, "13:00": 13]) %>
+                     <%=  select(delivery, :minute, ["00": 13, "30": 30]) %>
+                  </div>
+               </div>
+            </div>
+            <div class="country">
+               <div class="collectionZip">
+                  <span>* Calle</span>
+                  <%= text_input delivery, :street %>
+                  <div id="date-picker-calendar" style="display:none;"></div>
+               </div>
+            </div>
+            <div class="country">
+               <div class="collectionZip">
+                  <span>* Número exterior</span>
+                  <%= text_input delivery, :ext %>
+               </div>
+               <div class="collectionZip">
+                  <span>* Número exterior</span>
+                  <%= text_input delivery, :int %>
+               </div>
+            </div>
+            <div class="country">
+               <div class="collectionZip">
+                  <span>* Colonia</span>
+                  <%= text_input delivery, :neighborhood %>
+               </div>
+               <div class="collectionZip">
+                  <span>* Estado</span>
+                  <%=  select(delivery, :state, ["CDMX": "CDMX", "Monterrey": "Monterrey"]) %>
+               </div>
+            </div>
+            <% end %>
+            <% end %>
+      <% end %>
+            <div class="sendButton">
+               <button class="btn" action="submit">ENVIAR</button>
+            </div>
+         </div>
+      </div>
+   </section>
+</main>

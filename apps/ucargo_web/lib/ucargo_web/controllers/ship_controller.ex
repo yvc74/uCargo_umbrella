@@ -6,6 +6,8 @@ defmodule UcargoWeb.ShipController do
   alias Ucargo.Delivery
   alias Ucargo.Guardian
   alias Ucargo.CustomBroker
+  @export 1
+  @import 0
 
   def index(conn, _params) do
     resouuce = Guardian.Plug.current_resource(conn)
@@ -20,7 +22,12 @@ defmodule UcargoWeb.ShipController do
 
   def show(conn, %{"id" => planning_id}) do
     planning = Planning.find_by(:id, planning_id)
-    render conn, "show.html", planning: planning
+    case planning.order.type do
+      @export ->
+        render conn, "show_export.html", planning: planning
+      @import ->
+        render conn, "show_import.html", planning: planning
+    end
   end
 
   def new(conn, params) do
