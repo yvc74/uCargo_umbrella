@@ -10,6 +10,7 @@
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
 alias Ucargo.Order
+alias Ucargo.Driver
 alias Ucargo.Pickup
 alias Ucargo.Delivery
 alias Ucargo.Repo
@@ -17,6 +18,22 @@ alias Ucargo.Planning
 alias Ucargo.Auction
 alias Ucargo.Bid
 alias Ucargo.CustomBroker
+
+driver_manuel = %Driver{username: "manuelhz", email: "misaelpc@msn.com", password: "12345678",
+                  picture: "", name: "Manuel Hernandez Zamora", phone: "663353733",
+                  score: 5}
+
+driver_juan = %Driver{username: "juanrp", email: "misaelpcgm@gmail.com", password: "12345678",
+                  picture: "", name: "Juan Ramirez Perez", phone: "66334433",
+                  score: 4}
+
+driver_jorge = %Driver{username: "jorgema", email: "misaelpcyahoo@yahoo.com", password: "12345678",
+                  picture: "", name: "Jorge Mendez Alvarez", phone: "223353733",
+                  score: 3}
+
+Repo.insert! driver_manuel
+Repo.insert! driver_juan
+Repo.insert! driver_jorge
 
 custom_broker = %CustomBroker{name: "Joel de la Peña",
                           username: "joel65",

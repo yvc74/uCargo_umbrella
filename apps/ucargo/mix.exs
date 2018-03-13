@@ -40,6 +40,7 @@ defmodule Ucargo.Mixfile do
       {:postgrex, ">= 0.0.0"},
       {:ecto, "~> 2.1"},
       {:guardian, "~> 1.0"},
+      {:kraken, in_umbrella: true},
       {:bcrypt_elixir, "~> 1.0"}
     ]
   end

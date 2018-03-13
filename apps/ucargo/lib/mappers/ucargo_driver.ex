@@ -4,6 +4,7 @@ defmodule Ucargo.Driver do
   """
   use Ecto.Schema
   import Ecto.Changeset
+  import Ecto.Query
   alias Ucargo.Driver
   alias Ucargo.Repo
 
@@ -76,5 +77,11 @@ defmodule Ucargo.Driver do
       driver ->
         {:ok, driver}
     end
+  end
+
+  def fetch_all_mails do
+    query = from d in Driver,
+      select: d.email
+    Repo.all(query)
   end
 end

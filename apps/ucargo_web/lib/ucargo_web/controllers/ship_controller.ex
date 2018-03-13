@@ -24,6 +24,7 @@ defmodule UcargoWeb.ShipController do
   end
 
   def new(conn, params) do
+    broker = Guardian.Plug.current_resource(conn)
     orders_params = %{score: 4, deadline: NaiveDateTime.utc_now(),
                   status: "New", type: 1, distance: "350",
                   merchandise_type: "Video", order_number: "47848",
@@ -44,7 +45,7 @@ defmodule UcargoWeb.ShipController do
 
     pick_chgset = Pickup.create_changeset(pick_up, pk_up_prms)
     deliver_chgset = Delivery.create_changeset(delivery, dvl_up_prms)
-    Planning.create_with_order(order_chs, pick_chgset, deliver_chgset)
+    Planning.create_with_order(order_chs, pick_chgset, deliver_chgset, broker.id)
     conn
       |> redirect(to: "/plannings")
   end
