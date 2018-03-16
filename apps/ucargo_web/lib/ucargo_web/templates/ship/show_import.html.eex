@@ -57,7 +57,7 @@
 							<div class="import__place">
 								<div class="place__departure">
 									<i class="fas fa-angle-up"></i>
-									<p><%= render_uppercase(@planning.order.pickup.name) %></p>
+									<p><%= render_uppercase(@planning.order.custom.name) %></p>
 								</div>
 								<div class="place__arrival">
 									<i class="fas fa-angle-down"></i>
@@ -115,7 +115,7 @@
 									<p class="container__text-gray">SENDER</p>
 								</div>
 								<div class="sender__description">
-									<p class="container__text-blue"><%= @planning.custom_broker.company %></p>
+									<p class="container__text-blue"><%= render_uppercase(@planning.custom_broker.company) %></p>
 								</div>
 							</div>
 							<div class="sender-weight__weight">
@@ -152,18 +152,18 @@
 								<p>DIRECCIÓN DE ORIGEN</p>
 							</div>
 							<div class="origin-address__shipping-place">
-								<p class="container__text-blue"><%= render_uppercase(@planning.order.pickup.address) %></p>
+								<p class="container__text-blue"><%= render_uppercase(@planning.order.custom.address) %></p>
 							</div>
 							<div class="origin-address__date-responsable">
 								<div class="origin-address__date-collection">
-									<p class="container__text-gray">FECHA DE RECOLECCION:<span class="container__text-blue"><%= @planning.order.pickup.date %></span></p>
+									<p class="container__text-gray">FECHA DE RECOLECCION:<span class="container__text-blue"><%= @planning.order.custom.date %></span></p>
 								</div>
 								<div class="origin-address__responsible-name">
-									<p class="container__text-gray">RESPONSABLE:<span class="container__text-blue"><%= render_uppercase(@planning.order.pickup.responsible) %></span></p>
+									<p class="container__text-gray">RESPONSABLE:<span class="container__text-blue"><%= render_uppercase(@planning.order.custom.responsible) %></span></p>
 								</div>
 							</div>
 							<div class="origin-address__collection-time">
-								<p class="container__text-gray">HORARIO DE RECOLECCION:<span class="container__text-blue"> <%= @planning.order.pickup.schedule %> HORAS</span></p>
+								<p class="container__text-gray">HORARIO DE RECOLECCION:<span class="container__text-blue"> <%= render_uppercase(@planning.order.custom.schedule) %> HORAS</span></p>
 							</div>
 			      </div>
 			      <div class="container__destination-address">
@@ -177,7 +177,7 @@
 								<p class="container__text-gray">FECHA DE ENTREGA:<span class="container__text-blue"><%= @planning.order.delivery.date %></span></p>
 							</div>
 							<div class="destination-address__delivery-time">
-								<p class="container__text-gray">HORARIO DE ENTREGA:<span class="container__text-blue"><%= @planning.order.delivery.schedule %> HORAS</span></p>
+								<p class="container__text-gray">HORARIO DE ENTREGA:<span class="container__text-blue"><%= render_uppercase(@planning.order.delivery.schedule) %> HORAS</span></p>
 							</div>
 							<div class="destination-address__responsable">
 								<p class="container__text-gray">RESPONSABLE:<span class="container__text-blue"><%= render_uppercase(@planning.order.delivery.responsible) %></span></p>

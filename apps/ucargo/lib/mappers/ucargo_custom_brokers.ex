@@ -78,7 +78,7 @@ defmodule Ucargo.CustomBroker do
   end
 
   def fetch_plannings(broker) do
-    Repo.preload(broker, plannings: [auction: [:bids], order: [:pickup, :delivery]])
+    Repo.preload(broker, plannings: [auction: [:bids], order: [:pickup, :delivery, :custom]])
   end
 
   defp get_password(username) do

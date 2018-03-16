@@ -20,6 +20,7 @@ alias Ucargo.Bid
 alias Ucargo.CustomBroker
 alias Ucargo.Custom
 
+
 driver_manuel = %Driver{username: "manuelhz", email: "misaelpc@msn.com", password: "12345678",
                   picture: "", name: "Manuel Hernandez Zamora", phone: "663353733",
                   score: 5}
@@ -47,7 +48,6 @@ import_orders_params = %{score: 4, deadline: NaiveDateTime.utc_now(),
                   status: "New", type: 0, distance: "350",
                   merchandise_type: "Plastic", order_number: "47848",
                   transport: "pick-up", weight: "800", comments: "None"}
-
 export_order_params = %{score: 5, deadline: NaiveDateTime.utc_now(),
                   status: "New", type: 1, distance: "450",
                   merchandise_type: "Clothes", order_number: "37598",
@@ -59,13 +59,14 @@ export_order_chs = Order.create_changeset(order, export_order_params)
 pick_up = %Pickup{}
 delivery = %Delivery{} #32.5498703,-116.9378327
 custom = %Custom{}
-pick_chgset = Pickup.create_changeset(pick_up,
+
+custom_import_chgset = Custom.create_changeset(custom,
             %{latitude: 32.5498703, longitude: -116.9378327,
               name: "Aduana de Tijuana", 
               address: "Garita Internacional, Perimetral Nte., 22430 Tijuana, B.C.",
               schedule: "sábado	9–15",
-              responsible: "Joel Sanchez",
-              date: "2018-03-10"})
+              responsible: "Benjamin Cedillo",
+              date: "2018-03-10"})              
 deliver_chgset = Delivery.create_changeset(delivery,
             %{latitude: 20.5848521, longitude: -100.3965839,
               name: "Plaza de toros Queretaro", 
@@ -87,7 +88,7 @@ export_deliver_chgset = Delivery.create_changeset(delivery,
               name: "Plaza de toros Queretaro",
               address: "Avenida Constituyentes, s/n, La Granja, 76190 Santiago de Querétaro, Qro.",
               schedule: "Lunes 9–15",
-              responsible: "Carlos Sanchez",
+              responsible: "Mario Sanchez",
               date: "2018-03-18"})
 
 custom_chgset = Custom.create_changeset(custom,
@@ -95,11 +96,11 @@ custom_chgset = Custom.create_changeset(custom,
               name: "Aduana de Tijuana",
               address: "Garita Internacional, Perimetral Nte., 22430 Tijuana, B.C.",
               schedule: "sábado	9–15",
-              responsible: "Joel Sanchez",
+              responsible: "Hugo Lopez",
               date: "2018-03-10"})
 
 #import order
-order_with_pick = Ecto.Changeset.put_assoc(order_chs, :pickup, pick_chgset)
+order_with_pick = Ecto.Changeset.put_assoc(order_chs, :custom, custom_import_chgset)
 order_with_delivery = Ecto.Changeset.put_assoc(order_with_pick, :delivery, deliver_chgset)
 
 order = Repo.insert! order_with_delivery
