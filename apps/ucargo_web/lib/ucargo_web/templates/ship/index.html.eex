@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal-default-theme.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
 <main>
    <nav>
       <ul class="navContent">
@@ -43,9 +46,11 @@
       <h1 class="panelHeading">
          PLANIFICACIÓN
       </h1>
-      <a href="/plannings/new" class="btn planningNew">
-      NUEVO SERVICIO
-      </a>
+      <div class="quotation-new__button">
+				<a data-remodal-target="new" class="btn planningNew">
+          NUEVO SERVICIO
+        </a>
+			</div>
       <div class="tableContainer">
          <table class="table">
             <thead class="tableHead">
@@ -78,9 +83,29 @@
       </div>
    </section>
 </main>
+<div class="remodal quotation-new" data-remodal-id="new" data-remodal-options="hashTracking: false">
+  <div class="quotation-new__details">
+    <p class="quotation-new__title">
+      TU CARGAMENTO </br> NUEVO ES:
+    </p>
+    <div class="quotation-new__actions">
+      <a href="/plannings/import/new" class="btn">
+        IMPORTACIÓN
+      </a>
+      <a href="/plannings/export/new" class="btn">
+        EXPORTACIÓN
+      </a>
+      <a data-remodal-action="cancel" class="new-actions__cancel">
+        Cancelar
+      </a>
+    </div>
+  </div>
+</div>
 <script type="text/javascript">
   function navigate(url)
   {
     document.location.href = url;
   }
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.js"></script>

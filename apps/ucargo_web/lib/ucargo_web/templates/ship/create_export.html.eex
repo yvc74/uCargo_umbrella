@@ -39,103 +39,427 @@
          </li>
       </ul>
    </nav>
-   <section class="newPlanContainer" id="new">
-      <%= form_for @changeset, "/plannings/submit", fn f -> %>
-      <div class="newService">
-         <div class="transportationRequest">
-            <div class="requestTitle">
-               <span>INFORMACIÓN DE NUEVO CARGAMENTO</span>
+   <section class="container">
+      <div class="container-news">
+         <p class="container-news__title">ENVIAR INFORMACIÓN DE NUEVO CARGAMENTODE EXPORTACIÓN</p>
+         <p class="container-news__help">*campos obligatorios</p>
+         <div class="container-news__item">
+            <p class="news-item__title">DIRECCIÓN DE DESTINO</p>
+            <div class="new-field">
+               <div class="new-field__group">
+                  <p class="new-field__title">Nombre de la aduana</p>
+                  <div class="new-field__container">
+                     <select>
+                        <option value="one">one</option>
+                        <option value="two">two</option>
+                        <option value="three">three</option>
+                        <option value="four">four</option>
+                     </select>
+                  </div>
+               </div>
             </div>
-            <div class="mandatoryCampus">
-               <span>(*) Campos obligatorios</span>
+            <div class="new-field">
+               <div class="new-field__group">
+                  <p class="new-field__title">Fecha Recolección</p>
+                  <div class="new-field__container">
+                     <select>
+                        <option value="one">one</option>
+                        <option value="two">two</option>
+                        <option value="three">three</option>
+                        <option value="four">four</option>
+                     </select>
+                  </div>
+               </div>
+               <div class="new-field__group-two">
+                  <p class="new-field__title">Horario  de Recolección</p>
+                  <div class="new-field__group">
+                     <div class="new-field__container">
+                        <select>
+                           <option value="one">one</option>
+                           <option value="two">two</option>
+                           <option value="three">three</option>
+                           <option value="four">four</option>
+                        </select>
+                     </div>
+                  </div>
+                  <div class="new-field__group">
+                     <div class="new-field__container">
+                        <select>
+                           <option value="one">one</option>
+                           <option value="two">two</option>
+                           <option value="three">three</option>
+                           <option value="four">four</option>
+                        </select>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="new-field">
+               <div class="new-field__group">
+                  <p class="new-field__title">*Responsable</p>
+                  <div class="new-field__container">
+                     <input type="text" class="field">
+                  </div>
+               </div>
             </div>
          </div>
-         <div class="routeInformation">
-            <%= inputs_for f, :order, fn order -> %>
-            <%= radio_button(order, :type, "Exportación") %>  Exportación
-            <%= radio_button(order, :type, "Importación") %>  Importación
-            <div class="requestTitle">
-               <span>DIRECCIÓN DE ORIGEN</span>
-            </div>
-            <%= inputs_for order, :pickup, fn pick_up -> %>
-            <div class="country">
-               <div class="collectionZip">
-                  <span>* Nombre de la Aduana</span>
-                  <%=  select(pick_up, :name, ["Aduana Tijuana": "Aduana Tijuana", "Aduana Monterrey": "Aduana Monterrey"]) %>
+         <div class="container-news__item">
+            <p class="news-item__title">DIRECCIÓN DE RECOLECCION DEL VACIO</p>
+            <div class="new-field">
+               <div class="new-field__group">
+                  <p class="new-field__title">Fecha Entrega</p>
+                  <div class="new-field__container">
+                     <select>
+                        <option value="one">one</option>
+                        <option value="two">two</option>
+                        <option value="three">three</option>
+                        <option value="four">four</option>
+                     </select>
+                  </div>
                </div>
-            </div>
-            <div class="country">
-               <div class="collectionZip">
-                  <span>* Fecha de recolección</span>
-                  <%= text_input pick_up, :schedule %>
-                  <div id="date-picker-calendar" style="display:none;"></div>
-               </div>
-               <div class="collectionZip">
-                  <span>* Horario de recolección</span>
-                  <div class="hours">
-                     <%=  select(pick_up, :hour, ["12:00": 12, "13:00": 13]) %>
-                     <%=  select(pick_up, :minute, ["00": 13, "30": 30]) %>
+               <div class="new-field__group-two">
+                  <p class="new-field__title">Horario  de Entrega</p>
+                  <div class="new-field__group">
+                     <div class="new-field__container">
+                        <select>
+                           <option value="one">one</option>
+                           <option value="two">two</option>
+                           <option value="three">three</option>
+                           <option value="four">four</option>
+                        </select>
+                     </div>
+                  </div>
+                  <div class="new-field__group">
+                     <div class="new-field__container">
+                        <select>
+                           <option value="one">one</option>
+                           <option value="two">two</option>
+                           <option value="three">three</option>
+                           <option value="four">four</option>
+                        </select>
+                     </div>
                   </div>
                </div>
             </div>
-            <div class="zip">
-               <div class="collectionZip">
-                  <span>* Responsable</span>
-                  <input type="text" value="" />
-               </div>
-            </div>
-            <% end %>
-            <%= inputs_for order, :delivery, fn delivery -> %>
-            <div class="requestTitle">
-               <span>DIRECCIÓN DE DESTINO</span>
-            </div>
-            <div class="country">
-               <div class="collectionZip">
-                  <span>* Fecha Entrega</span>
-                  <%= text_input delivery, :schedule %>
-                  <div id="date-delivery-picker-calendar" style="display:none;"></div>
-               </div>
-               <div class="collectionZip">
-                  <span>* Horario de recolección</span>
-                  <div class="hours">
-                     <%=  select(delivery, :hour, ["12:00": 12, "13:00": 13]) %>
-                     <%=  select(delivery, :minute, ["00": 13, "30": 30]) %>
+            <div class="new-field">
+               <div class="new-field__group">
+                  <p class="new-field__title">*Calle</p>
+                  <div class="new-field__container">
+                     <input type="text" class="field">
                   </div>
                </div>
             </div>
-            <div class="country">
-               <div class="collectionZip">
-                  <span>* Calle</span>
-                  <%= text_input delivery, :street %>
-                  <div id="date-picker-calendar" style="display:none;"></div>
+            <div class="new-field">
+               <div class="new-field__group">
+                  <p class="new-field__title">*Numero exterior</p>
+                  <div class="new-field__container">
+                     <input type="text" class="field">
+                  </div>
+               </div>
+               <div class="new-field__group">
+                  <p class="new-field__title">*Numero Interior</p>
+                  <div class="new-field__container">
+                     <input type="text" class="field">
+                  </div>
                </div>
             </div>
-            <div class="country">
-               <div class="collectionZip">
-                  <span>* Número exterior</span>
-                  <%= text_input delivery, :ext %>
+            <div class="new-field">
+               <div class="new-field__group">
+                  <p class="new-field__title">*Colonia</p>
+                  <div class="new-field__container">
+                     <input type="text" class="field">
+                  </div>
                </div>
-               <div class="collectionZip">
-                  <span>* Número exterior</span>
-                  <%= text_input delivery, :int %>
+               <div class="new-field__group">
+                  <p class="new-field__title">*Estado</p>
+                  <div class="new-field__container">
+                     <select>
+                        <option value="one">one</option>
+                        <option value="two">two</option>
+                        <option value="three">three</option>
+                        <option value="four">four</option>
+                     </select>
+                  </div>
                </div>
             </div>
-            <div class="country">
-               <div class="collectionZip">
-                  <span>* Colonia</span>
-                  <%= text_input delivery, :neighborhood %>
+            <div class="new-field">
+               <div class="new-field__group">
+                  <p class="new-field__title">*Código Postal</p>
+                  <div class="new-field__container">
+                     <input type="text" class="field">
+                  </div>
                </div>
-               <div class="collectionZip">
-                  <span>* Estado</span>
-                  <%=  select(delivery, :state, ["CDMX": "CDMX", "Monterrey": "Monterrey"]) %>
+               <div class="new-field__group">
+                  <p class="new-field__title">*Ciudad</p>
+                  <div class="new-field__container">
+                     <select>
+                        <option value="one">one</option>
+                        <option value="two">two</option>
+                        <option value="three">three</option>
+                        <option value="four">four</option>
+                     </select>
+                  </div>
                </div>
             </div>
-            <% end %>
-            <% end %>
-      <% end %>
-            <div class="sendButton">
-               <button class="btn" action="submit">ENVIAR</button>
+            <div class="new-field">
+               <div class="new-field__group">
+                  <p class="new-field__title">*Telefono</p>
+                  <div class="new-field__container">
+                     <input type="text" class="field">
+                  </div>
+               </div>
+               <div class="new-field__group">
+                  <p class="new-field__title">*Delegación</p>
+                  <div class="new-field__container">
+                     <select>
+                        <option value="one">one</option>
+                        <option value="two">two</option>
+                        <option value="three">three</option>
+                        <option value="four">four</option>
+                     </select>
+                  </div>
+               </div>
             </div>
+            <div class="new-field">
+               <div class="new-field__group">
+                  <p class="new-field__title">Referencia o Comentarios</p>
+                  <div class="new-field__container">
+                     <input type="text" class="field">
+                  </div>
+               </div>
+            </div>
+            <div class="new-field">
+               <div class="new-field__group">
+                  <p class="new-field__title">*Responsable</p>
+                  <div class="new-field__container">
+                     <input type="text" class="field">
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="container-news__item">
+            <p class="news-item__title">DIRECCIÓN DE RECOLECCION DE MERCANCÍA</p>
+            <div class="new-field">
+               <div class="new-field__group">
+                  <p class="new-field__title">Fecha Entrega</p>
+                  <div class="new-field__container">
+                     <select>
+                        <option value="one">one</option>
+                        <option value="two">two</option>
+                        <option value="three">three</option>
+                        <option value="four">four</option>
+                     </select>
+                  </div>
+               </div>
+               <div class="new-field__group-two">
+                  <p class="new-field__title">Horario  de Entrega</p>
+                  <div class="new-field__group">
+                     <div class="new-field__container">
+                        <select>
+                           <option value="one">one</option>
+                           <option value="two">two</option>
+                           <option value="three">three</option>
+                           <option value="four">four</option>
+                        </select>
+                     </div>
+                  </div>
+                  <div class="new-field__group">
+                     <div class="new-field__container">
+                        <select>
+                           <option value="one">one</option>
+                           <option value="two">two</option>
+                           <option value="three">three</option>
+                           <option value="four">four</option>
+                        </select>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="new-field">
+               <div class="new-field__group">
+                  <p class="new-field__title">*Calle</p>
+                  <div class="new-field__container">
+                     <input type="text" class="field">
+                  </div>
+               </div>
+            </div>
+            <div class="new-field">
+               <div class="new-field__group">
+                  <p class="new-field__title">*Numero exterior</p>
+                  <div class="new-field__container">
+                     <input type="text" class="field">
+                  </div>
+               </div>
+               <div class="new-field__group">
+                  <p class="new-field__title">*Numero Interior</p>
+                  <div class="new-field__container">
+                     <input type="text" class="field">
+                  </div>
+               </div>
+            </div>
+            <div class="new-field">
+               <div class="new-field__group">
+                  <p class="new-field__title">*Colonia</p>
+                  <div class="new-field__container">
+                     <input type="text" class="field">
+                  </div>
+               </div>
+               <div class="new-field__group">
+                  <p class="new-field__title">*Estado</p>
+                  <div class="new-field__container">
+                     <select>
+                        <option value="one">one</option>
+                        <option value="two">two</option>
+                        <option value="three">three</option>
+                        <option value="four">four</option>
+                     </select>
+                  </div>
+               </div>
+            </div>
+            <div class="new-field">
+               <div class="new-field__group">
+                  <p class="new-field__title">*Código Postal</p>
+                  <div class="new-field__container">
+                     <input type="text" class="field">
+                  </div>
+               </div>
+               <div class="new-field__group">
+                  <p class="new-field__title">*Ciudad</p>
+                  <div class="new-field__container">
+                     <select>
+                        <option value="one">one</option>
+                        <option value="two">two</option>
+                        <option value="three">three</option>
+                        <option value="four">four</option>
+                     </select>
+                  </div>
+               </div>
+            </div>
+            <div class="new-field">
+               <div class="new-field__group">
+                  <p class="new-field__title">*Telefono</p>
+                  <div class="new-field__container">
+                     <input type="text" class="field">
+                  </div>
+               </div>
+               <div class="new-field__group">
+                  <p class="new-field__title">*Delegación</p>
+                  <div class="new-field__container">
+                     <select>
+                        <option value="one">one</option>
+                        <option value="two">two</option>
+                        <option value="three">three</option>
+                        <option value="four">four</option>
+                     </select>
+                  </div>
+               </div>
+            </div>
+            <div class="new-field">
+               <div class="new-field__group">
+                  <p class="new-field__title">Referencia o Comentarios</p>
+                  <div class="new-field__container">
+                     <input type="text" class="field">
+                  </div>
+               </div>
+            </div>
+            <div class="new-field">
+               <div class="new-field__group">
+                  <p class="new-field__title">*Responsable</p>
+                  <div class="new-field__container">
+                     <input type="text" class="field">
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="container-news__item">
+            <div class="new-field">
+               <div class="new-field__group">
+                  <p class="new-field__title">*Tipo de Transporte</p>
+                  <div class="new-field__container">
+                     <select>
+                        <option value="one">one</option>
+                        <option value="two">two</option>
+                        <option value="three">three</option>
+                        <option value="four">four</option>
+                     </select>
+                  </div>
+               </div>
+               <div class="new-field__group">
+                  <p class="new-field__title">*Tipo de Mercancía</p>
+                  <div class="new-field__container">
+                     <input type="text" class="field">
+                  </div>
+               </div>
+            </div>
+            <div class="new-field">
+               <div class="new-field__group">
+                  <p class="new-field__title">*Peso</p>
+                  <div class="new-field__container">
+                     <input type="text" class="field">
+                  </div>
+               </div>
+               <div class="new-field__group-two">
+                  <p class="new-field__title">*Tiempo de Puja</p>
+                  <div class="new-field__group">
+                     <div class="new-field__container">
+                        <select>
+                           <option value="one">one</option>
+                           <option value="two">two</option>
+                           <option value="three">three</option>
+                           <option value="four">four</option>
+                        </select>
+                     </div>
+                  </div>
+                  <div class="new-field__group">
+                     <div class="new-field__container">
+                        <select>
+                           <option value="one">one</option>
+                           <option value="two">two</option>
+                           <option value="three">three</option>
+                           <option value="four">four</option>
+                        </select>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="container-news__item">
+            <div class="new-field">
+               <div class="new-field__group">
+                  <p class="new-field__title">*Referencia House</p>
+                  <div class="new-field__container">
+                     <input type="text" class="field">
+                  </div>
+               </div>
+               <div class="new-field__group">
+                  <p class="new-field__title">*Referencia Master</p>
+                  <div class="new-field__container">
+                     <input type="text" class="field">
+                  </div>
+               </div>
+            </div>
+            <div class="new-field">
+               <div class="new-field__group">
+                  <p class="new-field__title">Observaciones</p>
+                  <div class="new-field__container">
+                     <input type="text" class="field">
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="container-news__send">
+            <div>
+               <input type="checkbox">
+               <label>ENVIAR SOLO A TRANSPORTISTAS FAVORITOS</label>
+            </div>
+            <button class="btn">
+            ENVIAR
+            </button>
+         </div>
+      </div>
+      <div class="container__map">
+         <div class="map__tracking">
+            <div id="map"></div>
          </div>
       </div>
    </section>
