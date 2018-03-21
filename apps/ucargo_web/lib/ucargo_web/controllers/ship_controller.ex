@@ -15,9 +15,15 @@ defmodule UcargoWeb.ShipController do
     render conn, "index.html", plannings: broker.plannings, broker: broker
   end
 
-  def create(conn, _params) do
-    changeset = Planning.create_changeset(%Planning{}, %{})
-    render conn, "create.html", changeset: changeset
+  def create(conn, %{"type" => planning_type}) do
+    case planning_type do
+      "import" ->
+        changeset = Planning.create_changeset(%Planning{}, %{})
+        render conn, "create_import.html", changeset: changeset
+      "export" ->
+        changeset = Planning.create_changeset(%Planning{}, %{})
+        render conn, "create_export.html", changeset: changeset
+    end
   end
 
   def show(conn, %{"id" => planning_id}) do
