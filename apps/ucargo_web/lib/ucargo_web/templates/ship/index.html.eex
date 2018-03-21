@@ -66,7 +66,7 @@
                       <td><%= planning.order.planning_id %></td>
                       <td><%= render_difference_date(planning.auction.begin_date, planning.auction.end_date) %> horas</td>
                       <td><%= planning.auction.ask_price%> MXN</td>
-                      <td><%= planning.order.pickup.name %></td>
+                      <td><%= planning.order.custom.name %></td>
                       <td><%= planning.order.delivery.name %></td>
                       <td></td>
                       <td><%= render_order_type(planning.order.type) %></td>
