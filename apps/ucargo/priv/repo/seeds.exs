@@ -25,7 +25,7 @@ driver_manuel = %Driver{username: "manuelhz", email: "misaelpc@msn.com", passwor
                   picture: "", name: "Manuel Hernandez Zamora", phone: "663353733",
                   score: 5}
 
-driver_juan = %Driver{username: "juanrp", email: "misaelpcgm@gmail.com", password: "12345678",
+driver_juan = %Driver{username: "misaelpc", email: "misaelpcgm@gmail.com", password: "12345678",
                   picture: "", name: "Juan Ramirez Perez", phone: "66334433",
                   score: 4}
 
