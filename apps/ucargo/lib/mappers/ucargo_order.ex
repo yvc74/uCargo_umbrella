@@ -39,7 +39,7 @@ defmodule Ucargo.Order do
 
   def find_all do
     query = from o in Order,
-            preload: [:pickup, :delivery]
+            preload: [:pickup, :delivery, :custom]
     Repo.all(query)
   end
 end
