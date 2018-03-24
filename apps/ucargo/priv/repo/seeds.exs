@@ -33,8 +33,8 @@ driver_jorge = %Driver{username: "jorgema", email: "misaelpcyahoo@yahoo.com", pa
                   picture: "", name: "Jorge Mendez Alvarez", phone: "223353733",
                   score: 3}
 
-Repo.insert! driver_manuel
-Repo.insert! driver_juan
+driver_manuel = Repo.insert! driver_manuel
+driver_juan = Repo.insert! driver_juan
 Repo.insert! driver_jorge
 
 custom_broker = %CustomBroker{name: "Joel de la Peña",
@@ -122,7 +122,7 @@ auction_chgs = Auction.create_changeset(%Auction{},
                      end_date: NaiveDateTime.add(date_now, 86400, :second),
                      ask_price: 10500.45})
 
-bid_chgs = Bid.create_changeset(%Bid{}, %{price: 324443, winner: true})
+bid_chgs = Bid.create_changeset(%Bid{}, %{price: 324443, winner: true, driver_id: driver_manuel.id})
 auction_with_bids = Ecto.Changeset.put_assoc(auction_chgs, :bids, [bid_chgs])
 
 auction = Repo.insert! auction_with_bids
@@ -143,7 +143,7 @@ auction_chgs = Auction.create_changeset(%Auction{},
                      end_date: NaiveDateTime.add(date_now, 45999, :second),
                      ask_price: 20500.45})
 
-bid_chgs = Bid.create_changeset(%Bid{}, %{price: 524443, winner: true})
+bid_chgs = Bid.create_changeset(%Bid{}, %{price: 524443, winner: true, driver_id: driver_juan.id})
 auction_with_bids = Ecto.Changeset.put_assoc(auction_chgs, :bids, [bid_chgs])
 
 auction = Repo.insert! auction_with_bids

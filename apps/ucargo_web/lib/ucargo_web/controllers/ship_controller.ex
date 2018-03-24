@@ -6,6 +6,7 @@ defmodule UcargoWeb.ShipController do
   alias Ucargo.Delivery
   alias Ucargo.Guardian
   alias Ucargo.CustomBroker
+  alias Ucargo.Bid
   @export 1
   @import 0
 
@@ -13,6 +14,11 @@ defmodule UcargoWeb.ShipController do
     resouuce = Guardian.Plug.current_resource(conn)
     broker = CustomBroker.fetch_plannings(resouuce)
     render conn, "index.html", plannings: broker.plannings, broker: broker
+  end
+
+  def proposal_index(conn, %{"id" => planning_id}) do
+    planning = Planning.find_by(:id, planning_id)
+    render conn, "proposal.html", planning: planning
   end
 
   def create(conn, %{"type" => planning_type}) do
@@ -26,13 +32,14 @@ defmodule UcargoWeb.ShipController do
     end
   end
 
-  def show(conn, %{"id" => planning_id}) do
+  def show(conn, %{"planning_id" => planning_id, "bid_id" => bid_id}) do
     planning = Planning.find_by(:id, planning_id)
+    bid = Bid.find_by(:id, bid_id)
     case planning.order.type do
       @export ->
-        render conn, "show_export.html", planning: planning
+        render conn, "show_export.html", planning: planning, bid: bid
       @import ->
-        render conn, "show_import.html", planning: planning
+        render conn, "show_import.html", planning: planning, bid: bid
     end
   end
 

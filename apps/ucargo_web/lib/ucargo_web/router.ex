@@ -49,7 +49,8 @@ defmodule UcargoWeb.Router do
     pipe_through :require_login
     get "/plannings", ShipController, :index
     get "/plannings/:type/new", ShipController, :create
-    get "/plannings/:id", ShipController, :show
+    get "/plannings/:id/proposals", ShipController, :proposal_index
+    get "/plannings/:planning_id/bids/:bid_id", ShipController, :show
     post "/plannings/submit", ShipController, :new
   end
 

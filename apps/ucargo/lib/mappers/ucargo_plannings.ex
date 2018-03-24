@@ -36,7 +36,7 @@ defmodule Ucargo.Planning do
   def find_by(:id, planning_id) do
     query = from p in Planning,
             where: p.id == ^planning_id,
-            preload: [:custom_broker, auction: [:bids], order: [:pickup, :delivery, :custom]]
+            preload: [:custom_broker, auction: [bids: [:driver]], order: [:pickup, :delivery, :custom]]
     Repo.one(query)
   end
 
