@@ -140,7 +140,7 @@
 									<p><%= @bid.driver.name %></p>
 								</div>
 								<div class="profile-data__qualification">
-									<%= for n <- 1..@bid.driver.score do %>
+									<%= for _ <- 1..@bid.driver.score do %>
 										<i class="fas fa-star"></i>
 									<% end %>
 								</div>
