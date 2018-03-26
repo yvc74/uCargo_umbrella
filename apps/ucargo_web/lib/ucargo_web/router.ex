@@ -51,6 +51,7 @@ defmodule UcargoWeb.Router do
     get "/plannings/:type/new", ShipController, :create
     get "/plannings/:id/proposals", ShipController, :proposal_index
     get "/plannings/:planning_id/bids/:bid_id", ShipController, :show
+    get "/plannings/:planning_id/bids/:bid_id/payment_detail", ShipController, :payment_show
     post "/plannings/submit", ShipController, :new
   end
 

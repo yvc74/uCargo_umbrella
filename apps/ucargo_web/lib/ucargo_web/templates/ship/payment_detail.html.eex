@@ -1,0 +1,253 @@
+<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal-default-theme.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+<main>
+   <nav>
+      <ul class="navContent">
+         <li class="navContentItem active">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>PLANIFICACIÓN</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>ASIGNACIONES</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>SEGUIMIENTO</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>HISTORIAL</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>FINANZAS</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>FAVORITOS</p>
+            </a>
+         </li>
+      </ul>
+   </nav>
+   <div class="shell">
+     <section class="container">
+					<div class="payment-summary">
+						<div class="payment-summary__order">
+							<div class="information-order__import">
+								<div class="import__import-box">
+									<div class=import-box__import>
+										<p>IMPORTACIÓN</p>
+									</div>
+									<div class="import-box__puja">
+										<p class="container__text-gray">PUJA:</p>
+									</div>
+									<div class="import-box__hours">
+										<p class="container__text-blue">27:00 HORAS</p>
+									</div>
+								</div>
+								<div class="import__place">
+									<div class="place__departure">
+										<i class="fas fa-angle-up"></i>
+										<p>ADUANA VERACRUZ</p>
+									</div>
+									<div class="place__arrival">
+										<i class="fas fa-angle-down"></i>
+										<p>MEXICO, D.F.</p>
+									</div>
+								</div>
+							</div>
+							<div class="container__reference">
+								<div class="reference__ref-ucargo-box">
+									<div class="ref-ucargo-box__reference">
+										<p class="container__text-gray">REF. UCARGO</p>
+									</div>
+									<div class="ref-ucargo-box__numbers">
+										<p class="container__text-blue">765D35</p>
+									</div>
+								</div>
+								<div class="reference__ref-house-box">
+									<div class="ref-house-box__reference">
+										<p class="container__text-gray">REF. HOUSE</p>
+									</div>
+									<div class="ref-house-box__numbers">
+										<p class="container__text-blue">115403</p>
+									</div>
+								</div>
+								<div class="reference__ref-master-box">
+									<div class="ref-master-box__reference">
+										<p class="container__text-gray">REF. MASTER</p>
+									</div>
+									<div class="ref-master-box__numbers">
+										<p class="container__text-blue">142-3442-2576</p>
+									</div>
+								</div>
+							</div>
+							<div class="container__transport">
+								<div class="transport__transport-box">
+									<div class="transport-box__text">
+										<p class="container__text-gray">TRANSPORTE</p>
+									</div>
+									<div class="transport-box__description">
+										<p class="container__text-blue">CONTENEDOR 40 PIES</p>
+									</div>
+								</div>
+								<div class="transport__commodity-box">
+									<div class="commodity-box__text">
+										<p class="container__text-gray">MERCANCÍA</p>
+									</div>
+									<div class="commodity-box__description">
+										<p class="container__text-blue">CARPAS INDUSTRIALES</p>
+									</div>
+								</div>
+							</div>
+							<div class="container__sender-weight">
+								<div class="sender-weight__sender">
+									<div class="sender__text">
+										<p class="container__text-gray">SENDER</p>
+									</div>
+									<div class="sender__description">
+										<p class="container__text-blue">STEREN S.A. DE C.V</p>
+									</div>
+								</div>
+								<div class="sender-weight__weight">
+									<div class="weight__text">
+										<p class="container__text-gray">PESO</p>
+									</div>
+									<div class="weight__description">
+										<p class="container__text-blue">2 TONELADAS</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="payment-summary__profile">
+							<div class="container__carrier-profile">
+								<div class="carrier-profile__photo">
+									<img src="<%= @bid.driver.picture %>" />
+								</div>
+								<div class="carrier-profile__profile-data">
+									<div class="profile-data__text">
+										<p>PERFIL TRANSPORTISTA</p>
+									</div>
+									<div class="profile-data__user-name">
+										<p><%= @bid.driver.id %></p>
+										<p><%= @bid.driver.name %></p>
+									</div>
+									<div class="profile-data__qualification">
+										<%= for _ <- 1..@bid.driver.score do %>
+										  <i class="fas fa-star"></i>
+									  <% end %>
+									</div>
+								</div>
+				      </div>
+				      <div class="payment-summary__pricing">
+				      	$<%= @bid.price %> <span>MXN +IVA</span>
+				      </div>
+						</div>
+					</div>
+					<div class="payment-method">
+							<p class="payment-method__title">MÉTODOS DE PAGO</p>
+							<div class="payment-method__container">
+								<div class="payment-method__container-item">
+									<input name="payment" type="radio" id="card" />
+									<label class="payment-method__container-label" for="card">TARJETA BANCARIA</label>
+									<article>
+										<div class="paymet-info__container">
+											<form action="">
+												<input class="field" type="text" placeholder="Nombre como aparece en la tarjeta">
+												<input class="field" type="text" placeholder="Numero de Tarjeta">
+												<div class="payment-card__extra">
+													<input class="field card-exp" type="text" placeholder="Fecha Expiración">
+													<input class="field card-cvv" type="text" placeholder="CVV">
+												</div>
+												<div class="payment-card__checkbox">
+													<input type="checkbox">
+													<label for="">
+														<a>he leido terminos y condiciones, etc</a>
+													</label>
+												</div>
+												<a data-remodal-target="finish" class="btn">
+													PAGAR
+												</a>
+											</form>
+										</div>
+									</article>
+								</div>
+								<div class="payment-method__container-item">
+									<input name="payment" type="radio" id="transfer" />
+									<label class="payment-method__container-label" for="transfer">TRANSFERENCIA BANCARIA O DEPOÓSITO EN EFECTIVO</label>
+									<article>
+										<div class="paymet-info__container">
+											<p class="transfer-title">PARA DEPOSITO EN BANCO, ESTA ES TU REFERENCIA:</p>
+											<p class="transfer-subtitle">NUMERO DE REFERENCIA UCARGO</p>
+											<p class="transfer-description">(DATOS BANCARIOS)</p>
+											<p class="transfer-info">EN CUANTO TU PAGO ESTÉ REGUSTRADO EN EL SISTEMA <br />
+												APARECERÁ EN LA PESTAÑA DE ASIGNADOS <br />
+												REVISA TU HISTORIAL PARA IMPRIMIR TU COMPROBANTE</p>
+											<a data-remodal-target="finish" class="btn">
+												ACEPTAR
+											</a>
+										</div>
+									</article>
+								</div>
+							</div>
+						</div>
+				</section>
+	 </div>
+</main>
+<div class="remodal payment-finish" data-remodal-id="finish" data-remodal-options="hashTracking: false">
+	  <div class="payment-finish__details">
+	  	<div class="payment-summary__pricing">
+      	$8,550.00 <span>MXN +IVA</span>
+      </div>
+      <p class="payment-finish__title">
+      	PAGO EXITOSO
+      </p>
+      <div class="payment-finish__icon">
+      	
+      </div>
+      <p class="payment-finish__ref">
+      	NUMERO REFERENCIA 9362419136 
+      </p>
+      <button data-remodal-action="confirm" class="btn">ACEPTAR</button>
+	  </div>
+	  <div class="payment-finish__shared">
+	  	<div class="finish-shared__item">
+	  		<i class="fas fa-print"></i>
+	  	</div>
+	  	<div class="finish-shared__item">
+	  		<i class="fas fa-share-alt"></i>
+	  	</div>
+	  	<div class="finish-shared__item">
+	  		<i class="fas fa-download"></i>
+	  	</div>
+	  </div>
+	</div>
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcplZojGJBqKsyJzi9t0uww0ybfr1GKJw">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.js"></script>
+<script>
+  $(document).on('closing', '.remodal', function (e) {
+  if (e.reason == 'confirmation') {
+    window.location.href = '/plannings';
+  }
+  // Reason: 'confirmation', 'cancellation'
+  console.log('Modal is closing' + (e.reason ? ', reason: ' + e.reason : ''));
+  });
+</script>
