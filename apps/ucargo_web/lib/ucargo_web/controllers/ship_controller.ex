@@ -43,6 +43,12 @@ defmodule UcargoWeb.ShipController do
     end
   end
 
+  def payment_show(conn, %{"planning_id" => planning_id, "bid_id" => bid_id}) do
+    planning = Planning.find_by(:id, planning_id)
+    bid = Bid.find_by(:id, bid_id)
+    render conn, "payment_detail.html", planning: planning, bid: bid
+  end
+
   def new(conn, params) do
     broker = Guardian.Plug.current_resource(conn)
     orders_params = %{score: 4, deadline: NaiveDateTime.utc_now(),

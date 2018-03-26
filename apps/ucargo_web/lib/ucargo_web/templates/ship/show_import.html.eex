@@ -193,7 +193,7 @@
 			      </div>
 			      <div class="container_buttons">
 			        <button class="btn">NO ME INTERESA</button>
-			        <button class="btn">SI ME INTERESA,<br />PAGAR SERVICIO</button>
+			        <button class="btn" onclick="window.location.href = '/plannings/<%= @planning.id %>/bids/<%= @bid.id%>/payment_detail';">SI ME INTERESA,<br />PAGAR SERVICIO</button>
 			      </div>
 			    </div>
 			    <div class="container__map">
