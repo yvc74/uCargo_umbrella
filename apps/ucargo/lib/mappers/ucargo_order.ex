@@ -7,6 +7,7 @@ defmodule Ucargo.Order do
   import Ecto.Query
   alias Ucargo.Order
   alias Ucargo.Repo
+  alias Ucargo.Driver
 
   schema "orders" do
     field :favourite, :boolean
@@ -37,9 +38,26 @@ defmodule Ucargo.Order do
       |> validate_required([:deadline])
   end
 
+  def update_changeset(%Order{} = order, attrs) do
+    order
+      |> cast(attrs, [:favourite, :score, :deadline, :status, :type, :distance, :merchandise_type, :order_number, :transport, :weight, :comments])
+  end
+
   def find_all do
     query = from o in Order,
             preload: [:pickup, :delivery, :custom]
     Repo.all(query)
+  end
+
+  def create_assignment(order, driver) do
+    driver = Driver.update_changeset(driver, %{})
+    order_with_drivers =
+    order
+      |> Repo.preload(:assigned_drivers)
+      |> Repo.preload(:drivers)
+      |> Repo.preload(:planning)
+    order_chs = Order.update_changeset(order_with_drivers, %{})
+    driver_with_orders = Ecto.Changeset.put_assoc(order_chs, :assigned_drivers, [driver])
+    Repo.update!(driver_with_orders)
   end
 end
