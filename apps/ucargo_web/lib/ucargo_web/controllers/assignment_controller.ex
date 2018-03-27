@@ -9,7 +9,7 @@ defmodule UcargoWeb.AssignmentController do
   def index(conn, _params) do
     resource = Guardian.Plug.current_resource(conn)
     broker = CustomBroker.fetch_plannings(resource)
-    render conn, "index.html", plannings: broker.plannings, broker: broker
+    render conn, "index.html", assigned_items: Order.fetch_assigned_items(broker.plannings)
   end
 
   def new(conn, %{"bid_id" => bid_id, "planning_id" => planning_id}) do

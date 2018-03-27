@@ -60,4 +60,22 @@ defmodule Ucargo.Order do
     driver_with_orders = Ecto.Changeset.put_assoc(order_chs, :assigned_drivers, [driver])
     Repo.update!(driver_with_orders)
   end
+
+  def fetch_assigned_items(plannings) do
+    Enum.flat_map(plannings, fn(planning) ->
+      order = Repo.preload(planning.order, :assigned_drivers)
+      case order.assigned_drivers do
+        [] ->
+          []
+        drivers ->
+          build_item(drivers, order, planning)
+      end
+    end)
+  end
+
+  defp build_item(drivers, order, planning) do
+    Enum.map(drivers, fn(driver) ->
+      %{driver: driver, order: order, planning: planning}
+    end)
+  end
 end

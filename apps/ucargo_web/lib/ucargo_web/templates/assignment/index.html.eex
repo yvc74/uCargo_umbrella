@@ -44,13 +44,8 @@
    </nav>
    <section class="container" id="planning">
       <h1 class="panelHeading">
-         PLANIFICACIÓN
+         ASIGNACIONES
       </h1>
-      <div class="quotation-new__button">
-				<a data-remodal-target="new" class="btn planningNew">
-          NUEVO SERVICIO
-        </a>
-			</div>
       <div class="tableContainer">
          <table class="table">
             <thead class="tableHead">
@@ -66,16 +61,16 @@
               </tr>
             </thead>
             <tbody class="tableBody">
-              <%= for assigned_driver <- @order.assigned_drivers do %>
-                  <tr onclick="navigate('/plannings/<%= @planning.order.planning_id %>/proposals');">
-                      <td><%= @planning.order.planning_id %></td>
-                      <td><%= @order.status %></td>
+              <%= for item <- @assigned_items do %>
+                  <tr onclick="navigate('/plannings');">
+                      <td><%= item.planning.id %></td>
+                      <td><%= item.order.status %></td>
                       <td>MARZO</td>
-                      <td><%= @planning.order.custom.name %></td>
-                      <td><%= @planning.order.delivery.name %></td>
-                      <td><%= assigned_driver.id %></td>
-                      <td><%= render_order_type(@planning.order.type) %></td>
-                      <td><%= @planning.order.merchandise_type %></td>
+                      <td><%= item.order.custom.name %></td>
+                      <td><%= item.order.delivery.name %></td>
+                      <td><%= item.driver.id %></td>
+                      <td><%= render_order_type(item.planning.order.type) %></td>
+                      <td><%= item.order.merchandise_type %></td>
                   </tr>
               <% end %>
             </tbody>
