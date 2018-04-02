@@ -40,21 +40,20 @@
       </ul>
    </nav>
    <section class="new_import_container">
+    <%= form_for @changeset, "/plannings/submit", fn f -> %>
       <div class="container-news">
-         <p class="container-news__title">ENVIARINFORMACIÓN DE NUEVO CARGAMENTODE IMPORTACIÓN</p>
+        <%= inputs_for f, :order, fn order -> %>
+        <%= hidden_input order, :type, value: 0%>
+         <p class="container-news__title">ENVIAR INFORMACIÓN DE NUEVO CARGAMENTODE IMPORTACIÓN</p>
          <p class="container-news__help">*campos obligatorios</p>
          <div class="container-news__item">
+          <%= inputs_for order, :custom, fn custom -> %>
             <p class="news-item__title">DIRECCIÓN DE ORIGEN</p>
             <div class="new-field">
                <div class="new-field__group">
                   <p class="new-field__title">Nombre de la aduana</p>
                   <div class="new-field__container">
-                     <select>
-                        <option value="one">one</option>
-                        <option value="two">two</option>
-                        <option value="three">three</option>
-                        <option value="four">four</option>
-                     </select>
+                    <%=  select(custom, :name, ["Aduana Tijuana": "Aduana Tijuana", "Aduana Monterrey": "Aduana Monterrey"]) %>
                   </div>
                </div>
             </div>
@@ -62,34 +61,20 @@
                <div class="new-field__group">
                   <p class="new-field__title">Fecha Recolección</p>
                   <div class="new-field__container">
-                     <select>
-                        <option value="one">one</option>
-                        <option value="two">two</option>
-                        <option value="three">three</option>
-                        <option value="four">four</option>
-                     </select>
+                    <%= text_input custom, :schedule %>
+                    <div id="date-picker-calendar" style="display:none;"></div>
                   </div>
                </div>
                <div class="new-field__group-two">
                   <p class="new-field__title">Horario  de Recolección</p>
                   <div class="new-field__group">
                      <div class="new-field__container">
-                        <select>
-                           <option value="one">one</option>
-                           <option value="two">two</option>
-                           <option value="three">three</option>
-                           <option value="four">four</option>
-                        </select>
+                      <%=  select(custom, :hour, ["12:00": 12, "13:00": 13]) %>
                      </div>
                   </div>
                   <div class="new-field__group">
                      <div class="new-field__container">
-                        <select>
-                           <option value="one">one</option>
-                           <option value="two">two</option>
-                           <option value="three">three</option>
-                           <option value="four">four</option>
-                        </select>
+                      <%=  select(custom, :minute, ["00": 13, "30": 30]) %>
                      </div>
                   </div>
                </div>
@@ -98,45 +83,33 @@
                <div class="new-field__group">
                   <p class="new-field__title">*Responsable</p>
                   <div class="new-field__container">
-                     <input type="text" class="field">
+                    <%= text_input custom, :responsible %>
                   </div>
                </div>
             </div>
+        <% end %>
          </div>
          <div class="container-news__item">
+           <%= inputs_for order, :delivery, fn delivery -> %>
             <p class="news-item__title">DIRECCIÓN DE DESTINO</p>
             <div class="new-field">
                <div class="new-field__group">
                   <p class="new-field__title">Fecha Entrega</p>
                   <div class="new-field__container">
-                     <select>
-                        <option value="one">one</option>
-                        <option value="two">two</option>
-                        <option value="three">three</option>
-                        <option value="four">four</option>
-                     </select>
+                    <%= text_input delivery, :schedule %>
+                    <div id="date-delivery-picker-calendar" style="display:none;"></div>
                   </div>
                </div>
                <div class="new-field__group-two">
                   <p class="new-field__title">Horario  de Entrega</p>
                   <div class="new-field__group">
                      <div class="new-field__container">
-                        <select>
-                           <option value="one">one</option>
-                           <option value="two">two</option>
-                           <option value="three">three</option>
-                           <option value="four">four</option>
-                        </select>
+                       <%=  select(delivery, :hour, ["12:00": 12, "13:00": 13]) %>
                      </div>
                   </div>
                   <div class="new-field__group">
                      <div class="new-field__container">
-                        <select>
-                           <option value="one">one</option>
-                           <option value="two">two</option>
-                           <option value="three">three</option>
-                           <option value="four">four</option>
-                        </select>
+                        <%=  select(delivery, :minute, ["00": 13, "30": 30]) %>
                      </div>
                   </div>
                </div>
@@ -145,7 +118,7 @@
                <div class="new-field__group">
                   <p class="new-field__title">*Calle</p>
                   <div class="new-field__container">
-                     <input type="text" class="field">
+                     <%= text_input delivery, :street %>
                   </div>
                </div>
             </div>
@@ -153,13 +126,13 @@
                <div class="new-field__group">
                   <p class="new-field__title">*Numero exterior</p>
                   <div class="new-field__container">
-                     <input type="text" class="field">
+                     <%= text_input delivery, :ext %>
                   </div>
                </div>
                <div class="new-field__group">
                   <p class="new-field__title">*Numero Interior</p>
                   <div class="new-field__container">
-                     <input type="text" class="field">
+                     <%= text_input delivery, :int %>
                   </div>
                </div>
             </div>
@@ -167,18 +140,13 @@
                <div class="new-field__group">
                   <p class="new-field__title">*Colonia</p>
                   <div class="new-field__container">
-                     <input type="text" class="field">
+                     <%= text_input delivery, :neighborhood %>
                   </div>
                </div>
                <div class="new-field__group">
                   <p class="new-field__title">*Estado</p>
                   <div class="new-field__container">
-                     <select>
-                        <option value="one">one</option>
-                        <option value="two">two</option>
-                        <option value="three">three</option>
-                        <option value="four">four</option>
-                     </select>
+                    <%=  select(delivery, :state, ["CDMX": "CDMX", "Monterrey": "Monterrey"]) %>
                   </div>
                </div>
             </div>
@@ -186,18 +154,13 @@
                <div class="new-field__group">
                   <p class="new-field__title">*Código Postal</p>
                   <div class="new-field__container">
-                     <input type="text" class="field">
+                    <%= text_input delivery, :zipcode %>
                   </div>
                </div>
                <div class="new-field__group">
                   <p class="new-field__title">*Ciudad</p>
                   <div class="new-field__container">
-                     <select>
-                        <option value="one">one</option>
-                        <option value="two">two</option>
-                        <option value="three">three</option>
-                        <option value="four">four</option>
-                     </select>
+                    <%=  select(delivery, :city, ["CDMX": "CDMX", "Monterrey": "Monterrey"]) %>
                   </div>
                </div>
             </div>
@@ -205,18 +168,13 @@
                <div class="new-field__group">
                   <p class="new-field__title">*Telefono</p>
                   <div class="new-field__container">
-                     <input type="text" class="field">
+                    <%= text_input delivery, :telephone %>
                   </div>
                </div>
                <div class="new-field__group">
                   <p class="new-field__title">*Delegación</p>
                   <div class="new-field__container">
-                     <select>
-                        <option value="one">one</option>
-                        <option value="two">two</option>
-                        <option value="three">three</option>
-                        <option value="four">four</option>
-                     </select>
+                    <%=  select(delivery, :delegation, ["CDMX": "CDMX", "Monterrey": "Monterrey"]) %>
                   </div>
                </div>
             </div>
@@ -224,7 +182,7 @@
                <div class="new-field__group">
                   <p class="new-field__title">Referencia o Comentarios</p>
                   <div class="new-field__container">
-                     <input type="text" class="field">
+                    <%= text_input delivery, :comments %>
                   </div>
                </div>
             </div>
@@ -232,7 +190,7 @@
                <div class="new-field__group">
                   <p class="new-field__title">*Responsable</p>
                   <div class="new-field__container">
-                     <input type="text" class="field">
+                    <%= text_input delivery, :responsible %>
                   </div>
                </div>
             </div>
@@ -242,18 +200,13 @@
                <div class="new-field__group">
                   <p class="new-field__title">*Tipo de Transporte</p>
                   <div class="new-field__container">
-                     <select>
-                        <option value="one">one</option>
-                        <option value="two">two</option>
-                        <option value="three">three</option>
-                        <option value="four">four</option>
-                     </select>
+                    <%=  select(order, :transport, ["Camion": "Camión", "Trailer": "Trailer"]) %>
                   </div>
                </div>
                <div class="new-field__group">
                   <p class="new-field__title">*Tipo de Mercancía</p>
                   <div class="new-field__container">
-                     <input type="text" class="field">
+                    <%= text_input order, :merchandise_type %>
                   </div>
                </div>
             </div>
@@ -261,7 +214,7 @@
                <div class="new-field__group">
                   <p class="new-field__title">*Peso</p>
                   <div class="new-field__container">
-                     <input type="text" class="field">
+                    <%= text_input order, :weight %>
                   </div>
                </div>
                <div class="new-field__group-two">
@@ -294,13 +247,13 @@
                <div class="new-field__group">
                   <p class="new-field__title">*Referencia House</p>
                   <div class="new-field__container">
-                     <input type="text" class="field">
+                     <%= text_input f, :house_reference %>
                   </div>
                </div>
                <div class="new-field__group">
                   <p class="new-field__title">*Referencia Master</p>
                   <div class="new-field__container">
-                     <input type="text" class="field">
+                     <%= text_input f, :master_reference %>
                   </div>
                </div>
             </div>
@@ -308,11 +261,12 @@
                <div class="new-field__group">
                   <p class="new-field__title">Observaciones</p>
                   <div class="new-field__container">
-                     <input type="text" class="field">
+                     <%= text_input order, :comments %>
                   </div>
                </div>
             </div>
          </div>
+      <% end %>
          <div class="container-news__send">
             <div>
                <input type="checkbox">
@@ -323,10 +277,12 @@
             </button>
          </div>
       </div>
+      <%end%>
       <div class="container__map">
          <div class="map__tracking">
             <div id="map"></div>
          </div>
       </div>
+    <% end %>
    </section>
 </main>
