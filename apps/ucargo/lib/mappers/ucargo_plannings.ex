@@ -11,7 +11,6 @@ defmodule Ucargo.Planning do
   alias Kraken.Mailer
   alias Kraken.Mail
   alias Ucargo.Auction
-  alias Ucargo.Bid
 
   schema "plannings" do
     field :master_reference, :string

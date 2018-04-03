@@ -20,7 +20,6 @@ defmodule UcargoWeb.ShipView do
   end
 
   def render_avalaible_bids(planning) do
-    IO.inspect planning
     if planning.auction.bids == [] do
       "Sin Propuestas"
     else
