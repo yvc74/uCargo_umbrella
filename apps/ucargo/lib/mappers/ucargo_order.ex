@@ -49,6 +49,13 @@ defmodule Ucargo.Order do
     Repo.all(query)
   end
 
+  def find_by(:id, order_id) do
+    query = from o in Order,
+            where: o.id == ^order_id,
+            preload: [:pickup, :delivery, :custom, [planning: :auction]]
+    Repo.one(query)
+  end
+
   def create_assignment(order, driver) do
     driver = Driver.update_changeset(driver, %{})
     order_with_drivers =

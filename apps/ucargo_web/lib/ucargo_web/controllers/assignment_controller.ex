@@ -5,6 +5,9 @@ defmodule UcargoWeb.AssignmentController do
   alias Ucargo.Guardian
   alias Ucargo.CustomBroker
   alias Ucargo.Bid
+  alias Ucargo.Driver
+  @export 1
+  @import 0
 
   def index(conn, _params) do
     resource = Guardian.Plug.current_resource(conn)
@@ -21,5 +24,22 @@ defmodule UcargoWeb.AssignmentController do
     broker = CustomBroker.fetch_plannings(resource)
     render conn, "index.html",
            assigned_items: Order.fetch_assigned_items(broker.plannings)
+  end
+
+  def assignment_detail(conn, %{"order_id" => order_id, "driver_id" => driver_id}) do
+    order = Order.find_by(:id, order_id)
+    resource = Guardian.Plug.current_resource(conn)
+    driver = Driver.find_by(:id, order_id)
+    IO.inspect order
+    case order.type do
+      @export ->
+        render conn, "detail_export.html",
+               order: order, planning: order.planning,
+               custom_broker: resource, driver: driver
+      @import ->
+        render conn, "detail_import.html",
+               order: order, planning: order.planning,
+               custom_broker: resource, driver: driver
+    end
   end
 end

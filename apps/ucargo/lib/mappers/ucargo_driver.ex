@@ -85,4 +85,10 @@ defmodule Ucargo.Driver do
       select: d.email
     Repo.all(query)
   end
+
+  def find_by(:id, driver_id) do
+    query = from d in Driver,
+            where: d.id == ^driver_id
+    Repo.one(query)
+  end
 end

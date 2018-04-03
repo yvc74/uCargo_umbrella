@@ -62,7 +62,7 @@
             </thead>
             <tbody class="tableBody">
               <%= for item <- @assigned_items do %>
-                  <tr onclick="navigate('/plannings');">
+                  <tr onclick="navigate('/assignments/orders/<%= item.order.id %>/driver/<%= item.driver.id %>');">
                       <td><%= item.planning.id %></td>
                       <td><%= item.order.status %></td>
                       <td>MARZO</td>

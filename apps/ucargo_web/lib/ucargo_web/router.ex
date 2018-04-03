@@ -56,6 +56,7 @@ defmodule UcargoWeb.Router do
     post "/plannings/submit_export", ShipController, :new_export_ship
     get "/assignments/plannings/:planning_id/bids/:bid_id", AssignmentController, :new
     get "/assignments/plannings", AssignmentController, :index
+    get "/assignments/orders/:order_id/driver/:driver_id", AssignmentController, :assignment_detail
   end
 
   # Other scopes may use custom stacks.
