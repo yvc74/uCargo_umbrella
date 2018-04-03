@@ -52,10 +52,7 @@ defmodule Ucargo.Planning do
                      end_date: NaiveDateTime.add(date_now, 86400, :second),
                      ask_price: 10500.45})
 
-    bid_chgs = Bid.create_changeset(%Bid{}, %{price: 324443, winner: true})
-    auction_with_bids = Ecto.Changeset.put_assoc(auction_chgs, :bids, [bid_chgs])
-
-    auction = Repo.insert! auction_with_bids
+    auction = Repo.insert! auction_chgs
     
     pl_with_order = Ecto.Changeset.put_assoc(pl_changeset, :order, order)
     pl_with_auction = Ecto.Changeset.put_assoc(pl_with_order, :auction, auction)
@@ -76,10 +73,7 @@ defmodule Ucargo.Planning do
                      end_date: NaiveDateTime.add(date_now, 86400, :second),
                      ask_price: 10500.45})
 
-    bid_chgs = Bid.create_changeset(%Bid{}, %{price: 324443, winner: true})
-    auction_with_bids = Ecto.Changeset.put_assoc(auction_chgs, :bids, [bid_chgs])
-
-    auction = Repo.insert! auction_with_bids
+    auction = Repo.insert! auction_chgs
     
     pl_with_order = Ecto.Changeset.put_assoc(pl_changeset, :order, order)
     pl_with_auction = Ecto.Changeset.put_assoc(pl_with_order, :auction, auction)

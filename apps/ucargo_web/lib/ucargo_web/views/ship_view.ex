@@ -19,4 +19,13 @@ defmodule UcargoWeb.ShipView do
     String.upcase(string)
   end
 
+  def render_avalaible_bids(planning) do
+    IO.inspect planning
+    if planning.auction.bids == [] do
+      "Sin Propuestas"
+    else
+      "Ver Propuestas"
+    end
+  end
+
 end
