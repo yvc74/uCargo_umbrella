@@ -29,8 +29,7 @@ defmodule UcargoWeb.AssignmentController do
   def assignment_detail(conn, %{"order_id" => order_id, "driver_id" => driver_id}) do
     order = Order.find_by(:id, order_id)
     resource = Guardian.Plug.current_resource(conn)
-    driver = Driver.find_by(:id, order_id)
-    IO.inspect order
+    driver = Driver.find_by(:id, driver_id)
     case order.type do
       @export ->
         render conn, "detail_export.html",
