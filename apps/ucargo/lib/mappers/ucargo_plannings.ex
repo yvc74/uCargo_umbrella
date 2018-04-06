@@ -39,12 +39,12 @@ defmodule Ucargo.Planning do
     Repo.one(query)
   end
 
-  def create_with_order_import(master_reference_chs, house_reference_chs, order_chs, custom_chgset, deliver_chgset, broker_id) do
+  def create_with_order_import({master_reference_chs, house_reference_chs, order_chs, custom_chgset, deliver_chgset, broker_id}) do
     order_with_custom = Ecto.Changeset.put_assoc(order_chs, :custom, custom_chgset)
     order_with_delivery = Ecto.Changeset.put_assoc(order_with_custom, :delivery, deliver_chgset)
     order = Repo.insert! order_with_delivery
     notify_to_drivers(order)
-    pl_changeset = Planning.create_changeset(%Planning{}, %{master_reference: master_reference_chs, house_reference: house_reference_chs,custom_broker_id: broker_id})
+    pl_changeset = Planning.create_changeset(%Planning{}, %{master_reference: master_reference_chs, house_reference: house_reference_chs, custom_broker_id: broker_id})
     date_now = NaiveDateTime.utc_now()
     auction_chgs = Auction.create_changeset(%Auction{},
                    %{begin_date: date_now,
@@ -59,13 +59,13 @@ defmodule Ucargo.Planning do
     Repo.insert! pl_with_auction
   end
 
-  def create_with_order_export(master_reference_chs, house_reference_chs, order_chs, custom_chgset, pick_chgset, deliver_chgset, broker_id) do
+  def create_with_order_export({master_reference_chs, house_reference_chs, order_chs, custom_chgset, pick_chgset, deliver_chgset, broker_id}) do
     order_with_custom = Ecto.Changeset.put_assoc(order_chs, :custom, custom_chgset)
     order_with_delivery = Ecto.Changeset.put_assoc(order_with_custom, :delivery, deliver_chgset)
     order_with_pick_up = Ecto.Changeset.put_assoc(order_with_delivery, :pickup, pick_chgset)
     order = Repo.insert! order_with_pick_up
     notify_to_drivers(order)
-    pl_changeset = Planning.create_changeset(%Planning{}, %{master_reference: master_reference_chs, house_reference: house_reference_chs,custom_broker_id: broker_id})
+    pl_changeset = Planning.create_changeset(%Planning{}, %{master_reference: master_reference_chs, house_reference: house_reference_chs, custom_broker_id: broker_id})
     date_now = NaiveDateTime.utc_now()
     auction_chgs = Auction.create_changeset(%Auction{},
                    %{begin_date: date_now,

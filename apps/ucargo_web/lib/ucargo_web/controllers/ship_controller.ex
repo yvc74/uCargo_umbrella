@@ -52,7 +52,7 @@ defmodule UcargoWeb.ShipController do
 
   def new(conn, params) do
     broker = Guardian.Plug.current_resource(conn)
-    %{"planning" => %{"master_reference" => master_reference_params, "house_reference" => house_reference_params, "order" => %{"delivery" => delivery_params, "custom" => custom_params} = order_params }} = params
+    %{"planning" => %{"master_reference" => master_reference_params, "house_reference" => house_reference_params, "order" => %{"delivery" => delivery_params, "custom" => custom_params} = order_params}} = params
     order = %Order{}
     custom = %Custom{}
     delivery = %Delivery{}
@@ -72,18 +72,18 @@ defmodule UcargoWeb.ShipController do
       |> Map.put("latitude", 20.5848521)
       |> Map.put("longitude", -100.3965839)
       |> Map.put("name", "Centro Industrial Vallejo")
-      |> Map.put("address","#{delivery_params["street"]} #{delivery_params["ext"]} #{delivery_params["int"]}, #{delivery_params["zipcode"]}, #{delivery_params["neighborhood"]},#{delivery_params["delegation"]},#{delivery_params["city"]},#{delivery_params["state"]}")
+      |> Map.put("address", "#{delivery_params["street"]} #{delivery_params["ext"]} #{delivery_params["int"]}, #{delivery_params["zipcode"]}, #{delivery_params["neighborhood"]},#{delivery_params["delegation"]},#{delivery_params["city"]},#{delivery_params["state"]}")
 
     cstm_chgset = Custom.create_changeset(custom, ct_up_prms)
     deliver_chgset = Delivery.create_changeset(delivery, dvl_up_prms)
-    Planning.create_with_order_import(master_reference_params, house_reference_params,order_chs, cstm_chgset, deliver_chgset, broker.id)
+    Planning.create_with_order_import({master_reference_params, house_reference_params, order_chs, cstm_chgset, deliver_chgset, broker.id})
     conn
       |> redirect(to: "/plannings")
   end
 
   def new_export_ship(conn, params) do
     broker = Guardian.Plug.current_resource(conn)
-    %{"planning" => %{"master_reference" => master_reference_params, "house_reference" => house_reference_params, "order" => %{"delivery" => delivery_params, "custom" => custom_params, "pickup" => pickup_params} = order_params }} = params
+    %{"planning" => %{"master_reference" => master_reference_params, "house_reference" => house_reference_params, "order" => %{"delivery" => delivery_params, "custom" => custom_params, "pickup" => pickup_params} = order_params}} = params
     order = %Order{}
     custom = %Custom{}
     delivery = %Delivery{}
@@ -104,19 +104,23 @@ defmodule UcargoWeb.ShipController do
       |> Map.put("latitude", 20.5848521)
       |> Map.put("longitude", -100.3965839)
       |> Map.put("name", "Centro Industrial Vallejo")
-      |> Map.put("address","#{delivery_params["street"]} #{delivery_params["ext"]} #{delivery_params["int"]}, #{delivery_params["zipcode"]}, #{delivery_params["neighborhood"]},#{delivery_params["delegation"]},#{delivery_params["city"]},#{delivery_params["state"]}")
+      |> Map.put("address", "#{delivery_params["street"]} #{delivery_params["ext"]} #{delivery_params["int"]}, #{delivery_params["zipcode"]}, #{delivery_params["neighborhood"]},#{delivery_params["delegation"]},#{delivery_params["city"]},#{delivery_params["state"]}")
 
     pck_up_prms = pickup_params
       |> Map.put("latitude", 20.5848521)
       |> Map.put("longitude", -100.3965839)
       |> Map.put("name", "Santa María la Rivera")
-      |> Map.put("address","#{pickup_params["street"]} #{pickup_params["ext"]} #{pickup_params["int"]}, #{pickup_params["zipcode"]}, #{pickup_params["neighborhood"]},#{pickup_params["delegation"]},#{pickup_params["city"]},#{pickup_params["state"]}")      
+      |> Map.put("address", "#{pickup_params["street"]} #{pickup_params["ext"]} #{pickup_params["int"]}, #{pickup_params["zipcode"]}, #{pickup_params["neighborhood"]},#{pickup_params["delegation"]},#{pickup_params["city"]},#{pickup_params["state"]}")      
     
     cstm_chgset = Custom.create_changeset(custom, ct_up_prms)
     deliver_chgset = Delivery.create_changeset(delivery, dvl_up_prms)
     pck_chgset = Pickup.create_changeset(pickup, pck_up_prms)
     
-    Planning.create_with_order_export(master_reference_params, house_reference_params,order_chs, cstm_chgset, pck_chgset, deliver_chgset, broker.id)
+    Planning.create_with_order_export({master_reference_params,
+                                       house_reference_params,
+                                       order_chs, cstm_chgset,
+                                       pck_chgset, deliver_chgset,
+                                       broker.id})
     conn
       |> redirect(to: "/plannings")
   end
