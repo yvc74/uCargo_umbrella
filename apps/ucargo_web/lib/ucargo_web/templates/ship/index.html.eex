@@ -73,7 +73,7 @@
                       <td><%= planning.order.delivery.name %></td>
                       <td><%= render_order_type(planning.order.type) %></td>
                       <td><%= planning.order.merchandise_type %></td>
-                      <td>Ver propuestas</td>
+                      <td><%= render_avalaible_bids(planning) %></td>
                   </tr>
               <% end %>
             </tbody>

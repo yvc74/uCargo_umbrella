@@ -19,6 +19,9 @@ defmodule Ucargo.Delivery do
     field :int, :string, virtual: true
     field :neighborhood, :string, virtual: true
     field :state, :string, virtual: true
+    field :delegation, :string, virtual: true
+    field :zipcode, :string, virtual: true
+    field :telephone, :string, virtual: true
     field :responsible, :string
     field :date, :date
     belongs_to :order, Ucargo.Order
