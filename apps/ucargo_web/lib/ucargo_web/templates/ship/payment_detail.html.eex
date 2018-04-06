@@ -245,7 +245,7 @@
 <script>
   $(document).on('closing', '.remodal', function (e) {
   if (e.reason == 'confirmation') {
-    window.location.href = '/plannings';
+    window.location.href = '/assignments/plannings/<%= @planning.id%>/bids/<%= @bid.driver.id %>';
   }
   // Reason: 'confirmation', 'cancellation'
   console.log('Modal is closing' + (e.reason ? ', reason: ' + e.reason : ''));

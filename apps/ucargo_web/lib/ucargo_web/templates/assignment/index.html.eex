@@ -1,0 +1,106 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal-default-theme.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+<main>
+   <nav>
+      <ul class="navContent">
+         <li class="navContentItem active">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>PLANIFICACIÓN</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>ASIGNACIONES</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>SEGUIMIENTO</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>HISTORIAL</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>FINANZAS</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>FAVORITOS</p>
+            </a>
+         </li>
+      </ul>
+   </nav>
+   <section class="container" id="planning">
+      <h1 class="panelHeading">
+         ASIGNACIONES
+      </h1>
+      <div class="tableContainer">
+         <table class="table">
+            <thead class="tableHead">
+              <tr>
+                <th>REF U.CARGO</th>
+                <th>STATUS</th>
+                <th>ENTREGA</th>
+                <th>ORIGEN</th>
+                <th>DESTINO</th>
+                <th>REF. TRANSPORTISTA</th>
+                <th>IMP/EXP</th>
+                <th>MERCANCIA</th>
+              </tr>
+            </thead>
+            <tbody class="tableBody">
+              <%= for item <- @assigned_items do %>
+                  <tr onclick="navigate('/assignments/orders/<%= item.order.id %>/driver/<%= item.driver.id %>');">
+                      <td><%= item.planning.id %></td>
+                      <td><%= item.order.status %></td>
+                      <td>MARZO</td>
+                      <td><%= item.order.custom.name %></td>
+                      <td><%= item.order.delivery.name %></td>
+                      <td><%= item.driver.id %></td>
+                      <td><%= render_order_type(item.planning.order.type) %></td>
+                      <td><%= item.order.merchandise_type %></td>
+                  </tr>
+              <% end %>
+            </tbody>
+         </table>
+      </div>
+   </section>
+</main>
+<div class="remodal quotation-new" data-remodal-id="new" data-remodal-options="hashTracking: false">
+  <div class="quotation-new__details">
+    <p class="quotation-new__title">
+      TU CARGAMENTO </br> NUEVO ES:
+    </p>
+    <div class="quotation-new__actions">
+      <a href="/plannings/import/new" class="btn">
+        IMPORTACIÓN
+      </a>
+      <a href="/plannings/export/new" class="btn">
+        EXPORTACIÓN
+      </a>
+      <a data-remodal-action="cancel" class="new-actions__cancel">
+        Cancelar
+      </a>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  function navigate(url)
+  {
+    document.location.href = url;
+  }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.js"></script>
