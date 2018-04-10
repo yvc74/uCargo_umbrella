@@ -52,7 +52,7 @@ defmodule Ucargo.Order do
   def find_by(:id, order_id) do
     query = from o in Order,
             where: o.id == ^order_id,
-            preload: [:pickup, :delivery, :custom, [planning: :auction]]
+            preload: [:pickup, :delivery, :custom, [planning: [auction: [:bids]]]]
     Repo.one(query)
   end
 
