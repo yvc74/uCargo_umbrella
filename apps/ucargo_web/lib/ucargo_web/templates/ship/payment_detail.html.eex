@@ -217,7 +217,6 @@
       	PAGO EXITOSO
       </p>
       <div class="payment-finish__icon">
-      	
       </div>
       <p class="payment-finish__ref">
       	NUMERO REFERENCIA 9362419136 
@@ -245,7 +244,7 @@
 <script>
   $(document).on('closing', '.remodal', function (e) {
   if (e.reason == 'confirmation') {
-    window.location.href = '/assignments/plannings/<%= @planning.id%>/bids/<%= @bid.driver.id %>';
+    window.location.href = '/assignments/plannings/<%= @planning.id%>/bids/<%= @bid.id %>';
   }
   // Reason: 'confirmation', 'cancellation'
   console.log('Modal is closing' + (e.reason ? ', reason: ' + e.reason : ''));

@@ -260,7 +260,11 @@
 			      </div>
 			      <div class="container__price">
 							<div class="price__box">
+<<<<<<< Updated upstream
 								<p>$<span>MXN+IVA</span></p>
+=======
+								<p>$<%= @bid.price %><span>MXN+IVA</span></p>
+>>>>>>> Stashed changes
 							</div>
 			      </div>
 			    </div>
