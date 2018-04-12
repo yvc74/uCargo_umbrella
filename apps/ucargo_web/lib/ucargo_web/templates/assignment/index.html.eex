@@ -4,14 +4,14 @@
 <main>
    <nav>
       <ul class="navContent">
-         <li class="navContentItem active">
-            <a href="">
+         <li class="navContentItem">
+            <a onclick="navigate('/plannings');">
                <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
                <p>PLANIFICACIÓN</p>
             </a>
          </li>
-         <li class="navContentItem">
-            <a href="">
+         <li class="navContentItem active">
+            <a onclick="navigate('/assignments/plannings');">
                <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
                <p>ASIGNACIONES</p>
             </a>
@@ -52,12 +52,11 @@
               <tr>
                 <th>REF U.CARGO</th>
                 <th>STATUS</th>
-                <th>ENTREGA</th>
                 <th>ORIGEN</th>
                 <th>DESTINO</th>
-                <th>REF. TRANSPORTISTA</th>
-                <th>IMP/EXP</th>
+                <th>TIPO</th>
                 <th>MERCANCIA</th>
+                <th>TRANSPORTISTA</th>
               </tr>
             </thead>
             <tbody class="tableBody">
@@ -65,12 +64,11 @@
                   <tr onclick="navigate('/assignments/orders/<%= item.order.id %>/driver/<%= item.driver.id %>');">
                       <td><%= item.planning.id %></td>
                       <td><%= item.order.status %></td>
-                      <td>MARZO</td>
-                      <td><%= item.order.custom.name %></td>
+                      <td><%= item.order.custom.name  %></td>
                       <td><%= item.order.delivery.name %></td>
-                      <td><%= item.driver.id %></td>
                       <td><%= render_order_type(item.planning.order.type) %></td>
-                      <td><%= item.order.merchandise_type %></td>
+                      <td><%= item.order.merchandise_type%></td>
+                      <td><%= item.driver.username %></td>
                   </tr>
               <% end %>
             </tbody>

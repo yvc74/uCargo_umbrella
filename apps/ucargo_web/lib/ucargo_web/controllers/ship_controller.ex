@@ -12,9 +12,9 @@ defmodule UcargoWeb.ShipController do
   @import 0
 
   def index(conn, _params) do
-    resouuce = Guardian.Plug.current_resource(conn)
-    broker = CustomBroker.fetch_plannings(resouuce)
-    render conn, "index.html", plannings: broker.plannings, broker: broker
+    broker = Guardian.Plug.current_resource(conn)
+    plannings = CustomBroker.fetch_plannings(broker)
+    render conn, "index.html", plannings: plannings, broker: broker
   end
 
   def proposal_index(conn, %{"id" => planning_id}) do
@@ -111,11 +111,11 @@ defmodule UcargoWeb.ShipController do
       |> Map.put("longitude", -100.3965839)
       |> Map.put("name", "Santa María la Rivera")
       |> Map.put("address", "#{pickup_params["street"]} #{pickup_params["ext"]} #{pickup_params["int"]}, #{pickup_params["zipcode"]}, #{pickup_params["neighborhood"]},#{pickup_params["delegation"]},#{pickup_params["city"]},#{pickup_params["state"]}")      
-    
+
     cstm_chgset = Custom.create_changeset(custom, ct_up_prms)
     deliver_chgset = Delivery.create_changeset(delivery, dvl_up_prms)
     pck_chgset = Pickup.create_changeset(pickup, pck_up_prms)
-    
+
     Planning.create_with_order_export({master_reference_params,
                                        house_reference_params,
                                        order_chs, cstm_chgset,

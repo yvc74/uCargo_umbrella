@@ -50,23 +50,23 @@
 							<div class="information-order__import">
 								<div class="import__import-box">
 									<div class=import-box__import>
-										<p>IMPORTACIÓN</p>
+										<p><%= render_order_type(@planning.order.type) %></p>
 									</div>
 									<div class="import-box__puja">
 										<p class="container__text-gray">PUJA:</p>
 									</div>
 									<div class="import-box__hours">
-										<p class="container__text-blue">27:00 HORAS</p>
+										<p class="container__text-blue"><%= render_difference_date(@planning.auction.begin_date, @planning.auction.end_date) %> HORAS </p>
 									</div>
 								</div>
 								<div class="import__place">
 									<div class="place__departure">
 										<i class="fas fa-angle-up"></i>
-										<p>ADUANA VERACRUZ</p>
+										<p><%= render_uppercase(@planning.order.custom.name) %></p>
 									</div>
 									<div class="place__arrival">
 										<i class="fas fa-angle-down"></i>
-										<p>MEXICO, D.F.</p>
+										<p><%= render_uppercase(@planning.order.delivery.name) %></p>
 									</div>
 								</div>
 							</div>
@@ -76,7 +76,7 @@
 										<p class="container__text-gray">REF. UCARGO</p>
 									</div>
 									<div class="ref-ucargo-box__numbers">
-										<p class="container__text-blue">765D35</p>
+										<p class="container__text-blue"><%= @planning.order.planning_id %></p>
 									</div>
 								</div>
 								<div class="reference__ref-house-box">
@@ -84,7 +84,7 @@
 										<p class="container__text-gray">REF. HOUSE</p>
 									</div>
 									<div class="ref-house-box__numbers">
-										<p class="container__text-blue">115403</p>
+										<p class="container__text-blue"><%= @planning.house_reference %></p>
 									</div>
 								</div>
 								<div class="reference__ref-master-box">
@@ -92,7 +92,7 @@
 										<p class="container__text-gray">REF. MASTER</p>
 									</div>
 									<div class="ref-master-box__numbers">
-										<p class="container__text-blue">142-3442-2576</p>
+										<p class="container__text-blue"><%= @planning.master_reference %></p>
 									</div>
 								</div>
 							</div>
@@ -102,7 +102,7 @@
 										<p class="container__text-gray">TRANSPORTE</p>
 									</div>
 									<div class="transport-box__description">
-										<p class="container__text-blue">CONTENEDOR 40 PIES</p>
+										<p class="container__text-blue"><%= render_uppercase(@planning.order.transport) %></p>
 									</div>
 								</div>
 								<div class="transport__commodity-box">
@@ -110,7 +110,7 @@
 										<p class="container__text-gray">MERCANCÍA</p>
 									</div>
 									<div class="commodity-box__description">
-										<p class="container__text-blue">CARPAS INDUSTRIALES</p>
+										<p class="container__text-blue"><%= render_uppercase(@planning.order.merchandise_type) %></p>
 									</div>
 								</div>
 							</div>
@@ -120,7 +120,7 @@
 										<p class="container__text-gray">SENDER</p>
 									</div>
 									<div class="sender__description">
-										<p class="container__text-blue">STEREN S.A. DE C.V</p>
+										<p class="container__text-blue"><%= render_uppercase(@planning.custom_broker.company) %></p>
 									</div>
 								</div>
 								<div class="sender-weight__weight">
@@ -128,7 +128,7 @@
 										<p class="container__text-gray">PESO</p>
 									</div>
 									<div class="weight__description">
-										<p class="container__text-blue">2 TONELADAS</p>
+										<p class="container__text-blue"><%= render_uppercase(@planning.order.weight) %></p>
 									</div>
 								</div>
 							</div>
@@ -211,13 +211,12 @@
 <div class="remodal payment-finish" data-remodal-id="finish" data-remodal-options="hashTracking: false">
 	  <div class="payment-finish__details">
 	  	<div class="payment-summary__pricing">
-      	$8,550.00 <span>MXN +IVA</span>
+      	$<%= @bid.price %> <span>MXN +IVA</span>
       </div>
       <p class="payment-finish__title">
       	PAGO EXITOSO
       </p>
       <div class="payment-finish__icon">
-      	
       </div>
       <p class="payment-finish__ref">
       	NUMERO REFERENCIA 9362419136 
@@ -245,7 +244,7 @@
 <script>
   $(document).on('closing', '.remodal', function (e) {
   if (e.reason == 'confirmation') {
-    window.location.href = '/assignments/plannings/<%= @planning.id%>/bids/<%= @bid.driver.id %>';
+    window.location.href = '/assignments/plannings/<%= @planning.id%>/bids/<%= @bid.id %>';
   }
   // Reason: 'confirmation', 'cancellation'
   console.log('Modal is closing' + (e.reason ? ', reason: ' + e.reason : ''));

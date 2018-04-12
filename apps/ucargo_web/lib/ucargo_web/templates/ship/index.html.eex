@@ -5,13 +5,13 @@
    <nav>
       <ul class="navContent">
          <li class="navContentItem active">
-            <a href="">
+            <a onclick="navigate('/plannings');">
                <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
                <p>PLANIFICACIÓN</p>
             </a>
          </li>
          <li class="navContentItem">
-            <a href="">
+            <a onclick="navigate('/assignments/plannings');">
                <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
                <p>ASIGNACIONES</p>
             </a>
@@ -73,7 +73,7 @@
                       <td><%= planning.order.delivery.name %></td>
                       <td><%= render_order_type(planning.order.type) %></td>
                       <td><%= planning.order.merchandise_type %></td>
-                      <td><%= render_avalaible_bids(planning) %></td>
+                      <td>Ver propuestas</td>
                   </tr>
               <% end %>
             </tbody>

@@ -57,7 +57,7 @@
 							<div class="import__place">
 								<div class="place__departure">
 									<i class="fas fa-angle-up"></i>
-									<p><%= render_uppercase(@planning.order.pickup.name) %></p>
+									<p><%= render_uppercase(@planning.order.custom.name) %></p>
 								</div>
 								<div class="place__arrival">
 									<i class="fas fa-angle-down"></i>
