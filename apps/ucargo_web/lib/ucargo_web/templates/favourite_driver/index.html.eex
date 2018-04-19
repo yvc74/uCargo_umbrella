@@ -1,0 +1,102 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal-default-theme.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+<main>
+   <nav>
+      <ul class="navContent">
+         <li class="navContentItem active">
+            <a onclick="navigate('/plannings');">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>PLANIFICACIÓN</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a onclick="navigate('/assignments/plannings');">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>ASIGNACIONES</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>SEGUIMIENTO</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>HISTORIAL</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>FINANZAS</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>FAVORITOS</p>
+            </a>
+         </li>
+      </ul>
+   </nav>
+   <section class="container" id="planning">
+      <h1 class="panelHeading">
+         CONDUCTORES FAVORITOS
+      </h1>
+      <div class="tableContainer">
+         <table class="table">
+            <thead class="tableHead">
+               <tr>
+                  <th>AVATAR</th>
+                  <th>PERFIL</th>
+                  <th>CALIFICACION</th>
+                  <th>VIAJES</th>
+                  <th>ELIMINAR</th>
+               </tr>
+            </thead>
+            <tbody class="tableBody">
+                    <tr>          
+                      <td> <img class="favorites-avatar" src="http://www.misaelpc.com/s3/developer.miio.com/uploads/baby_bowser.png" alt=""></td>
+                      <td>Juan 3452</td>
+                      <td><i class="fas fa-star"></i>
+												<i class="fas fa-star"></i>
+												<i class="fas fa-star"></i>
+												<i class="fas fa-star"></i>
+												<i class="fas fa-star"></i></td>
+                      <td>13 viajes</td>
+                      <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
+                    </tr>
+            </tbody>
+         </table>
+      </div>
+   </section>
+</main>
+<div class="remodal quotation-new" data-remodal-id="new" data-remodal-options="hashTracking: false">
+  <div class="quotation-new__details">
+    <p class="quotation-new__title">
+      TU CARGAMENTO </br> NUEVO ES:
+    </p>
+    <div class="quotation-new__actions">
+      <a href="/plannings/import/new" class="btn">
+        IMPORTACIÓN
+      </a>
+      <a href="/plannings/export/new" class="btn">
+        EXPORTACIÓN
+      </a>
+      <a data-remodal-action="cancel" class="new-actions__cancel">
+        Cancelar
+      </a>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  function navigate(url)
+  {
+    document.location.href = url;
+  }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.js"></script>

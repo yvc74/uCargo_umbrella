@@ -1,0 +1,242 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal-default-theme.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+<main>
+   <nav>
+      <ul class="navContent">
+         <li class="navContentItem active">
+            <a onclick="navigate('/plannings');">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>PLANIFICACIÓN</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a onclick="navigate('/assignments/plannings');">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>ASIGNACIONES</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>SEGUIMIENTO</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>HISTORIAL</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>FINANZAS</p>
+            </a>
+         </li>
+         <li class="navContentItem">
+            <a href="">
+               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
+               <p>FAVORITOS</p>
+            </a>
+         </li>
+      </ul>
+   </nav>
+   <section class="container" id="planning">
+      <h1 class="panelHeading">
+         PLANIFICACIÓN
+      </h1>
+     <section class="container">
+					<div class="container__information-order">
+			      <div class="information-order__import">
+							<div class="import__import-box">
+								<div class=import-box__import>
+									<p>IMPORTACIÓN</p>
+								</div>
+								<div class="import-box__puja">
+									<p class="container__text-gray">PUJA:</p>
+								</div>
+								<div class="import-box__hours">
+									<p class="container__text-blue">03 - 18:00:05 DIAS</p>
+								</div>
+							</div>
+							<div class="import__place">
+								<div class="place__departure">
+									<i class="fas fa-angle-up"></i>
+									<p>ADUANA VERACRUZ</p>
+								</div>
+								<div class="place__arrival">
+									<i class="fas fa-angle-down"></i>
+									<p>MEXICO, D.F.</p>
+								</div>
+							</div>
+						</div>
+						<div class="container__reference">
+							<div class="reference__ref-ucargo-box">
+								<div class="ref-ucargo-box__reference">
+									<p class="container__text-gray">REF. UCARGO</p>
+								</div>
+								<div class="ref-ucargo-box__numbers">
+									<p class="container__text-blue">765D35</p>
+								</div>
+							</div>
+							<div class="reference__ref-house-box">
+								<div class="ref-house-box__reference">
+									<p class="container__text-gray">REF. HOUSE</p>
+								</div>
+								<div class="ref-house-box__numbers">
+									<p class="container__text-blue">115403</p>
+								</div>
+							</div>
+							<div class="reference__ref-master-box">
+								<div class="ref-master-box__reference">
+									<p class="container__text-gray">REF. MASTER</p>
+								</div>
+								<div class="ref-master-box__numbers">
+									<p class="container__text-blue">142-3442-2576</p>
+								</div>
+							</div>
+						</div>
+						<div class="container__transport">
+							<div class="transport__transport-box">
+								<div class="transport-box__text">
+									<p class="container__text-gray">TRANSPORTE</p>
+								</div>
+								<div class="transport-box__description">
+									<p class="container__text-blue">CONTENEDOR 40 PIES</p>
+								</div>
+							</div>
+							<div class="transport__commodity-box">
+								<div class="commodity-box__text">
+									<p class="container__text-gray">MERCANCÍA</p>
+								</div>
+								<div class="commodity-box__description">
+									<p class="container__text-blue">CARPAS INDUSTRIALES</p>
+								</div>
+							</div>
+						</div>
+						<div class="container__sender-weight">
+							<div class="sender-weight__sender">
+								<div class="sender__text">
+									<p class="container__text-gray">SENDER</p>
+								</div>
+								<div class="sender__description">
+									<p class="container__text-blue">STEREN S.A. DE C.V</p>
+								</div>
+							</div>
+							<div class="sender-weight__weight">
+								<div class="weight__text">
+									<p class="container__text-gray">PESO</p>
+								</div>
+								<div class="weight__description">
+									<p class="container__text-blue">2 TONELADAS</p>
+								</div>
+							</div>
+						</div>
+			      <div class="container__carrier-profile">
+							<div class="carrier-profile__photo">
+								<img src="#" />
+							</div>
+							<div class="carrier-profile__profile-data">
+								<div class="profile-data__text">
+									<p>PERFIL TRANSPORTISTA</p>
+								</div>
+								<div class="profile-data__user-name">
+									<p>DAN 0123</p>
+									<p>DANIEL ALANIS GUERRA</p>
+								</div>
+								<div class="profile-data__qualification">
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+								</div>
+							</div>
+			      </div>
+			      <div class="container__bill">
+			        <div class="bill__price">
+			          <div class="price__box">
+			            <p>$5,500.00<span>MXN +IVA</span></p>
+			          </div>
+			        </div>
+			        <div class="bill__qualify-trip">
+			          <div class="qualify-trip__text">
+			            <p>CALIFICAR VIAJE</p>
+			          </div>
+			          <div class="qualify-trip__icons">
+			            <i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+			            <i class="fas fa-star"></i>
+			          </div>
+			        </div>
+			        <div class="bill__download-invoice">
+			          <div class="download-invoice__text">
+			            <p>DESCARGAR FACTURA</p>
+			          </div>
+			          <div class="download-invoce__documents">
+			            <i class="far fa-file-pdf"></i>
+			            <i class="far fa-file-alt"></i>
+			          </div>
+			        </div>
+			        <div class="bill__complete-order">
+			          <p>+ ver pedido completo</p>
+			        </div>
+			      </div>
+			      <div class="container__origin-address">
+							<div class="origin-address__text">
+								<p>DIRECCIÓN DE ORIGEN</p>
+							</div>
+							<div class="origin-address__shipping-place">
+								<p class="container__text-blue">ADUANA VERACRUZ</p>
+							</div>
+							<div class="origin-address__date-responsable">
+								<div class="origin-address__date-collection">
+									<p class="container__text-gray">FECHA DE RECOLECCION:<span class="container__text-blue">MARZO, 03</span></p>
+								</div>
+								<div class="origin-address__responsible-name">
+									<p class="container__text-gray">RESPONSABLE:<span class="container__text-blue">JOEL PEREZ</span></p>
+								</div>
+							</div>
+							<div class="origin-address__collection-time">
+								<p class="container__text-gray">HORARIO DE RECOLECCION:<span class="container__text-blue">08:30 -14:00 HORAS</span></p>
+							</div>
+			      </div>
+			      <div class="container__destination-address">
+							<div class="destination-address__text">
+								<p>DIRECCIÓN DE DESTINO</p>
+							</div>
+							<div class="destination-address__delivery-address">
+								<p class="container__text-blue">CALLE SINALOA 129, PEÑON DE LOS BAÑOS 15520 VENUSTIANO
+			            CARRANZA, DISTRITO FEDERAL, CDMX (FRENTE A GASOLINERA
+			            PEMEX, EDIFICIO VERDE)</p>
+							</div>
+							<div class="destination-address__date-delivery">
+								<p class="container__text-gray">FECHA DE ENTREGA:<span class="container__text-blue">MARZO, 06</span></p>
+							</div>
+							<div class="destination-address__delivery-time">
+								<p class="container__text-gray">HORARIO DE ENTREGA:<span class="container__text-blue">08:30 -14:00 HORAS</span></p>
+							</div>
+							<div class="destination-address__responsable">
+								<p class="container__text-gray">RESPONSABLE:<span class="container__text-blue">DIANA RUIZ 55 5785 8016</span></p>
+							</div>
+			      </div>
+			    </div>
+			    <div class="container__map">
+						<div class="map__tracking">
+							<div id="map"></div>
+						</div>
+			    </div>
+				</section>
+			</div>
+		</main>
+	</div>
+<script type="text/javascript">
+  function navigate(url)
+  {
+    document.location.href = url;
+  }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.js"></script>
