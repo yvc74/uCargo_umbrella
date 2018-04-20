@@ -7,6 +7,7 @@ defmodule Ucargo.CustomBroker do
   import Ecto.Query
   alias Ucargo.Repo
   alias Ucargo.CustomBroker
+  alias Ucargo.Planning
 
   schema "custom_brokers" do
     field :name, :string
@@ -78,7 +79,19 @@ defmodule Ucargo.CustomBroker do
   end
 
   def fetch_plannings(broker) do
-    Repo.preload(broker, plannings: [auction: [:bids], order: [:pickup, :delivery, :custom]])
+    query = from p in Planning,
+          where: p.custom_broker_id == ^broker.id and p.already_assigned == false,
+          preload: [auction: [:bids], order: [:pickup, :delivery, :custom]],
+          select: p
+    Repo.all(query)
+  end
+
+  def fetch_assigned_plannings(broker) do
+    query = from p in Planning,
+          where: p.custom_broker_id == ^broker.id and p.already_assigned == true,
+          preload: [auction: [:bids], order: [:pickup, :delivery, :custom]],
+          select: p
+    Repo.all(query)
   end
 
   defp get_password(username) do

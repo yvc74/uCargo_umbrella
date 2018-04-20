@@ -22,10 +22,20 @@ defmodule Ucargo.Bid do
       |> assoc_constraint(:driver)
   end
 
+  def update_changeset(%Bid{} = bid, attrs) do
+    bid
+      |> cast(attrs, [:price, :winner, :auction_id, :driver_id])
+  end
+
   def find_by(:id, bid_id) do
     query = from b in Bid,
             where: b.id == ^bid_id,
             preload: :driver
     Repo.one(query)
+  end
+
+  def mark_as_winner(bid) do
+    winner_bid = update_changeset(bid, %{winner: true})
+    Repo.update!(winner_bid)
   end
 end

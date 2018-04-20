@@ -15,6 +15,7 @@ defmodule Ucargo.Planning do
   schema "plannings" do
     field :master_reference, :string
     field :house_reference, :string
+    field :already_assigned, :boolean
     belongs_to :custom_broker, Ucargo.CustomBroker
     has_one :order, Ucargo.Order
     has_one :auction, Ucargo.Auction
@@ -24,6 +25,16 @@ defmodule Ucargo.Planning do
     planning
       |> cast(attrs, [:master_reference, :house_reference, :custom_broker_id])
       |> assoc_constraint(:custom_broker)
+  end
+
+  def update_changeset(planning, attrs) do
+    planning
+      |> cast(attrs, [:already_assigned])
+  end
+
+  def mark_as_winner(planning) do
+    assigned_planning = update_changeset(planning, %{already_assigned: true})
+    Repo.update!(assigned_planning)
   end
 
   def find_all do

@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal-default-theme.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
 <main>
-     <nav>
+    <nav>
       <ul class="navContent">
          <li class="navContentItem active">
             <a onclick="navigate('/plannings');">
@@ -44,33 +44,31 @@
    </nav>
    <section class="container" id="planning">
       <h1 class="panelHeading">
-         ASIGNACIONES
+         CONDUCTORES FAVORITOS
       </h1>
       <div class="tableContainer">
          <table class="table">
             <thead class="tableHead">
-              <tr>
-                <th>REF U.CARGO</th>
-                <th>STATUS</th>
-                <th>ORIGEN</th>
-                <th>DESTINO</th>
-                <th>TIPO</th>
-                <th>MERCANCIA</th>
-                <th>TRANSPORTISTA</th>
-              </tr>
+               <tr>
+                  <th>AVATAR</th>
+                  <th>PERFIL</th>
+                  <th>CALIFICACION</th>
+                  <th>VIAJES</th>
+                  <th>ELIMINAR</th>
+               </tr>
             </thead>
             <tbody class="tableBody">
-              <%= for item <- @assigned_items do %>
-                  <tr onclick="navigate('/assignments/orders/<%= item.order.id %>/driver/<%= item.driver.id %>');">
-                      <td><%= item.planning.id %></td>
-                      <td><%= item.order.status %></td>
-                      <td><%= item.order.custom.name  %></td>
-                      <td><%= item.order.delivery.name %></td>
-                      <td><%= render_order_type(item.planning.order.type) %></td>
-                      <td><%= item.order.merchandise_type%></td>
-                      <td><%= item.driver.username %></td>
-                  </tr>
-              <% end %>
+                    <tr>          
+                      <td> <img class="favorites-avatar" src="http://www.misaelpc.com/s3/developer.miio.com/uploads/baby_bowser.png" alt=""></td>
+                      <td>Juan 3452</td>
+                      <td><i class="fas fa-star"></i>
+												<i class="fas fa-star"></i>
+												<i class="fas fa-star"></i>
+												<i class="fas fa-star"></i>
+												<i class="fas fa-star"></i></td>
+                      <td>13 viajes</td>
+                      <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
+                    </tr>
             </tbody>
          </table>
       </div>
