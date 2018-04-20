@@ -60,17 +60,16 @@
                </tr>
             </thead>
             <tbody class="tableBody">
-              <%= for planning <- @plannings do %>
-                  <tr onclick="navigate('/plannings/<%= planning.order.planning_id %>/proposals');">
-                      <td><%= planning.order.planning_id %></td>
-                      <td><%= render_difference_date(planning.auction.begin_date, planning.auction.end_date) %> horas</td>
-                      <td><%= planning.order.custom.name %></td>
-                      <td><%= planning.order.delivery.name %></td>
-                      <td></td>
-                      <td><%= render_order_type(planning.order.type) %></td>
-                      <td><%= planning.order.merchandise_type %></td>
-                  </tr>
-              <% end %>
+                <tr>          
+                      <td> 765D3S </td>
+                      <td> EN VIAJE </td>
+                      <td> 06-MARZO </td>
+                      <td> VERACRUZ </td>
+                      <td> MEXICO </td>
+                      <td> DAN 0123 </td>
+                      <td> IMPORTACION </td>
+                      <td> CARPAS INDUSTRIALES </td>
+                </tr>
             </tbody>
          </table>
       </div>
