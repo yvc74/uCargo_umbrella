@@ -34,7 +34,7 @@ defmodule Ucargo.Planning do
 
   def mark_as_winner(planning) do
     assigned_planning = update_changeset(planning, %{already_assigned: true})
-    IO.inspect Repo.update!(assigned_planning)
+    Repo.update!(assigned_planning)
   end
 
   def find_all do
