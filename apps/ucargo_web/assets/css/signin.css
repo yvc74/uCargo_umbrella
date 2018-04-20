@@ -1,0 +1,116 @@
+.signin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 0px;
+  background: url('../images/login_back.png') no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+}
+.signin__logo {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.signin__logo img {
+  width: 120px;
+}
+.signin__slogan {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 50px;
+  margin-bottom: 80px;
+  font-size: 30px;
+  font-weight: normal;
+}
+.signin__user-box {
+  border: 2px solid #89cac7;
+  display: flex;
+  width: 320px;
+  height: 40px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+.signin__password-box {
+  border: 2px solid #89cac7;
+  border-radius: 5px;
+  display: flex;
+  width: 320px;
+  height: 40px;
+  margin-bottom: 8px;
+}
+.signin__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+}
+.user-box__user, .password-box__password {
+  display: flex;
+  align-items: center;
+  width: 284px;
+}
+.user-box__user input, .password-box__password input {
+  border: none;
+  width: 100%;
+  margin-right: 10px;
+  background: none;
+  color: #ffffff;
+  font-size: 16px;
+}
+.user-box__user input::placeholder, .password-box__password input::placeholder {
+  font-size: 16px;
+  font-weight: normal;
+  color: #ffffff;
+}
+.signin__forgotten-password {
+  margin-bottom: 32px;
+  text-align: center;
+}
+.signin__forgotten-password a {
+  font-size: 16px;
+  font-weight: normal;
+  text-decoration: none;
+  color: #89cac7;
+}
+.signin__keep-login {
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+.signin__button {
+  display: flex;
+  justify-content: center;
+}
+.signin__button input {
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+  width: 240px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  background: #89cac7;
+  color: #ffffff;
+}
+.signin__question {
+  margin-top: 30px;
+  margin-bottom: 6px;
+  font-size: 16px;
+  font-weight: normal;
+  color:  #89cac7;
+}
+.signin__create-account {
+  padding-bottom: 81px;
+}
+.signin__create-account a {
+  font-size: 16px;
+  font-weight: normal;
+  text-decoration: none;
+  color: #ffffff;
+}
+.signin-checkbox__icon{
+  border-color: #fff !important;
+}

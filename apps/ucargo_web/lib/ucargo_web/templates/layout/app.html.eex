@@ -5,28 +5,81 @@
       <title>Planificación</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery-dropdown/2.0.3/jquery.dropdown.min.css" />
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css" />
+      <link rel="stylesheet" href="/fonts/styles.css">
       <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
       <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
    </head>
-   <body>
+   <body class="overflow-hidden">
       <header>
-         <div class="headerBrand">
-            <img src="https://private.cargobot.io/bundles/app/img/logo-header.png" alt="">
-         </div>
-         <div class="headerInfo">
-            <p class="headerCredit">Crédito : $ 15,000</p>
-            <div class="headerUser">
-               <i class="fas fa-power-off"></i>
-               <div class="headerUserAvatar" style="background-image: url(https://api.adorable.io/avatars/285/abott@adorable.png)"></div>
-               <div class="headerUserInfo">
-                  <p class="headerUserName">Name Surname Surname</p>
-                  <p class="headerUserTime">February 6th 2018, 9:48:21 am</p>
+         <div class="header-content">
+            <div class="header-title">
+               <p>SHIPMENT MANAGER</p>
+            </div>
+            <div class="header-info">
+               <div class="header-info__user">
+                  <div class="header-info__avatar avatar" style="background-image: url(/images/user_placeholder.png);"></div>
+                  <p class="header-info__name">
+                     STEREN S.A. DE C.V.
+                  </p>
+               </div>
+               <div class="header-info__calification">
+                  <p class="info-calification__title">Calificación</p>
+                  <div class="info-calification__score">
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                  </div>
+               </div>
+               <div class="header-info__extras">
+                  <a href="">
+                     <i class="fas fa-power-off"></i>
+                  </a>
+                  <a href="">
+                     <i class="far fa-question-circle"></i>
+                  </a>
                </div>
             </div>
          </div>
       </header>
-      <%= render @view_module, @view_template, assigns %>
+      <nav>
+         <div class="header-brand">
+            <a href="">
+               <img src="/images/header_brand.png" alt="">
+            </a>
+         </div>
+         <ul class="nav-content">
+            <li class="nav-content__item active">
+               <a href="">
+                  <p>Cotizaciones</p>
+               </a>
+            </li>
+            <li class="nav-content__item">
+               <a href="">
+                  <p>Asignados & <br/>Seguimiento</p>
+               </a>
+            </li>
+            <li class="nav-content__item">
+               <a href="">
+                  <p>Historial & <br/>Facturas</p>
+               </a>
+            </li>
+            <li class="nav-content__item">
+               <a href="">
+                  <p>Favoritos</p>
+               </a>
+            </li>
+         </ul>
+      </nav>
+      <main>
+         <%= render @view_module, @view_template, assigns %>
+      </main>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-dropdown/2.0.3/jquery.dropdown.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js"></script>
       <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
    </body>
 </html>

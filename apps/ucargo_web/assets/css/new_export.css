@@ -1,30 +1,30 @@
-.import-container{
+.export-container{
   background-color: #f3f3f3;
   min-height: 10px;
   box-shadow: 0 2px 4px 0 rgba(155, 155, 155, 0.64);
 }
-.import-header{
+.export-header{
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
-.import-header__new .btn{
+.export-header__new .btn{
   height: 42px;
   background-color: #3aa6a2;
 }
-.import-content{
+.export-content{
   background-color: #fff;
 }
-.import-content form{
+.export-content form{
   width: 522px;
   padding: 14px;
 }
-.import-news {
+.export-news {
   display: flex;
   flex-direction: column;
 }
-.import-news__item {
+.export-news__item {
   width: 100%;
   border-top: 1px solid #e6e6e6;
   padding-top: 10px;
@@ -69,13 +69,13 @@
 .new-field__container input[type=text]{
   margin: 0;
 }
-.import-news__help{
+.export-news__help{
   color: #9b9b9b;
   font-size: 14px;
   font-weight: 100;
   float: right;
 }
-.import-news__send{
+.export-news__send{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -83,14 +83,13 @@
   padding-top: 20px;
   border-top: 1px solid #e6e6e6;
 }
-.import-checkbox__text{
+.export-news__send button{
+  background-color: #3aa6a2;
+}
+.export-checkbox__text{
   color: #9b9b9b;
   font-size: 14px;
 }
-.import-news__send button{
-  background-color: #3aa6a2;
-}
-
 
 .container__map {
   width: 592px;

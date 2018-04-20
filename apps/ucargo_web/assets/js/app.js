@@ -15,10 +15,12 @@ import "phoenix_html"
 
 //import login from "./login"
 import sidebar from "./sidebar"
+import all from "./all"
 import jsCalendar from "./jsCalendar"
 import setupcalendar from "./setupcalendar"
 import setupdeliverycalendar from "./setupdeliverycalendar.js"
 import launch from "./launch"
+
 // Import local files
 //
 // Local files can be imported directly using relative
