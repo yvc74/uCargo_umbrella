@@ -44,33 +44,32 @@
    </nav>
    <section class="container" id="planning">
       <h1 class="panelHeading">
-         ASIGNACIONES
+         HISTORIAL
       </h1>
       <div class="tableContainer">
          <table class="table">
             <thead class="tableHead">
-              <tr>
-                <th>REF U.CARGO</th>
-                <th>STATUS</th>
-                <th>ORIGEN</th>
-                <th>DESTINO</th>
-                <th>TIPO</th>
-                <th>MERCANCIA</th>
-                <th>TRANSPORTISTA</th>
-              </tr>
+               <tr>
+                  <th>REF U.CARGO</th>
+                  <th>STATUS</th>
+                  <th>ORIGEN</th>
+                  <th>DESTINO</th>
+                  <th>REF. TRASNPORTISTA</th>
+                  <th>IMP/EXP</th>
+                  <th>MERCANCIA</th>
+               </tr>
             </thead>
             <tbody class="tableBody">
-              <%= for item <- @assigned_items do %>
-                  <tr onclick="navigate('/assignments/orders/<%= item.order.id %>/driver/<%= item.driver.id %>');">
-                      <td><%= item.planning.id %></td>
-                      <td><%= item.order.status %></td>
-                      <td><%= item.order.custom.name  %></td>
-                      <td><%= item.order.delivery.name %></td>
-                      <td><%= render_order_type(item.planning.order.type) %></td>
-                      <td><%= item.order.merchandise_type%></td>
-                      <td><%= item.driver.username %></td>
-                  </tr>
-              <% end %>
+                <tr>          
+                      <td> 765D3S </td>
+                      <td> EN VIAJE </td>
+                      <td> 06-MARZO </td>
+                      <td> VERACRUZ </td>
+                      <td> MEXICO </td>
+                      <td> DAN 0123 </td>
+                      <td> IMPORTACION </td>
+                      <td> CARPAS INDUSTRIALES </td>
+                </tr>
             </tbody>
          </table>
       </div>
