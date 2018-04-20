@@ -59,7 +59,7 @@ defmodule UcargoWeb.Router do
     get "/assignments/orders/:order_id/driver/:driver_id", AssignmentController, :assignment_detail
     get "/records", RecordController, :index
     get "/invoices", InvoiceController, :index
-    get "favouritedrivers", FavouriteDriverController, :index
+    get "/favouritedrivers", FavouriteDriverController, :index
   end
 
   # Other scopes may use custom stacks.

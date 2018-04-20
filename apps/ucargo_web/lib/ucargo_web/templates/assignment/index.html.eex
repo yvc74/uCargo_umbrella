@@ -2,15 +2,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal-default-theme.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
 <main>
-   <nav>
+     <nav>
       <ul class="navContent">
-         <li class="navContentItem">
+         <li class="navContentItem active">
             <a onclick="navigate('/plannings');">
                <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
-               <p>PLANIFICACIÓN</p>
+               <p>COTIZACIONES</p>
             </a>
          </li>
-         <li class="navContentItem active">
+         <li class="navContentItem">
             <a onclick="navigate('/assignments/plannings');">
                <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
                <p>ASIGNACIONES</p>
@@ -23,19 +23,19 @@
             </a>
          </li>
          <li class="navContentItem">
-            <a href="">
+            <a onclick="navigate('/records');">
                <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
                <p>HISTORIAL</p>
             </a>
          </li>
          <li class="navContentItem">
-            <a href="">
+            <a  onclick="navigate('/invoices');">
                <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
-               <p>FINANZAS</p>
+               <p>FACTURAS</p>
             </a>
          </li>
          <li class="navContentItem">
-            <a href="">
+            <a onclick="navigate('/favouritedrivers');">
                <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
                <p>FAVORITOS</p>
             </a>
