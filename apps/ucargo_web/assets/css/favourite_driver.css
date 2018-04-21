@@ -1,0 +1,52 @@
+ .profile-avatar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile-avatar input[type=file]{
+	display: none;
+}
+.profile-avatar label{
+	position: relative;
+	cursor: pointer;
+}
+.profile-avatar  i{
+	position: absolute;
+	font-size: 24px;
+	right: 6px;
+	bottom: 16px;
+}
+.profile-avatar img{
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+}
+.profile-description{
+	text-align: center;
+}
+.profile-description p{
+	font-size: 14px;
+	margin: 14px 0px;
+	text-align: center;
+	font-weight: 100;
+}
+.profile-description p.profile-description__name{
+  color: #1c8dff;
+  font-size: 26px;
+  font-weight: bold;
+}
+.profile-description p.profile-description__calification{
+	font-size: 16px;
+	font-weight: bold;
+}
+.profile-description p.profile-description__help{
+  background-color: #ebebeb;
+  display: inline-block;
+  padding: 20px;
+  font-size: 18px;
+}
+.profile-description p.profile-description__help a{
+	text-decoration: none;
+	color: #000;
+	font-weight: bold;
+}

@@ -43,35 +43,47 @@
       </ul>
    </nav>
    <section class="container" id="planning">
-      <h1 class="panelHeading">
-         CONDUCTORES FAVORITOS
-      </h1>
-      <div class="tableContainer">
-         <table class="table">
-            <thead class="tableHead">
-               <tr>
-                  <th>AVATAR</th>
-                  <th>PERFIL</th>
-                  <th>CALIFICACION</th>
-                  <th>VIAJES</th>
-                  <th>ELIMINAR</th>
-               </tr>
-            </thead>
-            <tbody class="tableBody">
-                    <tr onclick="navigate('/favouritedrivers/profile');">          
-                      <td> <img class="favorites-avatar" src="http://www.misaelpc.com/s3/developer.miio.com/uploads/baby_bowser.png" alt=""></td>
-                      <td>Juan 3452</td>
-                      <td><i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i></td>
-                      <td>13 viajes</td>
-                      <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
-                    </tr>
-            </tbody>
-         </table>
-      </div>
+      <section class="container">
+					<div class="profile-avatar">
+						<input id="avatar" type="file" accept="image/*">
+						<label for="avatar">
+							<img id="avatar_image" src="http://www.misaelpc.com/s3/developer.miio.com/uploads/baby_bowser.png" alt="">
+							<i class="fa fa-plus-circle" aria-hidden="true"></i>
+						</label>
+					</div>
+					<div class="profile-description">
+						<p class="profile-description__name">EMPAC S.A DE C.V.</p>
+						<p class="profile-description__calification">
+							<span>CALIFICACIÓN:</span>
+							<span>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+							</span>
+						</p>
+						<p class="profile-description__phone">
+							TELEFONO: 563 2846 4658
+						</p>
+						<p class="profile-description__email">
+							mail.mail.com
+						</p>
+						<p class="profile-description__address">
+							CALZADA VALLEJO 491 LOCAL A-C, DEFENSORES <br/>
+							DE LA REPÚBLICA, 07780 GUSTAVO A. <br/>
+							MADERO, CDMX
+						</p>
+						<p class="profile-description__rfc">
+							R.F.C CUPU800825569
+						</p>
+						<p class="profile-description__help">
+							SI QUIERES HACER UN CAMBIO DE INFO <br />
+							MANDA MAIL A <br />
+							<a>AYUDA@UCARGO.MX</a>
+						</p>
+					</div>
+				</section>
    </section>
 </main>
 <div class="remodal quotation-new" data-remodal-id="new" data-remodal-options="hashTracking: false">
