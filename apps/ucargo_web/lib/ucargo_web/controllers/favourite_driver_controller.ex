@@ -5,4 +5,7 @@ defmodule UcargoWeb.FavouriteDriverController do
     render conn, "index.html"
   end
 
+  def profile(conn, _params) do
+     render conn, "profile.html"
+  end
 end
