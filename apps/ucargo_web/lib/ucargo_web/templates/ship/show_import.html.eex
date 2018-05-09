@@ -16,7 +16,7 @@
           </div>
           <div class="description__shipping">
             <div class="shipping__departure">
-              <div class="container__icon">
+              <div class="details__icon">
                 <img src="/images/in_icon.svg" />
               </div>
               <div class="departure__text">
@@ -24,7 +24,7 @@
               </div>
             </div>
             <div class="shipping__arrival">
-              <div class="container__icon">
+              <div class="details__icon">
                 <img src="/images/out_icon.svg" />
               </div>
               <div class="details__text-black">
@@ -34,10 +34,10 @@
           </div>
           <div class="description__order-reference">
             <div class="order-reference__reference">
-              <div class="container__icon">
+              <div class="details__icon">
                 <img src="/images/reference_icon.svg" />
               </div>
-              <div class="container__text">
+              <div class="details__text">
                 <div class="details__text-gray">
                   <p>Referencia UCARGO</p>
                 </div>
@@ -47,10 +47,10 @@
               </div>
             </div>
             <div class="order-reference__order-manager">
-              <div class="container__icon">
+              <div class="details__icon">
                 <img src="/images/order_icon.svg" />
               </div>
-              <div class="container__text">
+              <div class="details__text">
                 <div class="details__text-gray">
                   <p>Encargado del Pedido</p>
                 </div>
@@ -62,10 +62,10 @@
           </div>
           <div class="description__transport">
             <div class="transport__transport-type">
-              <div class="container__icon">
+              <div class="details__icon">
                 <img src="/images/transport_icon.svg" />
               </div>
-              <div class="container__text">
+              <div class="details__text">
                 <div class="details__text-gray">
                   <p>Tipo de Transporte</p>
                 </div>
@@ -75,10 +75,10 @@
               </div>
             </div>
             <div class="transport__load-weight">
-              <div class="container__icon">
+              <div class="details__icon">
                 <img src="/images/weight_icon.svg" />
               </div>
-              <div class="container__text">
+              <div class="details__text">
                 <div class="details__text-gray">
                   <p>Peso de la Carga</p>
                 </div>
@@ -89,10 +89,10 @@
             </div>
           </div>
           <div class="description__commodity">
-            <div class="container__icon">
+            <div class="details__icon">
               <img src="/images/commodity_icon.svg" />
             </div>
-            <div class="container__text">
+            <div class="details__text">
               <div class="details__text-gray">
                 <p>Mercancía</p>
               </div>
@@ -103,10 +103,10 @@
           </div>
           <div class="description__home-reference">
             <div class="home-reference__information">
-              <div class="container__icon">
+              <div class="details__icon">
                 <img src="/images/reference_home_icon.svg" />
               </div>
-              <div class="container__text">
+              <div class="details__text">
                 <div class="details__text-gray">
                   <p>Referencia HOUSE</p>
                 </div>
@@ -116,10 +116,10 @@
               </div>
             </div>
             <div class="home-reference__master">
-              <div class="container__icon">
+              <div class="details__icon">
                 <img src="/images/reference_master_icon.svg" />
               </div>
-              <div class="container__text">
+              <div class="details__text">
                 <div class="details__text-gray">
                   <p>Referencia MASTER</p>
                 </div>
@@ -131,7 +131,7 @@
           </div>
         </div>
         <div class="information-order__carrier">
-          <div class="carrier-information__text">
+          <div class="carrier-information__title">
             <p>INFORMACIÓN SOBRE EL TRANSPORTISTA</p>
           </div>
           <div class="carrier-information__card-box">
@@ -164,15 +164,15 @@
               </div>
             </div>
           </div>
-          <div class="checkbox">
-            <input type="checkbox" id="checkbox" />
-            <label for="checkbox">
-              <span class="checkbox__icon">
-                  <span class="checkbox__dot"></span>
-              </span>
-              <span class="checkbox__text details-checkbox__text">Agregar Transportista a Favoritos.</span>
-            </label>
-          </div>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" id="checkbox" />
+          <label for="checkbox">
+            <span class="checkbox__icon">
+                <span class="checkbox__dot"></span>
+            </span>
+            <span class="checkbox__text details-checkbox__text">Agregar Transportista a Favoritos.</span>
+          </label>
         </div>
         <div class="information-order__payment">
           <div class="order-payment__pricing">

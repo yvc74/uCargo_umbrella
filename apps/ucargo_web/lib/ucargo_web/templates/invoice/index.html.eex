@@ -1,240 +1,309 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal-default-theme.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
-<main>
-     <nav>
-      <ul class="navContent">
-         <li class="navContentItem active">
-            <a onclick="navigate('/plannings');">
-               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
-               <p>COTIZACIONES</p>
-            </a>
-         </li>
-         <li class="navContentItem">
-            <a onclick="navigate('/assignments/plannings');">
-               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
-               <p>ASIGNACIONES</p>
-            </a>
-         </li>
-         <li class="navContentItem">
-            <a href="">
-               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
-               <p>SEGUIMIENTO</p>
-            </a>
-         </li>
-         <li class="navContentItem">
-            <a onclick="navigate('/records');">
-               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
-               <p>HISTORIAL</p>
-            </a>
-         </li>
-         <li class="navContentItem">
-            <a  onclick="navigate('/invoices');">
-               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
-               <p>FACTURAS</p>
-            </a>
-         </li>
-         <li class="navContentItem">
-            <a onclick="navigate('/favouritedrivers');">
-               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
-               <p>FAVORITOS</p>
-            </a>
-         </li>
-      </ul>
-   </nav>
-   <section class="container" id="planning">
+<section class="container" id="details">
+  <div class="details-container">
+    <div class="details-header">
+      <div class="details-header__eyelash header__eyelash">
+        <p>Seguimiento Cargamento</p>
+      </div>
+      <div class="details-header__new">
+        <a href="/plannings" class="btn">VOLVER A MIS CARGAMENTOS</a>
+      </div>
+    </div>
+    <div class="details-content">
+      <div class="details-content__information">
+        <div class="information-order__description">
+          <div class="information-order__text">
+            <p>INFORMACIÓN SOBRE EL PEDIDO</p>
+          </div>
+          <div class="description__shipping">
+            <div class="shipping__departure">
+              <div class="details__icon">
+                <img src="/images/in_icon.svg" />
+              </div>
+              <div class="departure__text">
+                <p>@order.custom.name</p>
+              </div>
+            </div>
+            <div class="shipping__arrival">
+              <div class="details__icon">
+                <img src="/images/out_icon.svg" />
+              </div>
+              <div class="details__text-black">
+                <p>@order.delivery.name</p>
+              </div>
+            </div>
+          </div>
+          <div class="description__order-reference">
+            <div class="order-reference__reference">
+              <div class="details__icon">
+                <img src="/images/reference_icon.svg" />
+              </div>
+              <div class="details__text">
+                <div class="details__text-gray">
+                  <p>Referencia UCARGO</p>
+                </div>
+                <div class="details__text-black">
+                  <p>@order.planning_id</p>
+                </div>
+              </div>
+            </div>
+            <div class="order-reference__order-manager">
+              <div class="details__icon">
+                <img src="/images/order_icon.svg" />
+              </div>
+              <div class="details__text">
+                <div class="details__text-gray">
+                  <p>Encargado del Pedido</p>
+                </div>
+                <div class="details__text-black">
+                  <p>@custom_broker.company</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="description__transport">
+            <div class="transport__transport-type">
+              <div class="details__icon">
+                <img src="/images/transport_icon.svg" />
+              </div>
+              <div class="details__text">
+                <div class="details__text-gray">
+                  <p>Tipo de Transporte</p>
+                </div>
+                <div class="details__text-black">
+                  <p>@order.transport</p>
+                </div>
+              </div>
+            </div>
+            <div class="transport__load-weight">
+              <div class="details__icon">
+                <img src="/images/weight_icon.svg" />
+              </div>
+              <div class="details__text">
+                <div class="details__text-gray">
+                  <p>Peso de la Carga</p>
+                </div>
+                <div class="details__text-black">
+                  <p>@order.weight</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="description__commodity">
+            <div class="details__icon">
+              <img src="/images/commodity_icon.svg" />
+            </div>
+            <div class="details__text">
+              <div class="details__text-gray">
+                <p>Mercancía</p>
+              </div>
+              <div class="details__text-black">
+                <p>@order.merchandise_type</p>
+              </div>
+            </div>
+          </div>
+          <div class="description__home-reference">
+            <div class="home-reference__information">
+              <div class="details__icon">
+                <img src="/images/reference_home_icon.svg" />
+              </div>
+              <div class="details__text">
+                <div class="details__text-gray">
+                  <p>Referencia HOUSE</p>
+                </div>
+                <div class="details__text-black">
+                  <p>@planning.house_reference</p>
+                </div>
+              </div>
+            </div>
+            <div class="home-reference__master">
+              <div class="details__icon">
+                <img src="/images/reference_master_icon.svg" />
+              </div>
+              <div class="details__text">
+                <div class="details__text-gray">
+                  <p>Referencia MASTER</p>
+                </div>
+                <div class="details__text-black">
+                  <p>@planning.master_reference</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="information-order__carrier">
+          <div class="carrier-information__title">
+            <p>INFORMACIÓN SOBRE EL TRANSPORTISTA</p>
+          </div>
+          <div class="carrier-information__card-box">
+            <div class="carrier-information__carrier-card">
+              <div class="carrier-card__user-data">
+                <div class="avatar" style="background-image: url(@driver.picture)">
+                </div>
+                <div class="user-data__name-surname">
+                  <p>@driver.name</p>
+                  <p>@driver.name</p>
+                </div>
+              </div>
+              <div class="carrier-card__user-name">
+                <div class="details__text-gray">
+                  <p>@driver.id</p>
+                </div>
+                <div class="user-name__icons">
+                  	<i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+              </div>
+              <div class="carrierd-card__completed-trips">
+                <div class="details__text-gray">
+                  <p>Viajes Terminados</p>
+                </div>
+                <div class="details__text-black">
+                  <p>24</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+				<div class="information-order__qualify">
+					<div class="order-qualify__container">
+						<p>CALIFICA TU VIAJE</p>
+						<div>
+							<div class="details-rating" data-score="1"></div>
+						</div>
+					</div>
+				</div>
+				<div class="information-order__download">
+					<div class="order-download__container">
+						<p>Descarga tu Factura</p>
+						<div>
+							<img src="/images/xml.png" alt="">
+							<img src="/images/pdf.png" alt="">
+						</div>
+					</div>
+				</div>
+        <div class="information-order__details">
+          <div class="order-details__title">
+            <p>DETALLES DEL PEDIDO</p>
+          </div>
+          <div class="order-details__information">
+            <div class="details-information__text">
+              <p>Dirección de Destino:<span>Aduana Veracruz</span></p>
+              <p>Fecha de Recolección:<span>Marzo, 03</span></p>
+              <p>Horario de Recolección:<span>08:30 - 14:00 horas</span></p>
+              <p>Responsable:<span>Joel Peréz</span></p>
+            </div>
+            <div class="details-information__text">
+              <p>Dirección de Recolección del Vacío:<span>Oceano Pacífico 423-B La Fé 66477, San Nicolás de los Garza, Monterrey, Nuevo León</span></p>
+              <p>Fecha de Recolección:<span>Marzo, 08</span></p>
+              <p>Horario de Recolección:<span>08:30 - 14:00 horas</span></p>
+              <p>Responsable:<span>María Santos 818 345 7824</span></p>
+            </div>
+            <div class="details-information__text">
+              <p>Dirección de Recolección de Mercancía:<span>Avenida José Palomo Martínes 502-8 Parque Industrial Omalap 66605, Apodaca, Monterrey, Nuevo León (Frente a gasolinera Pemex, Edificio verde)</span></p>
+              <p>Fecha de Recolección:<span>Marzo, 08</span></p>
+              <p>Horario de Recolección:<span>08:30 - 14:00 horas</span></p>
+              <p>Responsable:<span>Carmen Farid 55 5785 8016</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-     <section class="container">
-					<div class="container__information-order">
-			      <div class="information-order__import">
-							<div class="import__import-box">
-								<div class=import-box__import>
-									<p>IMPORTACIÓN</p>
-								</div>
-								<div class="import-box__puja">
-									<p class="container__text-gray">PUJA:</p>
-								</div>
-								<div class="import-box__hours">
-									<p class="container__text-blue">03 - 18:00:05 DIAS</p>
-								</div>
-							</div>
-							<div class="import__place">
-								<div class="place__departure">
-									<i class="fas fa-angle-up"></i>
-									<p>ADUANA VERACRUZ</p>
-								</div>
-								<div class="place__arrival">
-									<i class="fas fa-angle-down"></i>
-									<p>MEXICO, D.F.</p>
-								</div>
-							</div>
-						</div>
-						<div class="container__reference">
-							<div class="reference__ref-ucargo-box">
-								<div class="ref-ucargo-box__reference">
-									<p class="container__text-gray">REF. UCARGO</p>
-								</div>
-								<div class="ref-ucargo-box__numbers">
-									<p class="container__text-blue">765D35</p>
-								</div>
-							</div>
-							<div class="reference__ref-house-box">
-								<div class="ref-house-box__reference">
-									<p class="container__text-gray">REF. HOUSE</p>
-								</div>
-								<div class="ref-house-box__numbers">
-									<p class="container__text-blue">115403</p>
-								</div>
-							</div>
-							<div class="reference__ref-master-box">
-								<div class="ref-master-box__reference">
-									<p class="container__text-gray">REF. MASTER</p>
-								</div>
-								<div class="ref-master-box__numbers">
-									<p class="container__text-blue">142-3442-2576</p>
-								</div>
-							</div>
-						</div>
-						<div class="container__transport">
-							<div class="transport__transport-box">
-								<div class="transport-box__text">
-									<p class="container__text-gray">TRANSPORTE</p>
-								</div>
-								<div class="transport-box__description">
-									<p class="container__text-blue">CONTENEDOR 40 PIES</p>
-								</div>
-							</div>
-							<div class="transport__commodity-box">
-								<div class="commodity-box__text">
-									<p class="container__text-gray">MERCANCÍA</p>
-								</div>
-								<div class="commodity-box__description">
-									<p class="container__text-blue">CARPAS INDUSTRIALES</p>
-								</div>
-							</div>
-						</div>
-						<div class="container__sender-weight">
-							<div class="sender-weight__sender">
-								<div class="sender__text">
-									<p class="container__text-gray">SENDER</p>
-								</div>
-								<div class="sender__description">
-									<p class="container__text-blue">STEREN S.A. DE C.V</p>
-								</div>
-							</div>
-							<div class="sender-weight__weight">
-								<div class="weight__text">
-									<p class="container__text-gray">PESO</p>
-								</div>
-								<div class="weight__description">
-									<p class="container__text-blue">2 TONELADAS</p>
-								</div>
-							</div>
-						</div>
-			      <div class="container__carrier-profile">
-							<div class="carrier-profile__photo">
-								<img src="#" />
-							</div>
-							<div class="carrier-profile__profile-data">
-								<div class="profile-data__text">
-									<p>PERFIL TRANSPORTISTA</p>
-								</div>
-								<div class="profile-data__user-name">
-									<p>DAN 0123</p>
-									<p>DANIEL ALANIS GUERRA</p>
-								</div>
-								<div class="profile-data__qualification">
-									<i class="fas fa-star"></i>
-									<i class="fas fa-star"></i>
-									<i class="fas fa-star"></i>
-									<i class="fas fa-star"></i>
-								</div>
-							</div>
-			      </div>
-			      <div class="container__bill">
-			        <div class="bill__price">
-			          <div class="price__box">
-			            <p>$5,500.00<span>MXN +IVA</span></p>
-			          </div>
-			        </div>
-			        <div class="bill__qualify-trip">
-			          <div class="qualify-trip__text">
-			            <p>CALIFICAR VIAJE</p>
-			          </div>
-			          <div class="qualify-trip__icons">
-			            <i class="fas fa-star"></i>
-									<i class="fas fa-star"></i>
-									<i class="fas fa-star"></i>
-									<i class="fas fa-star"></i>
-			            <i class="fas fa-star"></i>
-			          </div>
-			        </div>
-			        <div class="bill__download-invoice">
-			          <div class="download-invoice__text">
-			            <p>DESCARGAR FACTURA</p>
-			          </div>
-			          <div class="download-invoce__documents">
-			            <i class="far fa-file-pdf"></i>
-			            <i class="far fa-file-alt"></i>
-			          </div>
-			        </div>
-			        <div class="bill__complete-order">
-			          <p>+ ver pedido completo</p>
-			        </div>
-			      </div>
-			      <div class="container__origin-address">
-							<div class="origin-address__text">
-								<p>DIRECCIÓN DE ORIGEN</p>
-							</div>
-							<div class="origin-address__shipping-place">
-								<p class="container__text-blue">ADUANA VERACRUZ</p>
-							</div>
-							<div class="origin-address__date-responsable">
-								<div class="origin-address__date-collection">
-									<p class="container__text-gray">FECHA DE RECOLECCION:<span class="container__text-blue">MARZO, 03</span></p>
-								</div>
-								<div class="origin-address__responsible-name">
-									<p class="container__text-gray">RESPONSABLE:<span class="container__text-blue">JOEL PEREZ</span></p>
-								</div>
-							</div>
-							<div class="origin-address__collection-time">
-								<p class="container__text-gray">HORARIO DE RECOLECCION:<span class="container__text-blue">08:30 -14:00 HORAS</span></p>
-							</div>
-			      </div>
-			      <div class="container__destination-address">
-							<div class="destination-address__text">
-								<p>DIRECCIÓN DE DESTINO</p>
-							</div>
-							<div class="destination-address__delivery-address">
-								<p class="container__text-blue">CALLE SINALOA 129, PEÑON DE LOS BAÑOS 15520 VENUSTIANO
-			            CARRANZA, DISTRITO FEDERAL, CDMX (FRENTE A GASOLINERA
-			            PEMEX, EDIFICIO VERDE)</p>
-							</div>
-							<div class="destination-address__date-delivery">
-								<p class="container__text-gray">FECHA DE ENTREGA:<span class="container__text-blue">MARZO, 06</span></p>
-							</div>
-							<div class="destination-address__delivery-time">
-								<p class="container__text-gray">HORARIO DE ENTREGA:<span class="container__text-blue">08:30 -14:00 HORAS</span></p>
-							</div>
-							<div class="destination-address__responsable">
-								<p class="container__text-gray">RESPONSABLE:<span class="container__text-blue">DIANA RUIZ 55 5785 8016</span></p>
-							</div>
-			      </div>
-			    </div>
-			    <div class="container__map">
-						<div class="map__tracking">
-							<div id="map"></div>
-						</div>
-			    </div>
-				</section>
-			</div>
-		</main>
-	</div>
-<script type="text/javascript">
-  function navigate(url)
-  {
-    document.location.href = url;
+<div class="remodal ucargo-modal" data-remodal-id="shared" data-remodal-options="hashTracking: false">
+  <img class="ucargo-modal__closed" src="/images/closed.png" data-remodal-action="close" alt="">
+  <p class="ucargo-modal__title">CAMINO A ADUANA</p>
+  <div class="ucargo-modal__content">
+    <div class="details-modal__shared">
+      <div class="details-emails__container">
+        <input class="details-modal__emails input-emails input-emails__shared" />
+      </div>
+      <div class="checkbox">
+        <input type="checkbox" id="checkbox-shared" />
+        <label for="checkbox-shared">
+          <span class="checkbox__icon details-checkbox__icon">
+              <span class="checkbox__dot"></span>
+          </span>
+          <span class="checkbox__text details-checkbox__text">Enviar copia a mi correo.</span>
+        </label>
+      </div>
+      <div class="ucargo-modal__actions">
+        <button onclick="onSendEmails()" class="btn ucargo-actions__send">ENVIAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="remodal ucargo-modal" data-remodal-id="photos" data-remodal-options="hashTracking: false">
+  <img class="ucargo-modal__closed" src="/images/closed.png" data-remodal-action="close" alt="">
+  <p class="ucargo-modal__title">FOTOGRAFÍAS DE CANDADO</p>
+  <div class="ucargo-modal__content">
+    <div class="details-modal__photos">
+      <div class="details-modal__carusel">
+        <div class="details-slick">
+          <div class="details-slick__image">
+            <div>
+              <img src="http://via.placeholder.com/100x150"/>
+            </div>
+          </div>
+          <div class="details-slick__image">
+            <div>
+              <img src="http://via.placeholder.com/100x150"/>
+            </div>
+          </div>
+          <div class="details-slick__image">
+            <div>
+              <img src="http://via.placeholder.com/100x150"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="details-emails__container">
+        <input class="details-modal__emails input-emails input-emails__photos" />
+      </div>
+      <div class="checkbox">
+        <input type="checkbox" id="checkbox-photos" />
+        <label for="checkbox-photos">
+          <span class="checkbox__icon details-checkbox__icon">
+              <span class="checkbox__dot"></span>
+          </span>
+          <span class="checkbox__text details-checkbox__text">Enviar copia a mi correo.</span>
+        </label>
+      </div>
+      <div class="ucargo-modal__actions">
+        <button onclick="onSendPhotos()" class="btn ucargo-actions__send">ENVIAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function onSendEmails(){
+    const modal = $('[data-remodal-id=shared]').remodal();
+    const emails = $('.input-emails__shared').val();
+
+    if(emails === ''){
+      console.log('error');
+    }else{
+      modal.close();
+      console.log(emails)
+    }
+  }
+
+  function onSendPhotos(){
+    const modal = $('[data-remodal-id=photos]').remodal();
+    const emails = $('.input-emails__photos').val();
+
+    if(emails === ''){
+      console.log('error');
+    }else{
+      modal.close();
+      console.log(emails)
+    }
   }
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.js"></script>

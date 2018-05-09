@@ -4,11 +4,16 @@
       <meta charset="UTF-8">
       <title>Planificación</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.css" />
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal-default-theme.min.css" />
       <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery-dropdown/2.0.3/jquery.dropdown.min.css" />
       <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css" />
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/raty/2.8.0/jquery.raty.min.css" />
       <link rel="stylesheet" href="/fonts/styles.css">
-      <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+      <link href="//use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
       <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
    </head>
    <body class="overflow-hidden">
@@ -36,10 +41,10 @@
                </div>
                <div class="header-info__extras">
                   <a href="">
-                     <i class="fas fa-power-off"></i>
+                     <img src="/images/logout.png" alt="">
                   </a>
                   <a href="">
-                     <i class="far fa-question-circle"></i>
+                     <img src="/images/help.png" alt="">
                   </a>
                </div>
             </div>
@@ -77,8 +82,11 @@
       <main>
          <%= render @view_module, @view_template, assigns %>
       </main>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-dropdown/2.0.3/jquery.dropdown.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/raty/2.8.0/jquery.raty.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.js"></script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js"></script>
       <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
    </body>

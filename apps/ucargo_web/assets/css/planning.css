@@ -42,7 +42,9 @@
   cursor: pointer;
 }
 .planning-jq__dropdown{
-	width: 285px;
+  width: 300px;
+  left: 0px !important;
+  top: 0px !important;
 }
 .planning-jq__dropdown:after,
 .planning-jq__dropdown:before{
@@ -76,4 +78,7 @@
 .planning-table__td{
   color: #4a4a4a !important;
   font-weight: 500;
+}
+.planning-content{
+  margin-bottom: 10px;
 }

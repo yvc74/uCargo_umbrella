@@ -6,7 +6,7 @@ header{
   box-shadow: 0 2px 2px 0 rgba(155, 155, 155, 0.56);
 }
 .header-content{
-  padding: 0px 30px;
+  padding: 0px 18px;
   display: flex;
   height: 100%;
 }
@@ -74,9 +74,8 @@ header{
   color: #9b9b9b;
   margin: 0px 10px;
 }
-.header-info__extras a i{
-  color: #9b9b9b;
-  font-size: 16px;
+.header-info__extras a img{
+  height: 14px;
 }
 /*Nav*/
 nav{

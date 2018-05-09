@@ -14,13 +14,15 @@
 import "phoenix_html"
 
 //import login from "./login"
-import sidebar from "./sidebar"
-import all from "./all"
+import jqueryTagsInput from "./jqueryTagsInput"
+import ratyFa from "./ratyFa"
 import jsCalendar from "./jsCalendar"
 import setupcalendar from "./setupcalendar"
 import setupdeliverycalendar from "./setupdeliverycalendar.js"
+import all from "./all"
+import sidebar from "./sidebar"
+import details from "./details"
 import launch from "./launch"
-
 // Import local files
 //
 // Local files can be imported directly using relative

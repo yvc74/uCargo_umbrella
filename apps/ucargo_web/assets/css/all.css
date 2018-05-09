@@ -36,6 +36,7 @@ main{
   color: #fff;
   text-align: center;
   font-size: 14px;
+  vertical-align: middle;
 }
 .table-body tr{
   cursor: pointer;
@@ -49,6 +50,7 @@ main{
   border: solid 1px #e6e6e6;
   font-size: 14px;
   color: #9b9b9b;
+  vertical-align: middle;
 }
 .btn{
   border: none;
@@ -69,7 +71,7 @@ main{
   padding: 0px 10px;
 }
 input[type='text']{
-  width: 100%;
+  width: calc(100% - 8px);
   height: 30px;
   border: 0px;
   border-radius: 4px;
@@ -119,6 +121,7 @@ input[type='text']{
   background-position: center;
   background-color: #d8e5e4;
   background-repeat: no-repeat;
+  background-image: url(/images/user_placeholder.png);
 }
 .header__eyelash {
   height: 60px;
@@ -133,6 +136,9 @@ input[type='text']{
   color: #4a4a4a;
   font-weight: 500;
 }
+.new-dropdown__container{
+  position: relative;
+}
 .select2-container--default .select2-selection--single{
   width: 100%;
   height: 30px;
@@ -144,4 +150,31 @@ input[type='text']{
 .select2-container--default .select2-selection--single .select2-selection__rendered{
   font-size: 16px;
   color: #4a4a4a;
+}
+.ucargo-modal{
+  border-radius: 4px;
+  background-color: #ffffff;
+  position: relative;
+  width: auto;
+}
+.ucargo-modal__closed {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  margin: 10px;
+}
+.ucargo-modal__title{
+  font-size: 16px;
+  font-weight: 500;
+  color: #9b9b9b;
+  margin-bottom: 20px
+}
+.ucargo-modal__content{
+  
+}
+.ucargo-modal__actions{
+  margin-top: 20px;
 }
