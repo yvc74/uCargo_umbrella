@@ -35,7 +35,7 @@ driver_jorge = %Driver{username: "jorgema", email: "misaelpcyahoo@yahoo.com", pa
 
 driver_manuel = Repo.insert! driver_manuel
 driver_juan = Repo.insert! driver_juan
-Repo.insert! driver_jorge
+driver_jorge = Repo.insert! driver_jorge
 
 custom_broker = %CustomBroker{name: "Joel de la Peña",
                           username: "joel65",
@@ -102,8 +102,8 @@ custom_chgset = Custom.create_changeset(custom,
 #import order
 order_with_pick = Ecto.Changeset.put_assoc(order_chs, :custom, custom_import_chgset)
 order_with_delivery = Ecto.Changeset.put_assoc(order_with_pick, :delivery, deliver_chgset)
-
-order = Repo.insert! order_with_delivery
+order_with_drivers = Ecto.Changeset.put_assoc(order_with_delivery, :drivers, [driver_manuel, driver_juan, driver_jorge])
+order = Repo.insert! order_with_drivers
 
 ############
 
@@ -111,8 +111,9 @@ order = Repo.insert! order_with_delivery
 order_with_pick = Ecto.Changeset.put_assoc(export_order_chs, :pickup, export_pick_chgset)
 order_with_delivery = Ecto.Changeset.put_assoc(order_with_pick, :delivery, export_deliver_chgset)
 order_with_custom = Ecto.Changeset.put_assoc(order_with_delivery, :custom, custom_chgset)
+order_with_drivers = Ecto.Changeset.put_assoc(order_with_custom, :drivers, [driver_manuel, driver_juan, driver_jorge])
 
-export_order = Repo.insert! order_with_custom
+export_order = Repo.insert! order_with_drivers
 ###########
 date_now = NaiveDateTime.utc_now()
 

@@ -8,7 +8,8 @@ defmodule UcargoWeb.OrderView do
 
   def render("order.json", %{order: order}) do
     order_map =
-    %{favorite: order.favourite,
+    %{id: order.id,
+      favorite: order.favourite,
       score: order.score,
       status: order.status,
       type: order.type,

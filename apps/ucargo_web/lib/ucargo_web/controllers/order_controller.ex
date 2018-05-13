@@ -6,7 +6,8 @@ defmodule UcargoWeb.OrderController do
   alias Ucargo.Order
 
   def show(conn, _params) do
-    orders = Order.find_all
+    driver = conn.assigns[:driver]
+    orders =  Order.find_assigned(driver)
     conn
       |> put_status(200)
       |> render("orders.json", %{orders: orders})
