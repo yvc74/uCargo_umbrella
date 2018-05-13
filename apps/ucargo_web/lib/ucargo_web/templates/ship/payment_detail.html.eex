@@ -26,6 +26,7 @@
           </label>
           
           <section id="content-card">
+            <a href="http://localhost:4000/assignments/plannings/<%= @planning.id %>/bids/<%= @bid.id%>">PAY</a>
             <p>
               Bacon ipsum dolor sit amet beef venison beef ribs kielbasa. Sausage pig leberkas, t-bone sirloin shoulder bresaola. Frankfurter rump porchetta ham. Pork belly prosciutto brisket meatloaf short ribs.
             </p>
