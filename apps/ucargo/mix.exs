@@ -41,7 +41,8 @@ defmodule Ucargo.Mixfile do
       {:ecto, "~> 2.1"},
       {:guardian, "~> 1.0"},
       {:kraken, in_umbrella: true},
-      {:bcrypt_elixir, "~> 1.0"}
+      {:bcrypt_elixir, "~> 1.0"},
+      {:fsm, "~> 0.3.0"}
     ]
   end
 
