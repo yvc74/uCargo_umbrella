@@ -1,57 +1,17 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal-default-theme.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
-<main>
-   <nav>
-      <ul class="navContent">
-         <li class="navContentItem active">
-            <a href="">
-               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
-               <p>PLANIFICACIÓN</p>
-            </a>
-         </li>
-         <li class="navContentItem">
-            <a href="">
-               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
-               <p>ASIGNACIONES</p>
-            </a>
-         </li>
-         <li class="navContentItem">
-            <a href="">
-               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
-               <p>SEGUIMIENTO</p>
-            </a>
-         </li>
-         <li class="navContentItem">
-            <a href="">
-               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
-               <p>HISTORIAL</p>
-            </a>
-         </li>
-         <li class="navContentItem">
-            <a href="">
-               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
-               <p>FINANZAS</p>
-            </a>
-         </li>
-         <li class="navContentItem">
-            <a href="">
-               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
-               <p>FAVORITOS</p>
-            </a>
-         </li>
-      </ul>
-   </nav>
-   <section class="container" id="planning">
-      <h1 class="panelHeading">
-         LISTA DE PUJAS
-      </h1>
-      <a href="/plannings" class="btn planningNew">
-        REGRESAR A PLANEACIONES
-      </a>
-      <div class="tableContainer">
+<section class="container" id="planning">
+  <div class="proposals-container">
+    <div class="proposals-header">
+      <div class="proposals-header__eyelash header__eyelash">
+        <p>Cotizaciones</p>
+      </div>
+      <div class="proposals-header__new">
+        <a href="/plannings" class="btn">VOLVER A MIS CARGAMENTOS</a>
+      </div>
+    </div>
+    <div class="proposals-content">
+      <div class="table-container">
          <table class="table">
-            <thead class="tableHead">
+            <thead class="table-head">
                <tr>
                   <th>REF U.CARGO</th>
                   <th>PUJA</th>
@@ -63,47 +23,28 @@
                   <th>MERCANCIA</th>
                </tr>
             </thead>
-            <tbody class="tableBody">
+            <tbody class="table-body">
               <%= for bid <- @planning.auction.bids do %>
                   <tr onclick="navigate('/plannings/<%= @planning.order.planning_id %>/bids/<%= bid.id %>');">
                       <td><%= @planning.order.planning_id %></td>
                       <td><%= render_difference_date(@planning.auction.begin_date, @planning.auction.end_date) %> horas</td>
-                      <td>$ <%= bid.price %></td>
+                      <td class="proposals-table__td">$ <%= bid.price %></td>
                       <td><%= @planning.order.custom.name %></td>
                       <td><%= @planning.order.delivery.name %></td>
                       <td><%= bid.driver.id %></td>
-                      <td><%= render_order_type(@planning.order.type) %></td>
+                      <td class="proposals-table__td"><%= render_order_type(@planning.order.type) %></td>
                       <td><%= @planning.order.merchandise_type %></td>
                   </tr>
               <% end %>
             </tbody>
          </table>
       </div>
-   </section>
-</main>
-<div class="remodal quotation-new" data-remodal-id="new" data-remodal-options="hashTracking: false">
-  <div class="quotation-new__details">
-    <p class="quotation-new__title">
-      TU CARGAMENTO </br> NUEVO ES:
-    </p>
-    <div class="quotation-new__actions">
-      <a href="/plannings/import/new" class="btn">
-        IMPORTACIÓN
-      </a>
-      <a href="/plannings/export/new" class="btn">
-        EXPORTACIÓN
-      </a>
-      <a data-remodal-action="cancel" class="new-actions__cancel">
-        Cancelar
-      </a>
     </div>
   </div>
-</div>
+</section>
+
 <script type="text/javascript">
-  function navigate(url)
-  {
+  function navigate(url){
     document.location.href = url;
   }
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.js"></script>

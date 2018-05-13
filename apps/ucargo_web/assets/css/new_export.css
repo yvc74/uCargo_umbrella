@@ -1,0 +1,108 @@
+.export-container{
+  background-color: #f3f3f3;
+  min-height: 10px;
+  box-shadow: 0 2px 4px 0 rgba(155, 155, 155, 0.64);
+}
+.export-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.export-header__new .btn{
+  height: 42px;
+  background-color: #3aa6a2;
+}
+.export-content{
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+.export-content form{
+  width: 522px;
+  padding: 14px;
+}
+.export-news {
+  display: flex;
+  flex-direction: column;
+}
+.export-news__item {
+  width: 100%;
+  border-top: 1px solid #e6e6e6;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+.news-item__title{
+  font-size: 16px;
+  color: #89cac7;
+}
+.new-field {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 6px 0px;
+}
+.new-field__group-two {
+  flex: 1;
+  display: flex;
+  position: relative;
+}
+.new-field__group {
+  flex: 1;
+  width: 100%;
+  margin: 0px 5px;
+  position: relative;
+  padding-top: 20px;
+}
+.new-field__title{
+  position: absolute;
+  top: 0;
+  margin: 0px;
+  font-size: 14px;
+  color: #9b9b9b;
+}
+.new-field__container{
+  width: 100%;
+}
+.new-field__container select{
+  width: 100%;
+}
+.new-field__container input[type=text]{
+  margin: 0;
+}
+.export-news__help{
+  color: #9b9b9b;
+  font-size: 14px;
+  font-weight: 100;
+  float: right;
+}
+.export-news__send{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e6e6e6;
+}
+.export-news__send button{
+  background-color: #3aa6a2;
+}
+.export-checkbox__text{
+  color: #9b9b9b;
+  font-size: 14px;
+}
+
+.container__map {
+  width: 592px;
+  margin-top: 22px;
+  background: #EBECEC;
+}
+.map__tracking {
+  padding-top: 22px;
+  margin-left: 20px;
+  position: fixed;
+}
+#map {
+  height: 622px;
+  width: 556px;
+}

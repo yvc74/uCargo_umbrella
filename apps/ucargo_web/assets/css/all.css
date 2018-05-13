@@ -1,10 +1,16 @@
 body, html, main{
 	height: 100%;
 	width: 100%;
+  background-color: #f5fcfc;
+}
+body.overflow-hidden{
+  overflow: hidden;
 }
 main{
-	height: calc(100% - 60px);
+  height: calc(100% - 60px);
+  width: calc(100% - 170px);
   display: flex;
+  margin-left: auto;
 }
 .container{
 	overflow: auto;
@@ -12,65 +18,163 @@ main{
 	flex: 1;
 	padding: 10px;
 }
-.panelHeading{
-  height: 55px;
+.table-container{
+	width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.table{
+	width: 100%;
+  background-color: #fff;
+}
+.table-head{
+  background-color: #89cac7;
+}
+.table-head th {
+  padding: 10px 18px;
+  background-color: #89cac7;
+  color: #fff;
   text-align: center;
+  font-size: 14px;
+  vertical-align: middle;
+}
+.table-body tr{
+  cursor: pointer;
+}
+.table-body tr:hover{
+  background-color: #f3f3f3;
+}
+.table-body tr td{
+  padding: 10px 18px;
+  text-align: center;
+  border: solid 1px #e6e6e6;
+  font-size: 14px;
+  color: #9b9b9b;
+  vertical-align: middle;
+}
+.btn{
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+  width: 240px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  background: #89cac7;
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 94%;
-  margin: 10px auto;
-  background: #5c6a76;
-  color: #fff;
+  margin: 0px 10px;
+  padding: 0px 10px;
 }
-.btn{
-	display: inline-block;
-  padding: 6px 12px;
-  margin-bottom: 0;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.42857143;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  -ms-touch-action: manipulation;
-  touch-action: manipulation;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  background-image: none;
-  border: 1px solid transparent;
+input[type='text']{
+  width: calc(100% - 8px);
+  height: 30px;
+  border: 0px;
   border-radius: 4px;
-  text-decoration: none;
-  color: #413E31;
-  background-color: #F6BB42;
-  border-color: #F6BB42;
+  background-color: #f3f3f3;
+  padding: 0px 4px;
+  font-size: 16px;
+  color: #4a4a4a;
 }
-.tableContainer{
-	width: 94%;
-  overflow-x: auto;
-  overflow-y: hidden;
-  margin: auto;
-  text-align: center;
+.checkbox input[type=checkbox] {
+  display: none;
 }
-.table{
-	display: inline-block;
-	box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+.checkbox input[type=checkbox] + label{
+  cursor: pointer;
+  display: flex;
 }
-.tableHead th {
-  padding: 10px 18px;
-  background: #363c41;
+.checkbox input[type=checkbox] + label .checkbox__icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #cbcaca;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+.checkbox input[type=checkbox] + label .checkbox__icon .checkbox__dot{
+  width: 8px;
+  height: 8px;
+  display: none;
+  background-color: #89cac7;
+  border-radius: 50%;
+}
+
+.checkbox input[type=checkbox]:checked + label .checkbox__icon .checkbox__dot{
+  display: block;
+}
+.avatar {
+  margin: 10px;
+  -webkit-box-shadow: 5px 2px 5px 0px rgba(28,131,131,1);
+  -moz-box-shadow: 5px 2px 5px 0px rgba(28,131,131,1);
+  box-shadow: 5px 2px 5px 0px rgba(28,131,131,1);
+  width: 42px;
+  height: 42px;
+  border: 2px solid #5fb8b5;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-color: #d8e5e4;
+  background-repeat: no-repeat;
+  background-image: url(/images/user_placeholder.png);
+}
+.header__eyelash {
+  height: 60px;
   color: #fff;
-  border-left: 1px solid #fff;
+  padding: 10px;
+  align-items: center;
+  display: flex;
+  background-color: #fff;
+  min-width: 300px;
 }
-
-.tableBody td{
-	padding: 6px 18px;
-	border-left: 1px solid #363c41;
+.header__eyelash p{
+  color: #4a4a4a;
+  font-weight: 500;
 }
-.tableBody td:first-child{
-		border-left: 1px solid #fff;
-
+.new-dropdown__container{
+  position: relative;
+}
+.select2-container--default .select2-selection--single{
+  width: 100%;
+  height: 30px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f3f3f3;
+  padding: 0px 4px;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+  font-size: 16px;
+  color: #4a4a4a;
+}
+.ucargo-modal{
+  border-radius: 4px;
+  background-color: #ffffff;
+  position: relative;
+  width: auto;
+}
+.ucargo-modal__closed {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  margin: 10px;
+}
+.ucargo-modal__title{
+  font-size: 16px;
+  font-weight: 500;
+  color: #9b9b9b;
+  margin-bottom: 20px
+}
+.ucargo-modal__content{
+  
+}
+.ucargo-modal__actions{
+  margin-top: 20px;
 }

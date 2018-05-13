@@ -1,0 +1,22 @@
+.proposals-container{
+	background-color: #f3f3f3;
+	min-height: 10px;
+	box-shadow: 0 2px 4px 0 rgba(155, 155, 155, 0.64);
+}
+.proposals-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.proposals-header__new .btn{
+  height: 42px;
+  background-color: #3aa6a2;
+}
+.proposals-table__td{
+  color: #4a4a4a !important;
+  font-weight: 500;
+}
+.proposals-content{
+  margin-bottom: 10px;
+}

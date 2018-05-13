@@ -1,102 +1,73 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal-default-theme.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
-<main>
-    <nav>
-      <ul class="navContent">
-         <li class="navContentItem active">
-            <a onclick="navigate('/plannings');">
-               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
-               <p>COTIZACIONES</p>
-            </a>
-         </li>
-         <li class="navContentItem">
-            <a onclick="navigate('/assignments/plannings');">
-               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
-               <p>ASIGNACIONES</p>
-            </a>
-         </li>
-         <li class="navContentItem">
-            <a href="">
-               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
-               <p>SEGUIMIENTO</p>
-            </a>
-         </li>
-         <li class="navContentItem">
-            <a onclick="navigate('/records');">
-               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
-               <p>HISTORIAL</p>
-            </a>
-         </li>
-         <li class="navContentItem">
-            <a  onclick="navigate('/invoices');">
-               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
-               <p>FACTURAS</p>
-            </a>
-         </li>
-         <li class="navContentItem">
-            <a onclick="navigate('/favouritedrivers');">
-               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
-               <p>FAVORITOS</p>
-            </a>
-         </li>
-      </ul>
-   </nav>
-   <section class="container" id="planning">
-      <h1 class="panelHeading">
-         CONDUCTORES FAVORITOS
-      </h1>
-      <div class="tableContainer">
+<section class="container" id="planning">
+  <div class="favourite-container">
+    <div class="favourite-header">
+      <div class="favourite-header__eyelash header__eyelash">
+        <p>Transportistas Favoritos</p>
+      </div>
+      <div class="favourite-header__new">
+        <div class="btn header-new__dropdown" data-jq-dropdown="#jq-dropdown">
+          <span>AGREGAR CARGAMENTO</span>
+        </div>
+        <div class="new-dropdown__container">
+          <div id="jq-dropdown" class="jq-dropdown jq-dropdown-tip planning-jq__dropdown">
+            <div class="jq-dropdown-menu">
+              <div class="planning-jq__content">
+                <p class="planning-jq__title">Tu nuevo cargamento es una:</p>
+                <a href="/plannings/import/new"  class="planning-jq__imp">
+                  IMPORTACIÓN
+                </a>
+                <a href="/plannings/export/new" class="planning-jq__exp">
+                  EXPORTACIÓN
+                </a>      
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="favourites-content">
+      <div class="table-container">
          <table class="table">
-            <thead class="tableHead">
+            <thead class="table-head">
                <tr>
-                  <th>AVATAR</th>
-                  <th>PERFIL</th>
-                  <th>CALIFICACION</th>
-                  <th>VIAJES</th>
+                  <th>FOTO DE PERFIL</th>
+                  <th>NOMBRE COMPLETO</th>
+                  <th>NOMBRE DE USUARIO</th>
+                  <th>CALIFICACIÓN</th>
+                  <th>VIAJES COMPLETADOS</th>
                   <th>ELIMINAR</th>
                </tr>
             </thead>
-            <tbody class="tableBody">
-                    <tr onclick="navigate('/favouritedrivers/profile');">          
-                      <td> <img class="favorites-avatar" src="http://www.misaelpc.com/s3/developer.miio.com/uploads/baby_bowser.png" alt=""></td>
-                      <td>Juan 3452</td>
-                      <td><i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i></td>
-                      <td>13 viajes</td>
-                      <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
-                    </tr>
+            <tbody class="table-body">
+              <tr>          
+                <td> 
+                  <div class="avatar" style="background-image: url('//www.misaelpc.com/s3/developer.miio.com/uploads/baby_bowser.png');"></div>
+                </td>
+                <td>Primer Nombre Apellido Paterno</td>
+                <td>Juan 3452</td>
+                <td>
+                  <p>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </p>
+                </td>
+                <td>13 viajes</td>
+                <td>
+                  <i class="fa fa-times-circle" aria-hidden="true"></i>
+                </td>
+              </tr>
             </tbody>
          </table>
       </div>
-   </section>
-</main>
-<div class="remodal quotation-new" data-remodal-id="new" data-remodal-options="hashTracking: false">
-  <div class="quotation-new__details">
-    <p class="quotation-new__title">
-      TU CARGAMENTO </br> NUEVO ES:
-    </p>
-    <div class="quotation-new__actions">
-      <a href="/plannings/import/new" class="btn">
-        IMPORTACIÓN
-      </a>
-      <a href="/plannings/export/new" class="btn">
-        EXPORTACIÓN
-      </a>
-      <a data-remodal-action="cancel" class="new-actions__cancel">
-        Cancelar
-      </a>
     </div>
   </div>
-</div>
+</section>
+
 <script type="text/javascript">
-  function navigate(url)
-  {
+  function navigate(url){
     document.location.href = url;
   }
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.js"></script>
