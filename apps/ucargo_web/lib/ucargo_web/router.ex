@@ -18,6 +18,10 @@ defmodule UcargoWeb.Router do
     plug Ucargo.Apiauth
   end
 
+  pipeline :json_validation do
+    plug UcargoWeb.JsonSchema
+  end
+
   pipeline :browser_session do
     plug Guardian.Plug.Pipeline, module: UcargoWeb.Guardian,
                              error_handler: UcargoWeb.WebAuthErrorHandler
@@ -78,6 +82,12 @@ defmodule UcargoWeb.Router do
 
       scope "/" do
         pipe_through :authorized
+        pipe_through :json_validation
+        post "/orders/:order_numer/events", DriverController, :events
+      end
+
+      scope "/" do
+        pipe_through :authorized
         get "/settings", SettingsController, :settings
         get "/orders", OrderController, :show
         patch "/account", DriverController, :update
@@ -86,7 +96,6 @@ defmodule UcargoWeb.Router do
         post "/orders/:order_number/fav",  DriverController, :order_favorite
         delete "/orders/:order_number/fav", DriverController, :order_favorite_delete
         get "/orders/onroute", DriverController, :order_onroute
-        post "/orders/:order_numer/events", DriverController, :events
       end
 
     end
