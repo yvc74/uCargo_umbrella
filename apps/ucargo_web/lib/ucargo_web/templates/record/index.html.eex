@@ -1,6 +1,6 @@
 <section class="container" id="record">
   <div class="record-container">
-    <div class="record-header">
+    <div class="record-header shell-header">
       <div class="record-header__eyelash header__eyelash">
         <p>Historial de Cargamentos</p>
       </div>

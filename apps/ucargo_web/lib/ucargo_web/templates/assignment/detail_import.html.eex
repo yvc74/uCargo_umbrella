@@ -1,6 +1,6 @@
 <section class="container" id="details">
   <div class="details-container">
-    <div class="details-header">
+    <div class="details-header shell-header">
       <div class="details-header__eyelash header__eyelash">
         <p>Seguimiento Cargamento</p>
       </div>
@@ -304,6 +304,10 @@
           </div>
         </div>
       </div>
+      <div class="ship-map" id="map"></div>
+      <a class="map-fab" href="#map">
+        <i class="far fa-map"></i>
+      </a>
     </div>
   </div>
 </section>
@@ -377,6 +381,23 @@
 </div>
 
 <script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    $(document).on('opening', '[data-remodal-id=photos]', function () {
+      $('.details-slick').slick({
+        dots: true,
+        infinite: true,
+        speed: 500,
+        fade: true,
+        cssEase: 'linear'
+      })
+    })
+    new GMaps({
+      div: '.ship-map',
+      lat: -12.043333,
+      lng: -77.028333
+    });
+  })
+  
   function onSendEmails(){
     const modal = $('[data-remodal-id=shared]').remodal();
     const emails = $('.input-emails__shared').val();

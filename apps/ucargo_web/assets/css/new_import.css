@@ -92,18 +92,26 @@
   background-color: #3aa6a2;
 }
 
-
-.container__map {
-  width: 592px;
-  margin-top: 22px;
-  background: #EBECEC;
+@media only screen and (max-width: 910px) {
+ .import-content form{
+  margin: auto;
+ }
 }
-.map__tracking {
-  padding-top: 22px;
-  margin-left: 20px;
-  position: fixed;
-}
-#map {
-  height: 622px;
-  width: 556px;
+@media only screen and (max-width: 600px) {
+ .new-field__group{
+  width: 100%;
+  margin-top: 5px;
+ }
+ .new-field{
+  flex-direction: column;
+ }
+ .import-content form{
+  width: calc(100% - 28px);
+ }
+ .import-news__send{
+  flex-direction: column;
+ }
+ .import-news__send .checkbox{
+  margin-bottom: 10px;
+ }
 }

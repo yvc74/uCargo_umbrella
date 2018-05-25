@@ -1,6 +1,6 @@
 <section class="container" id="planning">
   <div class="favourite-container">
-    <div class="favourite-header">
+    <div class="favourite-header shell-header">
       <div class="favourite-header__eyelash header__eyelash">
         <p>Transportistas Favoritos</p>
       </div>
@@ -46,7 +46,7 @@
                 <td>Primer Nombre Apellido Paterno</td>
                 <td>Juan 3452</td>
                 <td>
-                  <p>
+                  <p class="favourite-cal">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>

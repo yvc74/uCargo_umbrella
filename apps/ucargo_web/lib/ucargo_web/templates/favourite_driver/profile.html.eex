@@ -1,114 +1,63 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal-default-theme.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
-<main>
-    <nav>
-      <ul class="navContent">
-         <li class="navContentItem active">
-            <a onclick="navigate('/plannings');">
-               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
-               <p>COTIZACIONES</p>
-            </a>
-         </li>
-         <li class="navContentItem">
-            <a onclick="navigate('/assignments/plannings');">
-               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
-               <p>ASIGNACIONES</p>
-            </a>
-         </li>
-         <li class="navContentItem">
-            <a href="">
-               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
-               <p>SEGUIMIENTO</p>
-            </a>
-         </li>
-         <li class="navContentItem">
-            <a onclick="navigate('/records');">
-               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
-               <p>HISTORIAL</p>
-            </a>
-         </li>
-         <li class="navContentItem">
-            <a  onclick="navigate('/invoices');">
-               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
-               <p>FACTURAS</p>
-            </a>
-         </li>
-         <li class="navContentItem">
-            <a onclick="navigate('/favouritedrivers');">
-               <img src="https://private.cargobot.io/bundles/app/img/left-menu/negotiation-yellow.png" alt="">
-               <p>FAVORITOS</p>
-            </a>
-         </li>
-      </ul>
-   </nav>
-   <section class="container" id="planning">
-      <section class="container">
-					<div class="profile-avatar">
-						<input id="avatar" type="file" accept="image/*">
-						<label for="avatar">
-							<img id="avatar_image" src="http://www.misaelpc.com/s3/developer.miio.com/uploads/baby_bowser.png" alt="">
-							<i class="fa fa-plus-circle" aria-hidden="true"></i>
-						</label>
-					</div>
-					<div class="profile-description">
-						<p class="profile-description__name">EMPAC S.A DE C.V.</p>
-						<p class="profile-description__calification">
-							<span>CALIFICACIÓN:</span>
-							<span>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-							</span>
-						</p>
-						<p class="profile-description__phone">
-							TELEFONO: 563 2846 4658
-						</p>
-						<p class="profile-description__email">
-							mail.mail.com
-						</p>
-						<p class="profile-description__address">
-							CALZADA VALLEJO 491 LOCAL A-C, DEFENSORES <br/>
-							DE LA REPÚBLICA, 07780 GUSTAVO A. <br/>
-							MADERO, CDMX
-						</p>
-						<p class="profile-description__rfc">
-							R.F.C CUPU800825569
-						</p>
-						<p class="profile-description__help">
-							SI QUIERES HACER UN CAMBIO DE INFO <br />
-							MANDA MAIL A <br />
-							<a>AYUDA@UCARGO.MX</a>
-						</p>
-					</div>
-				</section>
-   </section>
-</main>
-<div class="remodal quotation-new" data-remodal-id="new" data-remodal-options="hashTracking: false">
-  <div class="quotation-new__details">
-    <p class="quotation-new__title">
-      TU CARGAMENTO </br> NUEVO ES:
-    </p>
-    <div class="quotation-new__actions">
-      <a href="/plannings/import/new" class="btn">
-        IMPORTACIÓN
-      </a>
-      <a href="/plannings/export/new" class="btn">
-        EXPORTACIÓN
-      </a>
-      <a data-remodal-action="cancel" class="new-actions__cancel">
-        Cancelar
-      </a>
+<section class="container" id="profile">
+  <div class="profile-container">
+    <div class="profile-user">
+      <input type="file" name="file" id="avatar" accept="image/*">
+      <label for="avatar" class="profile-avatar">
+        <div class="profile-avatar__image avatar"></div>
+        <p class="change-avatar">
+          Cambiar Foto
+        </p>
+      </label>
+      <div class="profile-info__user">
+        <div class="profile-info__data">
+          <div class="profile-info__extra">
+            <p class="profile-name">STEREN S.A. DE C.V.</p>
+            <p class="profile-rfc">R.F.C CUPU800825569</p>
+            <p class="profile-cal">Calificación <br/> 
+              <span>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </span>
+            </p>
+          </div>
+          <div class="profile-info__container">
+            <div class="profile-info">
+              <div class="profile-info__phone">
+                <img src="/images/phone.png" alt="">
+                <p>563 2846 4658</p>
+              </div>
+              <div class="profile-info__email">
+                <img src="/images/email.png" alt="">
+                <p>nombre@gmail.com</p>
+              </div>
+            </div>
+            <p class="profile-address">Calzada Vallejo 491 Local A-C, Defensores de la República, 07780 Gustavo A. Madero, Cdmx</p>
+          </div>
+        </div>
+        <p class="profile-help">Para hacer un cambio en tus datos manda un correo a <span>ayuda@ucargo.mx</span></p>
+      </div>
     </div>
   </div>
-</div>
-<script type="text/javascript">
-  function navigate(url)
-  {
-    document.location.href = url;
+</section>
+
+<script>
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      
+      reader.onload = function (e) {
+        $('.profile-avatar__image').css('background-image', 'url('+e.target.result+')')
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
   }
+
+  document.addEventListener("DOMContentLoaded", function(event) {
+    $("#avatar").change(function(){
+        readURL(this);
+    });
+  })
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.js"></script>
