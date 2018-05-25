@@ -10,7 +10,7 @@ config :ucargo_web,
   namespace: UcargoWeb,
   ecto_repos: [Ucargo.Repo]
 
-config :ucargo_web, :phoenix_swagger,  
+config :ucargo_web, :phoenix_swagger,
   swagger_files: %{
     "priv/static/swagger.json" => [
       router: UcargoWeb.Router,     # phoenix routes will be converted to swagger paths
@@ -57,7 +57,7 @@ config :ucargo_web, :json_schemas,
             "type" => "string"
           },
           "name" => %{
-            "description" => "UUID of the event",
+            "description" => "Name of the event",
             "type" => "string",
             "enum" => ["Begin", "Green", "Quote",
                        "Red", "Picture", "Track",
