@@ -1,6 +1,6 @@
 <section class="container" id="details">
   <div class="details-container">
-    <div class="details-header">
+    <div class="details-header shell-header">
       <div class="details-header__eyelash header__eyelash">
         <p>Cotización Exportación</p>
       </div>
@@ -183,6 +183,20 @@
           </div>
         </div>
       </div>
+      <div class="ship-map" id="map"></div>
+      <a class="map-fab" href="#map">
+        <i class="far fa-map"></i>
+      </a>
     </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+      new GMaps({
+        div: '.ship-map',
+        lat: -12.043333,
+        lng: -77.028333
+      });
+  })
+</script>

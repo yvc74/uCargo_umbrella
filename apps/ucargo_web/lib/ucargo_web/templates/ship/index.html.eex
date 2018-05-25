@@ -1,6 +1,6 @@
 <section class="container" id="planning">
   <div class="planning-container">
-    <div class="planning-header">
+    <div class="planning-header shell-header">
       <div class="planning-header__eyelash header__eyelash">
         <p>Tus Cargamentos</p>
       </div>

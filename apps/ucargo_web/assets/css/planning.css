@@ -82,3 +82,12 @@
 .planning-content{
   margin-bottom: 10px;
 }
+
+@media only screen and (max-width: 600px) {
+ .planning-header{
+  flex-direction: column;
+ }
+ .planning-header__message{
+  margin-bottom: 10px;
+ }
+}

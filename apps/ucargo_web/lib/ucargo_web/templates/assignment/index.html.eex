@@ -1,6 +1,6 @@
 <section class="container" id="planning">
   <div class="assignment-container">
-    <div class="assignment-header">
+    <div class="assignment-header shell-header">
       <div class="assignment-header__eyelash header__eyelash">
         <p>Asignados & Seguimiento</p>
       </div>

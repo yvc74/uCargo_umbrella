@@ -1,6 +1,6 @@
 <section class="container" id="payment">
   <div class="payment-container">
-    <div class="payment-header">
+    <div class="payment-header shell-header">
       <div class="payment-header__eyelash header__eyelash">
         <p>Pagar Servicio</p>
       </div>
@@ -9,13 +9,14 @@
        </div>
     </div>
     <div class="payment-content">
+      <a href="http://localhost:4000/assignments/plannings/<%= @planning.id %>/bids/<%= @bid.id%>">PAY</a>
       <p class="payment-price">
         $<%= @bid.price %> <br/> <span>MXN +IVA</span>
       </p>
       <div class="payment-form__content">
         <div class="payment-form__accordion">
        
-          <input id="card" type="radio" name="method" />
+          <input id="card" type="radio" name="method" checked/>
           <label for="card">
             <span class="icon">
               <span class="dot"></span>
@@ -23,16 +24,87 @@
             <span class="title">
               TARJETA DE CRÉDITO
             </span>
+            <img class="placeholder-cards" src="/images/cards.png" alt="">
           </label>
           
           <section id="content-card">
-            <a href="http://localhost:4000/assignments/plannings/<%= @planning.id %>/bids/<%= @bid.id%>">PAY</a>
-            <p>
-              Bacon ipsum dolor sit amet beef venison beef ribs kielbasa. Sausage pig leberkas, t-bone sirloin shoulder bresaola. Frankfurter rump porchetta ham. Pork belly prosciutto brisket meatloaf short ribs.
-            </p>
-            <p>
-              Brisket meatball turkey short loin boudin leberkas meatloaf chuck andouille pork loin pastrami spare ribs pancetta rump. Frankfurter corned beef beef tenderloin short loin meatloaf swine ground round venison.
-            </p>
+            <div class="content-card__info">
+              <div class="card-info__section">
+                <div class="card-data">
+                  <div class="card-info__data">
+                    <p class="card-info__caption">*Nombre Completo</p>
+                    <input type="text">
+                  </div>
+                  <div class="card-info__data">
+                    <p class="card-info__caption">*Dirección de Facturación</p>
+                    <input type="text">
+                  </div>
+                  <div class="card-info__group">
+                    <div class="card-info__data">
+                      <p class="card-info__caption">*Ciudad</p>
+                      <input type="text">
+                    </div>
+                    <div class="card-info__data">
+                      <p class="card-info__caption">*Código Postal</p>
+                      <input type="text">
+                    </div>
+                  </div>
+                  <div class="card-info__data card-info__country">
+                    <p class="card-info__caption">*País</p>
+                    <select>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="card-info__section">
+                <div class="card-data">
+                  <div class="card-info__data">
+                    <p class="card-info__caption">*Nombre como aparece en la tarjeta</p>
+                    <input type="text">
+                  </div>
+                  <div class="card-info__data">
+                    <p class="card-info__caption">*Número de Tarjeta</p>
+                    <input type="text">
+                  </div>
+                  <div class="card-info__group">
+                    <div class="card-info__data card-info__exp">
+                      <p class="card-info__caption">*Mes de Expiración</p>
+                      <select>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                      </select>
+                    </div>
+                    <div class="card-info__data card-info__exp">
+                      <p class="card-info__caption">*Año de Expiración</p>
+                      <select>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="card-info__data">
+                    <p class="card-info__caption">*Número de Seguridad CVC</p>
+                    <input type="text">
+                  </div>
+                </div>
+              </div>
+              <div class="card-info__extra">
+                  <p class="card-info__legend">Recibirás confirmación de tu pago <br/> por correo electónico.</p>
+                  <div class="card-send__container">
+                    <button class="btn card-info__send" data-remodal-target="payment">
+                    PAGAR SERVICIO
+                    </button>
+                  </div>
+              </div>
+            </div>
           </section>
           
           <input id="cash" type="radio" name="method" />
@@ -46,12 +118,21 @@
           </label>
           
           <section id="content-cash">
-            <p>
-              Bacon ipsum dolor sit amet beef venison beef ribs kielbasa. Sausage pig leberkas, t-bone sirloin shoulder bresaola. Frankfurter rump porchetta ham. Pork belly prosciutto brisket meatloaf short ribs.
-            </p>
-            <p>
-              Brisket meatball turkey short loin boudin leberkas meatloaf chuck andouille pork loin pastrami spare ribs pancetta rump. Frankfurter corned beef beef tenderloin short loin meatloaf swine ground round venison.
-            </p>
+            <div class="cash-data">
+              <p class="cash-ref__legend">
+                Referencia para Transferencia o Depósito:
+              </p>
+              <p class="cash-ref__number">
+                REF000000
+              </p>
+              <p class="cash-ref__copy">
+                Recibirás confirmación de tu pago por correo electónico.
+                En cuanto esté registrado tu pago, el cargamento aparecerá en la pestaña de Asignados.
+              </p>
+              <button class="btn cash-ref__send" data-remodal-target="payment">
+                ACEPTAR
+              </button>
+            </div>
           </section>
 
         </div>
@@ -60,8 +141,34 @@
   </div>
 </section>
 
+<div class="remodal ucargo-modal" data-remodal-id="payment" data-remodal-options="hashTracking: false">
+  <p class="payment-finish__title">PAGO EXITOSO</p>
+  <div class="payment-finish__icon">
+    <i class="fas fa-check"></i>
+  </div>
+  <p class="payment-finish__legend">Número de referencia de pago</p>
+  <p class="payment-finish__ref">REF000000</p>
+  <button class="btn payment-finish__send" onclick="onAccept()">
+    ACEPTAR
+  </button>
+  <div class="payment-finish__actions">
+    <a href="">
+      <img src="/images/print.png" alt="">
+    </a>
+    <a href="">
+      <img src="/images/download.png" alt="">
+    </a>
+    <a href="">
+      <img src="/images/shared.png" alt="">
+    </a>
+  </div>
+</div>
+
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function(event) {
     
   });
+  function onAccept(){
+    window.location.href = '/assignments/plannings/<%= @planning.id%>/bids/<%= @bid.id %>'
+  }
 </script>

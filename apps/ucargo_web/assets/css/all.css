@@ -17,6 +17,7 @@ main{
 	height: calc(100% - 20px);
 	flex: 1;
 	padding: 10px;
+  position: relative;
 }
 .table-container{
 	width: 100%;
@@ -26,6 +27,7 @@ main{
 .table{
 	width: 100%;
   background-color: #fff;
+  min-width: 950px;
 }
 .table-head{
   background-color: #89cac7;
@@ -115,6 +117,8 @@ input[type='text']{
   box-shadow: 5px 2px 5px 0px rgba(28,131,131,1);
   width: 42px;
   height: 42px;
+  min-width: 42px;
+  min-height: 42px;
   border: 2px solid #5fb8b5;
   border-radius: 50%;
   background-size: cover;
@@ -172,9 +176,96 @@ input[type='text']{
   color: #9b9b9b;
   margin-bottom: 20px
 }
-.ucargo-modal__content{
-  
-}
 .ucargo-modal__actions{
   margin-top: 20px;
+}
+.ship-map{
+  width: calc(100% - 580px);
+  height: 593px;
+  background-color: #d8d8d8;
+  position: absolute;
+  right: 10px;
+  top: 90px;
+  height: calc(100% - 80px);
+}
+.fixed-ship__map{
+  position: fixed;
+  top: 70px;
+  right: 10px;
+  width: calc(100% - 750px);
+}
+.map-fab{
+  border-radius: 50%;
+  font-size: 24px;
+  height: 56px;
+  margin: auto;
+  min-width: 56px;
+  width: 56px;
+  padding: 0;
+  overflow: hidden;
+  background-color: #3aa6a2;
+  box-shadow: 0 1px 1.5px 0 rgba(0,0,0,.12), 0 1px 1px 0 rgba(0,0,0,.24);
+  position: relative;
+  line-height: normal;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.map-fab i{
+  color: #fff;
+}
+@media only screen and (max-width: 1200px) {
+ .ship-map{
+  max-width: 445px;
+ }
+}
+@media only screen and (max-width: 1130px) {
+ .header__eyelash{
+  display: none;
+ }
+ .shell-header{
+  padding: 10px 0px;
+ }
+}
+@media only screen and (max-width: 1100px) {
+  .ship-map,
+  .fixed-ship__map{
+    min-width: 346px;
+  }
+}
+@media only screen and (max-width: 1024px) {
+ main{
+  width: 100%;
+ }
+ .ship-map{
+    width: calc(100% - 580px);
+  }
+}
+@media only screen and (max-width: 910px) {
+  .ship-map{
+    display: none;
+    position: fixed !important;
+    width: 100% !important;
+    height: 100% !important;
+    top: 0px;
+    left: 0px;
+    max-width: 100% !important;
+  }
+  .map-fab{
+    display: flex;
+  }
+  .shell-header{
+    justify-content: center !important;
+  }
+}
+@media only screen and (max-width: 600px) {
+ div.header-title{
+  display: none;
+ }
 }

@@ -1,6 +1,6 @@
 <section class="container" id="details">
   <div class="details-container">
-    <div class="details-header">
+    <div class="details-header shell-header">
       <div class="details-header__eyelash header__eyelash">
         <p>Seguimiento Cargamento</p>
       </div>
@@ -210,100 +210,25 @@
           </div>
         </div>
       </div>
+      <div class="ship-map"></div>
     </div>
   </div>
 </section>
 
-<div class="remodal ucargo-modal" data-remodal-id="shared" data-remodal-options="hashTracking: false">
-  <img class="ucargo-modal__closed" src="/images/closed.png" data-remodal-action="close" alt="">
-  <p class="ucargo-modal__title">CAMINO A ADUANA</p>
-  <div class="ucargo-modal__content">
-    <div class="details-modal__shared">
-      <div class="details-emails__container">
-        <input class="details-modal__emails input-emails input-emails__shared" />
-      </div>
-      <div class="checkbox">
-        <input type="checkbox" id="checkbox-shared" />
-        <label for="checkbox-shared">
-          <span class="checkbox__icon details-checkbox__icon">
-              <span class="checkbox__dot"></span>
-          </span>
-          <span class="checkbox__text details-checkbox__text">Enviar copia a mi correo.</span>
-        </label>
-      </div>
-      <div class="ucargo-modal__actions">
-        <button onclick="onSendEmails()" class="btn ucargo-actions__send">ENVIAR</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="remodal ucargo-modal" data-remodal-id="photos" data-remodal-options="hashTracking: false">
-  <img class="ucargo-modal__closed" src="/images/closed.png" data-remodal-action="close" alt="">
-  <p class="ucargo-modal__title">FOTOGRAFÍAS DE CANDADO</p>
-  <div class="ucargo-modal__content">
-    <div class="details-modal__photos">
-      <div class="details-modal__carusel">
-        <div class="details-slick">
-          <div class="details-slick__image">
-            <div>
-              <img src="http://via.placeholder.com/100x150"/>
-            </div>
-          </div>
-          <div class="details-slick__image">
-            <div>
-              <img src="http://via.placeholder.com/100x150"/>
-            </div>
-          </div>
-          <div class="details-slick__image">
-            <div>
-              <img src="http://via.placeholder.com/100x150"/>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="details-emails__container">
-        <input class="details-modal__emails input-emails input-emails__photos" />
-      </div>
-      <div class="checkbox">
-        <input type="checkbox" id="checkbox-photos" />
-        <label for="checkbox-photos">
-          <span class="checkbox__icon details-checkbox__icon">
-              <span class="checkbox__dot"></span>
-          </span>
-          <span class="checkbox__text details-checkbox__text">Enviar copia a mi correo.</span>
-        </label>
-      </div>
-      <div class="ucargo-modal__actions">
-        <button onclick="onSendPhotos()" class="btn ucargo-actions__send">ENVIAR</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <script>
-  function onSendEmails(){
-    const modal = $('[data-remodal-id=shared]').remodal();
-    const emails = $('.input-emails__shared').val();
+  document.addEventListener("DOMContentLoaded", function(event) {
+    $('.details-rating').raty({
+      starOn: 'fas fa-star',
+      starOff: 'far fa-star',
+      score: function() {
+        return $(this).attr('data-score');
+      }
+    });
 
-    if(emails === ''){
-      console.log('error');
-    }else{
-      modal.close();
-      console.log(emails)
-    }
-  }
-
-  function onSendPhotos(){
-    const modal = $('[data-remodal-id=photos]').remodal();
-    const emails = $('.input-emails__photos').val();
-
-    if(emails === ''){
-      console.log('error');
-    }else{
-      modal.close();
-      console.log(emails)
-    }
-  }
+    new GMaps({
+      div: '.ship-map',
+      lat: -12.043333,
+      lng: -77.028333
+    });
+  })
 </script>

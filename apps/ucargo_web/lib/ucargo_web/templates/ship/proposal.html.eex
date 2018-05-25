@@ -1,6 +1,6 @@
 <section class="container" id="planning">
   <div class="proposals-container">
-    <div class="proposals-header">
+    <div class="proposals-header shell-header">
       <div class="proposals-header__eyelash header__eyelash">
         <p>Cotizaciones</p>
       </div>
