@@ -4,6 +4,12 @@ defmodule UcargoWeb.SessionFallbackController do
   """
   use  UcargoWeb, :controller
 
+  def call(conn, {:error, changeset = %Ecto.Changeset{}}) do
+    conn
+      |> put_status(401)
+      |> json(creation_error(changeset.errors))
+  end
+
   def call(conn, {:error, errors}) do
     conn
       |> put_status(401)
