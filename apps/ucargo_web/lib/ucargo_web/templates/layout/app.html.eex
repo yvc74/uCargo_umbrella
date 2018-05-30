@@ -62,22 +62,22 @@
          </div>
          <ul class="nav-content">
             <li class="nav-content__item active">
-               <a href="">
-                  <p>Cotizaciones</p>
+               <a onclick="navigate('/plannings');">
+                  <p id="ship_list">Cotizaciones</p>
                </a>
             </li>
             <li class="nav-content__item">
-               <a href="">
+               <a onclick="navigate('/assignments/plannings');">
                   <p>Asignados & <br/>Seguimiento</p>
                </a>
             </li>
             <li class="nav-content__item">
-               <a href="">
+               <a onclick="navigate('/records');">
                   <p>Historial & <br/>Facturas</p>
                </a>
             </li>
             <li class="nav-content__item">
-               <a href="">
+               <a onclick="navigate('/favouritedrivers');">
                   <p>Favoritos</p>
                </a>
             </li>
@@ -97,3 +97,14 @@
       <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
    </body>
 </html>
+
+<script type="text/javascript">
+  function navigate(url){
+    console.log("noe is the house")
+    document.location.href = url;
+    var url = window.location.href;
+    console.log(url)
+    
+
+  }
+</script>

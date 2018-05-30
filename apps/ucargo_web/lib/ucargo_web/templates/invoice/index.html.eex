@@ -141,7 +141,6 @@
                 </div>
                 <div class="user-data__name-surname">
                   <p>@driver.name</p>
-                  <p>@driver.name</p>
                 </div>
               </div>
               <div class="carrier-card__user-name">
