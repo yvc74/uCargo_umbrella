@@ -10,7 +10,7 @@ config :ucargo_web,
   namespace: UcargoWeb,
   ecto_repos: [Ucargo.Repo]
 
-config :ucargo_web, :phoenix_swagger,  
+config :ucargo_web, :phoenix_swagger,
   swagger_files: %{
     "priv/static/swagger.json" => [
       router: UcargoWeb.Router,     # phoenix routes will be converted to swagger paths
@@ -38,6 +38,59 @@ config :ucargo_web, UcargoWeb.Guardian,
   issuer: "ucargo",
   error_handler: UcargoWeb.WebAuthErrorHandler,
   secret_key: "/SYNjtAF0/dajy8dwXKc37hTYqUwHlWOHrhUE8MteA3Ru49jb7j4Rh6W2XPsdPWD"
+
+config :ucargo_web, :json_validation,
+  paths: %{"api/v1/drivers/orders/events" => :receive_events}
+
+config :ucargo_web, :json_schemas,
+  receive_events: %{
+    "title" => "Send Orders Events",
+    "type" => "object",
+    "maxProperties" => 2,
+    "properties" => %{
+      "event" => %{
+        "type" => "object",
+        "description" => "event sent to ucargo order",
+        "properties" => %{
+          "id" => %{
+            "description" => "UUID of the event",
+            "type" => "string"
+          },
+          "name" => %{
+            "description" => "Name of the event",
+            "type" => "string",
+            "enum" => ["Begin", "Green", "Quote",
+                       "Red", "Picture", "Track",
+                       "Finish", "Arrival", "Cancel"]
+          },
+          "picture" => %{
+            "description" => "Picture of the event",
+            "type" => "string"
+          },
+          "track" => %{
+            "description" => "Object for sending geolocalization events",
+            "type" => "object",
+            "properties" => %{
+              "latitude" => %{
+                "description" => "latitude of the geo event",
+                "type" => "number"
+              },
+              "longitude" => %{
+                "description" => "longitude of the geo event",
+                "type" => "number"
+              }
+            },
+            "required" => ["latitude", "longitude"]
+          },
+          "date" => %{
+            "type" => "string",
+            "description" => "Date of the event"}
+        },
+        "required" => ["id", "name", "date"]},
+        },
+    "additionalProperties" => :true,
+    "required" => ["event"]
+    }
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

@@ -41,6 +41,21 @@ defmodule UcargoWeb.DriverView do
     }
   end
 
+  def render("event.json", %{event: event}) do
+    %{
+      event: %{
+        id: event.id,
+        inserted_at: event.inserted_at,
+        latitude: event.latitude,
+        longitude: event.longitude,
+        picture: event.picture,
+        updated_at: event.updated_at,
+        uuid: event.uuid,
+        name: event.name
+      }
+    }
+  end
+
   def render("order_delete.json", %{message: status}) do
       %{
         message: status

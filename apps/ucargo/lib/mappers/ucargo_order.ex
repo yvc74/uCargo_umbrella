@@ -61,6 +61,15 @@ defmodule Ucargo.Order do
     Repo.one(query)
   end
 
+  def validate_order_id(order_id) do
+    case Order.find_by(:id, order_id) do
+      nil ->
+        {:error, "Order with number #{order_id} not found"}
+      order ->
+        {:ok, order}
+    end
+  end
+
   def create_assignment(order, driver) do
     driver = Driver.update_changeset(driver, %{})
     order_with_drivers =
