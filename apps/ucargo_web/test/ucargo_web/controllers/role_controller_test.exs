@@ -9,7 +9,7 @@ defmodule UcargoWeb.RoleControllerTest do
     {:ok, role: role}
   end
 
-  test "role", %{role: role} do
+  test "role", %{role: _role} do
     
   end
 

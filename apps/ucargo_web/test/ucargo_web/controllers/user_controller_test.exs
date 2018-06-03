@@ -9,6 +9,6 @@ defmodule UcargoWeb.UserControllerTest do
     {:ok, user: user}
   end
 
-  test "test user", %{user: user} do
+  test "test user", %{user: _user} do
   end
 end

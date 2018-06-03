@@ -8,7 +8,7 @@ defmodule OrderInsertHelper do
   alias Ucargo.Delivery
   alias Ucargo.Repo
 
-  def create_order do
+  def create_order(driver) do
     orders_params = %{score: 4, deadline: NaiveDateTime.utc_now(),
                   status: "New", type: 1, distance: "350",
                   merchandise_type: "Plastic", order_number: "47848",
@@ -38,7 +38,8 @@ defmodule OrderInsertHelper do
     order_with_pick = Ecto.Changeset.put_assoc(order_chs, :pickup, pick_chgset)
     order_with_delivery = Ecto.Changeset.put_assoc(order_with_pick, :delivery, deliver_chgset)
     order_with_custom = Ecto.Changeset.put_assoc(order_with_delivery, :custom, custom_import_chgset)
+    order_with_drivers = Ecto.Changeset.put_assoc(order_with_custom, :drivers, [driver])
 
-    Repo.insert! order_with_custom
+    Repo.insert! order_with_drivers
   end
 end

@@ -12,7 +12,7 @@ defmodule UcargoWeb.PageControllerTest do
                                         phone: "5534734763",
                                         name: "Sam Bigotes"})
     driver = Repo.insert! driver_chs
-    OrderInsertHelper.create_order
+    OrderInsertHelper.create_order(driver)
     {:ok, driver: driver}
   end
 
