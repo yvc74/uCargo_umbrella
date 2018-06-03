@@ -10,7 +10,7 @@ defmodule Ucargo.EventDispatcher do
        true ->
         Event.save(changeset)
        false ->
-        changeset.errors
+        {:error, changeset.errors}
     end
   end
 end

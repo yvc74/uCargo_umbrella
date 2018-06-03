@@ -129,7 +129,8 @@ defmodule UcargoWeb.DriverController do
       |> render("order_onroute.json", %{order: "0001"})
   end
 
-  def events(conn, %{"order_numer" => order_number, "event" => event, "date" => date}) do
+  def events(conn, %{"order_numer" => order_number, "event" => event}) do
+    %{"date" => date} = event
     with {:ok, order} <- Order.validate_order_id(order_number),
          {:ok, event} <- EventDispatcher.dispatch(event, date, order) do
       conn

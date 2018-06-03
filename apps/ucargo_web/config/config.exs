@@ -80,15 +80,16 @@ config :ucargo_web, :json_schemas,
                 "type" => "number"
               }
             },
-            "required" => ["latitude", "longitude"]}
+            "required" => ["latitude", "longitude"]
+          },
+          "date" => %{
+            "type" => "string",
+            "description" => "Date of the event"}
         },
-        "required" => ["id", "name"]},
-      "date" => %{
-        "type" => "string",
-        "description" => "Date of the event"}
+        "required" => ["id", "name", "date"]},
         },
     "additionalProperties" => :true,
-    "required" => ["event", "date"]
+    "required" => ["event"]
     }
 
 # Import environment specific config. This must remain at the bottom
