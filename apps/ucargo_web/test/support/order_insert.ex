@@ -6,6 +6,8 @@ defmodule OrderInsertHelper do
   alias Ucargo.Pickup
   alias Ucargo.Custom
   alias Ucargo.Delivery
+  alias Ucargo.Planning
+  alias Ucargo.CustomBroker
   alias Ucargo.Repo
 
   def create_order(driver) do
@@ -35,11 +37,26 @@ defmodule OrderInsertHelper do
               schedule: "sábado	9–15",
               responsible: "Benjamin Cedillo",
               date: "2018-03-10"})
+
+    custom_broker = %CustomBroker{name: "Joel de la Peña",
+              username: "joel65",
+              password: "12345678",
+              company: "Exportadora del Pácifico"}
+
     order_with_pick = Ecto.Changeset.put_assoc(order_chs, :pickup, pick_chgset)
     order_with_delivery = Ecto.Changeset.put_assoc(order_with_pick, :delivery, deliver_chgset)
     order_with_custom = Ecto.Changeset.put_assoc(order_with_delivery, :custom, custom_import_chgset)
     order_with_drivers = Ecto.Changeset.put_assoc(order_with_custom, :drivers, [driver])
 
-    Repo.insert! order_with_drivers
+    final_order = Repo.insert! order_with_drivers
+
+    broker = Repo.insert!(custom_broker)
+
+    pl_changeset = Planning.create_changeset(%Planning{},
+                      %{master_reference: "115403",
+                        house_reference: "142-3442-2576",
+                        custom_broker_id: broker.id})
+    pl_changeset_with_order = Ecto.Changeset.put_assoc(pl_changeset, :order, final_order)
+    Repo.insert!(pl_changeset_with_order)
   end
 end
