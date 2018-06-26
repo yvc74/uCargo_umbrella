@@ -50,7 +50,7 @@ defmodule Ucargo.Order do
   end
 
   def find_assigned(driver) do
-    driver = Repo.preload(driver, [orders: [:pickup, :delivery, :custom, [planning: [auction: [:bids]]]]])
+    driver = Repo.preload(driver, [orders: [:pickup, :delivery, :custom, [planning: [:custom_broker, auction: [:bids]]]]])
     driver.orders
   end
 
