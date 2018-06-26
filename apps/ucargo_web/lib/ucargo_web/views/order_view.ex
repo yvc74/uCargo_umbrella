@@ -29,7 +29,11 @@ defmodule UcargoWeb.OrderView do
                 %{label: "merchandise_type", value: order.merchandise_type},
                 %{label: "order_number", value: order.order_number},
                 %{label: "transport", value: order.transport},
-                %{label: "weight", value: order.weight}
+                %{label: "weight", value: order.weight},
+                %{label: "house_reference", value: order.planning.house_reference},
+                %{label: "master_reference", value: order.planning.master_reference},
+                %{label: "shipment_responsable", value: order.planning.custom_broker.company},
+                %{label: "ucargo_reference", value: order.id}
                ],
      }
     if order.type == 1 do
