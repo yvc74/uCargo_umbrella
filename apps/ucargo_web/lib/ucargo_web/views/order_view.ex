@@ -17,13 +17,15 @@ defmodule UcargoWeb.OrderView do
                 longitude: order.custom.longitude,
                 name: order.custom.name,
                 address: order.custom.address,
-                schedule: order.custom.schedule},
+                schedule: order.custom.schedule,
+                label: "custom"},
       deadline: generate_iso_date(order.deadline),
       delivery: %{latitude: order.delivery.latitude,
                   longitude: order.delivery.longitude,
                   name: order.delivery.name,
                   address: order.delivery.address,
-                  schedule: order.delivery.schedule
+                  schedule: order.delivery.schedule,
+                  label: "delivery"
                   },
       details: [%{label: "distance", value: order.distance},
                 %{label: "merchandise_type", value: order.merchandise_type},
@@ -41,7 +43,8 @@ defmodule UcargoWeb.OrderView do
                 longitude: order.pickup.longitude,
                 name: order.pickup.name,
                 address: order.pickup.address,
-                schedule: order.pickup.schedule}
+                schedule: order.pickup.schedule,
+                label: "pickup"}
       Map.put(order_map, :pickup, payload)
     else
       order_map
