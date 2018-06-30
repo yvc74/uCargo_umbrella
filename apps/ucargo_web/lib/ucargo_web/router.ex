@@ -43,6 +43,11 @@ defmodule UcargoWeb.Router do
     resources "/users", UserController
     resources "/roles", RoleController
     get "/", IntroController, :index
+    get "/about", IntroController, :about
+    get "/customs", IntroController, :customs
+    get "/transporters", IntroController, :transporters
+    get "/faq", IntroController, :faq
+    get "/signup", WebSessionController, :signup
     get "/signin", WebSessionController, :signin
     post "/login", WebSessionController, :login
   end
