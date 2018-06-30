@@ -1,0 +1,34 @@
+<section class="about">
+  <div class="about-header">
+    <div class="about-header__container">
+      <div class="about-header__item">
+        <p class="about-header__title">UCARGO Lorem Ipsum Dolor sit amen.</p>
+        <p class="about-header__info">Pellentesque ultrices auctor risus, in interdum dui ullamcorper non. Suspendisse facilisis leo turpis, ut blandit ipsum pellentesque et.</p>
+        <div class="about-header__actions">
+          <a href="" class="btn">AGENCIAS ADUANALES</a>
+          <a href="" class="btn">TRANSPORTISTAS</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="about-mision">
+    <div class="about-mision__image"></div>
+    <div class="about-mision__info">
+      <div>
+        <p>MISIÓN</p>
+        <hr>
+        <p>Pellentesque ultrices auctor risus, in interdum dui ullamcorper non. Suspendisse facilisis leo turpis, ut blandit ipsum pellentesque et.</p>
+      </div>
+    </div>
+  </div>
+  <div class="about-vision">
+    <div class="about-vision__info">
+      <div>
+        <p>VISIÓN</p>
+        <hr>
+        <p>Pellentesque ultrices auctor risus, in interdum dui ullamcorper non. Suspendisse facilisis leo turpis, ut blandit ipsum pellentesque et.</p>
+      </div>
+    </div>
+    <div class="about-vision__image"></div>
+  </div>
+</section>

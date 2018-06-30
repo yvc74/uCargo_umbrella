@@ -1,0 +1,85 @@
+<section class="transporters">
+  <div class="transporters-header">
+    <div class="transporters-header__container">
+      <div class="transporters-header__item">
+        <p class="transporters-header__title">TRANSPORTISTAS</p>
+        <p class="transporters-header__info">Pellentesque ultrices auctor risus, in interdum dui ullamcorper non. Suspendisse facilisis leo turpis, ut blandit ipsum pellentesque et.</p>
+        <div class="transporters-header__actions">
+          <a href="" class="btn">REGÍSTRATE COMO AGENTE</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="transporters-steps">
+    <div class="transporters-steps__slogan">
+      <div>
+        <p>Fácil de utilizar y de dar seguimiento a cargamentos</p>
+        <hr>
+        <p>Pellentesque ultrices auctor risus, in interdum dui ullamcorper non. Suspendisse facilisis leo turpis, ut blandit ipsum pellentesque et.</p>
+      </div>
+    </div>
+    <div class="transporters-steps__items">
+      <div class="transporters-steps__item">
+        <div class="transporters-steps__number">
+          <p>1</p>
+        </div>
+        <p class="transporters-steps__text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+      </div>
+      <div class="transporters-steps__item">
+        <div class="transporters-steps__number">
+          <p>2</p>
+        </div>
+        <p class="transporters-steps__text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+      </div>
+      <div class="transporters-steps__item">
+        <div class="transporters-steps__number">
+          <p>3</p>
+        </div>
+        <p class="transporters-steps__text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+      </div>
+      <div class="transporters-steps__item">
+        <div class="transporters-steps__number">
+          <p>4</p>
+        </div>
+        <p class="transporters-steps__text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="transporters-extra">
+    <div class="transporters-extra__item">
+      <div>
+        <p class="transporters-extra__title">¿Eres Transportista?</p>
+        <p class="transporters-extra__text">Pellentesque ultrices auctor risus, in interdum dui ullamcorper non. Suspendisse facilisis leo turpis. Suspendisse facilisis leo turpis.</p>
+        <a href="" class="btn">REGISTRO TRANSPORTISTAS</a>
+      </div>
+    </div>
+    <div class="transporters-extra__image"></div>
+  </div>
+  <div class="transporters-phone">
+    <div class="transporters-phone__text">
+      <div>
+        <p>Pellentesque ultrices auctor risus, in interdum dui ullamcorper non. Suspendisse facilisis leo turpis.</p>
+      </div>
+    </div>
+    <div class="transporters-phone__image">
+      <img src="/images/transportistas-3.png" alt="">
+    </div>
+  </div>
+  <div class="transporters-testimony">
+    <div class="transporters-testimony__container">
+      <div class="transporters-testimony__avatar"></div>
+      <div class="transporters-testimony__item">
+        <p class="transporters-testimony__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper neque orci, id aliquam magna porta at. Phasellus pulvinar pulvinar lorem, non rutrum ipsum tempor ac. Proin tempus sem sit amet lectus sollicitudin ultrices. Mauris placerat luctus justo sit amet condimentum. Phasellus luctus eleifend eros.</p>
+        <p class="transporters-testimony__author">-Lorem Ipsum, Dolor sit Amen</p>
+      </div>
+    </div>
+  </div>
+</section>

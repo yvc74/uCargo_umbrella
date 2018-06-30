@@ -1,0 +1,39 @@
+<section class="faq">
+  <div class="faq-header">
+    <div class="faq-header__container">
+      <div class="faq-header__item">
+        <p class="faq-header__title">UCARGO Lorem Ipsum Dolor sit amen.</p>
+        <p class="faq-header__info">Pellentesque ultrices auctor risus, in interdum dui ullamcorper non. Suspendisse facilisis leo turpis, ut blandit ipsum pellentesque et.</p>
+        <div class="faq-header__actions">
+          <a href="" class="btn">AGENCIAS ADUANALES</a>
+          <a href="" class="btn">TRANSPORTISTAS</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="faq-content">
+    <p class="faq-content__title">¿Tienes Preguntas?</p>
+    <hr />
+    <p class="faq-content__text">Pellentesque ultrices auctor risus, in interdum dui ullamcorper non.</p>
+    <div class="faq-content__items">
+      <div class="faq-content__item">
+        <div class="faq-content__item-title">
+          <p>Pellentesque ultrices auctor risus, in interdum dui ullamcorper non.</p>
+          <img src="/images/more_icon.png" alt="">
+        </div>
+        <div class="faq-content__item-text">
+          <p>Pellentesque ultrices auctor risus, in interdum dui ullamcorper non. Suspendisse facilisis leo turpis, ut blandit ipsum pellentesque et. Aliquam erat volutpat. </p>
+        </div>
+      </div>
+      <div class="faq-content__item">
+        <div class="faq-content__item-title">
+          <p>Pellentesque ultrices auctor risus, in interdum dui ullamcorper non.</p>
+          <img src="/images/more_icon.png" alt="">
+        </div>
+        <div class="faq-content__item-text">
+          <p>Pellentesque ultrices auctor risus, in interdum dui ullamcorper non. Suspendisse facilisis leo turpis, ut blandit ipsum pellentesque et. Aliquam erat volutpat. </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

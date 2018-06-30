@@ -1,63 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <title>Hello Ucargo!</title>
-      <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
-   </head>
-   <body>
-      <header class='container'>
-         <div class='logo'>
-            <img src="images/logo.png" />
+<head>
+   <meta charset="UTF-8">
+   <title>Ucargo</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+   <link rel="stylesheet" href="/fonts/styles.css">
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+   <link href="//use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+   <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+</head>
+<body>
+   <header class="intro-header" id="intro-header">
+      <div class="intro-header__extra">
+         <div class="intro-header__contact">
+            <div class="header-contact__section">
+               <img src="/images/email_icon.png" alt="">
+               <p>contacto@ucargo.com.mx</p>
+            </div>
+            <div class="header-contact__section">
+               <img src="/images/call_icon.png" alt="">
+               <p>llamar a soporte</p>
+            </div>
          </div>
-         <div class='home'>
-            <a href="#"><i class="fa fa-home" aria-hidden="true"></i><span>Home</span></a>
+         <div class="intro-header__login">
+            <p class="header-login__section">llamar a soporte<a href="">Inicia Sesión</a></p>
+            <p class="header-login__section">¿Aun no eres miembro?<a href="">Regístrate</a></p>
          </div>
-         <div class='shippers'>
-            <a href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i><span>For Shippers</span></a>
+      </div>
+      <div class="intro-header__nav">
+         <div class="intro-header__brand">
+            <img src="/images/header_brand.png" alt="">
+            <div class="intro-header__button">
+               <i class="fas fa-bars"></i>
+            </div>
          </div>
-         <div class='carriers'>
-            <a href="#"><i class="fa fa-circle-o" aria-hidden="true"></i><span>For Carriers</span></a>
-         </div>
-         <div class='ourStory'>
-            <a href="#"><i class="fa fa-refresh" aria-hidden="true"></i><span>Our Story</span></a>
-         </div>
-         <div class='faq'>
-            <a href="#"><i class="fa fa-question-circle-o" aria-hidden="true"></i><span>FAQ</span></a>
-         </div>
-      </header>
+         <nav>
+            <ul>
+               <li><a href="">Inicio</a></li>
+               <li><a href="">Sobre Nosotros</a></li>
+               <li><a href="">Agencias Aduanales</a></li>
+               <li><a href="">Transportistas</a></li>
+               <li><a href="">Preguntas Frecuentes</a></li>
+            </ul>
+         </nav>
+      </div>
+   </header>
+   <main id="intro-container">
       <%= render @view_module, @view_template, assigns %>
-      <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
-      <footer class='container'>
-         <div class='socialNetworks'>
-            <div class='facebook'>
-               <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i><span>Facebook</span></a>
+   </main>
+   <footer>
+      <div class="intro-footer__banner">
+         <div class="footer-banner__message">
+            <p>Regístrate sin costo hoy mismo y lorem ipsum</p>
+         </div>
+         <div class="footer-banner__actions">
+            <a href="" class="btn">AGENCIAS ADUANALES</a>
+            <a href="" class="btn">TRANSPORTISTAS</a>
+         </div>
+      </div>
+      <div class="intro-footer__info">
+         <div class="footer-info__section">
+            <img class="footer-brand" src="/images/footer_brand.png" alt="">
+            <p class="footer-title">Slogan UCARGO Lorem Ipsum Dolor sit</p>
+            <p class="footer-slogan">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper neque orci, id aliquam magna porta at.</p>
+            <p class="footer-copy">Copyright 2018 UCARGO <br/> Todos los derechos reservados</p>
+         </div>
+         <div class="footer-info__section">
+            <nav class="footer-nav" id="footer-nav">
+               <ul>
+                  <li><a href="">Agentes Aduanales</a></li>
+                  <li><a href="">Transportistas</a></li>
+                  <li><a href="">Preguntas frecuentes</a></li>
+               </ul>
+            </nav>
+         </div>
+         <div class="footer-info__section">
+            <div class="footer-contact">
+               <img src="/images/email_icon.png" alt="">
+               <p>contacto@ucargo.com.mx</p>
             </div>
-            <div class='instagram'>
-               <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
+            <div class="footer-call">
+               <img src="/images/call_icon.png" alt="">
+               <p>llamar a soporte</p>
             </div>
-            <div class='linkedin'>
-               <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i><span>Linkedin</span></a>
-            </div>
-            <div class='twitter'>
-               <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twitter</span></a>
+            <div class="footer-message">
+               <a class="btn" href="">MÁNDANOS UN MENSAJE</a>
             </div>
          </div>
-         <div class='information'>
-            <div class='conditions'>
-               <p>Terms and Conditions</p>
-            </div>
-            <div class='privacy'>
-               <p>Privacy Policy</p>
-            </div>
-            <div class='text'>
-               <p>2018</p>
-            </div>
-         </div>
-      </footer>
-   </body>
+      </div>
+   </footer>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+   <script>
+      $('.testimonies-items').slick({
+         arrows: false,
+         fade: true,
+         dots: true
+      })
+      $('.intro-header__button').click(function(){
+         $('#intro-header nav').toggleClass('intro-show__nav')
+      })
+
+      $('.faq-content__item-title').click(function(){
+         const next = $(this).next('.faq-content__item-text')
+         if(next.hasClass('show-faq')){
+            $('.faq-content__item-text').removeClass('show-faq')
+         }else{
+            $('.faq-content__item-text').removeClass('show-faq')
+            next.addClass('show-faq')
+         }
+      })
+   </script>
+   <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+</body>
 </html>
