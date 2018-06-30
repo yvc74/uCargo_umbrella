@@ -16,6 +16,7 @@ defmodule UcargoWeb.OrderView do
       custom: %{latitude: order.custom.latitude,
                 longitude: order.custom.longitude,
                 name: order.custom.name,
+                attendant: order.custom.responsible,
                 address: order.custom.address,
                 schedule: order.custom.schedule,
                 label: "custom"},
@@ -23,6 +24,7 @@ defmodule UcargoWeb.OrderView do
       delivery: %{latitude: order.delivery.latitude,
                   longitude: order.delivery.longitude,
                   name: order.delivery.name,
+                  attendant: order.delivery.responsible,
                   address: order.delivery.address,
                   schedule: order.delivery.schedule,
                   label: "delivery"
@@ -42,6 +44,7 @@ defmodule UcargoWeb.OrderView do
       payload = %{latitude: order.pickup.latitude,
                 longitude: order.pickup.longitude,
                 name: order.pickup.name,
+                attendant: order.pickup.responsible,
                 address: order.pickup.address,
                 schedule: order.pickup.schedule,
                 label: "pickup"}
