@@ -1,0 +1,255 @@
+.transporters-header{
+	min-height: calc(100vh - 152px);
+	background-image: url(/images/inicio-2.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+}
+.transporters-header__container{
+	padding: 60px 50px;
+	display: flex;
+	align-items: center;
+  width: 100%;
+}
+.transporters-header__item{
+	flex: 1;
+}
+.transporters-header__title{
+	color: #ffffff;
+	font-size: 30px;
+	margin-bottom: 24px;
+	width: 312px;
+}
+.transporters-header__info{
+	color: #ffffff;
+	font-size: 20px;
+	margin-bottom: 20px;
+	width: 312px;
+}
+.transporters-header__actions{
+	display: flex;
+}
+.transporters-header__actions a{
+	margin: 0px 4px;
+}
+.transporters-steps{
+	min-height: 400px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #fff;
+	flex-wrap: wrap;
+}
+.transporters-steps__slogan,
+.transporters-steps__items{
+	flex: 1;
+}
+.transporters-steps__slogan div{
+	max-width: 360px;
+	width: 90%;
+	margin: auto;
+	text-align: left;
+}
+.transporters-steps__slogan p{
+	color: #9b9b9b;
+	font-size: 20px;
+}
+.transporters-steps__slogan hr{
+  border: solid 2px #3aa6a2;
+  margin: 30px 0px;
+  width: 60px;
+}
+.transporters-steps__slogan p:first-child{
+	color: #4a4a4a;
+	font-size: 30px;
+}
+.transporters-steps__items{
+	display: flex;
+  flex-wrap: wrap;
+}
+.transporters-steps__item {
+  display: flex;
+  width: calc(50% - 40px);
+  margin: 20px;
+}
+.transporters-steps__number {
+  border: solid 2px #3aa6a2;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: #3aa6a2;
+  font-size: 30px;
+  margin-right: 20px;
+}
+.transporters-steps__text{
+	color: #9b9b9b;
+	font-size: 18px;
+	max-width: 165px;
+	flex: 1;
+}
+.transporters-extra{
+	height: 420px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #3aa6a2;
+}
+.transporters-extra__item,
+.transporters-extra__image{
+	width: 50%;
+	height: 100%;
+	display: flex;
+}
+.transporters-extra__item div{
+	max-width: 289px;
+	width: 90%;
+	margin: auto;
+}
+.transporters-extra__title{
+	font-size: 30px;
+	color: #fff;
+	margin-bottom: 20px;
+}
+.transporters-extra__text{
+	font-size: 20px;
+	color: #fff;
+	margin-bottom: 40px;
+}
+.transporters-extra__image{
+	background-image: url(/images/transportistas-2.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.transporters-phone{
+	display: flex;
+	height: 420px;
+	justify-content: center;
+	align-items: center;
+	background-color: #ebebeb;
+	flex-wrap: wrap;
+}
+.transporters-phone__image,
+.transporters-phone__text{
+	width: 50%;
+	display: flex;
+	justify-content: center;
+  align-items: center;
+}
+.transporters-phone__text div{
+	width: 90%;
+	max-width: 348px;
+	margin: auto;
+}
+.transporters-phone__text p{
+	font-size: 30px;
+	font-weight: bold;
+	color: #4a4a4a;
+}
+.transporters-phone__image img{
+	width: 80%;
+	margin: auto;
+	max-width: 564px;
+}
+.transporters-testimony{
+	min-height: 300px;
+	background-color: #f5fcfc;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+}
+.transporters-testimony__container{
+	max-width: 1000px;
+	height: 100%;
+	width: 90%;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.transporters-testimony__item{
+	flex: 1;
+  margin-left: 80px;
+}
+.transporters-testimony__avatar{
+	width: 152px;
+	height: 152px;
+	border-radius: 50%;
+	background-color: #d8d8d8;
+}
+.transporters-testimony__text{
+	color: #9b9b9b;
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+.transporters-testimony__author{
+	font-weight: bold;
+	color: #9b9b9b;
+	font-size: 18px;
+}
+@media only screen and (max-width: 900px) {
+	.transporters-steps__slogan,
+	.transporters-steps__items{
+		flex: auto;
+		width: 100%;
+		margin: 10px 0px;
+	}
+	.transporters-testimony__item{
+		flex: auto;
+		width: 100%;
+		margin: auto;
+		margin-top: 10px;
+		text-align: center;
+	}
+}
+@media only screen and (max-width: 700px) {
+	.transporters-steps__item{
+		width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+	}
+	.transporters-steps__number{
+		margin: auto;
+	}
+	.transporters-steps__text{
+		max-width: 400px;
+		margin-top: 20px;
+		text-align: center;
+	}
+	.transporters-extra{
+		height: auto;
+		padding: 20px 0px;
+	}
+	.transporters-extra__image{
+		display: none;
+	}
+	.transporters-extra__item{
+		width: 100%;
+	}
+	.transporters-phone{
+		height: auto;
+		padding: 20px 0px;
+	}
+	.transporters-phone__image,
+	.transporters-phone__text{
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.transporters-header__container{
+		 padding: 60px 20px;
+	}
+	.transporters-header__title, 
+	.transporters-header__info{
+		width: auto;
+	}
+}

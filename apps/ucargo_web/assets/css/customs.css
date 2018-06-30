@@ -1,0 +1,253 @@
+.customs-header{
+	min-height: calc(100vh - 152px);
+	background-image: url(/images/inicio-2.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+}
+.customs-header__container{
+	padding: 60px 50px;
+	display: flex;
+	align-items: center;
+  width: 100%;
+}
+.customs-header__item{
+	flex: 1;
+}
+.customs-header__title{
+	color: #ffffff;
+	font-size: 30px;
+	margin-bottom: 24px;
+	width: 312px;
+}
+.customs-header__info{
+	color: #ffffff;
+	font-size: 20px;
+	margin-bottom: 20px;
+	width: 312px;
+}
+.customs-header__actions{
+	display: flex;
+}
+.customs-header__actions a{
+	margin: 0px 4px;
+}
+.customs-steps{
+	min-height: 400px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #fff;
+	flex-wrap: wrap;
+}
+.customs-steps__slogan,
+.customs-steps__items{
+	flex: 1;
+}
+.customs-steps__slogan div{
+	max-width: 360px;
+	width: 90%;
+	margin: auto;
+	text-align: left;
+}
+.customs-steps__slogan p{
+	color: #9b9b9b;
+	font-size: 20px;
+}
+.customs-steps__slogan hr{
+  border: solid 2px #3aa6a2;
+  margin: 30px 0px;
+  width: 60px;
+}
+.customs-steps__slogan p:first-child{
+	color: #4a4a4a;
+	font-size: 30px;
+}
+.customs-steps__items{
+	display: flex;
+  flex-wrap: wrap;
+}
+.customs-steps__item {
+  display: flex;
+  width: calc(50% - 40px);
+  margin: 20px;
+}
+.customs-steps__number {
+  border: solid 2px #3aa6a2;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: #3aa6a2;
+  font-size: 30px;
+  margin-right: 20px;
+}
+.customs-steps__text{
+	color: #9b9b9b;
+	font-size: 18px;
+	max-width: 165px;
+	flex: 1;
+}
+.customs-extra{
+	height: 220px;
+	background-color: #3aa6a2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.customs-extra__image{
+	background-image: url(/images/aduanales-2.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 220px;
+  flex: 1;
+}
+.customs-extra__item {
+	flex: 1;
+}
+.customs-extra__item div{
+	max-width: 348px;
+	margin: auto;
+}
+.customs-extra__item p{
+	color: #ffffff;
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+.customs-why{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #fff;
+	padding: 20px 0px;
+	flex-wrap: wrap;
+}
+.customs-why__image,
+.customs-why__info{
+	width: 50%;
+}
+.customs-why__image{
+	display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.customs-why__image img{
+	 max-width: 568px;
+	 width: 80%;
+	 margin: auto;
+}
+.customs-why__info div{
+	max-width: 400px;
+	width: 90%;
+	margin: auto;
+}
+.customs-why__title{
+	font-size: 30px;
+	color: #4a4a4a;
+	margin-bottom: 30px;
+}
+.customs-why__title span{
+	color: #3aa6a2;
+}
+.customs-why__text{
+	font-size: 20px;
+	color: #9b9b9b;
+}
+.customs-testimony{
+	min-height: 300px;
+	background-color: #f5fcfc;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+}
+.customs-testimony__container{
+	max-width: 1000px;
+	height: 100%;
+	width: 90%;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.customs-testimony__item{
+	flex: 1;
+  margin-left: 80px;
+}
+.customs-testimony__avatar{
+	width: 152px;
+	height: 152px;
+	border-radius: 50%;
+	background-color: #d8d8d8;
+}
+.customs-testimony__text{
+	color: #9b9b9b;
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+.customs-testimony__author{
+	font-weight: bold;
+	color: #9b9b9b;
+	font-size: 18px;
+}
+@media only screen and (max-width: 900px) {
+	.customs-steps__slogan,
+	.customs-steps__items{
+		flex: auto;
+		width: 100%;
+		margin: 10px 0px;
+	}
+	.customs-extra__image{
+		display: none;
+	}
+	.customs-why__image, 
+	.customs-why__info{
+		width: 100%;
+	}
+	.customs-why__title,
+	.customs-why__text,
+	.customs-extra__item p{
+		text-align: center;
+	}
+	.customs-extra__item a{
+		margin: auto;
+	}
+	.customs-testimony__item{
+		flex: auto;
+		width: 100%;
+		margin: auto;
+		margin-top: 10px;
+		text-align: center;
+	}
+}
+@media only screen and (max-width: 700px) {
+	.customs-steps__item{
+		width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+	}
+	.customs-steps__number{
+		margin: auto;
+	}
+	.customs-steps__text{
+		max-width: 400px;
+		margin-top: 20px;
+		text-align: center;
+	}
+}
+@media only screen and (max-width: 600px) {
+	.customs-header__container{
+		 padding: 60px 20px;
+	}
+	.customs-header__title, 
+	.customs-header__info{
+		width: auto;
+	}
+}

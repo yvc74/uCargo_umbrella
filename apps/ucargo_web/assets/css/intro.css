@@ -1,0 +1,251 @@
+/*Intro Header*/
+#intro-container{
+	padding-top: 152px;
+	width: 100%;
+  height: auto;
+}
+#intro-container > section {
+	width: 100%;
+}
+#intro-header{
+  height: auto;
+  background-color: transparent;
+  padding-left: 0px; 
+  box-shadow: none;
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 100000;
+}
+.intro-header__extra{
+	min-height: 40px;
+  background-color: #f3f3f3;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.intro-header__nav{
+	height: 80px;
+	padding: 16px;
+  background-color: #3aa6a2;
+  display: flex;
+  align-items: center;
+}
+.intro-header__brand img{
+	height: 45px;
+}
+#intro-header nav{
+  height: 100%;
+  width: auto;
+  overflow: auto;
+  position: static;
+  background-color: transparent;
+  flex: 1;
+}
+.intro-header__button{
+	font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+.intro-header nav ul{
+	display: flex;
+  justify-content: flex-end;
+  height: 100%;
+  align-items: center;
+}
+.intro-header nav ul li{
+	margin-left: 10px;
+}
+.intro-header nav ul li a{
+	text-decoration: none;
+	color: #fff;
+	font-size: 18px;
+}
+.intro-header nav ul li a:hover{
+	text-decoration: underline;
+}
+.intro-header__contact, .intro-header__login{
+	display: flex;
+	justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.header-contact__section{
+	margin-left: 10px;
+	display: flex;
+	align-items: center;
+}
+.header-contact__section p{
+	margin-left: 4px;
+	font-size: 16px;
+	color: #9b9b9b;
+}
+.header-contact__section img{
+	width: 12px;
+}
+.header-login__section{
+	margin-right: 34px;
+	font-size: 16px;
+	color: #9b9b9b;
+}
+.header-login__section a{
+	text-decoration: none;
+	margin-left: 4px;
+	color: #3aa6a2;
+}
+
+/*Intro Footer*/
+.intro-footer__banner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 45px;
+  min-height: 100px;
+  background-color: #3aa6a2;
+  flex-wrap: wrap;
+}
+.footer-banner__message,
+.footer-banner__actions{
+	flex: 1;
+}
+.footer-banner__message p{
+	font-size: 20px;
+	color: #fff;
+}
+.footer-banner__actions{
+	display: flex;
+  justify-content: center;
+}
+#footer-nav{
+	width: auto;
+	height: auto;
+	background: transparent;
+	overflow: hidden;
+	position: static;
+}
+.intro-footer__info{
+	display: flex;
+	padding: 100px 0px;
+  background-color: #f3f3f3;
+ 	justify-content: space-around;
+ 	flex-wrap: wrap;
+}
+.footer-info__section{
+	width: 280px;
+	padding: 0px 10px;
+	min-width: 300px;
+	margin: 20px 0px;
+}
+.footer-title{
+	color: #9b9b9b;
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+.footer-slogan{
+	font-size: 18px;
+	color: #9b9b9b;
+	margin-bottom: 40px;
+}
+.footer-copy{
+	font-size: 18px;
+	color: #9b9b9b;
+}
+#footer-nav a{
+  font-size: 18px;
+  color: #9b9b9b;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #9b9b9b;
+  margin-bottom: 10px;
+}
+.footer-contact,
+.footer-call{
+	display: flex;
+	margin-bottom: 8px;
+	align-items: center;
+}
+.footer-contact p,
+.footer-call p{
+	margin-left: 4px;
+	font-size: 18px;
+	color: #9b9b9b;
+}
+.footer-contact img,
+.footer-call img{
+	width: 12px;
+}
+.footer-message{
+	margin-top: 16px;
+}
+.footer-brand{
+	width: 203px;
+	margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 1024px) {
+	#intro-container{
+		padding-top: 117px;
+	}
+	.intro-header__nav{
+		display: block;
+		height: auto;
+	}
+	.intro-header__brand{
+		width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+	}
+	.intro-header__button{
+		display: block;
+	}
+	#intro-header nav{
+		height: 0px;
+		overflow: hidden;
+		transition: height 1s;
+	}
+	#intro-header nav.intro-show__nav{
+		height: 200px;
+	}
+	#intro-header nav ul{
+		display: block;
+	}
+	.intro-header nav ul li{
+		text-align: center;
+		padding: 10px 0px;
+	}
+	.footer-banner__message, 
+	.footer-banner__actions{
+		width: 100%;
+		flex: auto;
+	}
+	.footer-banner__message{
+		text-align: center;
+	}
+	.footer-banner__actions{
+		flex-wrap: wrap;
+	}
+	.footer-banner__actions a{
+		margin: 10px 4px;
+	}
+}
+@media only screen and (max-width: 900px) {
+	.intro-header__contact, 
+	.intro-header__login{
+		width: 100%;
+		flex: auto;
+	}
+}
+@media only screen and (max-width: 600px) {
+	.intro-header__extra{
+		display: none;
+	}
+	#intro-container {
+	    padding-top: 76px;
+	}
+}
