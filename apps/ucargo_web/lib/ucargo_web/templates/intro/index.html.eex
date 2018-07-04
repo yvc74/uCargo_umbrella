@@ -1,23 +1,92 @@
-<section class='container'>
-  <div class='titleBox'>
-    <div class='title'>
-      <span>CARGOBOT</span>
-    </div>
-    <div class='subtitle'>
-      <span>Connecting shippers and carriers transparently.</span>
-    </div>
-    <div class='text'>
-      <span>Connecting shippers and carriers through the power of technology backed by a<br></br>committed team.</span>
-    </div>
-    <div class='buttons'>
-      <div class='buttonShippers'>
-        <input type="button" value="For Shippers" />
+<section class="home">
+  <div class="home-header">
+    <div class="home-header__container">
+      <div class="home-header__item">
+        <p class="home-header__video-title">UCARGO Lorem Ipsum Dolor sit amen.</p>
+        <p class="home-header__video-info">Pellentesque ultrices auctor risus, in interdum dui ullamcorper non. Suspendisse facilisis leo turpis, ut blandit ipsum pellentesque et.</p>
+        <a class="btn home-header__video-action" href="">VER VIDEO</a>
       </div>
-      <div class='buttonCarriers'>
-        <input type="button" value="For Carriers" />
+      <div class="home-header__item">
+        <p class="home-header__other-title">Unete a la mejor plataforma Lorem Ipsum</p>
+        <div class="home-header__actions">
+          <a href="" class="btn">AGENCIAS ADUANALES</a>
+          <a href="" class="btn">TRANSPORTISTAS</a>
+        </div>
       </div>
-      <div class='buttonVideo'>
-        <input type="button" value="Watch Video"/>
+    </div>
+  </div>
+  <div class="home-extras">
+    <div class="home-extras__item home-extras__customs">
+      <div class="home-customs__other">
+        <div>
+          <p>UCARGO Lorem Ipsum Dolor sit amen.</p>
+          <hr>
+          <p>Pellentesque ultrices auctor risus, in interdum dui ullamcorper non. Suspendisse facilisis leo turpis, ut blandit ipsum pellentesque et.</p>
+        </div>
+      </div>
+      <div class="home-extras__info">
+        <p class="home-extras__title">¿Eres Agente aduanal?</p>
+        <p class="home-extras__text">Pellentesque ultrices auctor risus, in interdum dui ullamcorper non. Suspendisse facilisis leo turpis.</p>
+        <a href="" class="btn home-extras__more">VER MÁS</a>
+      </div>
+    </div>
+    <div class="home-extras__item home-extras__transporter">
+      <div class="home-transporter__other">
+        
+      </div>
+      <div class="home-extras__info">
+        <p class="home-extras__title">¿Eres Transportista?</p>
+        <p class="home-extras__text">Pellentesque ultrices auctor risus, in interdum dui ullamcorper non. Suspendisse facilisis leo turpis.</p>
+        <a href="" class="btn home-extras__more">VER MÁS</a>
+      </div>
+    </div>
+  </div>
+  <div class="home-steps">
+    <p class="home-steps__title">
+      ¿Por qué <span>UCARGO</span>? Por todos sus beneficios y servicio profesional
+    </p>
+    <div class="home-steps__items">
+      <div class="home-steps__item">
+        <div class="home-step__icon"></div>
+        <div class="home-step__title">¡OPCIONES PARA ELEGIR!</div>
+        <div class="home-step__info">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+      </div>
+      <div class="home-steps__item">
+        <div class="home-step__icon"></div>
+        <div class="home-step__title">RASTREO TIEMPO REAL</div>
+        <div class="home-step__info">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+      </div>
+      <div class="home-steps__item">
+        <div class="home-step__icon"></div>
+        <div class="home-step__title">SOPORTE 24/7</div>
+        <div class="home-step__info">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+      </div>
+    </div>
+  </div>
+  <div class="testimonies">
+    <div class="testimonies-container">
+      <p class="testimonies-title">Los testimonios de nuestros usuarios respaldan nuestro gran servicio</p>
+      <div class="testimonies-items">
+        <div class="testimony">
+          <p class="testimony-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper neque orci, id aliquam magna porta at. Phasellus pulvinar pulvinar lorem, non rutrum ipsum tempor ac. Proin tempus sem sit amet lectus sollicitudin ultrices. Mauris placerat luctus.</p>
+          <p class="testimony-author">-Lorem Ipsum, Dolor sit Amen</p>
+        </div>
+        <div class="testimony">
+          <p class="testimony-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper neque orci, id aliquam magna porta at. Phasellus pulvinar pulvinar lorem, non rutrum ipsum tempor ac. Proin tempus sem sit amet lectus sollicitudin ultrices. Mauris placerat luctus.</p>
+          <p class="testimony-author">-Lorem Ipsum, Dolor sit Amen</p>
+        </div>
+        <div class="testimony">
+          <p class="testimony-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper neque orci, id aliquam magna porta at. Phasellus pulvinar pulvinar lorem, non rutrum ipsum tempor ac. Proin tempus sem sit amet lectus sollicitudin ultrices. Mauris placerat luctus.</p>
+          <p class="testimony-author">-Lorem Ipsum, Dolor sit Amen</p>
+        </div>
+        <div class="testimony">
+          <p class="testimony-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper neque orci, id aliquam magna porta at. Phasellus pulvinar pulvinar lorem, non rutrum ipsum tempor ac. Proin tempus sem sit amet lectus sollicitudin ultrices. Mauris placerat luctus.</p>
+          <p class="testimony-author">-Lorem Ipsum, Dolor sit Amen</p>
+        </div>
+        <div class="testimony">
+          <p class="testimony-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper neque orci, id aliquam magna porta at. Phasellus pulvinar pulvinar lorem, non rutrum ipsum tempor ac. Proin tempus sem sit amet lectus sollicitudin ultrices. Mauris placerat luctus.</p>
+          <p class="testimony-author">-Lorem Ipsum, Dolor sit Amen</p>
+        </div>
       </div>
     </div>
   </div>

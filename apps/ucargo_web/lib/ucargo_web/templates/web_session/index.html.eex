@@ -1,0 +1,52 @@
+<section class="signin">
+	<div class="signin__logo">
+		<img src="/images/brand.png" />
+	</div>
+	<div class="signin-slogan__second">
+		<p>Lorem Ipsum dolor sit amen</p>
+	</div>
+	<div class="signin-message">
+		<p>
+			Mándanos tus datos y recibirás un correo con toda la info
+			necesaria para continuar tu proceso de alta.
+			Al terminar de dar la documentación necesaria te proporcionaremos
+			tu nombre de usuario y contraseña.
+		</p>
+	</div>
+	<form class="signin-form" action="">
+		<div class="signin-form__section">
+			<input type="text" placeholder="Nombre">
+			<input type="text" placeholder="Apellido">
+		</div>
+		<div class="signin-form__section">
+			<input type="text" placeholder="Correo Electrónico">
+			<input type="text" placeholder="Teléfono">
+		</div>
+		<div class="signin-form__section">
+			<div class="checkbox">
+				<input type="radio" id="custom" name="checkbox"/>
+				<label for="custom">
+					<span class="checkbox__icon signin-checkbox__icon">
+						<span class="checkbox__dot"></span>
+					</span>
+					<span class="checkbox__text">Soy Agente Aduanal</span>
+				</label>
+			</div>
+			<div class="checkbox">
+				<input type="radio" id="transporter" name="checkbox"/>
+				<label for="transporter">
+					<span class="checkbox__icon signin-checkbox__icon">
+						<span class="checkbox__dot"></span>
+					</span>
+					<span class="checkbox__text">Soy Transportista</span>
+				</label>
+			</div>
+		</div>
+		<div class="signin-form__send">
+			<button class="btn">
+				ENVIAR
+			</button>
+		</div>
+	</form>
+	<a class="signin-url" href="">www.ucargo.com.mx</a>
+</section>
