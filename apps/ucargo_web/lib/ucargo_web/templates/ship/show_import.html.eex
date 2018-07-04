@@ -192,10 +192,11 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function(event) {
-      new GMaps({
+      map = new GMaps({
         div: '.ship-map',
-        lat: -12.043333,
-        lng: -77.028333
+        lat: 19.3204969,
+        lng: -103.6350355,
+        zoom: 6
       });
   })
 </script>
