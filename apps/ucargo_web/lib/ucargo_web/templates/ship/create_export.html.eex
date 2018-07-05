@@ -27,9 +27,8 @@
                   <div class="new-field">
                      <div class="new-field__group">
                         <p class="new-field__title">Fecha Recolección</p>
-                        <div class="new-field__container">
-                           <%= text_input delivery, :schedule %>
-                           <div id="date-picker-calendar" style="display:none;"></div>
+                        <div class="new-field__container picker-container">
+                           <%= text_input delivery, :schedule, readonly: 'true' %>
                         </div>
                      </div>
                      <div class="new-field__group-two">
@@ -62,9 +61,8 @@
                   <div class="new-field">
                      <div class="new-field__group">
                         <p class="new-field__title">Fecha Entrega</p>
-                        <div class="new-field__container">
-                           <%= text_input pickup, :schedule %>
-                           <div id="date-delivery-picker-calendar" style="display:none;"></div>
+                        <div class="new-field__container picker-container">
+                           <%= text_input pickup, :schedule, readonly: 'true' %>
                         </div>
                      </div>
                      <div class="new-field__group-two">
@@ -169,9 +167,8 @@
                   <div class="new-field">
                      <div class="new-field__group">
                         <p class="new-field__title">Fecha Entrega</p>
-                        <div class="new-field__container">
-                           <%= text_input custom, :schedule %>
-                           <div id="date-delivery-picker-calendar" style="display:none;"></div>
+                        <div class="new-field__container picker-container">
+                           <%= text_input custom, :schedule, readonly: 'true' %>
                         </div>
                      </div>
                      <div class="new-field__group-two">
@@ -358,3 +355,13 @@
       </div>
    </div>
 </section>
+
+<script>
+   document.addEventListener("DOMContentLoaded", function(event) {
+      flatpickr('.picker-container input[type=text]', {
+         minDate: new Date(),
+         static: true,
+         locale: 'es'
+      });
+   })
+</script>
