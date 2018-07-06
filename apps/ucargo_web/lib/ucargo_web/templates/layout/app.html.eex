@@ -12,6 +12,8 @@
       <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
       <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
       <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/raty/2.8.0/jquery.raty.min.css" />
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flatpickr/4.5.1/flatpickr.min.css">
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flatpickr/4.5.1/ie.css">
       <link rel="stylesheet" href="/fonts/styles.css">
       <link href="//use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
       <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
@@ -94,6 +96,8 @@
       <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js"></script>
       <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyAQx3-uP6nXnMkvzZjRnUlcYCb8JaeEndg"></script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/flatpickr/4.5.1/flatpickr.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/flatpickr/4.5.1/l10n/es.js"></script>
       <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
    </body>
 </html>
