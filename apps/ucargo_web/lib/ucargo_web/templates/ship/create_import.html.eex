@@ -249,6 +249,10 @@
       </div>
       <%end%>
       <% end %>
+      <div class="ship-map" id="map"></div>
+      <a class="map-fab" href="#map">
+        <i class="far fa-map"></i>
+      </a>
     </div>
   </div>
 </section>
@@ -261,4 +265,25 @@
          locale: 'es'
       });
    })
+  document.addEventListener("DOMContentLoaded", function(event) {
+      map = new GMaps({
+        div: '.ship-map',
+        lat: 19.1611614,
+        lng: -96.2052841,
+        zoom: 10
+      });
+
+      map.addMarker({
+        lat: 19.1611614,
+        lng: -96.2052841,
+        title: 'Aduanda Veracruz',
+        click: function(e) {
+          alert('Dirección de Origen');
+        }
+      });
+
+      infoWindow: {
+        content: '<p>HTML Content</p>'
+      }
+  })
 </script>
