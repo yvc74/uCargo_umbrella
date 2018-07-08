@@ -28,4 +28,13 @@ defmodule Ucargo.CustomCatalog do
       select: d.name
     Repo.all(query)
   end
+
+  def get_by_name(name) do
+    case Repo.get_by(CustomCatalog, name: name) do
+      nil ->
+        {:error, "User not found"}
+      custom_catalog ->
+        {:ok, custom_catalog}
+    end
+  end
 end
