@@ -14,22 +14,22 @@ defmodule UcargoWeb.ShipController do
   def index(conn, _params) do
     broker = Guardian.Plug.current_resource(conn)
     plannings = CustomBroker.fetch_plannings(broker)
-    render conn, "index.html", plannings: plannings, broker: broker
+    render conn, "index.html", plannings: plannings, broker: broker, section_name: "plannings"
   end
 
   def proposal_index(conn, %{"id" => planning_id}) do
     planning = Planning.find_by(:id, planning_id)
-    render conn, "proposal.html", planning: planning
+    render conn, "proposal.html", planning: planning, section_name: "plannings"
   end
 
   def create(conn, %{"type" => planning_type}) do
     case planning_type do
       "import" ->
         changeset = Planning.create_changeset(%Planning{}, %{})
-        render conn, "create_import.html", changeset: changeset
+        render conn, "create_import.html", changeset: changeset, section_name: "plannings"
       "export" ->
         changeset = Planning.create_changeset(%Planning{}, %{})
-        render conn, "create_export.html", changeset: changeset
+        render conn, "create_export.html", changeset: changeset, section_name: "plannings"
     end
   end
 
@@ -38,16 +38,16 @@ defmodule UcargoWeb.ShipController do
     bid = Bid.find_by(:id, bid_id)
     case planning.order.type do
       @export ->
-        render conn, "show_export.html", planning: planning, bid: bid
+        render conn, "show_export.html", planning: planning, bid: bid, section_name: "plannings"
       @import ->
-        render conn, "show_import.html", planning: planning, bid: bid
+        render conn, "show_import.html", planning: planning, bid: bid, section_name: "plannings"
     end
   end
 
   def payment_show(conn, %{"planning_id" => planning_id, "bid_id" => bid_id}) do
     planning = Planning.find_by(:id, planning_id)
     bid = Bid.find_by(:id, bid_id)
-    render conn, "payment_detail.html", planning: planning, bid: bid
+    render conn, "payment_detail.html", planning: planning, bid: bid, section_name: "plannings"
   end
 
   def new(conn, params) do

@@ -32,7 +32,7 @@
                <div class="header-info__user">
                   <div class="header-info__avatar avatar" style="background-image: url(/images/user_placeholder.png);"></div>
                   <p class="header-info__name">
-                     STEREN S.A. DE C.V.
+                    <%= get_company_name(@conn) %>
                   </p>
                </div>
                <div class="header-info__calification">
@@ -63,22 +63,22 @@
             </a>
          </div>
          <ul class="nav-content">
-            <li class="nav-content__item active">
+            <li class="<%= plannings_section(@section_name) %>">
                <a onclick="navigate('/plannings');">
                   <p id="ship_list">Cotizaciones</p>
                </a>
             </li>
-            <li class="nav-content__item">
+            <li class="<%= assignments_section(@section_name) %>">
                <a onclick="navigate('/assignments/plannings');">
                   <p>Asignados & <br/>Seguimiento</p>
                </a>
             </li>
-            <li class="nav-content__item">
+            <li class="<%= records_section(@section_name) %>">
                <a onclick="navigate('/records');">
                   <p>Historial & <br/>Facturas</p>
                </a>
             </li>
-            <li class="nav-content__item">
+            <li class="<%= favourites_section(@section_name) %>">
                <a onclick="navigate('/favouritedrivers');">
                   <p>Favoritos</p>
                </a>
