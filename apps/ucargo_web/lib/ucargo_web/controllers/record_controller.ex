@@ -2,7 +2,7 @@ defmodule UcargoWeb.RecordController do
   use UcargoWeb, :controller
 
   def index(conn, _params) do
-    render conn, "index.html"
+    render conn, "index.html", section_name: "records"
   end
 
 end
