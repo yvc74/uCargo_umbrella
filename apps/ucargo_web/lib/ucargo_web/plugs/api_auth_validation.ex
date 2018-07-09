@@ -19,7 +19,7 @@ defmodule Ucargo.Apiauth do
         conn
       {:error, reason} ->
         conn
-          |> send_resp(400, reason)
+          |> send_resp(401, reason)
           |> halt
     end
   end
