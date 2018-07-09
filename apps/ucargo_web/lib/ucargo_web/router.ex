@@ -101,6 +101,7 @@ defmodule UcargoWeb.Router do
         post "/orders/:order_number/fav",  DriverController, :order_favorite
         delete "/orders/:order_number/fav", DriverController, :order_favorite_delete
         get "/orders/onroute", DriverController, :order_onroute
+        get "/account/profile", SessionController, :show_profile
       end
 
     end
