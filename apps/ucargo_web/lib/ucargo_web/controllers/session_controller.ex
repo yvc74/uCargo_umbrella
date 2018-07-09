@@ -39,4 +39,12 @@ defmodule UcargoWeb.SessionController do
         {:error, error}
     end
   end
+
+  def show_profile(conn, _params) do
+    driver = conn.assigns[:driver]
+    {:ok, token, _resource} = Guardian.encode_and_sign(driver)
+    conn
+      |> put_status(200)
+      |> render("driver.json", %{user: driver, token: token})
+  end
 end
