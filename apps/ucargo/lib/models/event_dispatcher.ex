@@ -4,8 +4,9 @@ defmodule Ucargo.EventDispatcher do
   """
   alias Ucargo.Event
 
-  def dispatch(%{"id" => uuid, "name" => name}, date, _order) do
-    changeset = Event.changeset(%Event{}, %{uuid: uuid, name: name, date: date})
+  def dispatch(%{"id" => uuid, "name" => "Quote", "price" => price}, date, _order) do
+    changeset = Event.changeset(%Event{}, %{uuid: uuid, name: "Quote", price: price, date: date})
+    IO.inspect changeset
     case changeset.valid? do
        true ->
         Event.save(changeset)

@@ -13,6 +13,7 @@ defmodule Ucargo.Event do
     field :picture, :string
     field :latitude, :decimal
     field :longitude, :decimal
+    field :price, :decimal
     field :date, :naive_datetime
     timestamps()
   end
@@ -20,7 +21,7 @@ defmodule Ucargo.Event do
   @doc false
   def changeset(%Event{} = user, attrs) do
     user
-      |> cast(attrs, [:uuid, :name, :picture, :latitude, :longitude, :date])
+      |> cast(attrs, [:uuid, :name, :picture, :latitude, :price, :longitude, :date])
       |> validate_required([:uuid, :name])
       |> unique_constraint(:uuid)
   end

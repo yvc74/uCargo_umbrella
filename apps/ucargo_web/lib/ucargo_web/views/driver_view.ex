@@ -48,6 +48,7 @@ defmodule UcargoWeb.DriverView do
         inserted_at: event.inserted_at,
         latitude: event.latitude,
         longitude: event.longitude,
+        price: event.price,
         picture: event.picture,
         updated_at: event.updated_at,
         uuid: event.uuid,
