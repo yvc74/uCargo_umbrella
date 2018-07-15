@@ -1,4 +1,4 @@
-defmodule UcargoWeb.SessionFallbackController do
+defmodule UcargoWeb.DriverFallbackController do
   @moduledoc """
   Error controller for session controller
   """
@@ -6,13 +6,13 @@ defmodule UcargoWeb.SessionFallbackController do
 
   def call(conn, {:error, changeset = %Ecto.Changeset{}}) do
     conn
-      |> put_status(401)
+      |> put_status(400)
       |> json(creation_error(changeset.errors))
   end
 
   def call(conn, {:error, errors}) do
     conn
-      |> put_status(401)
+      |> put_status(400)
       |> json(creation_error(errors))
   end
 
@@ -36,7 +36,7 @@ defmodule UcargoWeb.SessionFallbackController do
       level: "5",
       stage: "Insert",
       details: details,
-      code: "1401",
+      code: "1402",
       http_code: 400}
   end
 end

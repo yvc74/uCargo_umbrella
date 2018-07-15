@@ -8,6 +8,7 @@ defmodule Ucargo.Repo.Migrations.CreateEvents do
       add :picture, :string
       add :latitude, :decimal, precision: 9, scale: 6
       add :longitude, :decimal, precision: 9, scale: 6
+      add :price, :decimal
       add :date, :naive_datetime
       timestamps()
     end

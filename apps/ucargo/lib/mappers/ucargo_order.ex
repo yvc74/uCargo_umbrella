@@ -43,6 +43,10 @@ defmodule Ucargo.Order do
       |> cast(attrs, [:favourite, :score, :deadline, :status, :type, :distance, :merchandise_type, :order_number, :transport, :weight, :comments])
   end
 
+  def update(changeset) do
+    Repo.update!(changeset)
+  end
+
   def find_all do
     query = from o in Order,
             preload: [:pickup, :delivery, :custom]
