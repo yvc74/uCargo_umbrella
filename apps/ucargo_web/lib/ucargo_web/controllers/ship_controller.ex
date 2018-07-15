@@ -8,6 +8,8 @@ defmodule UcargoWeb.ShipController do
   alias Ucargo.CustomBroker
   alias Ucargo.Bid
   alias Ucargo.Custom
+  alias Ucargo.TransportCatalog
+  alias Ucargo.CustomCatalog
   @export 1
   @import 0
 
@@ -23,13 +25,16 @@ defmodule UcargoWeb.ShipController do
   end
 
   def create(conn, %{"type" => planning_type}) do
+    transport_catalog = TransportCatalog.fetch_all_transport_catalog
+    custom_catalog_all = CustomCatalog.fetch_all_custom_catalog
     case planning_type do
       "import" ->
         changeset = Planning.create_changeset(%Planning{}, %{})
-        render conn, "create_import.html", changeset: changeset, section_name: "plannings"
+        render conn, "create_import.html", changeset: changeset, section_name: "plannings", transport_catalog: transport_catalog, custom_catalog: custom_catalog_all
       "export" ->
         changeset = Planning.create_changeset(%Planning{}, %{})
-        render conn, "create_export.html", changeset: changeset, section_name: "plannings"
+        render conn, "create_export.html", changeset: changeset, section_name: "plannings", transport_catalog: transport_catalog, custom_catalog: custom_catalog_all
+
     end
   end
 
@@ -62,16 +67,17 @@ defmodule UcargoWeb.ShipController do
       |> Map.put("order_number", "47848")
       |> Map.put("deadline", NaiveDateTime.utc_now())
     order_chs = Order.create_changeset(order, order_up_prms)
-
+    {:ok, custom_catalog} = CustomCatalog.get_by_name(custom_params["name"])
     ct_up_prms = custom_params
-      |> Map.put("latitude", 32.5498703)
-      |> Map.put("longitude", -116.9378327)
-      |> Map.put("address", "puerto de veracruz soleadon")
+      |> Map.put("latitude", "#{custom_catalog.latitude}")
+      |> Map.put("longitude", "#{custom_catalog.longitude}")
+      |> Map.put("schedule", "#{custom_catalog.schedule}")
+      |> Map.put("address", "#{custom_catalog.address}")
 
     dvl_up_prms = delivery_params
       |> Map.put("latitude", 20.5848521)
       |> Map.put("longitude", -100.3965839)
-      |> Map.put("name", "Centro Industrial Vallejo")
+      |> Map.put("name", "#{delivery_params["street"]} #{delivery_params["ext"]} #{delivery_params["int"]}, #{delivery_params["zipcode"]}, #{delivery_params["neighborhood"]},#{delivery_params["delegation"]},#{delivery_params["city"]},#{delivery_params["state"]}")
       |> Map.put("address", "#{delivery_params["street"]} #{delivery_params["ext"]} #{delivery_params["int"]}, #{delivery_params["zipcode"]}, #{delivery_params["neighborhood"]},#{delivery_params["delegation"]},#{delivery_params["city"]},#{delivery_params["state"]}")
 
     cstm_chgset = Custom.create_changeset(custom, ct_up_prms)
@@ -88,6 +94,7 @@ defmodule UcargoWeb.ShipController do
     custom = %Custom{}
     delivery = %Delivery{}
     pickup = %Pickup{}
+    {:ok, custom_catalog} = CustomCatalog.get_by_name(custom_params["name"])
     order_up_prms = order_params
       |> Map.put("score", 4)
       |> Map.put("distance", "500")
@@ -98,18 +105,19 @@ defmodule UcargoWeb.ShipController do
     ct_up_prms = custom_params
       |> Map.put("latitude", 32.5498703)
       |> Map.put("longitude", -116.9378327)
-      |> Map.put("address", "puerto de veracruz soleadon")
+      |> Map.put("name", "#{custom_params["street"]} custom")
+      |> Map.put("address", "#{custom_params["street"]} #{custom_params["ext"]} #{custom_params["int"]}, #{custom_params["zipcode"]}, #{custom_params["neighborhood"]},#{custom_params["delegation"]},#{custom_params["city"]},#{custom_params["state"]}")
 
     dvl_up_prms = delivery_params
       |> Map.put("latitude", 20.5848521)
       |> Map.put("longitude", -100.3965839)
-      |> Map.put("name", "Centro Industrial Vallejo")
+      |> Map.put("name", "#{delivery_params["street"]} delivery")
       |> Map.put("address", "#{delivery_params["street"]} #{delivery_params["ext"]} #{delivery_params["int"]}, #{delivery_params["zipcode"]}, #{delivery_params["neighborhood"]},#{delivery_params["delegation"]},#{delivery_params["city"]},#{delivery_params["state"]}")
 
     pck_up_prms = pickup_params
       |> Map.put("latitude", 20.5848521)
       |> Map.put("longitude", -100.3965839)
-      |> Map.put("name", "Santa María la Rivera")
+      |> Map.put("name", "#{pickup_params["street"]} pickup")
       |> Map.put("address", "#{pickup_params["street"]} #{pickup_params["ext"]} #{pickup_params["int"]}, #{pickup_params["zipcode"]}, #{pickup_params["neighborhood"]},#{pickup_params["delegation"]},#{pickup_params["city"]},#{pickup_params["state"]}")      
 
     cstm_chgset = Custom.create_changeset(custom, ct_up_prms)

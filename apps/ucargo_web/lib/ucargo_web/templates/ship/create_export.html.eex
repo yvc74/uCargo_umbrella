@@ -15,24 +15,24 @@
                <%= hidden_input order, :type, value: 1%>
                <div class="export-news__item">
                   <%= inputs_for order, :delivery, fn delivery -> %>
-                  <p class="news-item__title">DIRECCIÓN DE ORIGEN<span class="export-news__help">*campos obligatorios</span></p>
+                  <p class="news-item__title">DIRECCIÓN DE DESTINO<span class="export-news__help">*campos obligatorios</span></p>
                   <div class="new-field">
                      <div class="new-field__group">
                         <p class="new-field__title">Nombre de la aduana</p>
                         <div class="new-field__container">
-                           <%=  select(delivery, :name, ["ADUANA DE VERACRUZ": "ADUANA DE VERACRUZ"]) %>
+                           <%=  select(delivery, :name, @custom_catalog) %>
                         </div>
                      </div>
                   </div>
                   <div class="new-field">
                      <div class="new-field__group">
-                        <p class="new-field__title">Fecha Recolección</p>
+                        <p class="new-field__title">Fecha de Entrega</p>
                         <div class="new-field__container picker-container">
                            <%= text_input delivery, :schedule, readonly: 'true' %>
                         </div>
                      </div>
                      <div class="new-field__group-two">
-                        <p class="new-field__title">Horario  de Recolección</p>
+                        <p class="new-field__title">Horario  de Entrega</p>
                         <div class="new-field__group">
                            <div class="new-field__container">
                               <%=  select(delivery, :hour, ["12:00": 12, "13:00": 13]) %>
@@ -47,7 +47,7 @@
                   </div>
                   <div class="new-field">
                      <div class="new-field__group">
-                        <p class="new-field__title">*Responsable</p>
+                        <p class="new-field__title">* Nombre del Responsable</p>
                         <div class="new-field__container">
                            <%= text_input delivery, :responsible %>
                         </div>
@@ -60,13 +60,13 @@
                   <p class="news-item__title">DIRECCIÓN DE RECOLECCION DEL VACIO</p>
                   <div class="new-field">
                      <div class="new-field__group">
-                        <p class="new-field__title">Fecha Entrega</p>
+                        <p class="new-field__title">Fecha de Recolección</p>
                         <div class="new-field__container picker-container">
                            <%= text_input pickup, :schedule, readonly: 'true' %>
                         </div>
                      </div>
                      <div class="new-field__group-two">
-                        <p class="new-field__title">Horario  de Entrega</p>
+                        <p class="new-field__title">Horario de Recolección</p>
                         <div class="new-field__group">
                            <div class="new-field__container">
                               <%=  select(pickup, :hour, ["12:00": 12, "13:00": 13]) %>
@@ -81,7 +81,7 @@
                   </div>
                   <div class="new-field">
                      <div class="new-field__group">
-                        <p class="new-field__title">*Calle</p>
+                        <p class="new-field__title">* Calle</p>
                         <div class="new-field__container">
                            <%= text_input pickup, :street %>
                         </div>
@@ -89,13 +89,13 @@
                   </div>
                   <div class="new-field">
                      <div class="new-field__group">
-                        <p class="new-field__title">*Numero exterior</p>
+                        <p class="new-field__title">* Numero exterior</p>
                         <div class="new-field__container">
                            <%= text_input pickup, :ext %>
                         </div>
                      </div>
                      <div class="new-field__group">
-                        <p class="new-field__title">*Numero Interior</p>
+                        <p class="new-field__title">* Numero Interior</p>
                         <div class="new-field__container">
                            <%= text_input pickup, :int %>
                         </div>
@@ -103,13 +103,13 @@
                   </div>
                   <div class="new-field">
                      <div class="new-field__group">
-                        <p class="new-field__title">*Colonia</p>
+                        <p class="new-field__title">* Colonia</p>
                         <div class="new-field__container">
                            <%= text_input pickup, :neighborhood %>
                         </div>
                      </div>
                      <div class="new-field__group">
-                        <p class="new-field__title">*Estado</p>
+                        <p class="new-field__title">* Estado</p>
                         <div class="new-field__container">
                            <%=  select(pickup, :state, ["CDMX": "CDMX", "Monterrey": "Monterrey"]) %>
                         </div>
@@ -117,13 +117,13 @@
                   </div>
                   <div class="new-field">
                      <div class="new-field__group">
-                        <p class="new-field__title">*Código Postal</p>
+                        <p class="new-field__title">* Código Postal</p>
                         <div class="new-field__container">
                            <%= text_input pickup, :zipcode %>
                         </div>
                      </div>
                      <div class="new-field__group">
-                        <p class="new-field__title">*Ciudad</p>
+                        <p class="new-field__title">* Ciudad</p>
                         <div class="new-field__container">
                            <%=  select(pickup, :city, ["CDMX": "CDMX", "Monterrey": "Monterrey"]) %>
                         </div>
@@ -131,13 +131,13 @@
                   </div>
                   <div class="new-field">
                      <div class="new-field__group">
-                        <p class="new-field__title">*Telefono</p>
+                        <p class="new-field__title">* Teléfono</p>
                         <div class="new-field__container">
                            <%= text_input pickup, :telephone %>
                         </div>
                      </div>
                      <div class="new-field__group">
-                        <p class="new-field__title">*Delegación</p>
+                        <p class="new-field__title">* Delegación</p>
                         <div class="new-field__container">
                            <%=  select(pickup, :delegation, ["CDMX": "CDMX", "Monterrey": "Monterrey"]) %>
                         </div>
@@ -153,7 +153,7 @@
                   </div>
                   <div class="new-field">
                      <div class="new-field__group">
-                        <p class="new-field__title">*Responsable</p>
+                        <p class="new-field__title">* Nombre del Responsable</p>
                         <div class="new-field__container">
                            <%= text_input pickup, :responsible %>
                         </div>
@@ -187,7 +187,7 @@
                   </div>
                   <div class="new-field">
                      <div class="new-field__group">
-                        <p class="new-field__title">*Calle</p>
+                        <p class="new-field__title">* Calle</p>
                         <div class="new-field__container">
                            <%= text_input custom, :street %>
                         </div>
@@ -195,13 +195,13 @@
                   </div>
                   <div class="new-field">
                      <div class="new-field__group">
-                        <p class="new-field__title">*Numero exterior</p>
+                        <p class="new-field__title">* Numero exterior</p>
                         <div class="new-field__container">
                            <%= text_input custom, :ext %>
                         </div>
                      </div>
                      <div class="new-field__group">
-                        <p class="new-field__title">*Numero Interior</p>
+                        <p class="new-field__title">* Numero Interior</p>
                         <div class="new-field__container">
                            <%= text_input custom, :int %>
                         </div>
@@ -209,13 +209,13 @@
                   </div>
                   <div class="new-field">
                      <div class="new-field__group">
-                        <p class="new-field__title">*Colonia</p>
+                        <p class="new-field__title">* Colonia</p>
                         <div class="new-field__container">
                            <%= text_input custom, :neighborhood %>
                         </div>
                      </div>
                      <div class="new-field__group">
-                        <p class="new-field__title">*Estado</p>
+                        <p class="new-field__title">* Estado</p>
                         <div class="new-field__container">
                            <%=  select(custom, :state, ["CDMX": "CDMX", "Monterrey": "Monterrey"]) %>
                         </div>
@@ -223,13 +223,13 @@
                   </div>
                   <div class="new-field">
                      <div class="new-field__group">
-                        <p class="new-field__title">*Código Postal</p>
+                        <p class="new-field__title">* Código Postal</p>
                         <div class="new-field__container">
                            <%= text_input custom, :zipcode %>
                         </div>
                      </div>
                      <div class="new-field__group">
-                        <p class="new-field__title">*Ciudad</p>
+                        <p class="new-field__title">* Ciudad</p>
                         <div class="new-field__container">
                            <%=  select(custom, :city, ["CDMX": "CDMX", "Monterrey": "Monterrey"]) %>
                         </div>
@@ -237,13 +237,13 @@
                   </div>
                   <div class="new-field">
                      <div class="new-field__group">
-                        <p class="new-field__title">*Telefono</p>
+                        <p class="new-field__title">* Telefono</p>
                         <div class="new-field__container">
                            <%= text_input custom, :telephone %>
                         </div>
                      </div>
                      <div class="new-field__group">
-                        <p class="new-field__title">*Delegación</p>
+                        <p class="new-field__title">* Delegación</p>
                         <div class="new-field__container">
                            <%=  select(custom, :delegation, ["CDMX": "CDMX", "Monterrey": "Monterrey"]) %>
                         </div>
@@ -251,7 +251,7 @@
                   </div>
                   <div class="new-field">
                      <div class="new-field__group">
-                        <p class="new-field__title">Referencia o Comentarios</p>
+                        <p class="new-field__title"> Referencia o Comentarios</p>
                         <div class="new-field__container">
                            <%= text_input custom, :comments %>
                         </div>
@@ -259,7 +259,7 @@
                   </div>
                   <div class="new-field">
                      <div class="new-field__group">
-                        <p class="new-field__title">*Responsable</p>
+                        <p class="new-field__title">* Nombre del Responsable</p>
                         <div class="new-field__container">
                            <%= text_input custom, :responsible %>
                         </div>
@@ -272,7 +272,7 @@
                      <div class="new-field__group">
                         <p class="new-field__title">*Tipo de Transporte</p>
                         <div class="new-field__container">
-                           <%=  select(order, :transport, ["Camion": "Camión", "Trailer": "Trailer"]) %>
+                           <%=  select(order, :transport, @transport_catalog) %>
                         </div>
                      </div>
                      <div class="new-field__group">
@@ -284,13 +284,13 @@
                   </div>
                   <div class="new-field">
                      <div class="new-field__group">
-                        <p class="new-field__title">*Peso</p>
+                        <p class="new-field__title">* Peso</p>
                         <div class="new-field__container">
                            <%= text_input order, :weight %>
                         </div>
                      </div>
                      <div class="new-field__group-two">
-                        <p class="new-field__title">*Tiempo de Puja</p>
+                        <p class="new-field__title">* Tiempo de Puja</p>
                         <div class="new-field__group">
                            <div class="new-field__container">
                               <select>
@@ -317,13 +317,13 @@
                <div class="export-news__item">
                   <div class="new-field">
                      <div class="new-field__group">
-                        <p class="new-field__title">*Referencia House</p>
+                        <p class="new-field__title">* Referencia House</p>
                         <div class="new-field__container">
                            <%= text_input f, :house_reference %>
                         </div>
                      </div>
                      <div class="new-field__group">
-                        <p class="new-field__title">*Referencia Master</p>
+                        <p class="new-field__title">* Referencia Master</p>
                         <div class="new-field__container">
                            <%= text_input f, :master_reference %>
                         </div>

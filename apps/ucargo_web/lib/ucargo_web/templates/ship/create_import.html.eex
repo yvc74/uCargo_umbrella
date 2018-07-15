@@ -20,7 +20,7 @@
             <div class="new-field__group">
               <p class="new-field__title">Nombre de la aduana</p>
               <div class="new-field__container">
-                <%=  select(custom, :name, ["ADUANA DE VERACRUZ": "ADUANA DE VERACRUZ"]) %>
+                <%= select(custom, :name, @custom_catalog)%>
               </div>
             </div>
           </div>
@@ -28,7 +28,7 @@
             <div class="new-field__group">
               <p class="new-field__title">Fecha Recolección</p>
               <div class="new-field__container picker-container">
-                <%= text_input custom, :schedule, readonly: 'true' %>
+                <%= text_input custom, :date, readonly: 'true' %>
               </div>
             </div>
             <div class="new-field__group-two">
@@ -165,7 +165,7 @@
             <div class="new-field__group">
               <p class="new-field__title">*Tipo de Transporte</p>
               <div class="new-field__container">
-                <%=  select(order, :transport, ["Camion": "Camión", "Trailer": "Trailer"]) %>
+                <%= select(order, :transport, @transport_catalog)%>
               </div>
             </div>
             <div class="new-field__group">
