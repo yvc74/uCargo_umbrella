@@ -94,7 +94,7 @@ defmodule UcargoWeb.ShipController do
     custom = %Custom{}
     delivery = %Delivery{}
     pickup = %Pickup{}
-    {:ok, custom_catalog} = CustomCatalog.get_by_name(custom_params["name"])
+    {:ok, _custom_catalog} = CustomCatalog.get_by_name(custom_params["name"])
     order_up_prms = order_params
       |> Map.put("score", 4)
       |> Map.put("distance", "500")
