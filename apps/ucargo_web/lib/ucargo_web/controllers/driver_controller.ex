@@ -7,7 +7,7 @@ defmodule UcargoWeb.DriverController do
   alias Ucargo.{Driver, Guardian, EventDispatcher, CommonParameters, Order}
   alias UcargoWeb.{DriverJsonValidation}
   require Logger
-  action_fallback UcargoWeb.SessionFallbackController
+  action_fallback UcargoWeb.DriverFallbackController
 
   def show(conn, _params) do
     driver = conn.assigns[:driver]
