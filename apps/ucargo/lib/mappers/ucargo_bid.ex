@@ -27,6 +27,10 @@ defmodule Ucargo.Bid do
       |> cast(attrs, [:price, :winner, :auction_id, :driver_id])
   end
 
+  def save(changeset) do
+    Repo.insert!(changeset)
+  end
+
   def find_by(:id, bid_id) do
     query = from b in Bid,
             where: b.id == ^bid_id,

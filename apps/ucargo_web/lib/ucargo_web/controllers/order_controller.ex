@@ -3,7 +3,6 @@ defmodule UcargoWeb.OrderController do
   Controller for drivers
   """
   use UcargoWeb, :controller
-  alias Ucargo.Order
   alias Ucargo.AvailableOrder
 
   def show(conn, _params) do

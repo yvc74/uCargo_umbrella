@@ -174,7 +174,7 @@ auction_with_bids = Ecto.Changeset.put_assoc(auction_chgs, :bids, [bid_chgs])
 auction = Repo.insert! auction_with_bids
 available_order = AvailableOrder.find_by(driver_manuel.id, order.id)
 [saved_import_bid] = auction.bids
-changeset_avalaible_order = AvailableOrder.update_changeset(available_order, %{bid_id: saved_import_bid.id})
+changeset_avalaible_order = AvailableOrder.update_changeset(available_order, %{bid_id: saved_import_bid.id, status: "Quoted"})
 Repo.update! changeset_avalaible_order
 
 
@@ -201,7 +201,7 @@ auction = Repo.insert! auction_with_bids
 
 available_order = AvailableOrder.find_by(driver_juan.id, export_order.id)
 [saved_export_bid] = auction.bids
-changeset_export_avalaible_order = AvailableOrder.update_changeset(available_order, %{bid_id: saved_export_bid.id})
+changeset_export_avalaible_order = AvailableOrder.update_changeset(available_order, %{bid_id: saved_export_bid.id, status: "Quoted"})
 Repo.update! changeset_export_avalaible_order
 
 pl_changeset = Planning.create_changeset(%Planning{},

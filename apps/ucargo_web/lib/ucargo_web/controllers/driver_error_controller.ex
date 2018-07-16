@@ -23,8 +23,8 @@ defmodule UcargoWeb.DriverFallbackController do
         %{error:  "#{inspect errors}"}
       is_list(errors) ->
         result = errors
-        |> Enum.map(fn {k, v} ->
-            "#{k}: #{inspect v}"
+        |> Enum.map(fn {key, val} ->
+            "#{key}: #{inspect val}"
           end)
         |> Enum.join(", ")
 
