@@ -19,7 +19,7 @@ defmodule Ucargo.Driver do
     field :password_conf, :string, virtual: true
     has_one :bid, Ucargo.Bid
     many_to_many :custom_brokers, Ucargo.CustomBroker, join_through: "favourite_drivers"
-    many_to_many :orders, Ucargo.Order, join_through: "available_orders"
+    many_to_many :orders, Ucargo.Order, join_through: Ucargo.AvailableOrder
     many_to_many :assigned_orders, Ucargo.Driver,
                                   join_through: "assigned_orders",
                                   join_keys: [driver_id: :id, order_id: :id]

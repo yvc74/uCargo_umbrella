@@ -25,8 +25,9 @@ defmodule Ucargo.EventDispatcher do
     case apply_next_stage(order_fsm, action) do
       {:ok, _} ->
         chs = Order.update_changeset(order, %{status: status})
-        Order.update(chs)
-        Event.save(changeset)
+        IO.inspect order
+        #Order.update(chs)
+        #Event.save(changeset)
       {:error, reason} ->
         {:error, reason}
     end

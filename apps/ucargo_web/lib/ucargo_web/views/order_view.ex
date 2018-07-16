@@ -2,16 +2,34 @@ defmodule UcargoWeb.OrderView do
   use UcargoWeb, :view
   alias UcargoWeb.OrderView
 
+  def render("available_orders.json", %{orders: orders}) do
+    %{orders: render_many(orders, OrderView, "available_order.json")}
+  end
+
   def render("orders.json", %{orders: orders}) do
     %{orders: render_many(orders, OrderView, "order.json")}
   end
 
+  def render("available_order.json", %{order: avalaible_order}) do
+    order = order_object(avalaible_order.order)
+    if avalaible_order.bid == nil do
+      %{order | status: "New"}
+    else
+      %{order | quoted_price: avalaible_order.bid.price, status: "Quoted"}
+    end
+  end
+
   def render("order.json", %{order: order}) do
+    order_object(order)
+  end
+
+  defp order_object(order) do
     order_map =
     %{id: order.id,
       favorite: order.favourite,
       score: order.score,
       status: order.status,
+      quoted_price: 0,
       type: order.type,
       custom: %{latitude: order.custom.latitude,
                 longitude: order.custom.longitude,

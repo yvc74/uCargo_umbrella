@@ -21,6 +21,7 @@ alias Ucargo.CustomBroker
 alias Ucargo.Custom
 alias Ucargo.CustomCatalog
 alias Ucargo.TransportCatalog
+alias Ucargo.AvailableOrder
 
 custom_catalog = %CustomCatalog{name: "ADUANA DE VERACRUZ", address: "Zona Portuaria, 91891 Veracruz, Ver.",
                     latitude: 19.2134807, longitude: -96.1637431, 
@@ -149,7 +150,6 @@ order_with_pick = Ecto.Changeset.put_assoc(order_chs, :custom, custom_import_chg
 order_with_delivery = Ecto.Changeset.put_assoc(order_with_pick, :delivery, deliver_chgset)
 order_with_drivers = Ecto.Changeset.put_assoc(order_with_delivery, :drivers, [driver_manuel, driver_juan, driver_jorge])
 order = Repo.insert! order_with_drivers
-
 ############
 
 #export order
@@ -172,8 +172,13 @@ bid_chgs = Bid.create_changeset(%Bid{}, %{price: 324443, winner: true, driver_id
 auction_with_bids = Ecto.Changeset.put_assoc(auction_chgs, :bids, [bid_chgs])
 
 auction = Repo.insert! auction_with_bids
+available_order = AvailableOrder.find_by(driver_manuel.id, order.id)
+[saved_import_bid] = auction.bids
+changeset_avalaible_order = AvailableOrder.update_changeset(available_order, %{bid_id: saved_import_bid.id})
+Repo.update! changeset_avalaible_order
 
-pl_changeset = Planning.create_changeset(%Planning{}, 
+
+pl_changeset = Planning.create_changeset(%Planning{},
                       %{master_reference: "115403",
                         house_reference: "142-3442-2576",
                         custom_broker_id: broker.id})
@@ -193,6 +198,11 @@ bid_chgs = Bid.create_changeset(%Bid{}, %{price: 524443, winner: true, driver_id
 auction_with_bids = Ecto.Changeset.put_assoc(auction_chgs, :bids, [bid_chgs])
 
 auction = Repo.insert! auction_with_bids
+
+available_order = AvailableOrder.find_by(driver_juan.id, export_order.id)
+[saved_export_bid] = auction.bids
+changeset_export_avalaible_order = AvailableOrder.update_changeset(available_order, %{bid_id: saved_export_bid.id})
+Repo.update! changeset_export_avalaible_order
 
 pl_changeset = Planning.create_changeset(%Planning{},
                       %{master_reference: "115403",

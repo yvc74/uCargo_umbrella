@@ -4,12 +4,13 @@ defmodule UcargoWeb.OrderController do
   """
   use UcargoWeb, :controller
   alias Ucargo.Order
+  alias Ucargo.AvailableOrder
 
   def show(conn, _params) do
     driver = conn.assigns[:driver]
-    orders =  Order.find_assigned(driver)
+    available_orders = AvailableOrder.find_by(driver.id)
     conn
       |> put_status(200)
-      |> render("orders.json", %{orders: orders})
+      |> render("available_orders.json", %{orders: available_orders})
   end
 end
