@@ -4,7 +4,7 @@ defmodule UcargoWeb.DriverController do
   """
   use UcargoWeb, :controller
   use PhoenixSwagger
-  alias Ucargo.{Driver, Guardian, EventDispatcher, CommonParameters, Order}
+  alias Ucargo.{Driver, Guardian, EventDispatcher, CommonParameters, AvailableOrder}
   alias UcargoWeb.{DriverJsonValidation}
   require Logger
   action_fallback UcargoWeb.DriverFallbackController
@@ -131,8 +131,9 @@ defmodule UcargoWeb.DriverController do
 
   def events(conn, %{"order_numer" => order_number, "event" => event}) do
     %{"date" => date} = event
-    with {:ok, order} <- Order.validate_order_id(order_number),
-         {:ok, event} <- EventDispatcher.dispatch(event, date, order) do
+    driver = conn.assigns[:driver]
+    with {:ok, available_order} <- AvailableOrder.validate_available_order(driver.id, order_number),
+         {:ok, event} <- EventDispatcher.dispatch(event, date, driver, available_order) do
       conn
         |> put_status(200)
         |> render("event.json", %{event: event})

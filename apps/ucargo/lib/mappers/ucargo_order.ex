@@ -25,7 +25,8 @@ defmodule Ucargo.Order do
     has_one :pickup, Ucargo.Pickup
     has_one :delivery, Ucargo.Delivery
     has_one :custom, Ucargo.Custom
-    many_to_many :drivers, Ucargo.Driver, join_through: "available_orders"
+    has_one :available_order, Ucargo.AvailableOrder
+    many_to_many :drivers, Ucargo.Driver, join_through: Ucargo.AvailableOrder
     many_to_many :assigned_drivers, Ucargo.Driver,
                            join_through: "assigned_orders",
                            join_keys: [order_id: :id, driver_id: :id]
@@ -54,8 +55,8 @@ defmodule Ucargo.Order do
   end
 
   def find_assigned(driver) do
-    driver = Repo.preload(driver, [orders: [:pickup, :delivery, :custom, [planning: [:custom_broker, auction: [:bids]]]]])
-    driver.orders
+    driver = Repo.preload(driver, [orders: [:pickup, [available_order: :bid], :delivery, :custom, [planning: [:custom_broker, auction: [:bids]]]]])
+    driver
   end
 
   def find_by(:id, order_id) do

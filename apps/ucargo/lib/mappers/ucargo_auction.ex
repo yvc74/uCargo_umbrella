@@ -5,6 +5,7 @@ defmodule Ucargo.Auction do
   use Ecto.Schema
   import Ecto.Changeset
   alias Ucargo.Auction
+  alias Ucargo.Repo
 
   schema "auctions" do
     field :begin_date, :naive_datetime
@@ -17,5 +18,14 @@ defmodule Ucargo.Auction do
   def create_changeset(%Auction{} = auction, attrs) do
     auction
       |> cast(attrs, [:begin_date, :end_date, :ask_price])
+  end
+
+  def update_changeset(%Auction{} = auction, attrs) do
+    auction
+      |> cast(attrs, [])
+  end
+
+  def update(changeset) do
+    Repo.update!(changeset)
   end
 end
