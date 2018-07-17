@@ -20,7 +20,7 @@ defmodule Ucargo.Driver do
     has_one :bid, Ucargo.Bid
     many_to_many :custom_brokers, Ucargo.CustomBroker, join_through: "favourite_drivers"
     many_to_many :orders, Ucargo.Order, join_through: Ucargo.AvailableOrder
-    many_to_many :assigned_orders, Ucargo.Driver,
+    many_to_many :assigned_orders, Ucargo.Order,
                                   join_through: "assigned_orders",
                                   join_keys: [driver_id: :id, order_id: :id]
     timestamps()
@@ -52,6 +52,10 @@ defmodule Ucargo.Driver do
       {:error, error} ->
         {:error, error}
     end
+  end
+
+  def get_approved(driver) do
+    Repo.preload(driver, [assigned_orders: [:pickup, [available_order: :bid], :delivery, :custom, [planning: [:custom_broker, auction: [:bids]]]]])
   end
 
   def create(changeset) do
