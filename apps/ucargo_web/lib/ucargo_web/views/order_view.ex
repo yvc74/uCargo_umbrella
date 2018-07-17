@@ -20,7 +20,9 @@ defmodule UcargoWeb.OrderView do
   end
 
   def render("order.json", %{order: order}) do
-    order_object(order)
+    price = get_winner_bid_price(order)
+    order = order_object(order)
+    %{order | quoted_price: price}
   end
 
   defp order_object(order) do
@@ -69,6 +71,24 @@ defmodule UcargoWeb.OrderView do
       Map.put(order_map, :pickup, payload)
     else
       order_map
+    end
+  end
+
+  def get_winner_bid_price(order) do
+    bids = order.planning.auction.bids
+    results =
+    Enum.flat_map(bids, fn(bid) ->
+      if bid.winner do
+        [bid]
+      else
+        []
+      end
+    end)
+    case results do
+      [] ->
+        0
+      [bid] ->
+        bid.price
     end
   end
 

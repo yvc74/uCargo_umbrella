@@ -82,7 +82,7 @@ defmodule Ucargo.Order do
       |> Repo.preload(:assigned_drivers)
       |> Repo.preload(:drivers)
       |> Repo.preload(:planning)
-    order_chs = Order.update_changeset(order_with_drivers, %{})
+    order_chs = Order.update_changeset(order_with_drivers, %{status: "Approved"})
     driver_with_orders = Ecto.Changeset.put_assoc(order_chs, :assigned_drivers, [driver])
     Repo.update!(driver_with_orders)
   end
