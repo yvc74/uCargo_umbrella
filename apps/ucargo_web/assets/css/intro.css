@@ -97,6 +97,23 @@
 }
 
 /*Intro Footer*/
+.footer-social {
+  display: flex;
+  padding-left: 4px;
+}
+.footer-social__item{
+	height: 33px;
+	width: 33px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #3aa6a2;
+	color: #fff;
+	font-size: 20px;
+	border-radius: 50%;
+	margin: 0px 4px;
+	text-decoration: none;
+}
 .intro-footer__banner{
   display: flex;
   justify-content: center;

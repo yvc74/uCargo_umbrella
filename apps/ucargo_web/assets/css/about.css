@@ -1,6 +1,6 @@
 .about-header{
 	min-height: calc(100vh - 152px);
-	background-image: url(/images/inicio-2.png);
+	background-image: url(/images/haader_about.png);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -20,7 +20,7 @@
 	color: #ffffff;
 	font-size: 30px;
 	margin-bottom: 24px;
-	width: 312px;
+	width: 380px;
 }
 .about-header__info{
 	color: #ffffff;
@@ -83,11 +83,14 @@
 }
 .about-mision__image,
 .about-vision__image{
-	background-image: url(/images/inicio-2.png);
+	background-image: url(/images/about_vision.png);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   flex: 1;
+}
+.about-mision__image{
+	background-image: url(/images/about_mision.png);
 }
 @media only screen and (max-width: 700px) {
 	.about-mision, 

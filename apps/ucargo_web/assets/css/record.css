@@ -17,6 +17,12 @@
   color: #4a4a4a !important;
   font-weight: 500;
 }
+.record-table__td--IMPORTACIÓN{
+  color: #4a90e2  !important;
+}
+.record-table__td--EXPORTACIÓN{
+  color: #7ed321 !important;
+}
 .record-content{
   margin-bottom: 10px;
 }

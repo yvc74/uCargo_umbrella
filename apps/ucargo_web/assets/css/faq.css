@@ -1,6 +1,6 @@
 .faq-header{
 	min-height: calc(100vh - 152px);
-	background-image: url(/images/inicio-2.png);
+	background-image: url(/images/header_faq.png);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -77,7 +77,6 @@
   font-size: 20px;
   display: flex;
   align-items: center;
-	justify-content: center;
 	height: 0px;
 	transition: height .5s;
 	overflow: hidden;
