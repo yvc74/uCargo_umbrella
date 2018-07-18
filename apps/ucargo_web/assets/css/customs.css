@@ -1,6 +1,6 @@
 .customs-header{
 	min-height: calc(100vh - 152px);
-	background-image: url(/images/inicio-2.png);
+	background-image: url(/images/haader_customs.png);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -20,7 +20,7 @@
 	color: #ffffff;
 	font-size: 30px;
 	margin-bottom: 24px;
-	width: 312px;
+	width: 380px;
 }
 .customs-header__info{
 	color: #ffffff;
@@ -100,7 +100,7 @@
 	align-items: center;
 }
 .customs-extra__image{
-	background-image: url(/images/aduanales-2.png);
+	background-image: url(/images/customs_one.png);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -155,8 +155,9 @@
 	color: #3aa6a2;
 }
 .customs-why__text{
-	font-size: 20px;
-	color: #9b9b9b;
+	font-size: 30px;
+	color: #4a4a4a;
+	font-weight: bold;
 }
 .customs-testimony{
 	min-height: 300px;

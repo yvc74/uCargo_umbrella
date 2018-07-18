@@ -17,6 +17,20 @@
   color: #4a4a4a !important;
   font-weight: 500;
 }
+.proposals-table__td--IMPORTACIÓN{
+  color: #4a90e2  !important;
+}
+.proposals-table__td--EXPORTACIÓN{
+  color: #7ed321 !important;
+}
 .proposals-content{
   margin-bottom: 10px;
+}
+.proposals-table__delete img{
+  width: 14px;
+  height: 14px;
+}
+.proposals-content .table-head th:first-child img{
+  height: 14px;
+  width: auto;
 }

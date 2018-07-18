@@ -1,6 +1,6 @@
 .home-header{
 	min-height: calc(100vh - 152px);
-	background-image: url(/images/inicio-2.png);
+	background-image: url(/images/header_home.png);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -20,7 +20,7 @@
 	color: #ffffff;
 	font-size: 30px;
 	margin-bottom: 24px;
-	width: 312px;
+	width: 380px;
 }
 .home-header__video-info{
 	color: #ffffff;
@@ -39,6 +39,7 @@
 }
 .home-header__actions a{
 	margin: 10px 4px;
+	margin-bottom: 0px: 
 }
 .home-extras{
 	display: flex;
@@ -57,26 +58,22 @@
 	align-items: center;
 }
 .home-customs__other div{
-	max-width: 312px;
+	max-width: 350px;
 	width: 90%;
 	margin: auto;
 	text-align: left;
 }
 .home-customs__other p{
-	color: #9b9b9b;
-	font-size: 20px;
+	color: #4a4a4a;
+	font-size: 30px;
 }
 .home-customs__other hr{
   border: solid 2px #3aa6a2;
   margin: 30px 0px;
   width: 60px;
 }
-.home-customs__other p:first-child{
-	color: #4a4a4a;
-	font-size: 30px;
-}
 .home-transporter__other{
-	background-image: url(/images/inicio-2.png);
+	background-image: url(/images/home_one.png);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -138,13 +135,15 @@
 	padding: 0px 20px;
 }
 .home-step__icon{
-	width: 48px;
-	height: 48px;
-	border-radius: 50%;
-	border: solid 2px #3aa6a2;
+	width: 83px;
+	height: 83px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+.home-step__icon img{
+	width: 100%;
+	height: 100%;
 }
 .home-step__title{
 	color: #3aa6a2;

@@ -23,3 +23,11 @@
 .favourite-cal{
   color: #3aa6a2;
 }
+.favourite-table__delete img{
+  width: 14px;
+  height: 14px;
+}
+.favourites-content .table-head th:last-child img{
+  height: 14px;
+  width: auto;
+}

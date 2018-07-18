@@ -13,6 +13,7 @@
         <div class="information-order__description">
           <div class="information-order__text">
             <p>INFORMACIÓN SOBRE EL PEDIDO</p>
+            <p class="information-order__text--export">EXPORTACIÓN</p>
           </div>
           <div class="description__shipping">
             <div class="shipping__departure">

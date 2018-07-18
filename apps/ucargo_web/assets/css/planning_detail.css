@@ -23,11 +23,25 @@
 }
 .information-order__text {
   display: flex;
-  width: 495px;
+  width: 100%;
+  max-width: 495px;
   margin-bottom: 16px;
   font-size: 16px;
   font-weight: normal;
   color: #89cac7;
+}
+.information-order__text p:first-child{
+  flex: 1;
+}
+.information-order__text--import{
+  color: #4a90e2;
+  font-weight: bold;
+  min-width: 40%;
+}
+.information-order__text--export{
+  color: #7ed321;
+  font-weight: bold;
+  min-width: 40%;
 }
 .description__shipping {
   display: flex;
@@ -357,6 +371,23 @@
   margin: 0px 4px;
   cursor: pointer;
 }
+.information-add__favorites{
+  display: flex;
+  border-bottom: solid 1px #e6e6e6;
+  padding-bottom: 20px;
+}
+.information-add__favorites p{
+  font-size: 14px;
+  color: #9b9b9b;
+  flex: 1;
+  padding-left: 28px;
+}
+.add-favorites__send {
+  flex: 1;
+}
+.information-add__favorites button{
+  background-color: #3aa6a2;
+}
 @media only screen and (max-width: 910px) {
  .details-content__information{
   margin: auto;
@@ -399,6 +430,16 @@
  }
  .placeholder-cards{
   display: none;
+ }
+ .information-add__favorites{
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ }
+ .information-add__favorites p{
+  text-align: center;
+  padding-left: auto;
+  margin-bottom: 20px;
  }
 }
 @media only screen and (max-width: 500px) {

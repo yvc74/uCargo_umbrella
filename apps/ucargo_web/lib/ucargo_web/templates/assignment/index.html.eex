@@ -46,7 +46,7 @@
                       <td class="assignment-table__td"><%= item.order.status %></td>
                       <td><%= item.order.custom.name  %></td>
                       <td><%= item.order.delivery.name %></td>
-                      <td class="assignment-table__td"><%= render_order_type(item.planning.order.type) %></td>
+                      <td class="assignment-table__td assignment-table__td--<%= render_order_type(item.planning.order.type) %>"><%= render_order_type(item.planning.order.type) %></td>
                       <td><%= item.order.merchandise_type%></td>
                       <td><%= item.driver.username %></td>
                   </tr>

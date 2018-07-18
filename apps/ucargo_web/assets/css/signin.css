@@ -25,6 +25,7 @@
   font-size: 30px;
   font-weight: normal;
   width: 90%;
+  text-align: center;
 }
 .signin__user-box {
   border: 2px solid #89cac7;
@@ -179,6 +180,7 @@
   font-size: 30px;
   width: 90%;
   font-weight: normal;
+  text-align: center;
 }
 @media only screen and (max-width: 800px) {
   .signin-form__section input[type=text]{

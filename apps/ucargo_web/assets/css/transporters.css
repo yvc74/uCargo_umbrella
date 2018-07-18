@@ -1,6 +1,6 @@
 .transporters-header{
 	min-height: calc(100vh - 152px);
-	background-image: url(/images/inicio-2.png);
+	background-image: url(/images/header_transporters.png);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -20,13 +20,13 @@
 	color: #ffffff;
 	font-size: 30px;
 	margin-bottom: 24px;
-	width: 312px;
+	width: 380px;
 }
 .transporters-header__info{
 	color: #ffffff;
 	font-size: 20px;
 	margin-bottom: 20px;
-	width: 312px;
+	width: 380px;
 }
 .transporters-header__actions{
 	display: flex;
@@ -106,7 +106,7 @@
 	display: flex;
 }
 .transporters-extra__item div{
-	max-width: 289px;
+	max-width: 350px;
 	width: 90%;
 	margin: auto;
 }
@@ -116,12 +116,12 @@
 	margin-bottom: 20px;
 }
 .transporters-extra__text{
-	font-size: 20px;
+	font-size: 30px;
 	color: #fff;
 	margin-bottom: 40px;
 }
 .transporters-extra__image{
-	background-image: url(/images/transportistas-2.png);
+	background-image: url(/images/transporters_one.png);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

@@ -361,14 +361,13 @@
 </section>
 
 <script>
-   document.addEventListener("DOMContentLoaded", function(event) {
+  document.addEventListener("DOMContentLoaded", function(event) {
       flatpickr('.picker-container input[type=text]', {
          minDate: new Date(),
          static: true,
          locale: 'es'
       });
-   })
-  document.addEventListener("DOMContentLoaded", function(event) {
+      
       map = new GMaps({
         div: '.ship-map',
         lat: 19.1611614,

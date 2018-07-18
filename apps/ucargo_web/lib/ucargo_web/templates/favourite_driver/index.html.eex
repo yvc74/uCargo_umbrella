@@ -35,7 +35,9 @@
                   <th>NOMBRE DE USUARIO</th>
                   <th>CALIFICACIÓN</th>
                   <th>VIAJES COMPLETADOS</th>
-                  <th>ELIMINAR</th>
+                  <th>
+                    <img src="/images/trash.png" alt="">
+                  </th>
                </tr>
             </thead>
             <tbody class="table-body">
@@ -55,8 +57,8 @@
                   </p>
                 </td>
                 <td>13 viajes</td>
-                <td>
-                  <i class="fa fa-times-circle" aria-hidden="true"></i>
+                <td class="favourite-table__delete">
+                  <img src="/images/closed.png" alt="">
                 </td>
               </tr>
             </tbody>

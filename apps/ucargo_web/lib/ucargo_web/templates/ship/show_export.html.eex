@@ -13,6 +13,7 @@
         <div class="information-order__description">
           <div class="information-order__text">
             <p>INFORMACIÓN SOBRE EL PEDIDO</p>
+            <p class="information-order__text--export">EXPORTACIÓN</p>
           </div>
           <div class="description__shipping">
             <div class="shipping__departure">
@@ -164,15 +165,12 @@
             </div>
           </div>
         </div>
-        <div class="checkbox">
-            <input type="checkbox" id="checkbox" />
-            <label for="checkbox">
-              <span class="checkbox__icon">
-                  <span class="checkbox__dot"></span>
-              </span>
-              <span class="checkbox__text details-checkbox__text">Agregar Transportista a Favoritos.</span>
-            </label>
+        <div class="information-add__favorites">
+          <p>Haz click para agregar este transportista a tu lista de favoritos.</p>
+          <div class="add-favorites__send">
+            <button class="btn">AGREGAR A FAVORITOS</button>
           </div>
+        </div>
         <div class="information-order__payment">
           <div class="order-payment__pricing">
             <p>$ <%= @bid.price %> <br/><span>MXN+IVA</span></p>
