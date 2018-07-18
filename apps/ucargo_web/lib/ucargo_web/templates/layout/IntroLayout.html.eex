@@ -40,7 +40,7 @@
             <ul>
                <li><a href="">Inicio</a></li>
                <li><a href="">Sobre Nosotros</a></li>
-               <li><a href="">Agencias Aduanales</a></li>
+               <li><a href="">Agencias Aduanales y/o de carga</a></li>
                <li><a href="">Transportistas</a></li>
                <li><a href="">Preguntas Frecuentes</a></li>
             </ul>
@@ -53,37 +53,42 @@
    <footer>
       <div class="intro-footer__banner">
          <div class="footer-banner__message">
-            <p>Regístrate sin costo hoy mismo y lorem ipsum</p>
+            <p>Regístrate sin costo hoy mismo.</p>
          </div>
          <div class="footer-banner__actions">
-            <a href="" class="btn">AGENCIAS ADUANALES</a>
+            <a href="" class="btn">AGENCIAS</a>
             <a href="" class="btn">TRANSPORTISTAS</a>
          </div>
       </div>
       <div class="intro-footer__info">
          <div class="footer-info__section">
             <img class="footer-brand" src="/images/footer_brand.png" alt="">
-            <p class="footer-title">Slogan UCARGO Lorem Ipsum Dolor sit</p>
-            <p class="footer-slogan">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper neque orci, id aliquam magna porta at.</p>
-            <p class="footer-copy">Copyright 2018 UCARGO <br/> Todos los derechos reservados</p>
+            <p class="footer-title">Inovando la manera de mover tu carga, siempre segura.</p>
+            <p class="footer-slogan">Benjamín Franklin 125, Interior 2, Condesa, Cuauhtémoc, 06100 CDMX, Mexico.</p>
+            <p class="footer-copy">Copyright 2018 UCARGO</p>
          </div>
          <div class="footer-info__section">
             <nav class="footer-nav" id="footer-nav">
                <ul>
-                  <li><a href="">Agentes Aduanales</a></li>
+                  <li><a href="">Agentes</a></li>
                   <li><a href="">Transportistas</a></li>
                   <li><a href="">Preguntas frecuentes</a></li>
+                  <li><a href="">Términos y condiciones de uso</a></li>
+                  <li><a href="">Aviso de privacidad</a></li>
                </ul>
             </nav>
          </div>
          <div class="footer-info__section">
-            <div class="footer-contact">
-               <img src="/images/email_icon.png" alt="">
-               <p>contacto@ucargo.com.mx</p>
-            </div>
-            <div class="footer-call">
-               <img src="/images/call_icon.png" alt="">
-               <p>llamar a soporte</p>
+            <div class="footer-social">
+               <a href="" class="footer-social__item">
+                  <i class="fab fa-facebook"></i>
+               </a>
+               <a href="" class="footer-social__item">
+                  <i class="fab fa-linkedin-in"></i>
+               </a>
+               <a href="" class="footer-social__item">
+                  <i class="fab fa-twitter"></i>
+               </a>
             </div>
             <div class="footer-message">
                <a class="btn" href="">MÁNDANOS UN MENSAJE</a>

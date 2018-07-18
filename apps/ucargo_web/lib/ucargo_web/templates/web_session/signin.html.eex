@@ -3,7 +3,7 @@
 		<img src="../images/brand.png" />
 	</div>
 	<div class="signin__slogan">
-		<p>Lorem Ipsum dolor sit amen</p>
+		<p>Inovando la manera de mover <br/> tu carga, siempre segura.</p>
 	</div>
 	<%= form_for @changeset, "/login", [class: 'signin-form'], fn f -> %>
 		<div class="signin__user-box">

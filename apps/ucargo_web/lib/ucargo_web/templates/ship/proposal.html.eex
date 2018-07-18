@@ -13,6 +13,9 @@
          <table class="table">
             <thead class="table-head">
                <tr>
+                  <th>
+                    <img src="/images/trash.png" alt="">
+                  </th>
                   <th>REF U.CARGO</th>
                   <th>PUJA</th>
                   <th>PRECIO</th>
@@ -25,14 +28,17 @@
             </thead>
             <tbody class="table-body">
               <%= for bid <- @planning.auction.bids do %>
-                  <tr onclick="navigate('/plannings/<%= @planning.order.planning_id %>/bids/<%= bid.id %>');">
+                  <tr data-url="/plannings/<%= @planning.order.planning_id %>/bids/<%= bid.id %>">
+                      <td class="proposals-table__delete">
+                        <img src="/images/closed.png" alt="">
+                      </td>
                       <td><%= @planning.order.planning_id %></td>
                       <td><%= render_difference_date(@planning.auction.begin_date, @planning.auction.end_date) %> horas</td>
                       <td class="proposals-table__td">$ <%= bid.price %></td>
                       <td><%= @planning.order.custom.name %></td>
                       <td><%= @planning.order.delivery.name %></td>
                       <td><%= bid.driver.id %></td>
-                      <td class="proposals-table__td"><%= render_order_type(@planning.order.type) %></td>
+                      <td class="proposals-table__td proposals-table__td--<%= render_order_type(@planning.order.type) %>"><%= render_order_type(@planning.order.type) %></td>
                       <td><%= @planning.order.merchandise_type %></td>
                   </tr>
               <% end %>
@@ -47,4 +53,15 @@
   function navigate(url){
     document.location.href = url;
   }
+  document.addEventListener("DOMContentLoaded", function(event) {
+    $('.table-body tr td').click(function(event){
+      const target = $(this);
+      if(target.hasClass('proposals-table__delete')){
+        alert('Delete')
+      }else{
+        const url = target.parent().data('url');
+        navigate(url)
+      }
+    });
+  })
 </script>

@@ -29,7 +29,7 @@
       <div class="table-container">
          <table class="table">
             <thead class="table-head">
-               <tr>
+              <tr>
                 <th>REF U.CARGO</th>
                 <th>STATUS</th>
                 <th>ORIGEN</th>
@@ -37,16 +37,27 @@
                 <th>TIPO</th>
                 <th>PRECIO</th>
                 <th>TRANSPORTISTA</th>
-               </tr>
+              </tr>
             </thead>
             <tbody class="table-body">
-              <td> 765D3S </td>
-              <td class="record-table__td"> EN VIAJE </td>
-              <td> VERACRUZ </td>
-              <td> MEXICO </td>
-              <td class="record-table__td"> IMPORTACION </td>
-              <td> $000,000.00 </td>
-              <td> DAN 0123 </td>
+              <tr>
+                <td> 765D3S </td>
+                <td class="record-table__td"> EN VIAJE </td>
+                <td> VERACRUZ </td>
+                <td> MEXICO </td>
+                <td class="record-table__td record-table__td--IMPORTACIÓN"> IMPORTACION </td>
+                <td> $000,000.00 </td>
+                <td> DAN 0123 </td>
+              </tr>
+              <tr>
+                <td> 765D3S </td>
+                <td class="record-table__td"> EN VIAJE </td>
+                <td> VERACRUZ </td>
+                <td> MEXICO </td>
+                <td class="record-table__td record-table__td--EXPORTACIÓN"> EXPORTACION </td>
+                <td> $000,000.00 </td>
+                <td> DAN 0123 </td>
+              </tr>
             </tbody>
          </table>
       </div>

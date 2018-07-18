@@ -50,7 +50,7 @@
                       <td class="planning-table__td"><%= render_difference_date(planning.auction.begin_date, planning.auction.end_date) %> horas</td>
                       <td><%= planning.order.custom.name %></td>
                       <td><%= planning.order.delivery.name %></td>
-                      <td class="planning-table__td"><%= render_order_type(planning.order.type) %></td>
+                      <td class="planning-table__td planning-table__td--<%= render_order_type(planning.order.type) %>"><%= render_order_type(planning.order.type) %></td>
                       <td><%= planning.order.merchandise_type %></td>
                       <td>Ver propuestas</td>
                   </tr>
