@@ -2,12 +2,12 @@
   <div class="home-header">
     <div class="home-header__container">
       <div class="home-header__item">
-        <p class="home-header__video-title">UCARGO Lorem Ipsum Dolor sit amen.</p>
-        <p class="home-header__video-info">Pellentesque ultrices auctor risus, in interdum dui ullamcorper non. Suspendisse facilisis leo turpis, ut blandit ipsum pellentesque et.</p>
+        <p class="home-header__video-title">Inovando la manera de mover tu carga, siempre segura.</p>
+        <p class="home-header__video-info">Una nueva e innovadora forma de mover carga conectando agencias aduanales y de carga con transportistas a través del poder de la tecnología.</p>
         <a class="btn home-header__video-action" href="">VER VIDEO</a>
       </div>
       <div class="home-header__item">
-        <p class="home-header__other-title">Unete a la mejor plataforma Lorem Ipsum</p>
+        <p class="home-header__other-title">Se parte de la nueva y mejor plataforma para mover carga de forma segura en México. Regístrate ya.</p>
         <div class="home-header__actions">
           <a href="" class="btn">AGENCIAS ADUANALES</a>
           <a href="" class="btn">TRANSPORTISTAS</a>
@@ -19,15 +19,14 @@
     <div class="home-extras__item home-extras__customs">
       <div class="home-customs__other">
         <div>
-          <p>UCARGO Lorem Ipsum Dolor sit amen.</p>
+          <p>Baja la aplicación de forma gratuita y comienza a gozar de todos sus beneficios.</p>
           <hr>
-          <p>Pellentesque ultrices auctor risus, in interdum dui ullamcorper non. Suspendisse facilisis leo turpis, ut blandit ipsum pellentesque et.</p>
         </div>
       </div>
       <div class="home-extras__info">
-        <p class="home-extras__title">¿Eres Agente aduanal?</p>
-        <p class="home-extras__text">Pellentesque ultrices auctor risus, in interdum dui ullamcorper non. Suspendisse facilisis leo turpis.</p>
-        <a href="" class="btn home-extras__more">VER MÁS</a>
+        <p class="home-extras__title">¿Eres Agente aduanal <br/> o agencia de Carga?</p>
+        <p class="home-extras__text">Unete a la nueva plataforma ya!</p>
+        <a href="" class="btn home-extras__more">REGÍSTRATE</a>
       </div>
     </div>
     <div class="home-extras__item home-extras__transporter">
@@ -36,56 +35,50 @@
       </div>
       <div class="home-extras__info">
         <p class="home-extras__title">¿Eres Transportista?</p>
-        <p class="home-extras__text">Pellentesque ultrices auctor risus, in interdum dui ullamcorper non. Suspendisse facilisis leo turpis.</p>
-        <a href="" class="btn home-extras__more">VER MÁS</a>
+        <p class="home-extras__text">No pierdas mas tiempo <br/> en buscar clientes, unete ya y comienza a cotizar!</p>
+        <a href="" class="btn home-extras__more">REGÍSTRATE</a>
       </div>
     </div>
   </div>
   <div class="home-steps">
     <p class="home-steps__title">
-      ¿Por qué <span>UCARGO</span>? Por todos sus beneficios y servicio profesional
+      ¿Por qué <span>UCARGO</span>? Por todos sus beneficios.
     </p>
     <div class="home-steps__items">
       <div class="home-steps__item">
-        <div class="home-step__icon"></div>
-        <div class="home-step__title">¡OPCIONES PARA ELEGIR!</div>
-        <div class="home-step__info">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+        <div class="home-step__icon">
+          <img src="/images/home_three.png" alt="">
+        </div>
+        <div class="home-step__title">TRANSPARENCIA</div>
+        <div class="home-step__info">Facilita la obtención de cotizaciones directamente de los trasnportistas para que elijas la mejor opcion.</div>
       </div>
       <div class="home-steps__item">
-        <div class="home-step__icon"></div>
+        <div class="home-step__icon">
+          <img src="/images/home_four.png" alt="">
+        </div>
         <div class="home-step__title">RASTREO TIEMPO REAL</div>
-        <div class="home-step__info">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+        <div class="home-step__info">Rastrea tu carga en cualquier momento y recibe notificaciones de los avances al momento, garantizando la seguridad de cada viaje.</div>
       </div>
       <div class="home-steps__item">
-        <div class="home-step__icon"></div>
-        <div class="home-step__title">SOPORTE 24/7</div>
-        <div class="home-step__info">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+        <div class="home-step__icon">
+          <img src="/images/home_five.png" alt="">
+        </div>
+        <div class="home-step__title">PAGO PUNTUAL</div>
+        <div class="home-step__info">Recibe tu pago de manera automatica, segura y puntual al concluir cada viaje.</div>
       </div>
     </div>
   </div>
   <div class="testimonies">
     <div class="testimonies-container">
-      <p class="testimonies-title">Los testimonios de nuestros usuarios respaldan nuestro gran servicio</p>
+      <p class="testimonies-title">Testimonios que nos respaldan:</p>
       <div class="testimonies-items">
         <div class="testimony">
-          <p class="testimony-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper neque orci, id aliquam magna porta at. Phasellus pulvinar pulvinar lorem, non rutrum ipsum tempor ac. Proin tempus sem sit amet lectus sollicitudin ultrices. Mauris placerat luctus.</p>
-          <p class="testimony-author">-Lorem Ipsum, Dolor sit Amen</p>
+          <p class="testimony-text">Desde que comence a usar la aplicación me facilito la manera de contratar transportistas y mi carga siempre esta segura.</p>
+          <p class="testimony-author">-Juan Pérez</p>
         </div>
         <div class="testimony">
-          <p class="testimony-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper neque orci, id aliquam magna porta at. Phasellus pulvinar pulvinar lorem, non rutrum ipsum tempor ac. Proin tempus sem sit amet lectus sollicitudin ultrices. Mauris placerat luctus.</p>
-          <p class="testimony-author">-Lorem Ipsum, Dolor sit Amen</p>
-        </div>
-        <div class="testimony">
-          <p class="testimony-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper neque orci, id aliquam magna porta at. Phasellus pulvinar pulvinar lorem, non rutrum ipsum tempor ac. Proin tempus sem sit amet lectus sollicitudin ultrices. Mauris placerat luctus.</p>
-          <p class="testimony-author">-Lorem Ipsum, Dolor sit Amen</p>
-        </div>
-        <div class="testimony">
-          <p class="testimony-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper neque orci, id aliquam magna porta at. Phasellus pulvinar pulvinar lorem, non rutrum ipsum tempor ac. Proin tempus sem sit amet lectus sollicitudin ultrices. Mauris placerat luctus.</p>
-          <p class="testimony-author">-Lorem Ipsum, Dolor sit Amen</p>
-        </div>
-        <div class="testimony">
-          <p class="testimony-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper neque orci, id aliquam magna porta at. Phasellus pulvinar pulvinar lorem, non rutrum ipsum tempor ac. Proin tempus sem sit amet lectus sollicitudin ultrices. Mauris placerat luctus.</p>
-          <p class="testimony-author">-Lorem Ipsum, Dolor sit Amen</p>
+          <p class="testimony-text">Innovador, inteligente, ya era tiempo de tener esta aplicación en México.</p>
+          <p class="testimony-author">-María Rodríguez</p>
         </div>
       </div>
     </div>

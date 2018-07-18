@@ -2,33 +2,32 @@
   <div class="about-header">
     <div class="about-header__container">
       <div class="about-header__item">
-        <p class="about-header__title">UCARGO Lorem Ipsum Dolor sit amen.</p>
-        <p class="about-header__info">Pellentesque ultrices auctor risus, in interdum dui ullamcorper non. Suspendisse facilisis leo turpis, ut blandit ipsum pellentesque et.</p>
+        <p class="about-header__title">Inovando la manera de mover tu carga, siempre segura.</p>
         <div class="about-header__actions">
-          <a href="" class="btn">AGENCIAS ADUANALES</a>
+          <a href="" class="btn">AGENCIAS</a>
           <a href="" class="btn">TRANSPORTISTAS</a>
         </div>
       </div>
     </div>
   </div>
   <div class="about-mision">
-    <div class="about-mision__image"></div>
     <div class="about-mision__info">
       <div>
         <p>MISIÓN</p>
         <hr>
-        <p>Pellentesque ultrices auctor risus, in interdum dui ullamcorper non. Suspendisse facilisis leo turpis, ut blandit ipsum pellentesque et.</p>
+        <p>Restructurar la contratacion de servicios de autotrasnsporte de carga completa para comercio internacional, a traves de una plataforma tecnologica confiable, segura, que garantice rastreabilidad en tiempo real y asegure la calidad de los servicios.</p>
       </div>
     </div>
+    <div class="about-mision__image"></div>
   </div>
   <div class="about-vision">
+    <div class="about-vision__image"></div>
     <div class="about-vision__info">
       <div>
         <p>VISIÓN</p>
         <hr>
-        <p>Pellentesque ultrices auctor risus, in interdum dui ullamcorper non. Suspendisse facilisis leo turpis, ut blandit ipsum pellentesque et.</p>
+        <p>Ser la principal interfaz entre agentes aduanales, agentes de carga y transportistas, certificada, sustentable y reconocida como lider por los principales organismos logisticos del pais por su impacto positivo en los procesos y procedimientos de comercio exterior, asi como su responsabilidad social.</p>
       </div>
     </div>
-    <div class="about-vision__image"></div>
   </div>
 </section>

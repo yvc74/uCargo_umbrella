@@ -2,10 +2,9 @@
   <div class="customs-header">
     <div class="customs-header__container">
       <div class="customs-header__item">
-        <p class="customs-header__title">AGENTES ADUANALES</p>
-        <p class="customs-header__info">Pellentesque ultrices auctor risus, in interdum dui ullamcorper non. Suspendisse facilisis leo turpis, ut blandit ipsum pellentesque et.</p>
+        <p class="customs-header__title">Inovando la manera de mover tu carga, siempre segura.</p>
         <div class="customs-header__actions">
-          <a href="" class="btn">REGÍSTRATE COMO AGENTE</a>
+          <a href="" class="btn">REGÍSTRATE</a>
         </div>
       </div>
     </div>
@@ -13,9 +12,9 @@
   <div class="customs-steps">
     <div class="customs-steps__slogan">
       <div>
-        <p>Fácil de utilizar y de dar seguimiento a cargamentos</p>
+        <p>Fácil de utilizar</p>
         <hr>
-        <p>Pellentesque ultrices auctor risus, in interdum dui ullamcorper non. Suspendisse facilisis leo turpis, ut blandit ipsum pellentesque et.</p>
+        <p>Sigue estos sencillos pasos y muy pronto seras parte de la plataforma mas innovadora de México.</p>
       </div>
     </div>
     <div class="customs-steps__items">
@@ -24,7 +23,7 @@
           <p>1</p>
         </div>
         <p class="customs-steps__text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Registrate y envianos tus datos
         </p>
       </div>
       <div class="customs-steps__item">
@@ -32,7 +31,7 @@
           <p>2</p>
         </div>
         <p class="customs-steps__text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Llena la solicitud, recauda la informacion y enviala por correo electronico.
         </p>
       </div>
       <div class="customs-steps__item">
@@ -40,7 +39,7 @@
           <p>3</p>
         </div>
         <p class="customs-steps__text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Recibe nuestro correo electronico con toda la informacion.
         </p>
       </div>
       <div class="customs-steps__item">
@@ -48,7 +47,7 @@
           <p>4</p>
         </div>
         <p class="customs-steps__text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Recibe tu nombre de usuario y contraseña y Listo! Ya eres parte de la plataforma.
         </p>
       </div>
     </div>
@@ -59,19 +58,18 @@
     </div>
     <div class="customs-extra__item">
       <div>
-        <p>Pellentesque ultrices auctor risus, in interdum dui ullamcorper non. Suspendisse facilisis leo turpis.</p>
-        <a href="" class="btn">REGÍSTRATE COMO AGENTE</a>
+        <p>Hacemos que el camino sea un lugar mas seguro!</p>
+        <a href="" class="btn">REGÍSTRATE</a>
       </div>
     </div>
   </div>
   <div class="customs-why">
     <div class="customs-why__image">
-      <img src="/images/aduanales-3.png" alt="">
+      <img src="/images/customs_two.png" alt="">
     </div>
     <div class="customs-why__info">
       <div>
-        <p class="customs-why__title">¿Por qué <span>UCARGO</span>? Por todos sus beneficios y servicio profesional</p>
-        <p class="customs-why__text">Pellentesque ultrices auctor risus, in interdum dui ullamcorper non. Suspendisse facilisis leo turpis, ut blandit ipsum pellentesque et. Aliquam erat volutpat.</p>
+        <p class="customs-why__text">Tu carga siempre segura, rastreo en tiempo real, en todo momento hasta concluir tu viaje.</p>
       </div>
     </div>
   </div>
@@ -79,8 +77,7 @@
     <div class="customs-testimony__container">
       <div class="customs-testimony__avatar"></div>
       <div class="customs-testimony__item">
-        <p class="customs-testimony__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper neque orci, id aliquam magna porta at. Phasellus pulvinar pulvinar lorem, non rutrum ipsum tempor ac. Proin tempus sem sit amet lectus sollicitudin ultrices. Mauris placerat luctus justo sit amet condimentum. Phasellus luctus eleifend eros.</p>
-        <p class="customs-testimony__author">-Lorem Ipsum, Dolor sit Amen</p>
+        <p class="customs-testimony__text">Desde que uso Ucargo administro mis tiempos de manera eficaz y practica a traves de la aplicación.</p>
       </div>
     </div>
   </div>

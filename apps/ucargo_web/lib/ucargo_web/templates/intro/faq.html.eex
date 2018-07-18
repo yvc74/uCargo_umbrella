@@ -1,37 +1,109 @@
 <section class="faq">
   <div class="faq-header">
     <div class="faq-header__container">
-      <div class="faq-header__item">
+      <!--<div class="faq-header__item">
         <p class="faq-header__title">UCARGO Lorem Ipsum Dolor sit amen.</p>
         <p class="faq-header__info">Pellentesque ultrices auctor risus, in interdum dui ullamcorper non. Suspendisse facilisis leo turpis, ut blandit ipsum pellentesque et.</p>
         <div class="faq-header__actions">
           <a href="" class="btn">AGENCIAS ADUANALES</a>
           <a href="" class="btn">TRANSPORTISTAS</a>
         </div>
-      </div>
+      </div>-->
     </div>
   </div>
   <div class="faq-content">
     <p class="faq-content__title">¿Tienes Preguntas?</p>
     <hr />
-    <p class="faq-content__text">Pellentesque ultrices auctor risus, in interdum dui ullamcorper non.</p>
+    <p class="faq-content__text">Ucargo aclara tus dudas, respondiendo a tus preguntas.</p>
     <div class="faq-content__items">
       <div class="faq-content__item">
         <div class="faq-content__item-title">
-          <p>Pellentesque ultrices auctor risus, in interdum dui ullamcorper non.</p>
+          <p>¿Tiene algun costo la aplicación?</p>
           <img src="/images/more_icon.png" alt="">
         </div>
         <div class="faq-content__item-text">
-          <p>Pellentesque ultrices auctor risus, in interdum dui ullamcorper non. Suspendisse facilisis leo turpis, ut blandit ipsum pellentesque et. Aliquam erat volutpat. </p>
+          <p>No, es totalmente gratuita tanto para agencias aduanales y de carga, como para transportistas.</p>
         </div>
       </div>
       <div class="faq-content__item">
         <div class="faq-content__item-title">
-          <p>Pellentesque ultrices auctor risus, in interdum dui ullamcorper non.</p>
+          <p>¿Como se paga un servicio de carga?</p>
           <img src="/images/more_icon.png" alt="">
         </div>
         <div class="faq-content__item-text">
-          <p>Pellentesque ultrices auctor risus, in interdum dui ullamcorper non. Suspendisse facilisis leo turpis, ut blandit ipsum pellentesque et. Aliquam erat volutpat. </p>
+          <p>El usuario puede pagar el servicio de carga a traves de la applicacion, mediante tarjeta de debito, credito, transferenica vía spei.</p>
+        </div>
+      </div>
+      <div class="faq-content__item">
+        <div class="faq-content__item-title">
+          <p>¿Como cotiza un transportista un servicio de carga?</p>
+          <img src="/images/more_icon.png" alt="">
+        </div>
+        <div class="faq-content__item-text">
+          <p>El transportista recibe la solicitud a traves de la aplicación y en el campo indicado nombra su precio y la envia.</p>
+        </div>
+      </div>
+      <div class="faq-content__item">
+        <div class="faq-content__item-title">
+          <p>¿Cual es la ganancia de Ucargo?</p>
+          <img src="/images/more_icon.png" alt="">
+        </div>
+        <div class="faq-content__item-text">
+          <p>Ucargo cobra una comision al transportista por cada servicio realizado.</p>
+        </div>
+      </div>
+      <div class="faq-content__item">
+        <div class="faq-content__item-title">
+          <p>¿Ucargo proteje mis datos personales?</p>
+          <img src="/images/more_icon.png" alt="">
+        </div>
+        <div class="faq-content__item-text">
+          <p>Si, bajo la ley de confidencialidad de datos personales.</p>
+        </div>
+      </div>
+      <div class="faq-content__item">
+        <div class="faq-content__item-title">
+          <p>¿Que pasa si existe un siniestro?</p>
+          <img src="/images/more_icon.png" alt="">
+        </div>
+        <div class="faq-content__item-text">
+          <p>Todas las mercancias coordinadas por Ucargo vienen aseguradas con nuestra poliza y se dara asesoria y seguimiento para el reclamo del siniestro.</p>
+        </div>
+      </div>
+      <div class="faq-content__item">
+        <div class="faq-content__item-title">
+          <p>¿Existen otras plataformas como Ucargo en México?</p>
+          <img src="/images/more_icon.png" alt="">
+        </div>
+        <div class="faq-content__item-text">
+          <p>No, somos la primera plataforma en México.</p>
+        </div>
+      </div>
+      <div class="faq-content__item">
+        <div class="faq-content__item-title">
+          <p>¿Cuando le paga Ucargo al transportista?</p>
+          <img src="/images/more_icon.png" alt="">
+        </div>
+        <div class="faq-content__item-text">
+          <p>El pago se hace automaticamente horas despues de concluir el servicio.</p>
+        </div>
+      </div>
+      <div class="faq-content__item">
+        <div class="faq-content__item-title">
+          <p>¿Recibo notificaciones de los avances de mi mercancia?</p>
+          <img src="/images/more_icon.png" alt="">
+        </div>
+        <div class="faq-content__item-text">
+          <p>Si, recibes notificaciones cada proceso que el transportista va concluyendo.</p>
+        </div>
+      </div>
+      <div class="faq-content__item">
+        <div class="faq-content__item-title">
+          <p>¿Ucargo es una plataforma confiable y segura?</p>
+          <img src="/images/more_icon.png" alt="">
+        </div>
+        <div class="faq-content__item-text">
+          <p>Si, hemos creado una plataforma con un codigo fuente unico, lo cual nos brinda la seguridad y confianza que se requiere.</p>
         </div>
       </div>
     </div>
