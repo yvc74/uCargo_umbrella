@@ -6,6 +6,20 @@ defmodule UcargoWeb.OrderController do
   alias Ucargo.AvailableOrder
   alias Ucargo.Driver
 
+  def show_order(conn, %{"order_id" => order_id}) do
+    driver = conn.assigns[:driver]
+    case AvailableOrder.find_by(driver.id, order_id) do
+      nil ->
+        conn
+          |> put_status(404)
+          |> json(%{error: "Order with id: #{order_id} not found for this driver"})
+      availaible_order ->
+        conn
+          |> put_status(200)
+          |> render("order.json", %{order: availaible_order.order})
+    end
+  end
+
   def show(conn, %{"status" => "approved"}) do
     driver = conn.assigns[:driver]
     updated_driver = Driver.get_approved(driver)
