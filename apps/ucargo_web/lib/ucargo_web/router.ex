@@ -95,6 +95,7 @@ defmodule UcargoWeb.Router do
         pipe_through :authorized
         get "/settings", SettingsController, :settings
         get "/orders", OrderController, :show
+        get "/orders/:order_id", OrderController, :show_order
         patch "/account", DriverController, :update
         delete "/orders/:order_number", DriverController, :order_delete
         post "/orders/:order_number/quotes", DriverController, :order_quotes
