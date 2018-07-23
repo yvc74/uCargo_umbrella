@@ -4,7 +4,7 @@
       <div class="transporters-header__item">
         <p class="transporters-header__title">Ucargo recorre mas camino de forma segura.</p>
         <div class="transporters-header__actions">
-          <a href="" class="btn">REGÍSTRATE</a>
+          <a onclick="navigate('/signup');" class="btn">REGÍSTRATE</a>
         </div>
       </div>
     </div>
@@ -56,7 +56,7 @@
     <div class="transporters-extra__item">
       <div>
         <p class="transporters-extra__text">Si viajas con Ucargo tendras la seguridad y confiabilidad en cada viaje.</p>
-        <a href="" class="btn">REGÍSTRATE</a>
+        <a onclick="navigate('/signup');" class="btn">REGÍSTRATE</a>
       </div>
     </div>
     <div class="transporters-extra__image"></div>
@@ -80,3 +80,8 @@
     </div>
   </div>
 </section>
+<script type="text/javascript">
+  function navigate(url){
+    document.location.href = url;
+  }
+</script>

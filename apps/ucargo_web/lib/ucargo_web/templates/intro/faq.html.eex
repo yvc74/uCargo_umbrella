@@ -109,3 +109,8 @@
     </div>
   </div>
 </section>
+<script type="text/javascript">
+  function navigate(url){
+    document.location.href = url;
+  }
+</script>
