@@ -25,8 +25,8 @@
             </div>
          </div>
          <div class="intro-header__login">
-            <p class="header-login__section">llamar a soporte<a href="">Inicia Sesión</a></p>
-            <p class="header-login__section">¿Aun no eres miembro?<a href="">Regístrate</a></p>
+            <p class="header-login__section">llamar a soporte<a onclick="navigate('/signin');">Inicia Sesión</a></p>
+            <p class="header-login__section">¿Aun no eres miembro?<a onclick="navigate('/signup');">Regístrate</a></p>
          </div>
       </div>
       <div class="intro-header__nav">
@@ -38,11 +38,11 @@
          </div>
          <nav>
             <ul>
-               <li><a href="">Inicio</a></li>
-               <li><a href="">Sobre Nosotros</a></li>
-               <li><a href="">Agencias Aduanales y/o de carga</a></li>
-               <li><a href="">Transportistas</a></li>
-               <li><a href="">Preguntas Frecuentes</a></li>
+               <li><a onclick="navigate('/');">Inicio</a></li>
+               <li><a onclick="navigate('/about');">Sobre Nosotros</a></li>
+               <li><a onclick="navigate('/customs');">Agencias Aduanales y/o de carga</a></li>
+               <li><a onclick="navigate('/transporters');">Transportistas</a></li>
+               <li><a onclick="navigate('/faq');">Preguntas Frecuentes</a></li>
             </ul>
          </nav>
       </div>
@@ -56,8 +56,8 @@
             <p>Regístrate sin costo hoy mismo.</p>
          </div>
          <div class="footer-banner__actions">
-            <a href="" class="btn">AGENCIAS</a>
-            <a href="" class="btn">TRANSPORTISTAS</a>
+            <a onclick="navigate('/customs');" class="btn">AGENCIAS</a>
+            <a onclick="navigate('/transporters');" class="btn">TRANSPORTISTAS</a>
          </div>
       </div>
       <div class="intro-footer__info">
@@ -70,9 +70,9 @@
          <div class="footer-info__section">
             <nav class="footer-nav" id="footer-nav">
                <ul>
-                  <li><a href="">Agentes</a></li>
-                  <li><a href="">Transportistas</a></li>
-                  <li><a href="">Preguntas frecuentes</a></li>
+                  <li><a onclick="navigate('/customs');">Agentes</a></li>
+                  <li><a onclick="navigate('/transporters');">Transportistas</a></li>
+                  <li><a onclick="navigate('/faq');">Preguntas frecuentes</a></li>
                   <li><a href="">Términos y condiciones de uso</a></li>
                   <li><a href="">Aviso de privacidad</a></li>
                </ul>
@@ -121,3 +121,8 @@
    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
 </body>
 </html>
+<script type="text/javascript">
+  function navigate(url){
+    document.location.href = url;
+  }
+</script>

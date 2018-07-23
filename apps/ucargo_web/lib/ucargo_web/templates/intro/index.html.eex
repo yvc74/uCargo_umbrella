@@ -9,8 +9,8 @@
       <div class="home-header__item">
         <p class="home-header__other-title">Se parte de la nueva y mejor plataforma para mover carga de forma segura en México. Regístrate ya.</p>
         <div class="home-header__actions">
-          <a href="" class="btn">AGENCIAS ADUANALES</a>
-          <a href="" class="btn">TRANSPORTISTAS</a>
+          <a onclick="navigate('/customs');" class="btn">AGENCIAS ADUANALES</a>
+          <a onclick="navigate('/transporters');" class="btn">TRANSPORTISTAS</a>
         </div>
       </div>
     </div>
@@ -26,7 +26,7 @@
       <div class="home-extras__info">
         <p class="home-extras__title">¿Eres Agente aduanal <br/> o agencia de Carga?</p>
         <p class="home-extras__text">Unete a la nueva plataforma ya!</p>
-        <a href="" class="btn home-extras__more">REGÍSTRATE</a>
+        <a onclick="navigate('/signup');" class="btn home-extras__more">REGÍSTRATE</a>
       </div>
     </div>
     <div class="home-extras__item home-extras__transporter">
@@ -36,7 +36,7 @@
       <div class="home-extras__info">
         <p class="home-extras__title">¿Eres Transportista?</p>
         <p class="home-extras__text">No pierdas mas tiempo <br/> en buscar clientes, unete ya y comienza a cotizar!</p>
-        <a href="" class="btn home-extras__more">REGÍSTRATE</a>
+        <a onclick="navigate('/signup');" class="btn home-extras__more">REGÍSTRATE</a>
       </div>
     </div>
   </div>
@@ -84,3 +84,9 @@
     </div>
   </div>
 </section>
+
+<script type="text/javascript">
+  function navigate(url){
+    document.location.href = url;
+  }
+</script>

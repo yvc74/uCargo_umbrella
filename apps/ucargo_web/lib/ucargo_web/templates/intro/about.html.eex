@@ -4,8 +4,8 @@
       <div class="about-header__item">
         <p class="about-header__title">Inovando la manera de mover tu carga, siempre segura.</p>
         <div class="about-header__actions">
-          <a href="" class="btn">AGENCIAS</a>
-          <a href="" class="btn">TRANSPORTISTAS</a>
+          <a onclick="navigate('/customs');"class="btn">AGENCIAS</a>
+          <a onclick="navigate('/transporters');" class="btn">TRANSPORTISTAS</a>
         </div>
       </div>
     </div>
@@ -31,3 +31,8 @@
     </div>
   </div>
 </section>
+<script type="text/javascript">
+  function navigate(url){
+    document.location.href = url;
+  }
+</script>

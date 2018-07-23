@@ -4,7 +4,7 @@
       <div class="customs-header__item">
         <p class="customs-header__title">Inovando la manera de mover tu carga, siempre segura.</p>
         <div class="customs-header__actions">
-          <a href="" class="btn">REGÍSTRATE</a>
+          <a onclick="navigate('/signup');" class="btn">REGÍSTRATE</a>
         </div>
       </div>
     </div>
@@ -59,7 +59,7 @@
     <div class="customs-extra__item">
       <div>
         <p>Hacemos que el camino sea un lugar mas seguro!</p>
-        <a href="" class="btn">REGÍSTRATE</a>
+        <a onclick="navigate('/signup');" class="btn">REGÍSTRATE</a>
       </div>
     </div>
   </div>
@@ -82,3 +82,8 @@
     </div>
   </div>
 </section>
+<script type="text/javascript">
+  function navigate(url){
+    document.location.href = url;
+  }
+</script>
