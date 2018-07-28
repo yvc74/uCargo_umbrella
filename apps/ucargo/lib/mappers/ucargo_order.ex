@@ -86,7 +86,7 @@ defmodule Ucargo.Order do
     order_chs = Order.update_changeset(order_with_drivers, %{status: "Approved"})
     avl_order =  Ucargo.AvailableOrder.find_by(current_driver.id, order_with_drivers.id)
     chg_set = Ucargo.AvailableOrder.update_changeset(avl_order,  %{status: "Approved"})
-    IO.inspect Ucargo.AvailableOrder.update(chg_set)
+    Ucargo.AvailableOrder.update(chg_set)
     driver_with_orders = Ecto.Changeset.put_assoc(order_chs, :assigned_drivers, [driver])
     Repo.update!(driver_with_orders)
   end
