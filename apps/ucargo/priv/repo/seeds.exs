@@ -168,7 +168,7 @@ auction_chgs = Auction.create_changeset(%Auction{},
                      end_date: NaiveDateTime.add(date_now, 86400, :second),
                      ask_price: 10500.45})
 
-bid_chgs = Bid.create_changeset(%Bid{}, %{price: 324443, winner: true, driver_id: driver_manuel.id})
+bid_chgs = Bid.create_changeset(%Bid{}, %{price: 324443, winner: false, driver_id: driver_manuel.id})
 auction_with_bids = Ecto.Changeset.put_assoc(auction_chgs, :bids, [bid_chgs])
 
 auction = Repo.insert! auction_with_bids
@@ -194,7 +194,7 @@ auction_chgs = Auction.create_changeset(%Auction{},
                      end_date: NaiveDateTime.add(date_now, 45999, :second),
                      ask_price: 20500.45})
 
-bid_chgs = Bid.create_changeset(%Bid{}, %{price: 524443, winner: true, driver_id: driver_juan.id})
+bid_chgs = Bid.create_changeset(%Bid{}, %{price: 524443, winner: false, driver_id: driver_juan.id})
 auction_with_bids = Ecto.Changeset.put_assoc(auction_chgs, :bids, [bid_chgs])
 
 auction = Repo.insert! auction_with_bids

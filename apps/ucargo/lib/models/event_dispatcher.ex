@@ -20,8 +20,32 @@ defmodule Ucargo.EventDispatcher do
     end
   end
 
+  def dispatch(%{"id" => uuid, "name" => "Begin"}, date, _driver, available_order) do
+    order_fsm = Fsm.load(available_order.status)
+    changeset = Event.changeset(%Event{}, %{uuid: uuid, name: "Begin", date: date})
+    case changeset.valid? do
+       true ->
+        begin_order_status({"Begin", "OnHold", order_fsm, changeset, available_order})
+       false ->
+        {:error, changeset.errors}
+    end
+  end
+
   def dispatch(_, _, _order) do
     {:error, "Event with values sent is invalid"}
+  end
+
+  def begin_order_status({action, status, order_fsm, changeset, available_order}) do
+    case apply_next_stage(order_fsm, action) do
+      {:ok, _} ->
+        chs = Order.update_changeset(available_order.order, %{status: status})
+        av_order_changeset = AvailableOrder.update_changeset(available_order, %{status: status})
+        AvailableOrder.update(av_order_changeset)
+        Order.update(chs)
+        Event.save(changeset)
+      {:error, reason} ->
+        {:error, reason}
+    end
   end
 
   def update_order_status({action, status, order_fsm, changeset, available_order, price, driver_id}) do
@@ -50,7 +74,7 @@ defmodule Ucargo.EventDispatcher do
       result = apply(Ucargo.Fsm, next_stage, [order_fsm])
       {:ok, result}
     rescue
-      _ ->
+      _err ->
         {:error, "Invalid state sent to a order"}
     end
   end
