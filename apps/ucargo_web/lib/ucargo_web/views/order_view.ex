@@ -15,7 +15,7 @@ defmodule UcargoWeb.OrderView do
     if avalaible_order.bid == nil do
       %{order | status: "New"}
     else
-      %{order | quoted_price: avalaible_order.bid.price, status: "Quoted"}
+      %{order | quoted_price: avalaible_order.bid.price, status: order.status}
     end
   end
 

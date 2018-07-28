@@ -76,6 +76,7 @@ defmodule Ucargo.Order do
   end
 
   def create_assignment(order, driver) do
+    current_driver = driver
     driver = Driver.update_changeset(driver, %{})
     order_with_drivers =
     order
@@ -83,6 +84,9 @@ defmodule Ucargo.Order do
       |> Repo.preload(:drivers)
       |> Repo.preload(:planning)
     order_chs = Order.update_changeset(order_with_drivers, %{status: "Approved"})
+    avl_order =  Ucargo.AvailableOrder.find_by(current_driver.id, order_with_drivers.id)
+    chg_set = Ucargo.AvailableOrder.update_changeset(avl_order,  %{status: "Approved"})
+    Ucargo.AvailableOrder.update(chg_set)
     driver_with_orders = Ecto.Changeset.put_assoc(order_chs, :assigned_drivers, [driver])
     Repo.update!(driver_with_orders)
   end

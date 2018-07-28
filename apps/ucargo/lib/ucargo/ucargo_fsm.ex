@@ -12,13 +12,19 @@ defmodule Ucargo.Fsm do
 
   defstate driver_quoted do
     defevent approve do
-      next_state(:on_route)
+      next_state(:wait_for_start)
     end
   end
 
-  defstate on_route do
+  defstate wait_for_start do
     defevent begin do
-      next_state(:final)
+      next_state(:custom_hold)
+    end
+  end
+
+  defstate custom_hold do
+    defevent report_green do
+      next_state(:on_route)
     end
   end
 
@@ -29,11 +35,13 @@ defmodule Ucargo.Fsm do
 
   def states do
     %{"New" => :new,
-      "Quoted" => :driver_quoted}
+      "Quoted" => :driver_quoted,
+      "Approved" => :wait_for_start}
   end
 
   def next_stage do
     %{"Quote" => :bid,
-      "Approve" => :approve}
+      "Approve" => :approve,
+      "Begin" => :begin}
   end
 end
