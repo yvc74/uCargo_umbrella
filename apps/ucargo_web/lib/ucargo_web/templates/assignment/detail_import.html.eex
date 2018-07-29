@@ -171,11 +171,11 @@
           </div>
           <div class="order-road__information">
             <div class="order-road__item">
-              <div class="order-road__semaphore active">
+              <div class="<%= custom_route_status(@order) %>">
                 <span></span>
               </div>
               <div class="order-road__step">
-                <p>MERCANCÍA RECOLECTADA</p>
+                <p>CAMINO A ADUANA</p>
               </div>
               <div class="order-road__actions">
                 <div class="road-actions__icon" data-remodal-target="shared">
@@ -184,11 +184,11 @@
               </div>
             </div>
             <div class="order-road__item">
-              <div class="order-road__semaphore">
+              <div class="<%= semaphore_light_status(@order) %>">
                 <span></span>
               </div>
               <div class="order-road__step">
-                <p>FOTOGRAFÍA DE CANDADO ENVIADA</p>
+                <p>REPORTE DE SEMAFORO</p>
               </div>
               <div class="order-road__actions">
                 <div class="road-actions__icon" data-remodal-target="photos">
@@ -340,17 +340,7 @@
         <div class="details-slick">
           <div class="details-slick__image">
             <div>
-              <img src="http://via.placeholder.com/100x150"/>
-            </div>
-          </div>
-          <div class="details-slick__image">
-            <div>
-              <img src="http://via.placeholder.com/100x150"/>
-            </div>
-          </div>
-          <div class="details-slick__image">
-            <div>
-              <img src="http://via.placeholder.com/100x150"/>
+              <img src="<%= @order.custom_light_picture %>"/>
             </div>
           </div>
         </div>
@@ -385,13 +375,8 @@
         cssEase: 'linear'
       })
     })
-    new GMaps({
-      div: '.ship-map',
-      lat: -12.043333,
-      lng: -77.028333
-    });
   })
-  
+
   function onSendEmails(){
     const modal = $('[data-remodal-id=shared]').remodal();
     const emails = $('.input-emails__shared').val();

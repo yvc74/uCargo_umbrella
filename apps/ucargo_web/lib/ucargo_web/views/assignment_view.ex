@@ -14,4 +14,20 @@ defmodule UcargoWeb.AssignmentView  do
     String.upcase(string)
   end
 
+  def custom_route_status(order) do
+    if order.status == "OnRouteToCustom" do
+      "order-road__semaphore active"
+    else
+      "order-road__semaphore"
+    end
+  end
+
+  def semaphore_light_status(order) do
+    if order.status == "ReportedGreen" || order.status == "ReportedRed" do
+      "order-road__semaphore active"
+    else
+      "order-road__semaphore"
+    end
+  end
+
 end
