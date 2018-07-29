@@ -21,6 +21,9 @@ defmodule Ucargo.Order do
     field :transport, :string
     field :weight, :string
     field :comments, :string
+    field :custom_light_picture, :string
+    field :lock_picture, :string
+    field :deliver_picture, :string
     belongs_to :planning, Ucargo.Planning
     has_one :pickup, Ucargo.Pickup
     has_one :delivery, Ucargo.Delivery
