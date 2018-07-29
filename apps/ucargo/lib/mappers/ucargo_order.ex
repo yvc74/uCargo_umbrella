@@ -38,13 +38,13 @@ defmodule Ucargo.Order do
 
   def create_changeset(%Order{} = order, attrs) do
     order
-      |> cast(attrs, [:favourite, :score, :deadline, :status, :type, :distance, :merchandise_type, :order_number, :transport, :weight, :comments])
+      |> cast(attrs, [:favourite, :score, :custom_light_picture, :lock_picture, :deliver_picture, :deadline, :status, :type, :distance, :merchandise_type, :order_number, :transport, :weight, :comments])
       |> validate_required([:deadline])
   end
 
   def update_changeset(%Order{} = order, attrs) do
     order
-      |> cast(attrs, [:favourite, :score, :deadline, :status, :type, :distance, :merchandise_type, :order_number, :transport, :weight, :comments])
+      |> cast(attrs, [:favourite, :score, :custom_light_picture, :lock_picture, :deliver_picture, :deadline, :status, :type, :distance, :merchandise_type, :order_number, :transport, :weight, :comments])
   end
 
   def update(changeset) do
