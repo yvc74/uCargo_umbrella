@@ -36,7 +36,7 @@ defmodule Ucargo.EventDispatcher do
     changeset = Event.changeset(%Event{}, %{uuid: uuid, name: "ReportGreen", date: date})
     case changeset.valid? do
        true ->
-        report_green_status({"ReportGreen", "ReportedGreen", order_fsm, changeset, available_order, picture})
+        report_green_status({"ReportGreen", "ReportedGreen", order_fsm, changeset, available_order})
        false ->
         {:error, changeset.errors}
     end
@@ -46,10 +46,10 @@ defmodule Ucargo.EventDispatcher do
     {:error, "Event with values sent is invalid"}
   end
 
-  def report_green_status({action, status, order_fsm, changeset, available_order, picture}) do
+  def report_green_status({action, status, order_fsm, changeset, available_order}) do
     case apply_next_stage(order_fsm, action) do
       {:ok, _} ->
-        chs = Order.update_changeset(available_order.order, %{status: status, custom_light_picture: picture})
+        chs = Order.update_changeset(available_order.order, %{status: status})
         av_order_changeset = AvailableOrder.update_changeset(available_order, %{status: status})
         AvailableOrder.update(av_order_changeset)
         Order.update(chs)
