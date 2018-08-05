@@ -31,9 +31,9 @@ defmodule Ucargo.EventDispatcher do
     end
   end
 
-  def dispatch(%{"id" => uuid, "name" => "ReportGreen", "picture" => picture}, date, _driver, available_order) do
+  def dispatch(%{"id" => uuid, "name" => "ReportGreen"}, date, _driver, available_order) do
     order_fsm = Fsm.load(available_order.status)
-    changeset = Event.changeset(%Event{}, %{uuid: uuid, name: "ReportGreen", date: date, picture: picture})
+    changeset = Event.changeset(%Event{}, %{uuid: uuid, name: "ReportGreen", date: date})
     case changeset.valid? do
        true ->
         report_green_status({"ReportGreen", "ReportedGreen", order_fsm, changeset, available_order, picture})
