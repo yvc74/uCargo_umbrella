@@ -24,11 +24,17 @@ defmodule Ucargo.Fsm do
 
   defstate on_route_to_custom do
     defevent report_green do
-      next_state(:on_route)
+      next_state(:take_picture)
     end
 
     defevent report_red do
       next_state(:pama)
+    end
+  end
+
+  defstate take_picture do
+    defevent report_lock_picture do
+      next_state(:on_route)
     end
   end
 
@@ -47,13 +53,16 @@ defmodule Ucargo.Fsm do
     %{"New" => :new,
       "Quoted" => :driver_quoted,
       "Approved" => :wait_for_custom_picking,
-      "OnRouteToCustom" => :on_route_to_custom}
+      "OnRouteToCustom" => :on_route_to_custom,
+      "ReportedGreen" => :take_picture,
+      "ReportedLock" => :traking}
   end
 
   def next_stage do
     %{"Quote" => :bid,
       "Approve" => :approve,
       "BeginCustom" => :begin_custom,
-      "ReportGreen" => :report_green}
+      "ReportGreen" => :report_green,
+      "ReportLock" => :report_lock_picture}
   end
 end
