@@ -39,6 +39,16 @@ defmodule Ucargo.Fsm do
   end
 
   defstate on_route do
+    defevent report_location do
+      next_state(:traking)
+    end
+
+    defevent report_sign do
+      next_state(:signed)
+    end
+  end
+
+  defstate on_route do
     defevent report_pama do
       next_state(:on_route)
     end
@@ -55,7 +65,8 @@ defmodule Ucargo.Fsm do
       "Approved" => :wait_for_custom_picking,
       "OnRouteToCustom" => :on_route_to_custom,
       "ReportedGreen" => :take_picture,
-      "ReportedLock" => :traking}
+      "ReportedLock" => :on_route,
+      "OnTracking" => :on_route}
   end
 
   def next_stage do
@@ -63,6 +74,8 @@ defmodule Ucargo.Fsm do
       "Approve" => :approve,
       "BeginCustom" => :begin_custom,
       "ReportGreen" => :report_green,
-      "ReportLock" => :report_lock_picture}
+      "ReportLock" => :report_lock_picture,
+      "ReportLocation" => :report_location
+    }
   end
 end
