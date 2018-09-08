@@ -61,7 +61,7 @@ config :ucargo_web, :json_schemas,
             "type" => "string",
             "enum" => ["BeginCustom", "BeginRoute", "ReportGreen", "Quote",
                        "ReportRed", "Picture", "Track", "ReportLocation",
-                       "Finish", "Arrival", "Cancel", "Store", "ReportLock"]
+                       "Finish", "Arrival", "Cancel", "Store", "ReportLock", "ReportSign"]
           },
           "picture" => %{
             "description" => "Picture of the event",

@@ -44,7 +44,13 @@ defmodule Ucargo.Fsm do
     end
 
     defevent report_sign do
-      next_state(:signed)
+      next_state(:stored)
+    end
+  end
+
+  defstate stored do
+    defevent finish do
+      next_state(:finish)
     end
   end
 
@@ -66,7 +72,8 @@ defmodule Ucargo.Fsm do
       "OnRouteToCustom" => :on_route_to_custom,
       "ReportedGreen" => :take_picture,
       "ReportedLock" => :on_route,
-      "OnTracking" => :on_route}
+      "OnTracking" => :on_route,
+      "ReportedSign" => :finish}
   end
 
   def next_stage do
@@ -75,7 +82,8 @@ defmodule Ucargo.Fsm do
       "BeginCustom" => :begin_custom,
       "ReportGreen" => :report_green,
       "ReportLock" => :report_lock_picture,
-      "ReportLocation" => :report_location
+      "ReportLocation" => :report_location,
+      "ReportSign" => :report_sign
     }
   end
 end
