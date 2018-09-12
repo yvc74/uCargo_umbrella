@@ -1,4 +1,3 @@
-d_codigo,d_asenta,d_tipo_asenta,D_mnpio,d_estado,d_ciudad,d_CP,c_estado,c_oficina,c_CP,c_tipo_asenta,c_mnpio,id_asenta_cpcons,d_zona,c_cve_ciudad
 77000,Chetumal Centro,Colonia,Othón P. Blanco,Quintana Roo,Chetumal,77001,23,77001,,09,004,0001,Urbano,04
 77008,Secretaria de Hacienda y Crédito Publico,Gran usuario,Othón P. Blanco,Quintana Roo,Chetumal,77001,23,77001,,22,004,0007,Urbano,04
 77009,Palacio de Gobierno del Estado de Quintana Roo,Gran usuario,Othón P. Blanco,Quintana Roo,Chetumal,77001,23,77001,,22,004,0008,Urbano,04

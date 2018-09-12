@@ -1,4 +1,3 @@
-d_codigo,d_asenta,d_tipo_asenta,D_mnpio,d_estado,d_ciudad,d_CP,c_estado,c_oficina,c_CP,c_tipo_asenta,c_mnpio,id_asenta_cpcons,d_zona,c_cve_ciudad
 91000,Xalapa Enríquez Centro,Colonia,Xalapa,Veracruz de Ignacio de la Llave,Xalapa-Enríquez,91002,30,91002,,09,087,0001,Urbano,10
 91008,Oficina Federal de Hacienda,Gran usuario,Xalapa,Veracruz de Ignacio de la Llave,Xalapa-Enríquez,91002,30,91002,,22,087,0004,Urbano,10
 91009,Palacio de Gobierno Del Estado de Veracruz,Gran usuario,Xalapa,Veracruz de Ignacio de la Llave,Xalapa-Enríquez,91002,30,91002,,22,087,0005,Urbano,10

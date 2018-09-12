@@ -1,4 +1,3 @@
-d_codigo,d_asenta,d_tipo_asenta,D_mnpio,d_estado,d_ciudad,d_CP,c_estado,c_oficina,c_CP,c_tipo_asenta,c_mnpio,id_asenta_cpcons,d_zona,c_cve_ciudad
 29000,Tuxtla Gutiérrez Centro,Colonia,Tuxtla Gutiérrez,Chiapas,Tuxtla Gutiérrez,29002,07,29002,,09,101,0001,Urbano,04
 29000,San Jacinto,Barrio,Tuxtla Gutiérrez,Chiapas,Tuxtla Gutiérrez,29002,07,29002,,02,101,2378,Urbano,04
 29000,El Magueyito,Barrio,Tuxtla Gutiérrez,Chiapas,Tuxtla Gutiérrez,29002,07,29002,,02,101,2377,Urbano,04
