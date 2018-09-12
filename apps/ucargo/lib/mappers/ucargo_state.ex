@@ -4,7 +4,8 @@ defmodule Ucargo.State do
   """
   use Ecto.Schema
   import Ecto.Changeset
-  alias Ucargo.{Repo, State, City}
+  import Ecto.Query
+  alias Ucargo.{Repo, State}
 
   schema "states" do
     field :name, :string
@@ -17,6 +18,12 @@ defmodule Ucargo.State do
     state
       |> cast(attrs, [:name])
       |> validate_required([:name])
+  end
+
+  def all do
+    query = from s in State,
+            select: {s.name, s.id}
+    Repo.all(query)
   end
 
 end

@@ -1,8 +1,8 @@
-defmodule UcargoWeb.UserSocket do
+defmodule UcargoWeb.UcargoSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", UcargoWeb.RoomChannel
+  channel "select:*", UcargoWeb.SelectChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket

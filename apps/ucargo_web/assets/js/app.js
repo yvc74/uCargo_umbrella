@@ -16,17 +16,17 @@ import "phoenix_html"
 //import login from "./login"
 import jqueryTagsInput from "./jqueryTagsInput"
 import ratyFa from "./ratyFa"
-import jsCalendar from "./jsCalendar"
-import setupcalendar from "./setupcalendar"
-import setupdeliverycalendar from "./setupdeliverycalendar.js"
+//import jsCalendar from "./jsCalendar"
+//import setupcalendar from "./setupcalendar"
+//import setupdeliverycalendar from "./setupdeliverycalendar.js"
 import all from "./all"
 import sidebar from "./sidebar"
 import details from "./details"
-import launch from "./launch"
+//import launch from "./launch"
 // Import local files
 //
 // Local files can be imported directly using relative
 // paths "./socket" or full ones "web/static/js/socket".
 
-//import socket from "./socket"
+import socket from "./socket"
 
