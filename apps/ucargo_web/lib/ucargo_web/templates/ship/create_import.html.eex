@@ -111,7 +111,7 @@
             <div class="new-field__group">
               <p class="new-field__title">*Estado</p>
               <div class="new-field__container">
-                <%=  select(delivery, :state, ["CDMX": "CDMX", "Monterrey": "Monterrey"]) %>
+                <%=  select(delivery, :state, @states) %>
               </div>
             </div>
           </div>
@@ -125,7 +125,7 @@
             <div class="new-field__group">
               <p class="new-field__title">*Ciudad</p>
               <div class="new-field__container">
-                <%=  select(delivery, :city, ["CDMX": "CDMX", "Monterrey": "Monterrey"]) %>
+                <%=  select(delivery, :city, ["---": "---"]) %>
               </div>
             </div>
           </div>
@@ -139,7 +139,7 @@
             <div class="new-field__group">
               <p class="new-field__title">*Delegación</p>
               <div class="new-field__container">
-                <%=  select(delivery, :delegation, ["CDMX": "CDMX", "Monterrey": "Monterrey"]) %>
+                <%=  select(delivery, :delegation, ["---": "---"]) %>
               </div>
             </div>
           </div>
