@@ -22,6 +22,7 @@ defmodule Ucargo.State do
 
   def all do
     query = from s in State,
+            order_by: s.name,
             select: {s.name, s.id}
     Repo.all(query)
   end

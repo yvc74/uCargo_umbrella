@@ -25,6 +25,7 @@ defmodule Ucargo.City do
   def find(state_id) do
     query = from c in City,
             where: c.state_id == ^state_id,
+            order_by: c.name,
             select: %{text: c.name, id: c.id}
     Repo.all(query)
   end
