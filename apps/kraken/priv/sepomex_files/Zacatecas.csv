@@ -1,4 +1,3 @@
-d_codigo,d_asenta,d_tipo_asenta,D_mnpio,d_estado,d_ciudad,d_CP,c_estado,c_oficina,c_CP,c_tipo_asenta,c_mnpio,id_asenta_cpcons,d_zona,c_cve_ciudad
 98000,Zacatecas Centro,Colonia,Zacatecas,Zacatecas,Zacatecas,98001,32,98001,,09,056,0001,Urbano,03
 98007,Secretaria de Agricultura Ganaderia y Desarrollo Rural,Gran usuario,Zacatecas,Zacatecas,Zacatecas,98601,32,98601,,22,056,0005,Urbano,03
 98008,Secretaria de Hacienda y Crédito Publico,Gran usuario,Zacatecas,Zacatecas,Zacatecas,98001,32,98001,,22,056,0006,Urbano,03

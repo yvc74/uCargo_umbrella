@@ -1,4 +1,3 @@
-d_codigo,d_asenta,d_tipo_asenta,D_mnpio,d_estado,d_ciudad,d_CP,c_estado,c_oficina,c_CP,c_tipo_asenta,c_mnpio,id_asenta_cpcons,d_zona,c_cve_ciudad
 86000,Villahermosa Centro,Colonia,Centro,Tabasco,Villahermosa,86001,27,86001,,09,004,0002,Urbano,02
 86000,Portal del Agua,Fraccionamiento,Centro,Tabasco,Villahermosa,86001,27,86001,,21,004,0001,Urbano,02
 86010,Ciudad Industrial,Colonia,Centro,Tabasco,Villahermosa,86021,27,86021,,09,004,0011,Urbano,02

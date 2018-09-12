@@ -54,9 +54,111 @@ let socket = new Socket("/socket", {params: {token: window.userToken}})
 socket.connect()
 
 // Now that you are connected, you can join channels with a topic:
-let channel = socket.channel("topic:subtopic", {})
+let channel = socket.channel("select:updates", {})
 channel.join()
   .receive("ok", resp => { console.log("Joined successfully", resp) })
   .receive("error", resp => { console.log("Unable to join", resp) })
+
+$('#planning_order_delivery_state').on('select2:select', function (e) {
+    console.log(e.params.data.id);
+    channel.push("update_state_combo", {body: e.params.data.id}, 10000)
+         .receive("ok", (msg) => update_delivery_city_combo(msg))
+         .receive("error", (reasons) => console.log("create failed", reasons) )
+         .receive("timeout", () => console.log("Networking issue...") )
+  });
+
+$('#planning_order_custom_state').on('select2:select', function (e) {
+    console.log(e.params.data.id);
+    channel.push("update_state_combo", {body: e.params.data.id}, 10000)
+         .receive("ok", (msg) => update_custom_city_combo(msg))
+         .receive("error", (reasons) => console.log("create failed", reasons) )
+         .receive("timeout", () => console.log("Networking issue...") )
+  });
+
+$('#planning_order_pickup_state').on('select2:select', function (e) {
+  console.log(e.params.data.id);
+  channel.push("update_state_combo", {body: e.params.data.id}, 10000)
+       .receive("ok", (msg) => update_pickup_city_combo(msg))
+       .receive("error", (reasons) => console.log("create failed", reasons) )
+       .receive("timeout", () => console.log("Networking issue...") )
+});
+
+$('#planning_order_delivery_city').on('select2:select', function (e) {
+  console.log(e.params.data.id);
+  channel.push("update_city_combo", {body: e.params.data.id}, 10000)
+       .receive("ok", (msg) => update_delivery_neighborhood_combo(msg))
+       .receive("error", (reasons) => console.log("create failed", reasons) )
+       .receive("timeout", () => console.log("Networking issue...") )
+});
+
+$('#planning_order_pickup_city').on('select2:select', function (e) {
+  console.log(e.params.data.id);
+  channel.push("update_city_combo", {body: e.params.data.id}, 10000)
+       .receive("ok", (msg) => update_pickup_neighborhood_combo(msg))
+       .receive("error", (reasons) => console.log("create failed", reasons) )
+       .receive("timeout", () => console.log("Networking issue...") )
+});
+
+$('#planning_order_custom_city').on('select2:select', function (e) {
+  console.log(e.params.data.id);
+  channel.push("update_city_combo", {body: e.params.data.id}, 10000)
+       .receive("ok", (msg) => update_custom_neighborhood_combo(msg))
+       .receive("error", (reasons) => console.log("create failed", reasons) )
+       .receive("timeout", () => console.log("Networking issue...") )
+});
+
+function update_delivery_city_combo(msg) {
+  var $combo = $('#planning_order_delivery_city').select2();
+  $combo.empty();
+  $combo.select2({
+    minimumResultsForSearch: -1,
+    data: msg.data
+  })
+}
+
+function update_custom_city_combo(msg) {
+  var $combo = $('#planning_order_custom_city').select2();
+  $combo.empty();
+  $combo.select2({
+    minimumResultsForSearch: -1,
+    data: msg.data
+  })
+}
+
+function update_pickup_city_combo(msg) {
+  var $combo = $('#planning_order_pickup_city').select2();
+  $combo.empty();
+  $combo.select2({
+    minimumResultsForSearch: -1,
+    data: msg.data
+  })
+}
+
+function update_delivery_neighborhood_combo(msg) {
+  var $combo = $('#planning_order_delivery_delegation').select2();
+  $combo.empty();
+  $combo.select2({
+    minimumResultsForSearch: -1,
+    data: msg.data
+  })
+}
+
+function update_pickup_neighborhood_combo(msg) {
+  var $combo = $('#planning_order_pickup_delegation').select2();
+  $combo.empty();
+  $combo.select2({
+    minimumResultsForSearch: -1,
+    data: msg.data
+  })
+}
+
+function update_custom_neighborhood_combo(msg) {
+  var $combo = $('#planning_order_custom_delegation').select2();
+  $combo.empty();
+  $combo.select2({
+    minimumResultsForSearch: -1,
+    data: msg.data
+  })
+}
 
 export default socket

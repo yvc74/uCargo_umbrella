@@ -1,7 +1,7 @@
 defmodule UcargoWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :ucargo_web
 
-  socket "/socket", UcargoWeb.UserSocket
+  socket "/socket", UcargoWeb.UcargoSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #

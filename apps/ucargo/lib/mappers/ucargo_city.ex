@@ -5,6 +5,8 @@ defmodule Ucargo.City do
 
   use Ecto.Schema
   import Ecto.Changeset
+  import Ecto.Query
+
   alias Ucargo.{Repo, City}
 
   schema "cities" do
@@ -18,6 +20,14 @@ defmodule Ucargo.City do
       |> cast(attrs, [:name, :state_id])
       |> validate_required([:name, :state_id])
       |> assoc_constraint(:state)
+  end
+
+  def find(state_id) do
+    query = from c in City,
+            where: c.state_id == ^state_id,
+            order_by: c.name,
+            select: %{text: c.name, id: c.id}
+    Repo.all(query)
   end
 
 end

@@ -1,4 +1,3 @@
-d_codigo,d_asenta,d_tipo_asenta,D_mnpio,d_estado,d_ciudad,d_CP,c_estado,c_oficina,c_CP,c_tipo_asenta,c_mnpio,id_asenta_cpcons,d_zona,c_cve_ciudad
 62000,Cuernavaca Centro,Colonia,Cuernavaca,Morelos,Cuernavaca,62001,17,62001,,09,007,0001,Urbano,02
 62008,Secretaria de Hacienda y Crédito Publico,Gran usuario,Cuernavaca,Morelos,Cuernavaca,62001,17,62001,,22,007,0003,Urbano,02
 62009,Palacio de Gobierno del Estado de Morelos,Gran usuario,Cuernavaca,Morelos,Cuernavaca,62001,17,62001,,22,007,0004,Urbano,02

@@ -1,4 +1,3 @@
-d_codigo,d_asenta,d_tipo_asenta,D_mnpio,d_estado,d_ciudad,d_CP,c_estado,c_oficina,c_CP,c_tipo_asenta,c_mnpio,id_asenta_cpcons,d_zona,c_cve_ciudad
 68000,Oaxaca,Colonia,Oaxaca de Juárez,Oaxaca,Oaxaca de Juárez,68005,20,68005,,09,067,0001,Urbano,02
 68008,Secretaria de La Reforma Agraria,Gran usuario,Oaxaca de Juárez,Oaxaca,Oaxaca de Juárez,68005,20,68005,,22,067,0005,Urbano,02
 68009,Palacio de Gobierno Del Estado de Oaxaca,Gran usuario,Oaxaca de Juárez,Oaxaca,Oaxaca de Juárez,68005,20,68005,,22,067,0006,Urbano,02

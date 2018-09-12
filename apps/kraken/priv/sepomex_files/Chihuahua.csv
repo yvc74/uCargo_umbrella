@@ -1,4 +1,3 @@
-d_codigo,d_asenta,d_tipo_asenta,D_mnpio,d_estado,d_ciudad,d_CP,c_estado,c_oficina,c_CP,c_tipo_asenta,c_mnpio,id_asenta_cpcons,d_zona,c_cve_ciudad
 31000,Colon,Colonia,Chihuahua,Chihuahua,Chihuahua,31001,08,31001,,09,019,2254,Urbano,02
 31000,San Pedro,Barrio,Chihuahua,Chihuahua,Chihuahua,31001,08,31001,,02,019,4070,Urbano,02
 31000,Zona Centro,Colonia,Chihuahua,Chihuahua,Chihuahua,31001,08,31001,,09,019,2249,Urbano,02

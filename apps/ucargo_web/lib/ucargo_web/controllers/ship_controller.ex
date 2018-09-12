@@ -10,6 +10,7 @@ defmodule UcargoWeb.ShipController do
   alias Ucargo.Custom
   alias Ucargo.TransportCatalog
   alias Ucargo.CustomCatalog
+  alias Ucargo.State
   @export 1
   @import 0
 
@@ -27,14 +28,14 @@ defmodule UcargoWeb.ShipController do
   def create(conn, %{"type" => planning_type}) do
     transport_catalog = TransportCatalog.fetch_all_transport_catalog
     custom_catalog_all = CustomCatalog.fetch_all_custom_catalog
+    states = State.all
     case planning_type do
       "import" ->
         changeset = Planning.create_changeset(%Planning{}, %{})
-        render conn, "create_import.html", changeset: changeset, section_name: "plannings", transport_catalog: transport_catalog, custom_catalog: custom_catalog_all
+        render conn, "create_import.html", changeset: changeset, section_name: "plannings", transport_catalog: transport_catalog, custom_catalog: custom_catalog_all, states: states
       "export" ->
         changeset = Planning.create_changeset(%Planning{}, %{})
-        render conn, "create_export.html", changeset: changeset, section_name: "plannings", transport_catalog: transport_catalog, custom_catalog: custom_catalog_all
-
+        render conn, "create_export.html", changeset: changeset, section_name: "plannings", transport_catalog: transport_catalog, custom_catalog: custom_catalog_all, states: states
     end
   end
 

@@ -1,4 +1,3 @@
-d_codigo,d_asenta,d_tipo_asenta,D_mnpio,d_estado,d_ciudad,d_CP,c_estado,c_oficina,c_CP,c_tipo_asenta,c_mnpio,id_asenta_cpcons,d_zona,c_cve_ciudad
 78000,San Luis Potosí Centro,Colonia,San Luis Potosí,San Luis Potosí,San Luis Potosí,78001,24,78001,,09,028,0001,Urbano,05
 78008,Oficina Federal de Hacienda,Gran usuario,San Luis Potosí,San Luis Potosí,San Luis Potosí,78001,24,78001,,22,028,0004,Urbano,05
 78009,Palacio de Gobierno del Estado de San Luis Potosí,Gran usuario,San Luis Potosí,San Luis Potosí,San Luis Potosí,78001,24,78001,,22,028,0005,Urbano,05

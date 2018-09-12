@@ -111,7 +111,7 @@
                      <div class="new-field__group">
                         <p class="new-field__title">* Estado</p>
                         <div class="new-field__container">
-                           <%=  select(pickup, :state, ["CDMX": "CDMX", "Monterrey": "Monterrey"]) %>
+                           <%=  select(pickup, :state, @states) %>
                         </div>
                      </div>
                   </div>
@@ -125,7 +125,7 @@
                      <div class="new-field__group">
                         <p class="new-field__title">* Ciudad</p>
                         <div class="new-field__container">
-                           <%=  select(pickup, :city, ["CDMX": "CDMX", "Monterrey": "Monterrey"]) %>
+                          <%=  select(pickup, :city, ["---": "---"]) %>
                         </div>
                      </div>
                   </div>
@@ -139,7 +139,7 @@
                      <div class="new-field__group">
                         <p class="new-field__title">* Delegación</p>
                         <div class="new-field__container">
-                           <%=  select(pickup, :delegation, ["CDMX": "CDMX", "Monterrey": "Monterrey"]) %>
+                          <%=  select(pickup, :delegation, ["---": "---"]) %>
                         </div>
                      </div>
                   </div>
@@ -217,7 +217,7 @@
                      <div class="new-field__group">
                         <p class="new-field__title">* Estado</p>
                         <div class="new-field__container">
-                           <%=  select(custom, :state, ["CDMX": "CDMX", "Monterrey": "Monterrey"]) %>
+                           <%=  select(custom, :state, @states) %>
                         </div>
                      </div>
                   </div>
@@ -231,7 +231,7 @@
                      <div class="new-field__group">
                         <p class="new-field__title">* Ciudad</p>
                         <div class="new-field__container">
-                           <%=  select(custom, :city, ["CDMX": "CDMX", "Monterrey": "Monterrey"]) %>
+                           <%=  select(custom, :city, ["---": "---"]) %>
                         </div>
                      </div>
                   </div>
@@ -245,7 +245,7 @@
                      <div class="new-field__group">
                         <p class="new-field__title">* Delegación</p>
                         <div class="new-field__container">
-                           <%=  select(custom, :delegation, ["CDMX": "CDMX", "Monterrey": "Monterrey"]) %>
+                           <%=  select(custom, :delegation, ["---": "---"]) %>
                         </div>
                      </div>
                   </div>
@@ -367,7 +367,7 @@
          static: true,
          locale: 'es'
       });
-      
+
       map = new GMaps({
         div: '.ship-map',
         lat: 19.1611614,
@@ -388,4 +388,5 @@
         content: '<p>HTML Content</p>'
       }
   })
+
 </script>
