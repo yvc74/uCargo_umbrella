@@ -98,6 +98,7 @@
       <script src="//cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.min.js"></script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/flatpickr/4.5.1/flatpickr.min.js"></script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/flatpickr/4.5.1/l10n/es.js"></script>
+      <script>window.userId = "<%= assigns[:broker_id] %>";</script>
       <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
    </body>
 </html>

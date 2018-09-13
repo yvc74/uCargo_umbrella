@@ -3,6 +3,7 @@ defmodule UcargoWeb.UcargoSocket do
 
   ## Channels
   channel "select:*", UcargoWeb.SelectChannel
+  channel "assigment:*", UcargoWeb.AssigmentChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket

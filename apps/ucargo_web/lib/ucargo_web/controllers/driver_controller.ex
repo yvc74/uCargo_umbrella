@@ -6,6 +6,9 @@ defmodule UcargoWeb.DriverController do
   use PhoenixSwagger
   alias Ucargo.{Driver, Guardian, EventDispatcher, CommonParameters, AvailableOrder}
   alias UcargoWeb.{DriverJsonValidation}
+  alias UcargoWeb.Endpoint, as: UpdaterSocket
+  alias UcargoWeb.Updater
+
   require Logger
   action_fallback UcargoWeb.DriverFallbackController
 
@@ -134,6 +137,7 @@ defmodule UcargoWeb.DriverController do
     driver = conn.assigns[:driver]
     with {:ok, available_order} <- AvailableOrder.validate_available_order(driver.id, order_number),
          {:ok, event} <- EventDispatcher.dispatch(event, date, driver, available_order) do
+      Updater.send_event(available_order.order.planning.custom_broker.id, event)
       conn
         |> put_status(200)
         |> render("event.json", %{event: event})

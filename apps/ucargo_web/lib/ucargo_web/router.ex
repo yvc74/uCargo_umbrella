@@ -31,6 +31,7 @@ defmodule UcargoWeb.Router do
 
   pipeline :require_login do
     plug Guardian.Plug.EnsureAuthenticated, handler: Ucargo.Guardian
+    plug :put_broker_id
   end
 
   pipeline :login do
@@ -119,6 +120,11 @@ defmodule UcargoWeb.Router do
         title: "ucargo_web"
       }
     }
+  end
+
+  defp put_broker_id(conn, _) do
+    resource = Ucargo.Guardian.Plug.current_resource(conn)
+    assign(conn, :broker_id, resource.id)
   end
 
 end

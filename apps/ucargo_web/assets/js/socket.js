@@ -53,6 +53,15 @@ let socket = new Socket("/socket", {params: {token: window.userToken}})
 
 socket.connect()
 
+let assigmentchannel = socket.channel(`assigment:${window.userId}`, {})
+assigmentchannel.join()
+  .receive("ok", resp => { console.log("Joined successfully to assigments", resp) })
+  .receive("error", resp => { console.log("Unable to join", resp) })
+
+assigmentchannel.on("updateOrderStatus", payload => {
+  console.log(payload)
+})
+
 // Now that you are connected, you can join channels with a topic:
 let channel = socket.channel("select:updates", {})
 channel.join()
