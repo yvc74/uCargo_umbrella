@@ -94,7 +94,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/raty/2.8.0/jquery.raty.min.js"></script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.js"></script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js"></script>
-      <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyBnRAhBMGLveZgJW5LP9igJibLzz5FN568"></script>
+      <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyBpFaC1ORozpCH8xeZlb4grsZ94UOpshos"></script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.min.js"></script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/flatpickr/4.5.1/flatpickr.min.js"></script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/flatpickr/4.5.1/l10n/es.js"></script>

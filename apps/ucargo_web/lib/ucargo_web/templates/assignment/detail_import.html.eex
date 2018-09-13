@@ -1,3 +1,9 @@
+<script>
+  var customLatitude = <%=@order.custom.latitude%>
+  var customLongitude = <%=@order.custom.longitude%>
+  var deliveryLatitude = <%=@order.delivery.latitude%>
+  var deliveryLongitude = <%=@order.delivery.longitude%>
+</script>
 <section class="container" id="details">
   <div class="details-container">
     <div class="details-header shell-header">
@@ -400,43 +406,8 @@
       console.log(emails)
     }
   }
-  document.addEventListener("DOMContentLoaded", function(event) {
-      map = new GMaps({
-        div: '.ship-map',
-        lat: 19.3204969,
-        lng: -99.2840411,
-        zoom: 6
-      });
 
-      map.addMarker({
-        lat: <%=@order.custom.latitude%>,
-        lng: <%=@order.custom.longitude%>,
-        title: 'Aduanda Veracruz',
-        click: function(e) {
-          alert('Dirección de Destino');
-        }
-      });
-
-      map.addMarker({
-        lat: <%=@order.delivery.latitude%>,
-        lng: <%=@order.delivery.longitude%>,
-        title: 'Destino',
-        click: function(e) {
-          alert('Dirección de Entrega');
-        }
-      });
-
-      map.drawRoute({
-        origin: [<%=@order.custom.latitude%>, <%=@order.custom.longitude%>],
-        destination: [<%=@order.delivery.latitude%>, <%=@order.delivery.longitude%>],
-        travelMode: 'driving',
-        strokeColor: '#131540',
-        strokeOpacity: 0.6,
-        strokeWeight: 6
-      });
-
-      infoWindow: {
-        content: '<p>HTML Content</p>'
-      }
-  })
+  infoWindow: {
+    content: '<p>HTML Content</p>'
+  }
 </script>

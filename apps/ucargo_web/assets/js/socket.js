@@ -58,10 +58,6 @@ assigmentchannel.join()
   .receive("ok", resp => { console.log("Joined successfully to assigments", resp) })
   .receive("error", resp => { console.log("Unable to join", resp) })
 
-assigmentchannel.on("updateOrderStatus", payload => {
-  console.log(payload)
-})
-
 // Now that you are connected, you can join channels with a topic:
 let channel = socket.channel("select:updates", {})
 channel.join()
@@ -170,4 +166,62 @@ function update_custom_neighborhood_combo(msg) {
   })
 }
 
+let map = document.querySelector("#map")
+if (map != null) {
+  map = new GMaps({
+    div: '.ship-map',
+    lat: 19.3204969,
+    lng: -99.2840411,
+    zoom: 6
+  });
+
+  map.addMarker({
+    lat: customLatitude,
+    lng: customLongitude,
+    title: 'Aduanda Veracruz',
+    click: function(e) {
+      alert('Dirección de Destino');
+    }
+  });
+  var image = {
+    url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    // This marker is 20 pixels wide by 32 pixels high.
+    size: new google.maps.Size(20, 32),
+    // The origin for this image is (0, 0).
+    origin: new google.maps.Point(0, 0),
+    // The anchor for this image is the base of the flagpole at (0, 32).
+    anchor: new google.maps.Point(0, 32)
+  };
+
+  map.addMarker({
+    lat: deliveryLatitude,
+    lng: deliveryLongitude,
+    title: 'Destino',
+    click: function(e) {
+      alert('Dirección de Entrega');
+    }
+  });
+
+  var truck = map.addMarker({
+    lat: 19.3775314,
+    lng: -99.047558,
+    icon: image,
+    title: 'Truck',
+  });
+
+  assigmentchannel.on("updateOrderStatus", payload => {
+    console.log(payload)
+    truck.setPosition( new google.maps.LatLng( 18.8575121, -99.1599174));
+    map.panTo( new google.maps.LatLng(18.8575121, -99.1599174));
+  })
+
+  map.drawRoute({
+    origin: [customLatitude, customLongitude],
+    destination: [deliveryLatitude, deliveryLongitude],
+    travelMode: 'driving',
+    strokeColor: '#131540',
+    strokeOpacity: 0.6,
+    strokeWeight: 6
+  });
+}
 export default socket
