@@ -90,6 +90,12 @@ defmodule Ucargo.Driver do
     Repo.all(query)
   end
 
+  def fetch_all do
+    query = from d in Driver,
+      select: d
+    Repo.all(query)
+  end
+
   def find_by(:id, driver_id) do
     query = from d in Driver,
             where: d.id == ^driver_id

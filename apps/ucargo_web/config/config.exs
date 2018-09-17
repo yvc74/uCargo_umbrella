@@ -78,9 +78,13 @@ config :ucargo_web, :json_schemas,
               "longitude" => %{
                 "description" => "longitude of the geo event",
                 "type" => "number"
+              },
+              "bearing" => %{
+                "description" => "bearing of the geo event",
+                "type" => "number"
               }
             },
-            "required" => ["latitude", "longitude"]
+            "required" => ["latitude", "longitude", "bearing"]
           },
           "date" => %{
             "type" => "string",

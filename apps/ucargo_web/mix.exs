@@ -57,7 +57,7 @@ defmodule UcargoWeb.Mixfile do
   #
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
-    ["test": ["ecto.create --quiet", "ecto.migrate", "test"],
-    "swagger": ["phx.swagger.generate priv/static/swagger.json"]]
+    [test: ["ecto.create --quiet", "ecto.migrate", "test"],
+    swagger: ["phx.swagger.generate priv/static/swagger.json"]]
   end
 end

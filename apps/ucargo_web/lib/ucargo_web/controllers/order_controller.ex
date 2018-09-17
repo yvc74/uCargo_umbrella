@@ -16,7 +16,7 @@ defmodule UcargoWeb.OrderController do
       availaible_order ->
         conn
           |> put_status(200)
-          |> render("order.json", %{order: availaible_order.order})
+          |> render("available_order.json", %{order: availaible_order})
     end
   end
 

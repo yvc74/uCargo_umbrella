@@ -59,14 +59,14 @@ defmodule Ucargo.Planning do
     date_now = NaiveDateTime.utc_now()
     auction_chgs = Auction.create_changeset(%Auction{},
                    %{begin_date: date_now,
-                     end_date: NaiveDateTime.add(date_now, 86400, :second),
-                     ask_price: 10500.45})
+                     end_date: NaiveDateTime.add(date_now, 86_400, :second),
+                     ask_price: 10_500.45})
 
     auction = Repo.insert! auction_chgs
-    
+
     pl_with_order = Ecto.Changeset.put_assoc(pl_changeset, :order, order)
     pl_with_auction = Ecto.Changeset.put_assoc(pl_with_order, :auction, auction)
-    
+
     Repo.insert! pl_with_auction
   end
 
@@ -80,8 +80,8 @@ defmodule Ucargo.Planning do
     date_now = NaiveDateTime.utc_now()
     auction_chgs = Auction.create_changeset(%Auction{},
                    %{begin_date: date_now,
-                     end_date: NaiveDateTime.add(date_now, 86400, :second),
-                     ask_price: 10500.45})
+                     end_date: NaiveDateTime.add(date_now, 86_400, :second),
+                     ask_price: 10_500.45})
 
     auction = Repo.insert! auction_chgs
     
