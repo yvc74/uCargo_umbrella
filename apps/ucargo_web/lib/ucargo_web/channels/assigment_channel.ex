@@ -8,9 +8,9 @@ defmodule UcargoWeb.AssigmentChannel do
     {:ok, socket}
   end
 
-  def join("assigment:" <> _private_room_id, _params, _socket) do
-    {:error, %{reason: "unauthorized"}}
-  end
+  # def join("assigment:" <> _private_room_id, _params, _socket) do
+  #   {:error, %{reason: "unauthorized"}}
+  # end
 
   # def handle_in("update_state_combo", %{"body" => state_id}, socket) do
   #   cities = Ucargo.City.find(state_id)

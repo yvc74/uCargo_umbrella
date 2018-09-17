@@ -14,13 +14,14 @@ defmodule UcargoWeb.Updater do
   end
 
   def handle_call({:update, user_id, data}, _from, state) do
-    UpdaterSocket.broadcast("assigment:" <> user_id, "updateOrderStatus", %{"body": data})
+    UpdaterSocket.broadcast("assigment:" <> user_id, "updateOrderStatus", %{body: data})
     {:reply, :ok, state}
   end
 
   def send_event(broker_id, event) do
-    UpdaterSocket.broadcast("assigment:" <> "#{broker_id}", "updateOrderStatus", %{"body": render_event(event)})
+    UpdaterSocket.broadcast("assigment:" <> "#{broker_id}", "updateOrderStatus", %{body: render_event(event)})
   end
+
 
   def render_event(event) do
     %{

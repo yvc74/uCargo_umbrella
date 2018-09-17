@@ -6,7 +6,6 @@ defmodule UcargoWeb.DriverController do
   use PhoenixSwagger
   alias Ucargo.{Driver, Guardian, EventDispatcher, CommonParameters, AvailableOrder}
   alias UcargoWeb.{DriverJsonValidation}
-  alias UcargoWeb.Endpoint, as: UpdaterSocket
   alias UcargoWeb.Updater
 
   require Logger

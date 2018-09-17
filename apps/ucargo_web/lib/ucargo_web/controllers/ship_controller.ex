@@ -11,6 +11,7 @@ defmodule UcargoWeb.ShipController do
   alias Ucargo.TransportCatalog
   alias Ucargo.CustomCatalog
   alias Ucargo.State
+  alias Ucargo.Driver
   @export 1
   @import 0
 
@@ -66,8 +67,11 @@ defmodule UcargoWeb.ShipController do
       |> Map.put("score", 4)
       |> Map.put("distance", "500")
       |> Map.put("order_number", "47848")
+      |> Map.put("status", "New")
       |> Map.put("deadline", NaiveDateTime.utc_now())
     order_chs = Order.create_changeset(order, order_up_prms)
+    drivers = Driver.fetch_all
+    order_with_drivers_chs = Ecto.Changeset.put_assoc(order_chs, :drivers, drivers)
     {:ok, custom_catalog} = CustomCatalog.get_by_name(custom_params["name"])
     ct_up_prms = custom_params
       |> Map.put("latitude", "#{custom_catalog.latitude}")
@@ -83,7 +87,7 @@ defmodule UcargoWeb.ShipController do
 
     cstm_chgset = Custom.create_changeset(custom, ct_up_prms)
     deliver_chgset = Delivery.create_changeset(delivery, dvl_up_prms)
-    Planning.create_with_order_import({master_reference_params, house_reference_params, order_chs, cstm_chgset, deliver_chgset, broker.id})
+    Planning.create_with_order_import({master_reference_params, house_reference_params, order_with_drivers_chs, cstm_chgset, deliver_chgset, broker.id})
     conn
       |> redirect(to: "/plannings")
   end
