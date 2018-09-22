@@ -24,6 +24,7 @@
             <div class="payment-form__accordion">
                <form action="#" method="POST" id="payment-form">
                <input type="hidden" name="token_id" id="token_id">
+               <input type="hidden" name="amount" id="amount" value="<%= @bid.price %>">
                <input id="card" type="radio" name="method" checked/>
                <label for="card">
                <span class="icon">
@@ -71,7 +72,7 @@
                         <div class="card-data">
                            <div class="card-info__data">
                               <p class="card-info__caption">*Nombre como aparece en la tarjeta</p>
-                              <input type="text" placeholder="Como aparece en la tarjeta" autocomplete="off" data-openpay-card="holder_name">
+                              <input type="text" id="holder_name" placeholder="Como aparece en la tarjeta" autocomplete="off" data-openpay-card="holder_name">
                            </div>
                            <div class="card-info__data">
                               <p class="card-info__caption">*Número de Tarjeta</p>

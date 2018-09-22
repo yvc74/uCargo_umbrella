@@ -74,6 +74,8 @@ class Payment {
   setupPayment(){
     let path = window.location.pathname
     if (path.includes("payment_detail")) {
+      let name = document.querySelector("#holder_name")
+      let amount = document.querySelector("#amount")
       OpenPay.setId('ml5gfxvc4swuurvsdqdk');
       OpenPay.setApiKey('pk_74604106c70f480da9691314538ca151');
       OpenPay.setSandboxMode(true);
@@ -89,7 +91,13 @@ class Payment {
       var sucess_callbak = function(response) {
         var token_id = response.data.id;
         console.log("Get Token Succesfully")
-        paymentChannel.push("apply_charge", {body: {token: token_id, deviceSessionId: deviceSessionId}}, 10000)
+        console.log(name)
+        console.log(amount)
+        let payload = {token: token_id,
+             deviceSessionId: deviceSessionId,
+                        name: name.value,
+                      amount: amount.value}
+        paymentChannel.push("apply_charge", {body: payload}, 10000)
           .receive("ok", (msg) => update_delivery_city_combo(msg))
           .receive("error", (reasons) => console.log("create failed", reasons) )
           .receive("timeout", () => console.log("Networking issue...") )
