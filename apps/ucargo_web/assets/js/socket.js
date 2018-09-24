@@ -76,6 +76,7 @@ class Payment {
     if (path.includes("payment_detail")) {
       let name = document.querySelector("#holder_name")
       let amount = document.querySelector("#amount")
+      let email = document.querySelector("#holder_email")
       OpenPay.setId('ml5gfxvc4swuurvsdqdk');
       OpenPay.setApiKey('pk_74604106c70f480da9691314538ca151');
       OpenPay.setSandboxMode(true);
@@ -96,7 +97,8 @@ class Payment {
         let payload = {token: token_id,
              deviceSessionId: deviceSessionId,
                         name: name.value,
-                      amount: amount.value}
+                      amount: amount.value,
+                       email: email.value}
         paymentChannel.push("apply_charge", {body: payload}, 10000)
           .receive("ok", (msg) => update_delivery_city_combo(msg))
           .receive("error", (reasons) => console.log("create failed", reasons) )

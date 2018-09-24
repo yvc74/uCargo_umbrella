@@ -9,7 +9,13 @@ defmodule UcargoWeb.PaymentChannel do
   end
 
   def handle_in("apply_charge", %{"body" => payment_body}, socket) do
-    IO.inspect payment_body
+    form_data = %{source_id: payment_body["token"],
+                     amount: payment_body["amount"],
+                   order_id: UUID.uuid4(),
+          device_session_id: payment_body["deviceSessionId"],
+                       name: payment_body["name"],
+                      email: payment_body["email"]}
+    Ucargo.Payments.order(form_data)
     {:reply, {:ok, %{}}, socket}
   end
 

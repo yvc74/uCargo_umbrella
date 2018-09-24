@@ -40,8 +40,8 @@
                      <div class="card-info__section">
                         <div class="card-data">
                            <div class="card-info__data">
-                              <p class="card-info__caption">*Nombre Completo</p>
-                              <input type="text">
+                              <p class="card-info__caption">*Correo Eléctronico</p>
+                              <input id="holder_email" type="text">
                            </div>
                            <div class="card-info__data">
                               <p class="card-info__caption">*Dirección de Facturación</p>
