@@ -64,6 +64,58 @@ channel.join()
   .receive("ok", resp => { console.log("Joined successfully", resp) })
   .receive("error", resp => { console.log("Unable to join", resp) })
 
+let paymentChannel = socket.channel("payment:charge", {})
+paymentChannel.join()
+  .receive("ok", resp => { console.log("Joined successfully", resp) })
+  .receive("error", resp => { console.log("Unable to join", resp) })
+
+class Payment {
+
+  setupPayment(){
+    let path = window.location.pathname
+    if (path.includes("payment_detail")) {
+      let name = document.querySelector("#holder_name")
+      let amount = document.querySelector("#amount")
+      let email = document.querySelector("#holder_email")
+      OpenPay.setId('ml5gfxvc4swuurvsdqdk');
+      OpenPay.setApiKey('pk_74604106c70f480da9691314538ca151');
+      OpenPay.setSandboxMode(true);
+      //Se genera el id de dispositivo
+      var deviceSessionId = OpenPay.deviceData.setup("payment-form", "deviceIdHiddenFieldName");
+
+      $('#pay-button').on('click', function(event) {
+          event.preventDefault();
+          $("#pay-button").prop( "disabled", true);
+          OpenPay.token.extractFormAndCreate('payment-form', sucess_callbak, error_callbak);
+      });
+
+      var sucess_callbak = function(response) {
+        var token_id = response.data.id;
+        console.log("Get Token Succesfully")
+        console.log(name)
+        console.log(amount)
+        let payload = {token: token_id,
+             deviceSessionId: deviceSessionId,
+                        name: name.value,
+                      amount: amount.value,
+                       email: email.value}
+        paymentChannel.push("apply_charge", {body: payload}, 10000)
+          .receive("ok", (msg) => update_delivery_city_combo(msg))
+          .receive("error", (reasons) => console.log("create failed", reasons) )
+          .receive("timeout", () => console.log("Networking issue...") )
+      };
+
+      var error_callbak = function(response) {
+          var desc = response.data.description != undefined ? response.data.description : response.message;
+          alert("ERROR [" + response.status + "] " + desc);
+          $("#pay-button").prop("disabled", false);
+      };
+    }
+  }
+}
+
+
+
 $('#planning_order_delivery_state').on('select2:select', function (e) {
     console.log(e.params.data.id);
     channel.push("update_state_combo", {body: e.params.data.id}, 10000)
@@ -224,4 +276,7 @@ if (map != null) {
     strokeWeight: 6
   });
 }
+
+let payment = new Payment
+payment.setupPayment()
 export default socket

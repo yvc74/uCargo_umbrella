@@ -1,174 +1,169 @@
+<script type="text/javascript" 
+        src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript"
+   src="https://openpay.s3.amazonaws.com/openpay.v1.min.js"></script>
+<script type='text/javascript'
+   src="https://openpay.s3.amazonaws.com/openpay-data.v1.min.js"></script>
+
 <section class="container" id="payment">
-  <div class="payment-container">
-    <div class="payment-header shell-header">
-      <div class="payment-header__eyelash header__eyelash">
-        <p>Pagar Servicio</p>
+   <div class="payment-container">
+      <div class="payment-header shell-header">
+         <div class="payment-header__eyelash header__eyelash">
+            <p>Pagar Servicio</p>
+         </div>
+         <div class="payment-header__new">
+            <a href="/plannings" class="btn">CANCELAR</a>
+         </div>
       </div>
-       <div class="payment-header__new">
-          <a href="/plannings" class="btn">CANCELAR</a>
-       </div>
-    </div>
-    <div class="payment-content">
-      <a href="http://localhost:4000/assignments/plannings/<%= @planning.id %>/bids/<%= @bid.id%>">PAY</a>
-      <p class="payment-price">
-        $<%= @bid.price %> <br/> <span>MXN +IVA</span>
-      </p>
-      <div class="payment-form__content">
-        <div class="payment-form__accordion">
-       
-          <input id="card" type="radio" name="method" checked/>
-          <label for="card">
-            <span class="icon">
-              <span class="dot"></span>
-            </span>
-            <span class="title">
-              TARJETA DE CRÉDITO
-            </span>
-            <img class="placeholder-cards" src="/images/cards.png" alt="">
-          </label>
-          
-          <section id="content-card">
-            <div class="content-card__info">
-              <div class="card-info__section">
-                <div class="card-data">
-                  <div class="card-info__data">
-                    <p class="card-info__caption">*Nombre Completo</p>
-                    <input type="text">
+      <div class="payment-content">
+         <a href="http://localhost:4000/assignments/plannings/<%= @planning.id %>/bids/<%= @bid.id%>">PAY</a>
+         <p class="payment-price">
+            $<%= @bid.price %> <br/> <span>MXN +IVA</span>
+         </p>
+         <div class="payment-form__content">
+            <div class="payment-form__accordion">
+               <form action="#" method="POST" id="payment-form">
+               <input type="hidden" name="token_id" id="token_id">
+               <input type="hidden" name="amount" id="amount" value="<%= @bid.price %>">
+               <input id="card" type="radio" name="method" checked/>
+               <label for="card">
+               <span class="icon">
+               <span class="dot"></span>
+               </span>
+               <span class="title">
+               TARJETA DE CRÉDITO
+               </span>
+               <img class="placeholder-cards" src="/images/cards.png" alt="">
+               </label>
+               <section id="content-card">
+                  <div class="content-card__info">
+                     <div class="card-info__section">
+                        <div class="card-data">
+                           <div class="card-info__data">
+                              <p class="card-info__caption">*Correo Eléctronico</p>
+                              <input id="holder_email" type="text">
+                           </div>
+                           <div class="card-info__data">
+                              <p class="card-info__caption">*Dirección de Facturación</p>
+                              <input type="text">
+                           </div>
+                           <div class="card-info__group">
+                              <div class="card-info__data">
+                                 <p class="card-info__caption">*Ciudad</p>
+                                 <input type="text">
+                              </div>
+                              <div class="card-info__data">
+                                 <p class="card-info__caption">*Código Postal</p>
+                                 <input type="text">
+                              </div>
+                           </div>
+                           <div class="card-info__data card-info__country">
+                              <p class="card-info__caption">*País</p>
+                              <select>
+                                 <option value="1">1</option>
+                                 <option value="2">2</option>
+                                 <option value="3">3</option>
+                                 <option value="4">4</option>
+                              </select>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="card-info__section">
+                        <div class="card-data">
+                           <div class="card-info__data">
+                              <p class="card-info__caption">*Nombre como aparece en la tarjeta</p>
+                              <input type="text" id="holder_name" placeholder="Como aparece en la tarjeta" autocomplete="off" data-openpay-card="holder_name">
+                           </div>
+                           <div class="card-info__data">
+                              <p class="card-info__caption">*Número de Tarjeta</p>
+                              <input type="text" autocomplete="off" data-openpay-card="card_number">
+                           </div>
+                           <div class="card-info__group">
+                              <div class="card-info__data card-info__exp">
+                                 <p class="card-info__caption">*Mes de Expiración</p>
+                                 <input type="text" placeholder="Mes" data-openpay-card="expiration_month">
+                              </div>
+                              <div class="card-info__data card-info__exp">
+                                 <p class="card-info__caption">*Año de Expiración</p>
+                                 <input type="text" placeholder="Año" data-openpay-card="expiration_year">
+                              </div>
+                           </div>
+                           <div class="card-info__data">
+                              <p class="card-info__caption">*Número de Seguridad CVC</p>
+                              <input type="text" placeholder="3 dígitos" autocomplete="off" data-openpay-card="cvv2">
+                           </div>
+                        </div>
+                     </div>
+                     <div class="card-info__extra">
+                        <p class="card-info__legend">Recibirás confirmación de tu pago <br/> por correo electónico.</p>
+                        <div class="card-send__container">
+                           <button class="btn card-info__send" data-remodal-target="payment" id="pay-button">
+                           PAGAR SERVICIO
+                           </button>
+                        </div>
+                     </div>
                   </div>
-                  <div class="card-info__data">
-                    <p class="card-info__caption">*Dirección de Facturación</p>
-                    <input type="text">
-                  </div>
-                  <div class="card-info__group">
-                    <div class="card-info__data">
-                      <p class="card-info__caption">*Ciudad</p>
-                      <input type="text">
-                    </div>
-                    <div class="card-info__data">
-                      <p class="card-info__caption">*Código Postal</p>
-                      <input type="text">
-                    </div>
-                  </div>
-                  <div class="card-info__data card-info__country">
-                    <p class="card-info__caption">*País</p>
-                    <select>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div class="card-info__section">
-                <div class="card-data">
-                  <div class="card-info__data">
-                    <p class="card-info__caption">*Nombre como aparece en la tarjeta</p>
-                    <input type="text">
-                  </div>
-                  <div class="card-info__data">
-                    <p class="card-info__caption">*Número de Tarjeta</p>
-                    <input type="text">
-                  </div>
-                  <div class="card-info__group">
-                    <div class="card-info__data card-info__exp">
-                      <p class="card-info__caption">*Mes de Expiración</p>
-                      <select>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                      </select>
-                    </div>
-                    <div class="card-info__data card-info__exp">
-                      <p class="card-info__caption">*Año de Expiración</p>
-                      <select>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="card-info__data">
-                    <p class="card-info__caption">*Número de Seguridad CVC</p>
-                    <input type="text">
-                  </div>
-                </div>
-              </div>
-              <div class="card-info__extra">
-                  <p class="card-info__legend">Recibirás confirmación de tu pago <br/> por correo electónico.</p>
-                  <div class="card-send__container">
-                    <button class="btn card-info__send" data-remodal-target="payment">
-                    PAGAR SERVICIO
-                    </button>
-                  </div>
-              </div>
-            </div>
-          </section>
-          
-          <input id="cash" type="radio" name="method" />
-          <label for="cash">
-            <span class="icon">
-              <span class="dot"></span>
-            </span>
-            <span class="title">
-              TRANSFERENCIA BANCARIA, DEPÓSITO EN EFECTIVO
-            </span>
-          </label>
-          
-          <section id="content-cash">
-            <div class="cash-data">
-              <p class="cash-ref__legend">
-                Referencia para Transferencia o Depósito:
-              </p>
-              <p class="cash-ref__number">
-                REF000000
-              </p>
-              <p class="cash-ref__copy">
-                Recibirás confirmación de tu pago por correo electónico.
-                En cuanto esté registrado tu pago, el cargamento aparecerá en la pestaña de Asignados.
-              </p>
-              <button class="btn cash-ref__send" data-remodal-target="payment">
-                ACEPTAR
-              </button>
-            </div>
-          </section>
+               </section>
 
-        </div>
+               <input id="cash" type="radio" name="method" />
+               <label for="cash">
+               <span class="icon">
+               <span class="dot"></span>
+               </span>
+               <span class="title">
+               TRANSFERENCIA BANCARIA, DEPÓSITO EN EFECTIVO
+               </span>
+               </label>
+               <section id="content-cash">
+                  <div class="cash-data">
+                     <p class="cash-ref__legend">
+                        Referencia para Transferencia o Depósito:
+                     </p>
+                     <p class="cash-ref__number">
+                        REF000000
+                     </p>
+                     <p class="cash-ref__copy">
+                        Recibirás confirmación de tu pago por correo electónico.
+                        En cuanto esté registrado tu pago, el cargamento aparecerá en la pestaña de Asignados.
+                     </p>
+                     <button class="btn cash-ref__send" data-remodal-target="payment">
+                     ACEPTAR
+                     </button>
+                  </div>
+               </section>
+            </form>
+            </div>
+         </div>
       </div>
-    </div>
-  </div>
+   </div>
 </section>
-
 <div class="remodal ucargo-modal" data-remodal-id="payment" data-remodal-options="hashTracking: false">
-  <p class="payment-finish__title">PAGO EXITOSO</p>
-  <div class="payment-finish__icon">
-    <i class="fas fa-check"></i>
-  </div>
-  <p class="payment-finish__legend">Número de referencia de pago</p>
-  <p class="payment-finish__ref">REF000000</p>
-  <button class="btn payment-finish__send" onclick="onAccept()">
-    ACEPTAR
-  </button>
-  <div class="payment-finish__actions">
-    <a href="">
+   <p class="payment-finish__title">PAGO EXITOSO</p>
+   <div class="payment-finish__icon">
+      <i class="fas fa-check"></i>
+   </div>
+   <p class="payment-finish__legend">Número de referencia de pago</p>
+   <p class="payment-finish__ref">REF000000</p>
+   <button class="btn payment-finish__send">
+   ACEPTAR
+   </button>
+   <div class="payment-finish__actions">
+      <a href="">
       <img src="/images/print.png" alt="">
-    </a>
-    <a href="">
+      </a>
+      <a href="">
       <img src="/images/download.png" alt="">
-    </a>
-    <a href="">
+      </a>
+      <a href="">
       <img src="/images/shared.png" alt="">
-    </a>
-  </div>
+      </a>
+   </div>
 </div>
-
 <script type="text/javascript">
-  document.addEventListener("DOMContentLoaded", function(event) {
-    
-  });
-  function onAccept(){
-    window.location.href = '/assignments/plannings/<%= @planning.id%>/bids/<%= @bid.id %>'
-  }
+   document.addEventListener("DOMContentLoaded", function(event) {
+     
+   });
+   function onAccept(){
+     window.location.href = '/assignments/plannings/<%= @planning.id%>/bids/<%= @bid.id %>'
+   }
 </script>
