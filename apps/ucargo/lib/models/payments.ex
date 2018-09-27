@@ -10,5 +10,10 @@ defmodule Ucargo.Payments do
                          name: payment_form.name,
                         email: payment_form.email}
     Kraken.Card.charge(payment)
+    create_invoice(payment)
+  end
+
+  def create_invoice(payment) do
+    Kraken.Invoice.generate(payment)
   end
 end
