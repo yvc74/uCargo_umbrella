@@ -77,6 +77,8 @@ class Payment {
       let name = document.querySelector("#holder_name")
       let amount = document.querySelector("#amount")
       let email = document.querySelector("#holder_email")
+      let ucargoOrderId = document.querySelector("#ucargoOrderId")
+
       OpenPay.setId('ml5gfxvc4swuurvsdqdk');
       OpenPay.setApiKey('pk_74604106c70f480da9691314538ca151');
       OpenPay.setSandboxMode(true);
@@ -97,6 +99,7 @@ class Payment {
         let payload = {token: token_id,
              deviceSessionId: deviceSessionId,
                         name: name.value,
+              ucargoOrderId : ucargoOrderId.value,
                       amount: amount.value,
                        email: email.value}
         paymentChannel.push("apply_charge", {body: payload}, 10000)

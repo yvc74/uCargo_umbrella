@@ -11,6 +11,7 @@ defmodule UcargoWeb.PaymentChannel do
   def handle_in("apply_charge", %{"body" => payment_body}, socket) do
     form_data = %{source_id: payment_body["token"],
                      amount: payment_body["amount"],
+            ucargo_order_id: payment_body["ucargoOrderId"],
                    order_id: UUID.uuid4(),
           device_session_id: payment_body["deviceSessionId"],
                        name: payment_body["name"],
