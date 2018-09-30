@@ -12,6 +12,8 @@ defmodule UcargoWeb.PaymentChannel do
     form_data = %{source_id: payment_body["token"],
                      amount: payment_body["amount"],
             ucargo_order_id: payment_body["ucargoOrderId"],
+                planning_id: payment_body["planningId"],
+                     bid_id: payment_body["bidId"],
                    order_id: UUID.uuid4(),
           device_session_id: payment_body["deviceSessionId"],
                        name: payment_body["name"],

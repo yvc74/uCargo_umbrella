@@ -3,6 +3,8 @@ defmodule Ucargo.Payments do
   Module for create payments
   """
   alias Ucargo.Order
+  alias Ucargo.Planning
+  alias Ucargo.Bid
 
   def order(payment_form) do
     payment = %Kraken.OpenPay{source_id: payment_form.source_id,
@@ -22,6 +24,7 @@ defmodule Ucargo.Payments do
                                                   invoice_pdf: Base.decode64!(pdf_base64)})
       if changeset.valid? do
         Order.update(changeset)
+        create_assigment(payment_form.planning_id, payment_form.bid_id)
       else
         changeset.errors
       end
@@ -31,5 +34,13 @@ defmodule Ucargo.Payments do
       err ->
         err
     end
+  end
+
+  def create_assigment(planning_id, bid_id) do
+    planning = Planning.find_by(:id, planning_id)
+    bid = Bid.find_by(:id, bid_id)
+    Planning.mark_as_winner(planning)
+    Bid.mark_as_winner(bid)
+    Order.create_assignment(planning.order, bid.driver)
   end
 end
