@@ -77,7 +77,7 @@ defmodule Kraken.Invoice do
       ],
       "CondicionesPago": "",
       "CorreoElectronico": "jorge.rdz@bisimplex.com",
-      "Fecha": "2018/09/27",
+      "Fecha": "2018/09/30",
       "FormaPago": "01",
       "MetodoPago": "PUE",
       "Moneda": "MXN",

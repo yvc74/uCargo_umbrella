@@ -53,6 +53,28 @@ defmodule Ucargo.EventDispatcher do
     end
   end
 
+  def dispatch(%{"id" => uuid, "name" => "Store"}, date, _driver, available_order) do
+    order_fsm = Fsm.load(available_order.status)
+    changeset = Event.changeset(%Event{}, %{uuid: uuid, name: "Store", date: date})
+    case changeset.valid? do
+       true ->
+        store_merchandise_status({"Store", "Stored", order_fsm, changeset, available_order})
+       false ->
+        {:error, changeset.errors}
+    end
+  end
+
+  def dispatch(%{"id" => uuid, "name" => "BeginRoute"}, date, _driver, available_order) do
+    order_fsm = Fsm.load(available_order.status)
+    changeset = Event.changeset(%Event{}, %{uuid: uuid, name: "BeginRoute", date: date})
+    case changeset.valid? do
+       true ->
+        begin_route_status({"BeginRoute", "OnRoute", order_fsm, changeset, available_order})
+       false ->
+        {:error, changeset.errors}
+    end
+  end
+
   def dispatch(%{"id" => uuid, "name" => "ReportLocation", "track" => %{"latitude" => lat, "longitude" => lon}}, date, _driver, available_order) do
     order_fsm = Fsm.load(available_order.status)
     changeset = Event.changeset(%Event{}, %{uuid: uuid, name: "ReportLocation", date: date, latitude: lat, longitude: lon})
@@ -66,10 +88,11 @@ defmodule Ucargo.EventDispatcher do
 
   def dispatch(%{"id" => uuid, "name" => "ReportSign", "picture" => sign_picture}, date, _driver, available_order) do
     order_fsm = Fsm.load(available_order.status)
+    IO.inspect order_fsm
     changeset = Event.changeset(%Event{}, %{uuid: uuid, name: "ReportSign", date: date, picture: sign_picture})
     case changeset.valid? do
       true ->
-        report_sign({"ReportSign", "Finish", order_fsm, changeset, available_order})
+        report_sign({"ReportSign", "Signed", order_fsm, changeset, available_order})
       false ->
         {:error, changeset.errors}
     end
@@ -119,6 +142,32 @@ defmodule Ucargo.EventDispatcher do
   end
 
   def report_green_status({action, status, order_fsm, changeset, available_order}) do
+    case apply_next_stage(order_fsm, action) do
+      {:ok, _} ->
+        chs = Order.update_changeset(available_order.order, %{status: status})
+        av_order_changeset = AvailableOrder.update_changeset(available_order, %{status: status})
+        AvailableOrder.update(av_order_changeset)
+        Order.update(chs)
+        Event.save(changeset)
+      {:error, reason} ->
+        {:error, reason}
+    end
+  end
+
+  def store_merchandise_status({action, status, order_fsm, changeset, available_order}) do
+    case apply_next_stage(order_fsm, action) do
+      {:ok, _} ->
+        chs = Order.update_changeset(available_order.order, %{status: status})
+        av_order_changeset = AvailableOrder.update_changeset(available_order, %{status: status})
+        AvailableOrder.update(av_order_changeset)
+        Order.update(chs)
+        Event.save(changeset)
+      {:error, reason} ->
+        {:error, reason}
+    end
+  end
+
+  def begin_route_status({action, status, order_fsm, changeset, available_order}) do
     case apply_next_stage(order_fsm, action) do
       {:ok, _} ->
         chs = Order.update_changeset(available_order.order, %{status: status})
