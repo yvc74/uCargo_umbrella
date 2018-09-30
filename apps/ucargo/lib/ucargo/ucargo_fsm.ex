@@ -34,29 +34,35 @@ defmodule Ucargo.Fsm do
 
   defstate take_picture do
     defevent report_lock_picture do
+      next_state(:on_route_to_storage)
+    end
+  end
+
+  defstate on_route_to_storage do
+    defevent store_merchandise do
+      next_state(:begin_route)
+    end
+  end
+
+  defstate begin_delivery_route do
+    defevent start_route do
       next_state(:on_route)
     end
   end
 
   defstate on_route do
     defevent report_location do
-      next_state(:traking)
+      next_state(:on_route)
     end
 
     defevent report_sign do
-      next_state(:stored)
+      next_state(:signed)
     end
   end
 
-  defstate stored do
+  defstate signed do
     defevent finish do
       next_state(:finish)
-    end
-  end
-
-  defstate on_route do
-    defevent report_pama do
-      next_state(:on_route)
     end
   end
 
@@ -65,23 +71,30 @@ defmodule Ucargo.Fsm do
     %Ucargo.Fsm{data: nil, state: state}
   end
 
+  #Stages translated from databases, value indicates
   def states do
     %{"New" => :new,
       "Quoted" => :driver_quoted,
       "Approved" => :wait_for_custom_picking,
       "OnRouteToCustom" => :on_route_to_custom,
       "ReportedGreen" => :take_picture,
-      "ReportedLock" => :on_route,
+      "ReportedLock" => :on_route_to_storage,
+      "Stored" => :begin_delivery_route,
+      "OnRoute" => :on_route,
       "OnTracking" => :on_route,
-      "ReportedSign" => :finish}
+      "ReportedSign" => :on_route,
+      "Signed" => :finish}
   end
 
+  #Stages send in payload, this events are translated to a fsm event
   def next_stage do
     %{"Quote" => :bid,
       "Approve" => :approve,
       "BeginCustom" => :begin_custom,
       "ReportGreen" => :report_green,
       "ReportLock" => :report_lock_picture,
+      "Store" => :store_merchandise,
+      "BeginRoute" => :start_route,
       "ReportLocation" => :report_location,
       "ReportSign" => :report_sign
     }
