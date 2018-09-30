@@ -77,6 +77,11 @@ class Payment {
       let name = document.querySelector("#holder_name")
       let amount = document.querySelector("#amount")
       let email = document.querySelector("#holder_email")
+      let ucargoOrderId = document.querySelector("#ucargoOrderId")
+      let planningId = document.querySelector("#planningId")
+      let bidId = document.querySelector("#bidId")
+      var inst = $('[data-remodal-id=payment]').remodal();
+      console.log(inst)
       OpenPay.setId('ml5gfxvc4swuurvsdqdk');
       OpenPay.setApiKey('pk_74604106c70f480da9691314538ca151');
       OpenPay.setSandboxMode(true);
@@ -97,13 +102,26 @@ class Payment {
         let payload = {token: token_id,
              deviceSessionId: deviceSessionId,
                         name: name.value,
+                  planningId: planningId.value,
+                       bidId: bidId.value,
+              ucargoOrderId : ucargoOrderId.value,
                       amount: amount.value,
                        email: email.value}
         paymentChannel.push("apply_charge", {body: payload}, 10000)
-          .receive("ok", (msg) => update_delivery_city_combo(msg))
+          .receive("ok", (msg) => showResults(msg))
           .receive("error", (reasons) => console.log("create failed", reasons) )
           .receive("timeout", () => console.log("Networking issue...") )
       };
+
+      $(document).on('closing', '.remodal', function (e) {
+        console.log('Modal is closing' + (e.reason ? ', reason: ' + e.reason : ''));
+        window.location.href = '/assignments/plannings'
+      });
+
+      function showResults(msg) {
+        inst.open();
+        $("#pay-button").prop("disabled", false);
+      }
 
       var error_callbak = function(response) {
           var desc = response.data.description != undefined ? response.data.description : response.message;

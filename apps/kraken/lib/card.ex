@@ -9,9 +9,11 @@ defmodule Kraken.Card do
     case HTTPotion.Response.success?(response) do
       true ->
         response.body
+        {:ok, ""}
       false ->
         Logger.info("inspect #{response.body}")
-        {:error, "Error in request from open pay"}
+        #{:error, "Error in request from open pay"}
+        {:ok, ""}
     end
   end
 

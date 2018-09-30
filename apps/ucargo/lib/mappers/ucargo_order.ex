@@ -24,6 +24,8 @@ defmodule Ucargo.Order do
     field :custom_light_picture, :string
     field :lock_picture, :string
     field :deliver_picture, :string
+    field :invoice_xml, :string
+    field :invoice_pdf, :binary
     belongs_to :planning, Ucargo.Planning
     has_one :pickup, Ucargo.Pickup
     has_one :delivery, Ucargo.Delivery
@@ -44,7 +46,7 @@ defmodule Ucargo.Order do
 
   def update_changeset(%Order{} = order, attrs) do
     order
-      |> cast(attrs, [:favourite, :score, :custom_light_picture, :lock_picture, :deliver_picture, :deadline, :status, :type, :distance, :merchandise_type, :order_number, :transport, :weight, :comments])
+      |> cast(attrs, [:favourite, :score, :custom_light_picture, :lock_picture, :deliver_picture, :deadline, :status, :type, :distance, :merchandise_type, :order_number, :transport, :weight, :comments, :invoice_xml, :invoice_pdf])
   end
 
   def update(changeset) do

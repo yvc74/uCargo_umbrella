@@ -14,4 +14,22 @@ defmodule UcargoWeb.RecordView  do
     String.upcase(string)
   end
 
+  def render_price(planning) do
+    bids = planning.auction.bids
+    result =
+    Enum.flat_map(bids, fn bid ->
+      if bid.winner do
+        [bid]
+      else
+        []
+      end
+    end)
+    case result do
+      [] ->
+        "$0.0"
+      [bid] ->
+        "$ #{bid.price}"
+    end
+  end
+
 end

@@ -17,6 +17,8 @@ defmodule Ucargo.Repo.Migrations.CreateOrders do
       add :custom_light_picture, :string
       add :lock_picture, :string
       add :deliver_picture, :string
+      add :invoice_xml, :text
+      add :invoice_pdf, :bytea
       add :driver_id, references(:drivers, on_delete: :nothing)
       add :planning_id, references(:plannings)
       timestamps()

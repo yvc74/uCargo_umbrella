@@ -5,24 +5,6 @@
         <p>Historial de Cargamentos</p>
       </div>
       <div class="record-header__new">
-        <div class="btn header-new__dropdown" data-jq-dropdown="#jq-dropdown">
-          <span>AGREGAR CARGAMENTO</span>
-        </div>
-        <div class="new-dropdown__container">
-          <div id="jq-dropdown" class="jq-dropdown jq-dropdown-tip planning-jq__dropdown">
-            <div class="jq-dropdown-menu">
-              <div class="planning-jq__content">
-                <p class="planning-jq__title">Tu nuevo cargamento es una:</p>
-                <a href="/plannings/import/new"  class="planning-jq__imp">
-                  IMPORTACIÓN
-                </a>
-                <a href="/plannings/export/new" class="planning-jq__exp">
-                  EXPORTACIÓN
-                </a>      
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <div class="record-content">
@@ -40,24 +22,17 @@
               </tr>
             </thead>
             <tbody class="table-body">
-              <tr>
-                <td> 765D3S </td>
-                <td class="record-table__td"> EN VIAJE </td>
-                <td> VERACRUZ </td>
-                <td> MEXICO </td>
-                <td class="record-table__td record-table__td--IMPORTACIÓN"> IMPORTACION </td>
-                <td> $000,000.00 </td>
-                <td> DAN 0123 </td>
-              </tr>
-              <tr>
-                <td> 765D3S </td>
-                <td class="record-table__td"> EN VIAJE </td>
-                <td> VERACRUZ </td>
-                <td> MEXICO </td>
-                <td class="record-table__td record-table__td--EXPORTACIÓN"> EXPORTACION </td>
-                <td> $000,000.00 </td>
-                <td> DAN 0123 </td>
-              </tr>
+              <%= for item <- @assigned_items do %>
+                  <tr onclick="navigate('/invoices/orders/<%= item.order.id %>/driver/<%= item.driver.id %>');">
+                      <td><%= item.planning.id %></td>
+                      <td class="assignment-table__td"><%= item.order.status %></td>
+                      <td><%= item.order.custom.name  %></td>
+                      <td><%= item.order.delivery.name %></td>
+                      <td class="assignment-table__td assignment-table__td--<%= render_order_type(item.planning.order.type) %>"><%= render_order_type(item.planning.order.type) %></td>
+                      <td><%= render_price(item.planning)%></td>
+                      <td><%= item.driver.username %></td>
+                  </tr>
+              <% end %>
             </tbody>
          </table>
       </div>

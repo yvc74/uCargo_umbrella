@@ -16,7 +16,6 @@
          </div>
       </div>
       <div class="payment-content">
-         <a href="http://localhost:4000/assignments/plannings/<%= @planning.id %>/bids/<%= @bid.id%>">PAY</a>
          <p class="payment-price">
             $<%= @bid.price %> <br/> <span>MXN +IVA</span>
          </p>
@@ -24,6 +23,9 @@
             <div class="payment-form__accordion">
                <form action="#" method="POST" id="payment-form">
                <input type="hidden" name="token_id" id="token_id">
+               <input type="hidden" name="planningId" id="planningId" value="<%= @planning.id %>">
+               <input type="hidden" name="bidId" id="bidId" value="<%= @bid.id %>">
+               <input type="hidden" name="ucargoOrderId" id="ucargoOrderId" value="<%= @planning.order.id %>">
                <input type="hidden" name="amount" id="amount" value="<%= @bid.price %>">
                <input id="card" type="radio" name="method" checked/>
                <label for="card">
@@ -144,7 +146,7 @@
    </div>
    <p class="payment-finish__legend">Número de referencia de pago</p>
    <p class="payment-finish__ref">REF000000</p>
-   <button class="btn payment-finish__send">
+   <button data-remodal-action="confirm" class="btn payment-finish__send">
    ACEPTAR
    </button>
    <div class="payment-finish__actions">
@@ -161,9 +163,6 @@
 </div>
 <script type="text/javascript">
    document.addEventListener("DOMContentLoaded", function(event) {
-     
+
    });
-   function onAccept(){
-     window.location.href = '/assignments/plannings/<%= @planning.id%>/bids/<%= @bid.id %>'
-   }
 </script>
