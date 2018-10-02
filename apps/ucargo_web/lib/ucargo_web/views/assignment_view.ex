@@ -30,6 +30,22 @@ defmodule UcargoWeb.AssignmentView  do
     end
   end
 
+  def lock_picture_status(order) do
+    if order.status == "ReportedLock" do
+      "order-road__semaphore active"
+    else
+      "order-road__semaphore"
+    end
+  end
+
+  def store_merchandise_status(order) do
+    if order.status == "Stored" do
+      "order-road__semaphore active"
+    else
+      "order-road__semaphore"
+    end
+  end
+
   def delivered_to_client_status(order) do
     if order.status == "Signed" do
       "order-road__semaphore active"

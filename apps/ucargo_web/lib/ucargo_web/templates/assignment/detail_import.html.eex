@@ -190,7 +190,7 @@
               </div>
             </div>
             <div class="order-road__item">
-              <div class="<%= semaphore_light_status(@order) %>">
+              <div id="semaphoreLightStatus" class="<%= semaphore_light_status(@order) %>">
                 <span></span>
               </div>
               <div class="order-road__step">
@@ -206,7 +206,7 @@
               </div>
             </div>
             <div class="order-road__item">
-              <div class="<%= semaphore_light_status(@order) %>">
+              <div id="lockPictureStatus" class="<%= lock_picture_status(@order) %>">
                 <span></span>
               </div>
               <div class="order-road__step">
@@ -222,7 +222,7 @@
               </div>
             </div>
             <div class="order-road__item">
-              <div class="order-road__semaphore">
+              <div id="storeMerchandiseStatus" class="<%= store_merchandise_status(@order) %>">
                 <span></span>
               </div>
               <div class="order-road__step">

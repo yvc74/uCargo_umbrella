@@ -239,7 +239,9 @@ function update_custom_neighborhood_combo(msg) {
 let map = document.querySelector("#map")
 if (map != null) {
   let roadToCustomStatus = document.querySelector("#roadToCustomStatus")
-
+  let semaphoreLightStatus = document.querySelector("#semaphoreLightStatus")
+  let lockPictureStatus = document.querySelector("#lockPictureStatus")
+  let storeMerchandiseStatus = document.querySelector("#storeMerchandiseStatus")
   map = new GMaps({
     div: '.ship-map',
     lat: 19.3204969,
@@ -282,9 +284,34 @@ if (map != null) {
   });
 
   assigmentchannel.on("updateOrderStatus", payload => {
+    let event = payload.body
+    switch(event.name) {
+      case "BeginCustom":
+        roadToCustomStatus.className = "order-road__semaphore active"
+        break;
+      case "ReportGreen":
+        semaphoreLightStatus.className = "order-road__semaphore active"
+        break;
+      case "ReportLock":
+        lockPictureStatus.className = "order-road__semaphore active"
+        break;
+      case "Store":
+        storeMerchandiseStatus.className = "order-road__semaphore active"
+        break;
+      case "BeginRoute":
+        semaphoreLightStatus.className = "order-road__semaphore active"
+        break;
+      case "ReportLocation":
+        semaphoreLightStatus.className = "order-road__semaphore active"
+        break;
+      case "ReportSign":
+        semaphoreLightStatus.className = "order-road__semaphore active"
+        break;
+      default:
+        console.log(event)
+    }
     console.log(payload)
     console.log(roadToCustomStatus)
-    roadToCustomStatus.className = "order-road__semaphore active"
     truck.setPosition( new google.maps.LatLng( 18.8575121, -99.1599174));
     map.panTo( new google.maps.LatLng(18.8575121, -99.1599174));
   })
