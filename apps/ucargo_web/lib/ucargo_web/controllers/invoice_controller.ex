@@ -10,7 +10,8 @@ defmodule UcargoWeb.InvoiceController do
 
   def download_xml(conn, %{"order_id" => order_id}) do
     order = Order.find_by(:id, order_id)
-    invoice = File.write!("/tmp/invoice.xml", order.invoice_xml)
+    uuid = UUID.uuid4()
+    File.write!("/tmp/#{uuid}_invoice.xml", order.invoice_xml)
     conn
       |> put_resp_header("content-disposition",
                        ~s(attachment; filename="invoice.xml"))
@@ -19,11 +20,12 @@ defmodule UcargoWeb.InvoiceController do
 
   def download_pdf(conn, %{"order_id" => order_id}) do
     order = Order.find_by(:id, order_id)
-    invoice = File.write!("/tmp/invoice.pdf", order.invoice_pdf)
+    uuid = UUID.uuid4()
+    File.write!("/tmp/#{uuid}_invoice.pdf", order.invoice_pdf)
     conn
       |> put_resp_header("content-disposition",
                        ~s(attachment; filename="invoice.pdf"))
-      |> send_file(200, "/tmp/invoice.pdf")
+      |> send_file(200, "/tmp/#{uuid}_invoice.pdf")
   end
 
 end
