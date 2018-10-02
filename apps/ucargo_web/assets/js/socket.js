@@ -238,6 +238,8 @@ function update_custom_neighborhood_combo(msg) {
 
 let map = document.querySelector("#map")
 if (map != null) {
+  let roadToCustomStatus = document.querySelector("#roadToCustomStatus")
+
   map = new GMaps({
     div: '.ship-map',
     lat: 19.3204969,
@@ -281,6 +283,8 @@ if (map != null) {
 
   assigmentchannel.on("updateOrderStatus", payload => {
     console.log(payload)
+    console.log(roadToCustomStatus)
+    roadToCustomStatus.className = "order-road__semaphore active"
     truck.setPosition( new google.maps.LatLng( 18.8575121, -99.1599174));
     map.panTo( new google.maps.LatLng(18.8575121, -99.1599174));
   })

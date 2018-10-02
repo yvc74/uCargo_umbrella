@@ -30,4 +30,12 @@ defmodule UcargoWeb.AssignmentView  do
     end
   end
 
+  def delivered_to_client_status(order) do
+    if order.status == "Signed" do
+      "order-road__semaphore active"
+    else
+      "order-road__semaphore"
+    end
+  end
+
 end
