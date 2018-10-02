@@ -178,8 +178,12 @@
 					<div class="order-download__container">
 						<p>Descarga tu Factura</p>
 						<div>
-							<img src="/images/xml.png" alt="">
-							<img src="/images/pdf.png" alt="">
+              <a href="/invoices/orders/<%=@order.id%>/download_xml">
+							  <img src="/images/xml.png" alt="">
+              </a>
+              <a href="/invoices/orders/<%=@order.id%>/download_pdf">
+							  <img src="/images/pdf.png" alt="">
+              </a>
 						</div>
 					</div>
 				</div>

@@ -107,7 +107,7 @@ class Payment {
               ucargoOrderId : ucargoOrderId.value,
                       amount: amount.value,
                        email: email.value}
-        paymentChannel.push("apply_charge", {body: payload}, 10000)
+        paymentChannel.push("apply_charge", {body: payload}, 50000)
           .receive("ok", (msg) => showResults(msg))
           .receive("error", (reasons) => console.log("create failed", reasons) )
           .receive("timeout", () => console.log("Networking issue...") )
