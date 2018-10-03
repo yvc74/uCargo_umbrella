@@ -177,7 +177,7 @@
           </div>
           <div class="order-road__information">
             <div class="order-road__item">
-              <div class="<%= custom_route_status(@order) %>">
+              <div id="roadToCustomStatus" class="<%= custom_route_status(@order) %>">
                 <span></span>
               </div>
               <div class="order-road__step">
@@ -190,85 +190,43 @@
               </div>
             </div>
             <div class="order-road__item">
-              <div class="<%= semaphore_light_status(@order) %>">
-                <span></span>
-              </div>
-              <div class="order-road__step">
-                <p>REPORTE DE SEMAFORO</p>
-              </div>
-              <div class="order-road__actions">
-                <div class="road-actions__icon" data-remodal-target="photos">
-                  <img src="/images/camera.png" alt="">
-                </div>
-                <div class="road-actions__icon" data-remodal-target="shared">
-                  <img src="/images/shared.png" alt="">
-                </div>
-              </div>
-            </div>
-            <div class="order-road__item">
-              <div class="order-road__semaphore">
-                <span></span>
-              </div>
-              <div class="order-road__step">
-                <p>EN RUTA HACIA ADUANA</p>
-              </div>
-              <div class="order-road__actions">
-                <div class="road-actions__icon">
-                  <img src="/images/download.png" alt="">
-                </div>
-                <div class="road-actions__icon" data-remodal-target="photos">
-                  <img src="/images/camera.png" alt="">
-                </div>
-                <div class="road-actions__icon" data-remodal-target="shared">
-                  <img src="/images/shared.png" alt="">
-                </div>
-              </div>
-            </div>
-            <div class="order-road__item">
-              <div class="order-road__semaphore">
-                <span></span>
-              </div>
-              <div class="order-road__step">
-                <p>LLEGADA A ADUANA</p>
-              </div>
-              <div class="order-road__actions">
-                <div class="road-actions__icon" data-remodal-target="shared">
-                  <img src="/images/shared.png" alt="">
-                </div>
-              </div>
-            </div>
-            <div class="order-road__item">
-              <div class="order-road__semaphore">
+              <div id="semaphoreLightStatus" class="<%= semaphore_light_status(@order) %>">
                 <span></span>
               </div>
               <div class="order-road__step">
                 <p>REPORTE DE SEMÁFORO</p>
               </div>
               <div class="order-road__actions">
+                <div class="road-actions__icon" data-remodal-target="photos">
+                  <img src="/images/camera.png" alt="">
+                </div>
                 <div class="road-actions__icon" data-remodal-target="shared">
                   <img src="/images/shared.png" alt="">
                 </div>
               </div>
             </div>
             <div class="order-road__item">
-              <div class="order-road__semaphore">
+              <div id="lockPictureStatus" class="<%= lock_picture_status(@order) %>">
                 <span></span>
               </div>
               <div class="order-road__step">
                 <p>FOTOGRAFÍA DE CANDADO ENVIADA</p>
               </div>
               <div class="order-road__actions">
+                <div class="road-actions__icon" data-remodal-target="photos">
+                  <img src="/images/camera.png" alt="">
+                </div>
                 <div class="road-actions__icon" data-remodal-target="shared">
                   <img src="/images/shared.png" alt="">
                 </div>
               </div>
             </div>
             <div class="order-road__item">
-              <div class="order-road__semaphore">
+              <div id="storeMerchandiseStatus" class="<%= store_merchandise_status(@order) %>">
                 <span></span>
               </div>
               <div class="order-road__step">
-                <p>ENTREGADO EN ADUANA</p>
+                <p>MERCANCÍA ALMACENADA</p>
               </div>
               <div class="order-road__actions">
                 <div class="road-actions__icon">
@@ -277,6 +235,45 @@
                 <div class="road-actions__icon" data-remodal-target="photos">
                   <img src="/images/camera.png" alt="">
                 </div>
+                <div class="road-actions__icon" data-remodal-target="shared">
+                  <img src="/images/shared.png" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="order-road__item">
+              <div id=onRouteStatus class="<%= on_route_status(@order) %>">
+                <span></span>
+              </div>
+              <div class="order-road__step">
+                <p>INICIO DE RUTA HACIA DESTINO</p>
+              </div>
+              <div class="order-road__actions">
+                <div class="road-actions__icon" data-remodal-target="shared">
+                  <img src="/images/shared.png" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="order-road__item">
+              <div id=arrivalStatus class="<%= arrival_status(@order) %>">
+                <span></span>
+              </div>
+              <div class="order-road__step">
+                <p>LLEGADA A DESTINO</p>
+              </div>
+              <div class="order-road__actions">
+                <div class="road-actions__icon" data-remodal-target="shared">
+                  <img src="/images/shared.png" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="order-road__item">
+              <div id="deliveredToClient" class="<%= delivered_to_client_status(@order) %>">
+                <span></span>
+              </div>
+              <div class="order-road__step">
+                <p>ENTREGADO A CLIENTE</p>
+              </div>
+              <div class="order-road__actions">
                 <div class="road-actions__icon" data-remodal-target="shared">
                   <img src="/images/shared.png" alt="">
                 </div>

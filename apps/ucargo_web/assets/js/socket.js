@@ -107,7 +107,7 @@ class Payment {
               ucargoOrderId : ucargoOrderId.value,
                       amount: amount.value,
                        email: email.value}
-        paymentChannel.push("apply_charge", {body: payload}, 10000)
+        paymentChannel.push("apply_charge", {body: payload}, 50000)
           .receive("ok", (msg) => showResults(msg))
           .receive("error", (reasons) => console.log("create failed", reasons) )
           .receive("timeout", () => console.log("Networking issue...") )
@@ -238,6 +238,13 @@ function update_custom_neighborhood_combo(msg) {
 
 let map = document.querySelector("#map")
 if (map != null) {
+  let roadToCustomStatus = document.querySelector("#roadToCustomStatus")
+  let semaphoreLightStatus = document.querySelector("#semaphoreLightStatus")
+  let lockPictureStatus = document.querySelector("#lockPictureStatus")
+  let storeMerchandiseStatus = document.querySelector("#storeMerchandiseStatus")
+  let onRouteStatus = document.querySelector("#onRouteStatus")
+  let arrivalStatus = document.querySelector("#arrivalStatus")
+  let deliveredToClient = document.querySelector("#deliveredToClient")
   map = new GMaps({
     div: '.ship-map',
     lat: 19.3204969,
@@ -280,9 +287,38 @@ if (map != null) {
   });
 
   assigmentchannel.on("updateOrderStatus", payload => {
-    console.log(payload)
-    truck.setPosition( new google.maps.LatLng( 18.8575121, -99.1599174));
-    map.panTo( new google.maps.LatLng(18.8575121, -99.1599174));
+    let event = payload.body
+    switch(event.name) {
+      case "BeginCustom":
+        roadToCustomStatus.className = "order-road__semaphore active"
+        break;
+      case "ReportGreen":
+        semaphoreLightStatus.className = "order-road__semaphore active"
+        break;
+      case "ReportLock":
+        lockPictureStatus.className = "order-road__semaphore active"
+        break;
+      case "Store":
+        storeMerchandiseStatus.className = "order-road__semaphore active"
+        break;
+      case "BeginRoute":
+        onRouteStatus.className = "order-road__semaphore active"
+        break;
+      case "ReportLocation":
+        onRouteStatus.className = "order-road__semaphore active"
+        let lat = event.latitude
+        let long = event.longitude
+        truck.setPosition( new google.maps.LatLng( lat, long));
+        map.panTo( new google.maps.LatLng(lat, long));
+        map.setZoom(17);
+        break;
+      case "ReportSign":
+        arrivalStatus.className = "order-road__semaphore active"
+        deliveredToClient.className = "order-road__semaphore active"
+        break;
+      default:
+        console.log(event)
+    }
   })
 
   map.drawRoute({

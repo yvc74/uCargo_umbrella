@@ -69,6 +69,8 @@ defmodule UcargoWeb.Router do
     get "/assignments/orders/:order_id/driver/:driver_id", AssignmentController, :assignment_detail
     get "/records", RecordController, :index
     get "/invoices/orders/:order_id/driver/:driver_id", InvoiceController, :index
+    get "/invoices/orders/:order_id/download_xml", InvoiceController, :download_xml
+    get "/invoices/orders/:order_id/download_pdf", InvoiceController, :download_pdf
     get "/favouritedrivers", FavouriteDriverController, :index
     get "/favouritedrivers/profile", FavouriteDriverController, :profile
   end
