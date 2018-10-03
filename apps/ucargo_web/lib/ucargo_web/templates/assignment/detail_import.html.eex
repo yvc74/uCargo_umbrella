@@ -241,7 +241,7 @@
               </div>
             </div>
             <div class="order-road__item">
-              <div class="order-road__semaphore">
+              <div id=onRouteStatus class="<%= on_route_status(@order) %>">
                 <span></span>
               </div>
               <div class="order-road__step">
@@ -254,7 +254,7 @@
               </div>
             </div>
             <div class="order-road__item">
-              <div class="order-road__semaphore">
+              <div id=arrivalStatus class="<%= arrival_status(@order) %>">
                 <span></span>
               </div>
               <div class="order-road__step">
@@ -267,7 +267,7 @@
               </div>
             </div>
             <div class="order-road__item">
-              <div class="<%= delivered_to_client_status(@order) %>">
+              <div id="deliveredToClient" class="<%= delivered_to_client_status(@order) %>">
                 <span></span>
               </div>
               <div class="order-road__step">

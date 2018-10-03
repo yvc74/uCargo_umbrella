@@ -15,7 +15,14 @@ defmodule UcargoWeb.AssignmentView  do
   end
 
   def custom_route_status(order) do
-    if order.status == "OnRouteToCustom" do
+    if order.status == "OnRouteToCustom"
+    || order.status == "ReportedGreen"
+    || order.status == "ReportedRed"
+    || order.status == "ReportedLock"
+    || order.status == "Stored"
+    || order.status == "OnRoute"
+    || order.status == "OnTracking"
+    || order.status == "Signed" do
       "order-road__semaphore active"
     else
       "order-road__semaphore"
@@ -23,15 +30,25 @@ defmodule UcargoWeb.AssignmentView  do
   end
 
   def semaphore_light_status(order) do
-    if order.status == "ReportedGreen" || order.status == "ReportedRed" do
-      "order-road__semaphore active"
+    if order.status == "ReportedGreen"
+    || order.status == "ReportedRed"
+    || order.status == "ReportedLock"
+    || order.status == "Stored"
+    || order.status == "OnRoute"
+    || order.status == "OnTracking"
+    || order.status == "Signed" do
+    "order-road__semaphore active"
     else
       "order-road__semaphore"
     end
   end
 
   def lock_picture_status(order) do
-    if order.status == "ReportedLock" do
+    if order.status == "ReportedLock"
+    || order.status == "Stored"
+    || order.status == "OnRoute"
+    || order.status == "OnTracking"
+    || order.status == "Signed" do
       "order-road__semaphore active"
     else
       "order-road__semaphore"
@@ -39,7 +56,28 @@ defmodule UcargoWeb.AssignmentView  do
   end
 
   def store_merchandise_status(order) do
-    if order.status == "Stored" do
+    if order.status == "Stored"
+    || order.status == "OnRoute"
+    || order.status == "OnTracking"
+    || order.status == "Signed" do
+      "order-road__semaphore active"
+    else
+      "order-road__semaphore"
+    end
+  end
+
+  def on_route_status(order) do
+    if order.status == "OnRoute"
+    || order.status == "OnTracking"
+    || order.status == "Signed" do
+      "order-road__semaphore active"
+    else
+      "order-road__semaphore"
+    end
+  end
+
+  def arrival_status(order) do
+    if order.status == "Signed" do
       "order-road__semaphore active"
     else
       "order-road__semaphore"
