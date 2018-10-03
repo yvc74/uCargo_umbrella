@@ -343,7 +343,7 @@
         <div class="details-slick">
           <div class="details-slick__image">
             <div>
-              <img src="<%= @order.custom_light_picture %>"/>
+              <img src="<%= @order.lock_picture %>"/>
             </div>
           </div>
         </div>
