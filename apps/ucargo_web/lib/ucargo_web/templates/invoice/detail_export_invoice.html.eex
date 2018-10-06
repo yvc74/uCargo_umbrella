@@ -20,7 +20,7 @@
                 <img src="/images/in_icon.svg" />
               </div>
               <div class="departure__text">
-                <p>@order.custom.name</p>
+                <p><%= @order.custom.name %></p>
               </div>
             </div>
             <div class="shipping__arrival">
@@ -28,7 +28,7 @@
                 <img src="/images/out_icon.svg" />
               </div>
               <div class="details__text-black">
-                <p>@order.delivery.name</p>
+                <p><%= @order.delivery.name %></p>
               </div>
             </div>
           </div>
@@ -42,7 +42,7 @@
                   <p>Referencia UCARGO</p>
                 </div>
                 <div class="details__text-black">
-                  <p>@order.planning_id</p>
+                  <p><%= @order.planning_id %></p>
                 </div>
               </div>
             </div>
@@ -55,7 +55,7 @@
                   <p>Encargado del Pedido</p>
                 </div>
                 <div class="details__text-black">
-                  <p>@custom_broker.company</p>
+                  <p><%= @custom_broker.company %></p>
                 </div>
               </div>
             </div>
@@ -70,7 +70,7 @@
                   <p>Tipo de Transporte</p>
                 </div>
                 <div class="details__text-black">
-                  <p>@order.transport</p>
+                  <p><%= @order.transport %></p>
                 </div>
               </div>
             </div>
@@ -83,7 +83,7 @@
                   <p>Peso de la Carga</p>
                 </div>
                 <div class="details__text-black">
-                  <p>@order.weight</p>
+                  <p> <%= @order.weight %></p>
                 </div>
               </div>
             </div>
@@ -97,7 +97,7 @@
                 <p>Mercancía</p>
               </div>
               <div class="details__text-black">
-                <p>@order.merchandise_type</p>
+                <p><%= @order.merchandise_type %></p>
               </div>
             </div>
           </div>
@@ -111,7 +111,7 @@
                   <p>Referencia HOUSE</p>
                 </div>
                 <div class="details__text-black">
-                  <p>@planning.house_reference</p>
+                  <p><%= @planning.house_reference %></p>
                 </div>
               </div>
             </div>
@@ -124,7 +124,7 @@
                   <p>Referencia MASTER</p>
                 </div>
                 <div class="details__text-black">
-                  <p>@planning.master_reference</p>
+                  <p><%= @planning.master_reference %></p>
                 </div>
               </div>
             </div>
@@ -140,12 +140,12 @@
                 <div class="avatar" style="background-image: url(@driver.picture)">
                 </div>
                 <div class="user-data__name-surname">
-                  <p>@driver.name</p>
+                  <p><%= @driver.name %></p>
                 </div>
               </div>
               <div class="carrier-card__user-name">
                 <div class="details__text-gray">
-                  <p>@driver.id</p>
+                  <p><%= @driver.id %></p>
                 </div>
                 <div class="user-name__icons">
                   	<i class="fas fa-star"></i>
@@ -193,22 +193,22 @@
           </div>
           <div class="order-details__information">
             <div class="details-information__text">
-              <p>Dirección de Destino:<span>Aduana Veracruz</span></p>
-              <p>Fecha de Recolección:<span>Marzo, 03</span></p>
+              <p>Dirección de Destino:<span><%= render_uppercase(@order.delivery.name) %></span></p>
+              <p>Fecha de Recolección:<span><%= @order.delivery.date %></span></p>
               <p>Horario de Recolección:<span>08:30 - 14:00 horas</span></p>
-              <p>Responsable:<span>Joel Peréz</span></p>
+              <p>Responsable:<span><%= render_uppercase(@order.delivery.responsible) %></span></p>
             </div>
             <div class="details-information__text">
-              <p>Dirección de Recolección del Vacío:<span>Oceano Pacífico 423-B La Fé 66477, San Nicolás de los Garza, Monterrey, Nuevo León</span></p>
-              <p>Fecha de Recolección:<span>Marzo, 08</span></p>
+              <p>Dirección de Recolección del Vacío:<span><%= render_uppercase(@order.pickup.name) %></span></p>
+              <p>Fecha de Recolección:<span><%= @order.pickup.date %></span></p>
               <p>Horario de Recolección:<span>08:30 - 14:00 horas</span></p>
-              <p>Responsable:<span>María Santos 818 345 7824</span></p>
+              <p>Responsable aqui en export:<span><%= render_uppercase(@order.pickup.responsible) %></span></p>
             </div>
             <div class="details-information__text">
-              <p>Dirección de Recolección de Mercancía:<span>Avenida José Palomo Martínes 502-8 Parque Industrial Omalap 66605, Apodaca, Monterrey, Nuevo León (Frente a gasolinera Pemex, Edificio verde)</span></p>
-              <p>Fecha de Recolección:<span>Marzo, 08</span></p>
+              <p>Dirección de Recolección de Mercancía:<span><%= render_uppercase(@order.custom.name) %><</span></p>
+              <p>Fecha de Recolección:<span><%= @order.custom.date %></span></p>
               <p>Horario de Recolección:<span>08:30 - 14:00 horas</span></p>
-              <p>Responsable:<span>Carmen Farid 55 5785 8016</span></p>
+              <p>Responsable:<span><%= render_uppercase(@order.custom.responsible) %></span></p>
             </div>
           </div>
         </div>
