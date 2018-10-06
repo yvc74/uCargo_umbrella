@@ -1,0 +1,231 @@
+<section class="container" id="details">
+  <div class="details-container">
+    <div class="details-header shell-header">
+      <div class="details-header__eyelash header__eyelash">
+        <p>Seguimiento Cargamento</p>
+      </div>
+      <div class="details-header__new">
+        <a href="/plannings" class="btn">VOLVER A MIS CARGAMENTOS</a>
+      </div>
+    </div>
+    <div class="details-content">
+      <div class="details-content__information">
+        <div class="information-order__description">
+          <div class="information-order__text">
+            <p>INFORMACIÓN SOBRE EL PEDIDO</p>
+          </div>
+          <div class="description__shipping">
+            <div class="shipping__departure">
+              <div class="details__icon">
+                <img src="/images/in_icon.svg" />
+              </div>
+              <div class="departure__text">
+                <p><%= @order.custom.name %></p>
+              </div>
+            </div>
+            <div class="shipping__arrival">
+              <div class="details__icon">
+                <img src="/images/out_icon.svg" />
+              </div>
+              <div class="details__text-black">
+                <p><%= @order.delivery.name %></p>
+              </div>
+            </div>
+          </div>
+          <div class="description__order-reference">
+            <div class="order-reference__reference">
+              <div class="details__icon">
+                <img src="/images/reference_icon.svg" />
+              </div>
+              <div class="details__text">
+                <div class="details__text-gray">
+                  <p>Referencia UCARGO</p>
+                </div>
+                <div class="details__text-black">
+                  <p><%= @order.planning_id %></p>
+                </div>
+              </div>
+            </div>
+            <div class="order-reference__order-manager">
+              <div class="details__icon">
+                <img src="/images/order_icon.svg" />
+              </div>
+              <div class="details__text">
+                <div class="details__text-gray">
+                  <p>Encargado del Pedido</p>
+                </div>
+                <div class="details__text-black">
+                  <p><%= @custom_broker.company %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="description__transport">
+            <div class="transport__transport-type">
+              <div class="details__icon">
+                <img src="/images/transport_icon.svg" />
+              </div>
+              <div class="details__text">
+                <div class="details__text-gray">
+                  <p>Tipo de Transporte</p>
+                </div>
+                <div class="details__text-black">
+                  <p><%= @order.transport %></p>
+                </div>
+              </div>
+            </div>
+            <div class="transport__load-weight">
+              <div class="details__icon">
+                <img src="/images/weight_icon.svg" />
+              </div>
+              <div class="details__text">
+                <div class="details__text-gray">
+                  <p>Peso de la Carga</p>
+                </div>
+                <div class="details__text-black">
+                  <p> <%= @order.weight %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="description__commodity">
+            <div class="details__icon">
+              <img src="/images/commodity_icon.svg" />
+            </div>
+            <div class="details__text">
+              <div class="details__text-gray">
+                <p>Mercancía</p>
+              </div>
+              <div class="details__text-black">
+                <p><%= @order.merchandise_type %></p>
+              </div>
+            </div>
+          </div>
+          <div class="description__home-reference">
+            <div class="home-reference__information">
+              <div class="details__icon">
+                <img src="/images/reference_home_icon.svg" />
+              </div>
+              <div class="details__text">
+                <div class="details__text-gray">
+                  <p>Referencia HOUSE</p>
+                </div>
+                <div class="details__text-black">
+                  <p><%= @planning.house_reference %></p>
+                </div>
+              </div>
+            </div>
+            <div class="home-reference__master">
+              <div class="details__icon">
+                <img src="/images/reference_master_icon.svg" />
+              </div>
+              <div class="details__text">
+                <div class="details__text-gray">
+                  <p>Referencia MASTER</p>
+                </div>
+                <div class="details__text-black">
+                  <p><%= @planning.master_reference %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="information-order__carrier">
+          <div class="carrier-information__title">
+            <p>INFORMACIÓN SOBRE EL TRANSPORTISTA</p>
+          </div>
+          <div class="carrier-information__card-box">
+            <div class="carrier-information__carrier-card">
+              <div class="carrier-card__user-data">
+                <div class="avatar" style="background-image: url(@driver.picture)">
+                </div>
+                <div class="user-data__name-surname">
+                  <p><%= @driver.name %></p>
+                </div>
+              </div>
+              <div class="carrier-card__user-name">
+                <div class="details__text-gray">
+                  <p><%= @driver.id %></p>
+                </div>
+                <div class="user-name__icons">
+                  	<i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+              </div>
+              <div class="carrierd-card__completed-trips">
+                <div class="details__text-gray">
+                  <p>Viajes Terminados</p>
+                </div>
+                <div class="details__text-black">
+                  <p>24</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+				<div class="information-order__qualify">
+					<div class="order-qualify__container">
+						<p>CALIFICA TU VIAJE</p>
+						<div>
+							<div class="details-rating" data-score="1"></div>
+						</div>
+					</div>
+				</div>
+				<div class="information-order__download">
+					<div class="order-download__container">
+						<p>Descarga tu Factura</p>
+						<div>
+              <a href="/invoices/orders/<%=@order.id%>/download_xml">
+							  <img src="/images/xml.png" alt="">
+              </a>
+              <a href="/invoices/orders/<%=@order.id%>/download_pdf">
+							  <img src="/images/pdf.png" alt="">
+              </a>
+						</div>
+					</div>
+				</div>
+        <div class="information-order__details">
+          <div class="order-details__title">
+            <p>DETALLES DEL PEDIDO</p>
+          </div>
+          <div class="order-details__information">
+            <div class="details-information__text">
+              <p>Dirección de Destino test now:<span><%= render_uppercase(@order.delivery.name) %></span></p>
+              <p>Fecha de Recolección:<span><%= @order.delivery.date %></span></p>
+              <p>Horario de Recolección:<span>08:30 - 14:00 horas</span></p>
+              <p>Responsable:<span><%= render_uppercase(@order.delivery.responsible) %></span></p>
+            </div>
+            <div class="details-information__text">
+              <p>Dirección Origen:<span><%= render_uppercase(@order.custom.name)%></span></p>
+              <p>Fecha de Recolección:<span><%= @order.custom.date %></span></p>
+              <p>Horario de Recolección:<span>08:30 - 14:00 horas</span></p>
+              <p>Responsable:<span><%= render_uppercase(@order.custom.responsible) %></span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ship-map"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    $('.details-rating').raty({
+      starOn: 'fas fa-star',
+      starOff: 'far fa-star',
+      score: function() {
+        return $(this).attr('data-score');
+      }
+    });
+
+    new GMaps({
+      div: '.ship-map',
+      lat: -12.043333,
+      lng: -77.028333
+    });
+  })
+</script>
