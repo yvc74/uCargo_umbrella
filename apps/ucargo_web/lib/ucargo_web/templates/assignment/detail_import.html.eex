@@ -6,6 +6,7 @@
 </script>
 <section class="container" id="details">
   <div class="details-container">
+    <input type="hidden" name="ucargoOrderId" id="ucargoOrderId" value="<%= @order.id %>">
     <div class="details-header shell-header">
       <div class="details-header__eyelash header__eyelash">
         <p>Seguimiento Cargamento</p>
@@ -318,8 +319,8 @@
         <input class="details-modal__emails input-emails input-emails__shared" />
       </div>
       <div class="checkbox">
-        <input type="checkbox" id="checkbox-shared" />
-        <label for="checkbox-shared">
+        <input type="checkbox" id="checkboxOnRouteToCustom" />
+        <label for="checkboxOnRouteToCustom">
           <span class="checkbox__icon details-checkbox__icon">
               <span class="checkbox__dot"></span>
           </span>
@@ -327,7 +328,7 @@
         </label>
       </div>
       <div class="ucargo-modal__actions">
-        <button onclick="onSendEmails()" class="btn ucargo-actions__send">ENVIAR</button>
+        <button id="shareOnRouteToCustom" class="btn ucargo-actions__send">ENVIAR</button>
       </div>
     </div>
   </div>

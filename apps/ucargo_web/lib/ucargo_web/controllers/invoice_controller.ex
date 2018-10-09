@@ -2,7 +2,6 @@ defmodule UcargoWeb.InvoiceController do
   use UcargoWeb, :controller
   alias Ucargo.Order
   alias Ucargo.Guardian
-  alias Ucargo.CustomBroker
   alias Ucargo.Driver
   @export 1
   @import 0
