@@ -321,8 +321,8 @@
         <input class="details-modal__emails input-emails input-emails__shared" />
       </div>
       <div class="checkbox">
-        <input type="checkbox" id="checkbox-shared" />
-        <label for="checkbox-shared">
+        <input type="checkbox" id="checkbox-sharedMyMailOnRouteToCustom" />
+        <label for="checkbox-sharedMyMailOnRouteToCustom">
           <span class="checkbox__icon details-checkbox__icon">
               <span class="checkbox__dot"></span>
           </span>

@@ -85,6 +85,7 @@ driver_jorge = Repo.insert! driver_jorge
 
 custom_broker = %CustomBroker{name: "Joel de la Peña",
                           username: "joel65",
+                             email: "misaelpc@msn.com",
                           password: "12345678",
                            company: "Exportadora del Pácifico"}
 

@@ -13,6 +13,7 @@ defmodule Ucargo.CustomBroker do
     field :name, :string
     field :company, :string
     field :username, :string
+    field :email, :string
     field :password, :string
     has_many :plannings, Ucargo.Planning
     many_to_many :drivers, Ucargo.Driver, join_through: "favourite_drivers"
@@ -20,7 +21,7 @@ defmodule Ucargo.CustomBroker do
 
   def create_changeset(%CustomBroker{} = custombroker, attrs) do
     custombroker
-      |> cast(attrs, [:username, :password, :name, :company])
+      |> cast(attrs, [:username, :password, :name, :company, :email])
   end
 
   def login_changeset(%CustomBroker{} = broker, params) do

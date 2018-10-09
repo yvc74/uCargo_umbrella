@@ -69,6 +69,11 @@ paymentChannel.join()
   .receive("ok", resp => { console.log("Joined successfully", resp) })
   .receive("error", resp => { console.log("Unable to join", resp) })
 
+let shareChannel = socket.channel("share:status", {})
+shareChannel.join()
+    .receive("ok", resp => { console.log("Joined successfully", resp) })
+    .receive("error", resp => { console.log("Unable to join", resp) })
+
 class Payment {
 
   setupPayment(){
@@ -245,6 +250,8 @@ if (map != null) {
   let onRouteStatus = document.querySelector("#onRouteStatus")
   let arrivalStatus = document.querySelector("#arrivalStatus")
   let deliveredToClient = document.querySelector("#deliveredToClient")
+  let shareOnRouteToCustom = document.querySelector("#shareOnRouteToCustom")
+
   map = new GMaps({
     div: '.ship-map',
     lat: 19.3204969,
@@ -285,6 +292,26 @@ if (map != null) {
     icon: image,
     title: 'Truck',
   });
+
+  shareOnRouteToCustom.onclick = function(){
+    let modal = $('[data-remodal-id=shared]').remodal();
+    let emails = $('.input-emails__shared').val();
+    let ucargoOrderId = document.querySelector("#ucargoOrderId")
+    let shareMyMail = document.querySelector("#checkboxOnRouteToCustom");
+    sendMails(emails, shareMyMail.checked, ucargoOrderId)
+    modal.close();
+  };
+
+  function sendMails(emails, sendToMe, orderId) {
+    let payload = {emails: emails,
+                 sendToMe: sendToMe,
+                  orderId: orderId.value,
+                   userId: window.userId}
+    shareChannel.push("shareOnRouteToCustom", {body: payload}, 50000)
+          .receive("ok", (msg) => "sent")
+          .receive("error", (reasons) => console.log("create failed", reasons) )
+          .receive("timeout", () => console.log("Networking issue...") )
+  }
 
   assigmentchannel.on("updateOrderStatus", payload => {
     let event = payload.body
