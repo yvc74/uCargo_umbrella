@@ -86,6 +86,7 @@ class Payment {
       let planningId = document.querySelector("#planningId")
       let bidId = document.querySelector("#bidId")
       var inst = $('[data-remodal-id=payment]').remodal();
+      var process_modal = $('[data-remodal-id=process-payment]').remodal();
       console.log(inst)
       OpenPay.setId('ml5gfxvc4swuurvsdqdk');
       OpenPay.setApiKey('pk_74604106c70f480da9691314538ca151');
@@ -95,8 +96,8 @@ class Payment {
 
       $('#pay-button').on('click', function(event) {
           event.preventDefault();
+          process_modal.open();
           $("#pay-button").prop( "disabled", true);
-          OpenPay.token.extractFormAndCreate('payment-form', sucess_callbak, error_callbak);
       });
 
       var sucess_callbak = function(response) {
@@ -119,8 +120,12 @@ class Payment {
       };
 
       $(document).on('closing', '.remodal', function (e) {
-        console.log('Modal is closing' + (e.reason ? ', reason: ' + e.reason : ''));
-        window.location.href = '/assignments/plannings'
+        if (e.target.id === 'process-payment') {
+          console.log('Process modal is closing' + (e.reason ? ', reason: ' + e.reason : ''));
+        } else {
+          console.log('Payment modal is closing' + (e.reason ? ', reason: ' + e.reason : ''));
+          window.location.href = '/assignments/plannings'
+        }
       });
 
       function showResults(msg) {
@@ -128,10 +133,20 @@ class Payment {
         $("#pay-button").prop("disabled", false);
       }
 
+      $(document).on('opened', '.remodal', function (e) {
+        console.log('Modal is opened');
+        if (e.target.id === 'process-payment') {
+          OpenPay.token.extractFormAndCreate('payment-form', sucess_callbak, error_callbak);
+        }
+      });
+
       var error_callbak = function(response) {
-          var desc = response.data.description != undefined ? response.data.description : response.message;
-          alert("ERROR [" + response.status + "] " + desc);
-          $("#pay-button").prop("disabled", false);
+        console.log("Error on payment");
+        console.log(process_modal);
+        process_modal.close();
+        var desc = response.data.description != undefined ? response.data.description : response.message;
+        //alert("ERROR [" + response.status + "] " + desc);
+        $("#pay-button").prop("disabled", false);
       };
     }
   }
