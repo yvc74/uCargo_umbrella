@@ -139,6 +139,10 @@
       </div>
    </div>
 </section>
+<div id="process-payment" class="remodal ucargo-modal" data-remodal-id="process-payment" data-remodal-options="hashTracking: false">
+   <p class="payment-finish__title">PROCESANDO</p>
+   <div class="loader"></div>
+</div>
 <div class="remodal ucargo-modal" data-remodal-id="payment" data-remodal-options="hashTracking: false">
    <p class="payment-finish__title">PAGO EXITOSO</p>
    <div class="payment-finish__icon">
