@@ -99,13 +99,15 @@ defmodule UcargoWeb.ShipController do
     custom = %Custom{}
     delivery = %Delivery{}
     pickup = %Pickup{}
-    {:ok, _custom_catalog} = CustomCatalog.get_by_name(custom_params["name"])
+    {:ok, _custom_catalog} = CustomCatalog.get_by_name(delivery_params["name"])
     order_up_prms = order_params
       |> Map.put("score", 4)
       |> Map.put("distance", "500")
       |> Map.put("order_number", "47848")
       |> Map.put("deadline", NaiveDateTime.utc_now())
     order_chs = Order.create_changeset(order, order_up_prms)
+    drivers = Driver.fetch_all
+    order_with_drivers_chs = Ecto.Changeset.put_assoc(order_chs, :drivers, drivers)
 
     ct_up_prms = custom_params
       |> Map.put("latitude", 32.5498703)
@@ -131,7 +133,7 @@ defmodule UcargoWeb.ShipController do
 
     Planning.create_with_order_export({master_reference_params,
                                        house_reference_params,
-                                       order_chs, cstm_chgset,
+                                       order_with_drivers_chs, cstm_chgset,
                                        pck_chgset, deliver_chgset,
                                        broker.id})
     conn
