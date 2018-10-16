@@ -22,6 +22,7 @@
          <div class="payment-form__content">
             <div class="payment-form__accordion">
                <form action="#" method="POST" id="payment-form">
+               <input type="hidden" name="form_name" id="form_name" value="paymentForm">
                <input type="hidden" name="token_id" id="token_id">
                <input type="hidden" name="planningId" id="planningId" value="<%= @planning.id %>">
                <input type="hidden" name="bidId" id="bidId" value="<%= @bid.id %>">
@@ -143,7 +144,17 @@
    <p class="payment-finish__title">PROCESANDO</p>
    <div class="loader"></div>
 </div>
-<div class="remodal ucargo-modal" data-remodal-id="payment" data-remodal-options="hashTracking: false">
+<div class="remodal ucargo-modal" data-remodal-id="errorReporter" data-remodal-options="hashTracking: false">
+   <p class="payment-finish__title">PAGO NO EXITOSO</p>
+   <div class="payment-finish__icon">
+      <i class="fas fa-check"></i>
+   </div>
+   <p id="errorLabel" class="payment-finish__legend">Descripción</p>
+   <button data-remodal-action="confirm" class="btn payment-finish__send">
+   ACEPTAR
+   </button>
+</div>
+<div class="remodal ucargo-modal" id="payment" data-remodal-id="payment" data-remodal-options="hashTracking: false">
    <p class="payment-finish__title">PAGO EXITOSO</p>
    <div class="payment-finish__icon">
       <i class="fas fa-check"></i>
@@ -154,19 +165,32 @@
    ACEPTAR
    </button>
    <div class="payment-finish__actions">
-      <a href="">
       <img src="/images/print.png" alt="">
-      </a>
-      <a href="">
       <img src="/images/download.png" alt="">
-      </a>
-      <a href="">
-      <img src="/images/shared.png" alt="">
-      </a>
+      <img id="emailShareImage" src="/images/shared.png" alt="">
    </div>
 </div>
-<script type="text/javascript">
-   document.addEventListener("DOMContentLoaded", function(event) {
 
-   });
-</script>
+<div class="remodal ucargo-modal" data-remodal-id="emailShare" data-remodal-options="hashTracking: false">
+  <img class="ucargo-modal__closed" src="/images/closed.png" data-remodal-action="close" alt="">
+  <p class="ucargo-modal__title">COMPARTIR FACTURA</p>
+  <div class="ucargo-modal__content">
+    <div class="details-modal__shared">
+      <div class="details-emails__container">
+        <input class="details-modal__emails input-emails input-emails__shared" />
+      </div>
+      <div class="checkbox">
+        <input type="checkbox" id="checkboxShareInvoice" />
+        <label for="checkboxShareInvoice">
+          <span class="checkbox__icon details-checkbox__icon">
+              <span class="checkbox__dot"></span>
+          </span>
+          <span class="checkbox__text details-checkbox__text">Enviar copia a mi correo.</span>
+        </label>
+      </div>
+      <div class="ucargo-modal__actions">
+        <button id="shareOnRouteToCustom" class="btn ucargo-actions__send">ENVIAR</button>
+      </div>
+    </div>
+  </div>
+</div>
