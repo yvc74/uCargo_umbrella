@@ -11,15 +11,13 @@
       <div class="profile-info__user">
         <div class="profile-info__data">
           <div class="profile-info__extra">
-            <p class="profile-name">STEREN S.A. DE C.V.</p>
+            <p class="profile-name"><%= @driver.name %></p>
             <p class="profile-rfc">R.F.C CUPU800825569</p>
             <p class="profile-cal">Calificación <br/> 
               <span>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
+                <%= for _ <- 1..@driver.score do %>
+                  <i class="fas fa-star"></i>
+                <% end %>
               </span>
             </p>
           </div>
@@ -27,14 +25,14 @@
             <div class="profile-info">
               <div class="profile-info__phone">
                 <img src="/images/phone.png" alt="">
-                <p>563 2846 4658</p>
+                <p><%= @driver.phone %></p>
               </div>
               <div class="profile-info__email">
                 <img src="/images/email.png" alt="">
-                <p>nombre@gmail.com</p>
+                <p><%= @driver.email %></p>
               </div>
             </div>
-            <p class="profile-address">Calzada Vallejo 491 Local A-C, Defensores de la República, 07780 Gustavo A. Madero, Cdmx</p>
+            <p class="profile-address"><%= @driver.email %></p>
           </div>
         </div>
         <p class="profile-help">Para hacer un cambio en tus datos manda un correo a <span>ayuda@ucargo.mx</span></p>

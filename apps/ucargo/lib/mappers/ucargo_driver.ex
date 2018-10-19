@@ -29,6 +29,7 @@ defmodule Ucargo.Driver do
   def signup_changeset(%Driver{} = driver, attrs) do
     driver
       |> cast(attrs, [:username, :email, :password, :picture, :name, :phone, :score])
+      |> assoc_constraint(:custom_brokers)
       |> validate_required([:username, :email, :password, :picture, :name, :phone])
       |> unique_constraint(:email)
       |> unique_constraint(:username)

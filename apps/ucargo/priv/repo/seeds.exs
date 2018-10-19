@@ -68,28 +68,35 @@ Repo.insert! transport_catalog8
 
 
 driver_manuel = %Driver{username: "manuelhz", email: "misaelpc@msn.com", password: "12345678",
-                  picture: "", name: "Manuel Hernandez Zamora", phone: "663353733",
+                  picture: "www.misaelpc.com/s3/developer.miio.com/uploads/baby_bowser.png", name: "Manuel Hernandez Zamora", phone: "663353733",
                   score: 5}
 
 driver_juan = %Driver{username: "misaelpc", email: "misaelpcgm@gmail.com", password: "12345678",
-                  picture: "", name: "Juan Ramirez Perez", phone: "66334433",
+                  picture: "www.misaelpc.com/s3/developer.miio.com/uploads/baby_bowser.png", name: "Juan Ramirez Perez", phone: "66334433",
                   score: 4}
 
 driver_jorge = %Driver{username: "jorgema", email: "misaelpcyahoo@yahoo.com", password: "12345678",
-                  picture: "", name: "Jorge Mendez Alvarez", phone: "223353733",
+                  picture: "www.misaelpc.com/s3/developer.miio.com/uploads/baby_bowser.png", name: "Jorge Mendez Alvarez", phone: "223353733",
                   score: 3}
 
 driver_manuel = Repo.insert! driver_manuel
 driver_juan = Repo.insert! driver_juan
 driver_jorge = Repo.insert! driver_jorge
 
-custom_broker = %CustomBroker{name: "Joel de la Peña",
+# custom_broker = %CustomBroker{name: "Joel de la Peña",
+#                           username: "joel65",
+#                              email: "misaelpc@msn.com",
+#                           password: "12345678",
+#                            company: "Exportadora del Pácifico"}
+custom_broker_params = %{name: "Joel de la Peña",
                           username: "joel65",
                              email: "misaelpc@msn.com",
                           password: "12345678",
                            company: "Exportadora del Pácifico"}
+custom_broker_changeset = CustomBroker.create_changeset(%CustomBroker{}, custom_broker_params)
+driver_with_custom_brokers_changeset = Ecto.Changeset.put_assoc(custom_broker_changeset, :drivers, [driver_manuel, driver_juan])
+broker = Repo.insert!(driver_with_custom_brokers_changeset)
 
-broker = Repo.insert!(custom_broker)
 
 import_orders_params = %{score: 4, deadline: NaiveDateTime.utc_now(),
                   status: "New", type: 0, distance: "350",

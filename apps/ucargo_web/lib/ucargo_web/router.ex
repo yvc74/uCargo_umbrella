@@ -72,7 +72,7 @@ defmodule UcargoWeb.Router do
     get "/invoices/orders/:order_id/download_xml", InvoiceController, :download_xml
     get "/invoices/orders/:order_id/download_pdf", InvoiceController, :download_pdf
     get "/favouritedrivers", FavouriteDriverController, :index
-    get "/favouritedrivers/profile", FavouriteDriverController, :profile
+    get "/favouritedrivers/profile/:driver_id", FavouriteDriverController, :profile
   end
 
   # Other scopes may use custom stacks.

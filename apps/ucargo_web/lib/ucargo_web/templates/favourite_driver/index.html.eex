@@ -41,19 +41,19 @@
                </tr>
             </thead>
             <tbody class="table-body">
-              <tr>          
+            <%= for driver <- @drivers do %>
+              <tr onclick="navigate('/favouritedrivers/profile/<%= driver.id %>');">          
                 <td> 
-                  <div class="avatar" style="background-image: url('//www.misaelpc.com/s3/developer.miio.com/uploads/baby_bowser.png');"></div>
+                  <div class="avatar" style="background-image: url('//<%= driver.picture %>');"></div>
                 </td>
-                <td>Primer Nombre Apellido Paterno</td>
-                <td>Juan 3452</td>
+                <td><%= driver.name %></td>
+                <td><%= driver.username %></td>
                 <td>
+
                   <p class="favourite-cal">
+                <%= for _ <- 1..driver.score do %>
                     <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+                  <% end %>
                   </p>
                 </td>
                 <td>13 viajes</td>
@@ -61,6 +61,7 @@
                   <img src="/images/closed.png" alt="">
                 </td>
               </tr>
+            <%= end %>
             </tbody>
          </table>
       </div>
