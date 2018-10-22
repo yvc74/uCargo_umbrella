@@ -69,15 +69,15 @@ Repo.insert! transport_catalog8
 
 driver_manuel = %Driver{username: "manuelhz", email: "misaelpc@msn.com", password: "12345678",
                   picture: "www.misaelpc.com/s3/developer.miio.com/uploads/baby_bowser.png", name: "Manuel Hernandez Zamora", phone: "663353733",
-                  score: 5}
+                  score: 5, rfc: "XAXX010101000", address: "Anillo periferico 2, colonia constitución 1917, delegación iztapalapa"}
 
 driver_juan = %Driver{username: "misaelpc", email: "misaelpcgm@gmail.com", password: "12345678",
                   picture: "www.misaelpc.com/s3/developer.miio.com/uploads/baby_bowser.png", name: "Juan Ramirez Perez", phone: "66334433",
-                  score: 4}
+                  score: 4, rfc: "XAXX010101000", address: "santa maria aztahuacan,colonia ejidos de santa maria, delegación iztapalapa" }
 
 driver_jorge = %Driver{username: "jorgema", email: "misaelpcyahoo@yahoo.com", password: "12345678",
                   picture: "www.misaelpc.com/s3/developer.miio.com/uploads/baby_bowser.png", name: "Jorge Mendez Alvarez", phone: "223353733",
-                  score: 3}
+                  score: 3, rfc: "XAXX010101000", address: "calle acahuatl, colonia canal de chalco, delegación iztapalapa"}
 
 driver_manuel = Repo.insert! driver_manuel
 driver_juan = Repo.insert! driver_juan

@@ -17,6 +17,8 @@ defmodule Ucargo.Driver do
     field :phone, :string
     field :picture, :string
     field :password_conf, :string, virtual: true
+    field :rfc, :string
+    field :address, :string
     has_one :bid, Ucargo.Bid
     many_to_many :custom_brokers, Ucargo.CustomBroker, join_through: "favourite_drivers"
     many_to_many :orders, Ucargo.Order, join_through: Ucargo.AvailableOrder

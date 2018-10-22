@@ -12,7 +12,7 @@
         <div class="profile-info__data">
           <div class="profile-info__extra">
             <p class="profile-name"><%= @driver.name %></p>
-            <p class="profile-rfc">R.F.C CUPU800825569</p>
+            <p class="profile-rfc">R.F.C <%= @driver.rfc %></p>
             <p class="profile-cal">Calificación <br/> 
               <span>
                 <%= for _ <- 1..@driver.score do %>
@@ -32,7 +32,7 @@
                 <p><%= @driver.email %></p>
               </div>
             </div>
-            <p class="profile-address"><%= @driver.email %></p>
+            <p class="profile-address"><%= @driver.address %></p>
           </div>
         </div>
         <p class="profile-help">Para hacer un cambio en tus datos manda un correo a <span>ayuda@ucargo.mx</span></p>
