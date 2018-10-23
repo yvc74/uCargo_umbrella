@@ -22,6 +22,8 @@ import ratyFa from "./ratyFa"
 import all from "./all"
 import sidebar from "./sidebar"
 import details from "./details"
+import payment from "./payment"
+
 //import launch from "./launch"
 // Import local files
 //

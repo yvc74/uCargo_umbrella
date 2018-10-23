@@ -11,10 +11,18 @@ defmodule UcargoWeb.ShareChannel do
   end
 
   def handle_in("shareOnRouteToCustom", %{"body" => share_body}, socket) do
-    IO.inspect Share.share_on_route_to_custom(share_body["emails"],
+    Share.share_on_route_to_custom(share_body["emails"],
                                    share_body["userId"],
                                    share_body["sendToMe"],
                                    share_body["orderId"])
+    {:reply, {:ok, %{}}, socket}
+  end
+
+  def handle_in("shareInvoice", %{"body" => share_body}, socket) do
+    Share.share_invoice(share_body["emails"],
+                        share_body["userId"],
+                        share_body["sendToMe"],
+                        share_body["orderId"])
     {:reply, {:ok, %{}}, socket}
   end
 end

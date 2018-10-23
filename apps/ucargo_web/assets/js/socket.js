@@ -4,7 +4,7 @@
 // To use Phoenix channels, the first step is to import Socket
 // and connect at the socket path in "lib/web/endpoint.ex":
 import {Socket} from "phoenix"
-
+import {Payment} from "./payment"
 let socket = new Socket("/socket", {params: {token: window.userToken}})
 
 // When you connect, you'll often need to authenticate the client.
@@ -64,95 +64,10 @@ channel.join()
   .receive("ok", resp => { console.log("Joined successfully", resp) })
   .receive("error", resp => { console.log("Unable to join", resp) })
 
-let paymentChannel = socket.channel("payment:charge", {})
-paymentChannel.join()
-  .receive("ok", resp => { console.log("Joined successfully", resp) })
-  .receive("error", resp => { console.log("Unable to join", resp) })
-
 let shareChannel = socket.channel("share:status", {})
 shareChannel.join()
     .receive("ok", resp => { console.log("Joined successfully", resp) })
     .receive("error", resp => { console.log("Unable to join", resp) })
-
-class Payment {
-
-  setupPayment(){
-    let path = window.location.pathname
-    if (path.includes("payment_detail")) {
-      let name = document.querySelector("#holder_name")
-      let amount = document.querySelector("#amount")
-      let email = document.querySelector("#holder_email")
-      let ucargoOrderId = document.querySelector("#ucargoOrderId")
-      let planningId = document.querySelector("#planningId")
-      let bidId = document.querySelector("#bidId")
-      var inst = $('[data-remodal-id=payment]').remodal();
-      var process_modal = $('[data-remodal-id=process-payment]').remodal();
-      console.log(inst)
-      OpenPay.setId('ml5gfxvc4swuurvsdqdk');
-      OpenPay.setApiKey('pk_74604106c70f480da9691314538ca151');
-      OpenPay.setSandboxMode(true);
-      //Se genera el id de dispositivo
-      var deviceSessionId = OpenPay.deviceData.setup("payment-form", "deviceIdHiddenFieldName");
-
-      $('#pay-button').on('click', function(event) {
-          event.preventDefault();
-          process_modal.open();
-          $("#pay-button").prop( "disabled", true);
-      });
-
-      var sucess_callbak = function(response) {
-        var token_id = response.data.id;
-        console.log("Get Token Succesfully")
-        console.log(name)
-        console.log(amount)
-        let payload = {token: token_id,
-             deviceSessionId: deviceSessionId,
-                        name: name.value,
-                  planningId: planningId.value,
-                       bidId: bidId.value,
-              ucargoOrderId : ucargoOrderId.value,
-                      amount: amount.value,
-                       email: email.value}
-        paymentChannel.push("apply_charge", {body: payload}, 50000)
-          .receive("ok", (msg) => showResults(msg))
-          .receive("error", (reasons) => console.log("create failed", reasons) )
-          .receive("timeout", () => console.log("Networking issue...") )
-      };
-
-      $(document).on('closing', '.remodal', function (e) {
-        if (e.target.id === 'process-payment') {
-          console.log('Process modal is closing' + (e.reason ? ', reason: ' + e.reason : ''));
-        } else {
-          console.log('Payment modal is closing' + (e.reason ? ', reason: ' + e.reason : ''));
-          window.location.href = '/assignments/plannings'
-        }
-      });
-
-      function showResults(msg) {
-        inst.open();
-        $("#pay-button").prop("disabled", false);
-      }
-
-      $(document).on('opened', '.remodal', function (e) {
-        console.log('Modal is opened');
-        if (e.target.id === 'process-payment') {
-          OpenPay.token.extractFormAndCreate('payment-form', sucess_callbak, error_callbak);
-        }
-      });
-
-      var error_callbak = function(response) {
-        console.log("Error on payment");
-        console.log(process_modal);
-        process_modal.close();
-        var desc = response.data.description != undefined ? response.data.description : response.message;
-        //alert("ERROR [" + response.status + "] " + desc);
-        $("#pay-button").prop("disabled", false);
-      };
-    }
-  }
-}
-
-
 
 $('#planning_order_delivery_state').on('select2:select', function (e) {
     console.log(e.params.data.id);
@@ -373,6 +288,24 @@ if (map != null) {
   });
 }
 
-let payment = new Payment
-payment.setupPayment()
+class FormActions {
+  setup() {
+    let formIndentifier = document.querySelector("#form_name")
+    switch(formIndentifier.value) {
+      case "paymentForm":
+        let paymentChannel = socket.channel("payment:charge", {})
+        paymentChannel.join()
+          .receive("ok", resp => { console.log("Joined successfully", resp) })
+          .receive("error", resp => { console.log("Unable to join", resp) })
+        let payment = new Payment(paymentChannel, shareChannel)
+        break;
+      default:
+        break;
+    }
+  }
+}
+
+let actions = new FormActions
+actions.setup()
+
 export default socket
