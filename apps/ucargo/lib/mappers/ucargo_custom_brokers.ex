@@ -8,6 +8,7 @@ defmodule Ucargo.CustomBroker do
   alias Ucargo.Repo
   alias Ucargo.CustomBroker
   alias Ucargo.Planning
+  alias Ucargo.Driver
 
   schema "custom_brokers" do
     field :name, :string
@@ -92,6 +93,14 @@ defmodule Ucargo.CustomBroker do
           where: p.custom_broker_id == ^broker.id and p.already_assigned == true,
           preload: [auction: [:bids], order: [:pickup, :delivery, :custom]],
           select: p
+    Repo.all(query)
+  end
+  
+  def fetch_favourite_drivers(broker) do
+    query = from c in CustomBroker,
+    where: c.id == ^broker.id,
+    preload: [:drivers],
+    select: c
     Repo.all(query)
   end
 
