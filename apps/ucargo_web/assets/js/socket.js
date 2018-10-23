@@ -297,7 +297,7 @@ class FormActions {
         paymentChannel.join()
           .receive("ok", resp => { console.log("Joined successfully", resp) })
           .receive("error", resp => { console.log("Unable to join", resp) })
-        let payment = new Payment(paymentChannel)
+        let payment = new Payment(paymentChannel, shareChannel)
         break;
       default:
         break;

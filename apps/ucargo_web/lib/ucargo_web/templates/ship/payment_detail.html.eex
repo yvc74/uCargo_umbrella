@@ -165,13 +165,17 @@
    ACEPTAR
    </button>
    <div class="payment-finish__actions">
+    <a href="/invoices/orders/<%=@planning.order.id%>/download_pdf">
       <img src="/images/print.png" alt="">
+    </a>
+    <a href="/invoices/orders/<%=@planning.order.id%>/download_pdf">
       <img src="/images/download.png" alt="">
+    </a>
       <img id="emailShareImage" src="/images/shared.png" alt="">
    </div>
 </div>
 
-<div class="remodal ucargo-modal" data-remodal-id="emailShare" data-remodal-options="hashTracking: false">
+<div class="remodal ucargo-modal" id="paymentEmailShare" data-remodal-id="emailShare" data-remodal-options="hashTracking: false">
   <img class="ucargo-modal__closed" src="/images/closed.png" data-remodal-action="close" alt="">
   <p class="ucargo-modal__title">COMPARTIR FACTURA</p>
   <div class="ucargo-modal__content">
@@ -189,7 +193,7 @@
         </label>
       </div>
       <div class="ucargo-modal__actions">
-        <button id="shareOnRouteToCustom" class="btn ucargo-actions__send">ENVIAR</button>
+        <button id="sharePayment" class="btn ucargo-actions__send">ENVIAR</button>
       </div>
     </div>
   </div>

@@ -1,6 +1,7 @@
 export class Payment {
 
-  constructor(channel) {
+  constructor(channel, shareChannel) {
+    this.shareChannel = shareChannel
     this.paymentChannel = channel
     this.setupForm()
     this.setupPayment()
@@ -18,10 +19,10 @@ export class Payment {
     this.process_modal = $('[data-remodal-id=process-payment]').remodal();
     this.errorModal = $('[data-remodal-id=errorReporter]').remodal();
     this.shareRemodal = $('[data-remodal-id=emailShare]').remodal();
+    this.sharePayment = document.querySelector("#sharePayment")
   }
 
   setupPayment() {
-    console.log(this.confirmModal)
     OpenPay.setId('ml5gfxvc4swuurvsdqdk');
     OpenPay.setApiKey('pk_74604106c70f480da9691314538ca151');
     OpenPay.setSandboxMode(true);
@@ -33,6 +34,25 @@ export class Payment {
       sharingPayment = true
       self.confirmModal.close();
     };
+
+    sharePayment.onclick = function(){
+      let emails = $('.input-emails__shared').val();
+      let ucargoOrderId = document.querySelector("#ucargoOrderId")
+      let shareMyMail = document.querySelector("#checkboxShareInvoice");
+      sendMails(emails, shareMyMail.checked, ucargoOrderId)
+      self.shareRemodal.close();
+    };
+
+    function sendMails(emails, sendToMe, orderId) {
+      let payload = {emails: emails,
+                   sendToMe: sendToMe,
+                    orderId: orderId.value,
+                     userId: window.userId}
+      self.shareChannel.push("shareInvoice", {body: payload}, 50000)
+            .receive("ok", (msg) => "sent")
+            .receive("error", (reasons) => console.log("create failed", reasons) )
+            .receive("timeout", () => console.log("Networking issue...") )
+    }
 
     $('#pay-button').on('click', function(event) {
         event.preventDefault();
@@ -65,6 +85,9 @@ export class Payment {
       } else if (e.target.id === 'payment' && sharingPayment)  {
         console.log('Payment modal is closing' + (e.reason ? ', reason: ' + e.reason : ''));
         self.shareRemodal.open();
+      } else if (e.target.id === 'paymentEmailShare' && sharingPayment)  {
+        console.log('Share email modal is closing' + (e.reason ? ', reason: ' + e.reason : ''));
+        self.confirmModal.open();
       } else if (e.target.id === 'payment')  {
         console.log('Payment modal is closing' + (e.reason ? ', reason: ' + e.reason : ''));
         window.location.href = '/assignments/plannings'

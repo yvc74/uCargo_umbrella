@@ -25,7 +25,7 @@ defmodule Kraken.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:bamboo, "~> 0.8"},
+      {:bamboo, "~> 1.1"},
       {:httpotion, "~> 3.1.0"},
       {:jason, "~> 1.1"},
       {:timex, "~> 3.1"}

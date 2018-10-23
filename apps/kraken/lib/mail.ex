@@ -21,4 +21,14 @@ defmodule Kraken.Mail do
       |> html_body("<strong>#{message}</strong>")
   end
 
+  def share_invoice(mail_list, message, invoice_xml, invoice_pdf) do
+    new_email()
+      |> to(mail_list)
+      |> from("ucargo.service@ucargo.com")
+      |> subject("Pago UCargo")
+      |> put_attachment(%Bamboo.Attachment{filename: "invoice.xml", data: invoice_xml})
+      |> put_attachment(%Bamboo.Attachment{filename: "invoice.pdf", data: invoice_pdf})
+      |> html_body("<strong>#{message}</strong>")
+  end
+
 end
