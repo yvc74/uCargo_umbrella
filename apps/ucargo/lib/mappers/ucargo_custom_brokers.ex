@@ -8,7 +8,6 @@ defmodule Ucargo.CustomBroker do
   alias Ucargo.Repo
   alias Ucargo.CustomBroker
   alias Ucargo.Planning
-  alias Ucargo.Driver
 
   schema "custom_brokers" do
     field :name, :string

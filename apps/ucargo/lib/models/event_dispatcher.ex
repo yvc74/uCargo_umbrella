@@ -54,7 +54,6 @@ defmodule Ucargo.EventDispatcher do
 
   def dispatch(%{"id" => uuid, "name" => "ReportLockExport", "picture" => lock_picture}, date, _driver, available_order, fsm_mod) do
     order_fsm = fsm_mod.load(available_order.status)
-    IO.inspect order_fsm
     changeset = Event.changeset(%Event{}, %{uuid: uuid, name: "ReportLock", date: date, picture: lock_picture})
     case changeset.valid? do
        true ->
