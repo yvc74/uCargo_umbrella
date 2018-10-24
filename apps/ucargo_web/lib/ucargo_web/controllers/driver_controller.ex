@@ -135,7 +135,8 @@ defmodule UcargoWeb.DriverController do
     %{"date" => date} = event
     driver = conn.assigns[:driver]
     with {:ok, available_order} <- AvailableOrder.validate_available_order(driver.id, order_number),
-         {:ok, event} <- EventDispatcher.dispatch(event, date, driver, available_order) do
+         {:ok, fsm_mod} <- event_fsm_module(available_order),
+         {:ok, event} <- EventDispatcher.dispatch(event, date, driver, available_order, fsm_mod) do
       Updater.send_event(available_order.order.planning.custom_broker.id, event)
       conn
         |> put_status(200)
@@ -143,6 +144,16 @@ defmodule UcargoWeb.DriverController do
     else
       {:error, error} ->
         {:error, error}
+    end
+  end
+
+  def event_fsm_module(available_order) do
+    order = available_order.order
+    case order.type do
+      0 ->
+        {:ok, Ucargo.Fsm}
+      1 ->
+        {:ok, Ucargo.ExportFsm}
     end
   end
 end
