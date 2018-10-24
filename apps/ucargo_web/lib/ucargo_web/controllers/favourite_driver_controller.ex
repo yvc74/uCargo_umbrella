@@ -13,7 +13,6 @@ defmodule UcargoWeb.FavouriteDriverController do
 
   def profile(conn, %{"driver_id" => driver_id}) do
     driver = Driver.find_by(:id, driver_id)
-    IO.inspect driver.name
     render conn, "profile.html",  driver: driver, section_name: "favourites"
   end
 end
