@@ -14,6 +14,13 @@ defmodule UcargoWeb.ShipController do
   alias Ucargo.Driver
   @export 1
   @import 0
+  @hours ["01:00": 1, "02:00": 2, "03:00": 3, "04:00": 4, "05:00": 5, "06:00": 6,
+          "07:00": 7, "08:00": 8, "09:00": 9, "10:00": 10, "11:00": 11, "12:00": 12,
+          "13:00": 13, "14:00": 14, "15:00": 15, "16:00": 16, "17:00": 17, "18:00": 18,
+          "19:00": 19, "20:00": 29, "21:00": 21, "22:00": 22, "23:00": 23, "24:00": 24]
+  @minutes ["00": 0, "30": 30]
+  @days ["1 día": 1, "2 días": 2, "3 día": 3, "4 días": 4, "5 días": 5, "6 días": 6,
+         "7 días": 7, "8 días": 8, "9 días": 9, "10 días": 10, "11 días": 11, "12 días": 12]
 
   def index(conn, _params) do
     broker = Guardian.Plug.current_resource(conn)
@@ -33,10 +40,10 @@ defmodule UcargoWeb.ShipController do
     case planning_type do
       "import" ->
         changeset = Planning.create_changeset(%Planning{}, %{})
-        render conn, "create_import.html", changeset: changeset, section_name: "plannings", transport_catalog: transport_catalog, custom_catalog: custom_catalog_all, states: states
+        render conn, "create_import.html", changeset: changeset, section_name: "plannings", transport_catalog: transport_catalog, custom_catalog: custom_catalog_all, states: states, hours: @hours, minutes: @minutes
       "export" ->
         changeset = Planning.create_changeset(%Planning{}, %{})
-        render conn, "create_export.html", changeset: changeset, section_name: "plannings", transport_catalog: transport_catalog, custom_catalog: custom_catalog_all, states: states
+        render conn, "create_export.html", changeset: changeset, section_name: "plannings", transport_catalog: transport_catalog, custom_catalog: custom_catalog_all, states: states, hours: @hours, minutes: @minutes
     end
   end
 
