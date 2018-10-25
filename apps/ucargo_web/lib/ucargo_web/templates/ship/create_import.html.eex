@@ -35,12 +35,12 @@
               <p class="new-field__title">Horario  de Recolección</p>
               <div class="new-field__group">
                 <div class="new-field__container">
-                  <%=  select(custom, :hour, ["12:00": 12, "13:00": 13]) %>
+                  <%=  select(custom, :hour, @hours) %>
                 </div>
               </div>
               <div class="new-field__group">
                 <div class="new-field__container">
-                  <%=  select(custom, :minute, ["00": 13, "30": 30]) %>
+                  <%=  select(custom, :minute, @minutes) %>
                 </div>
               </div>
             </div>
@@ -69,12 +69,12 @@
               <p class="new-field__title">Horario  de Entrega</p>
               <div class="new-field__group">
                 <div class="new-field__container">
-                  <%=  select(delivery, :hour, ["12:00": 12, "13:00": 13]) %>
+                  <%=  select(delivery, :hour, @hours) %>
                 </div>
               </div>
               <div class="new-field__group">
                 <div class="new-field__container">
-                  <%=  select(delivery, :minute, ["00": 13, "30": 30]) %>
+                  <%=  select(delivery, :minute, @minutes) %>
                 </div>
               </div>
             </div>
@@ -187,20 +187,20 @@
               <div class="new-field__group">
                 <div class="new-field__container">
                   <select>
-                    <option value="one">one</option>
-                    <option value="two">two</option>
-                    <option value="three">three</option>
-                    <option value="four">four</option>
+                    <option value="1 día">1 día</option>
+                    <option value="2 días">2 días</option>
+                    <option value="3 días">3 días</option>
+                    <option value="4 días">4 días</option>
                   </select>
                 </div>
               </div>
               <div class="new-field__group">
                 <div class="new-field__container">
                   <select>
-                    <option value="one">one</option>
-                    <option value="two">two</option>
-                    <option value="three">three</option>
-                    <option value="four">four</option>
+                    <option value="1 hora">1 hora</option>
+                    <option value="2 horas">2 horas</option>
+                    <option value="3 horas">3 horas</option>
+                    <option value="4 horas">4 horas</option>
                   </select>
                 </div>
               </div>
