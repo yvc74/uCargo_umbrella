@@ -299,6 +299,12 @@ class FormActions {
           .receive("error", resp => { console.log("Unable to join", resp) })
         let payment = new Payment(paymentChannel, shareChannel)
         break;
+      case "signIn":
+      console.log(session_error)
+      if (session_error) {
+        let modal = $('[data-remodal-id=session_error]').remodal();
+        modal.open();
+      }
       default:
         break;
     }

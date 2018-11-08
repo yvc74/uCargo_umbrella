@@ -3,6 +3,12 @@ defmodule UcargoWeb.SessionFallbackController do
   Error controller for session controller
   """
   use  UcargoWeb, :controller
+  alias Ucargo.CustomBroker
+
+  def call(conn, [not_found: error]) do
+    changeset = CustomBroker.create_changeset(%CustomBroker{}, %{})
+    render conn, "signin.html", changeset: changeset, session_error: true
+  end
 
   def call(conn, {:error, changeset = %Ecto.Changeset{}}) do
     conn

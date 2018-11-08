@@ -1,3 +1,6 @@
+<script>
+	var session_error = <%= @session_error %>
+</script>
 <section class="signin">
 	<div class="signin__logo">
 		<img src="../images/brand.png" />
@@ -5,6 +8,7 @@
 	<div class="signin__slogan">
 		<p>Inovando la manera de mover <br/> tu carga, siempre segura.</p>
 	</div>
+	<input type="hidden" name="form_name" id="form_name" value="signIn">
 	<%= form_for @changeset, "/login", [class: 'signin-form'], fn f -> %>
 		<div class="signin__user-box">
 			<div class="signin__icon">
@@ -47,3 +51,9 @@
 		<a href="#">Crea una cuenta.</a>
 	</div>
 </section>
+<div id="process-payment" class="remodal ucargo-modal" data-remodal-id="session_error" data-remodal-options="hashTracking: false">
+	<p class="payment-finish__title">Usuario o contraseña incorrectos</p>
+	<button data-remodal-action="confirm" class="btn payment-finish__send">
+		ACEPTAR
+	</button>
+</div>

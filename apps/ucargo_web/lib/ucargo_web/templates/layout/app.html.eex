@@ -102,14 +102,4 @@
       <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
    </body>
 </html>
-
-<script type="text/javascript">
-  function navigate(url){
-    console.log("noe is the house")
-    document.location.href = url;
-    var url = window.location.href;
-    console.log(url)
-    
-
-  }
 </script>

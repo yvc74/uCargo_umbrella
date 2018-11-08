@@ -4,6 +4,8 @@ defmodule UcargoWeb.WebSessionController do
   alias UcargoWeb.Guardian
   plug :put_layout, "SigninLayout.html"
 
+  action_fallback UcargoWeb.SessionFallbackController
+
   def signup(conn, _params) do
     render conn, "index.html"
   end
@@ -22,6 +24,6 @@ defmodule UcargoWeb.WebSessionController do
 
   def signin(conn, _params) do
     changeset = CustomBroker.create_changeset(%CustomBroker{}, %{})
-    render conn, "signin.html", changeset: changeset
+    render conn, "signin.html", changeset: changeset, session_error: false
   end
 end
