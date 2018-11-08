@@ -291,22 +291,24 @@ if (map != null) {
 class FormActions {
   setup() {
     let formIndentifier = document.querySelector("#form_name")
-    switch(formIndentifier.value) {
-      case "paymentForm":
-        let paymentChannel = socket.channel("payment:charge", {})
-        paymentChannel.join()
-          .receive("ok", resp => { console.log("Joined successfully", resp) })
-          .receive("error", resp => { console.log("Unable to join", resp) })
-        let payment = new Payment(paymentChannel, shareChannel)
-        break;
-      case "signIn":
-      console.log(session_error)
-      if (session_error) {
-        let modal = $('[data-remodal-id=session_error]').remodal();
-        modal.open();
+    if (formIndentifier != null) {
+      switch(formIndentifier.value) {
+        case "paymentForm":
+          let paymentChannel = socket.channel("payment:charge", {})
+          paymentChannel.join()
+            .receive("ok", resp => { console.log("Joined successfully", resp) })
+            .receive("error", resp => { console.log("Unable to join", resp) })
+          let payment = new Payment(paymentChannel, shareChannel)
+          break;
+        case "signIn":
+        console.log(session_error)
+        if (session_error) {
+          let modal = $('[data-remodal-id=session_error]').remodal();
+          modal.open();
+        }
+        default:
+          break;
       }
-      default:
-        break;
     }
   }
 }

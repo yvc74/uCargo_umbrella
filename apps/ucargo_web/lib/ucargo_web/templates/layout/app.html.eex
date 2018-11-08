@@ -46,7 +46,7 @@
                   </div>
                </div>
                <div class="header-info__extras">
-                  <a href="">
+                  <a href="/logout">
                      <img src="/images/logout.png" alt="">
                   </a>
                   <a href="">
