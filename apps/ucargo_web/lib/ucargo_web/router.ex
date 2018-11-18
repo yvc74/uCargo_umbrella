@@ -51,6 +51,7 @@ defmodule UcargoWeb.Router do
     get "/signup", WebSessionController, :signup
     get "/signin", WebSessionController, :signin
     post "/login", WebSessionController, :login
+    get "/logout", WebSessionController, :logout
   end
 
   scope "/", UcargoWeb do

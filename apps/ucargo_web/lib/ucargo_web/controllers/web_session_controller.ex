@@ -10,6 +10,12 @@ defmodule UcargoWeb.WebSessionController do
     render conn, "index.html"
   end
 
+  def logout(conn, params) do
+    conn
+      |> Guardian.Plug.sign_out()
+      |> redirect(to: "/signin")
+  end
+
   def login(conn, params) do
     changeset = CustomBroker.login_changeset(%CustomBroker{}, params["custom_broker"])
     if changeset.valid? do
