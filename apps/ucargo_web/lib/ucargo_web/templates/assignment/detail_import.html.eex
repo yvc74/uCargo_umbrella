@@ -185,7 +185,7 @@
               <div class="order-road__step">
                 <p>CAMINO A ADUANA</p>
               </div>
-              <div class="order-road__actions" style="<%= custom_route_status_share_action(@order) %>">
+              <div id="customRouteActions" class="order-road__actions" style="<%= custom_route_status_share_action(@order) %>">
                 <div class="road-actions__icon" data-remodal-target="shared">
                   <img src="/images/shared.png" alt="">
                 </div>
@@ -198,10 +198,7 @@
               <div class="order-road__step">
                 <p>REPORTE DE SEMÁFORO</p>
               </div>
-              <div class="order-road__actions">
-                <div class="road-actions__icon" data-remodal-target="photos">
-                  <img src="/images/camera.png" alt="">
-                </div>
+              <div id="semaphoreLightActions" class="order-road__actions" style="<%= semaphore_light_status_share_action(@order) %>">
                 <div class="road-actions__icon" data-remodal-target="shared">
                   <img src="/images/shared.png" alt="">
                 </div>
@@ -214,7 +211,7 @@
               <div class="order-road__step">
                 <p>FOTOGRAFÍA DE CANDADO ENVIADA</p>
               </div>
-              <div class="order-road__actions">
+              <div id="pictureLockActions" class="order-road__actions" style="<%= picture_lock_actions(@order) %>">
                 <div class="road-actions__icon" data-remodal-target="photos">
                   <img src="/images/camera.png" alt="">
                 </div>
@@ -230,13 +227,7 @@
               <div class="order-road__step">
                 <p>MERCANCÍA ALMACENADA</p>
               </div>
-              <div class="order-road__actions">
-                <div class="road-actions__icon">
-                  <img src="/images/download.png" alt="">
-                </div>
-                <div class="road-actions__icon" data-remodal-target="photos">
-                  <img src="/images/camera.png" alt="">
-                </div>
+              <div id="storeMerchandiseActions" class="order-road__actions" style="<%= store_merchandise_actions(@order) %>">
                 <div class="road-actions__icon" data-remodal-target="shared">
                   <img src="/images/shared.png" alt="">
                 </div>

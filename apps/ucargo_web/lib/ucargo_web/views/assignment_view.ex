@@ -44,6 +44,20 @@ defmodule UcargoWeb.AssignmentView  do
     end
   end
 
+  def semaphore_light_status_share_action(order) do
+    if order.status == "ReportedGreen"
+    || order.status == "ReportedRed"
+    || order.status == "ReportedLock"
+    || order.status == "Stored"
+    || order.status == "OnRoute"
+    || order.status == "OnTracking"
+    || order.status == "Signed" do
+      "visibility: visible"
+    else
+      "visibility: hidden"
+    end
+  end
+
   def semaphore_light_status(order) do
     if order.status == "ReportedGreen"
     || order.status == "ReportedRed"
@@ -52,9 +66,21 @@ defmodule UcargoWeb.AssignmentView  do
     || order.status == "OnRoute"
     || order.status == "OnTracking"
     || order.status == "Signed" do
-    "order-road__semaphore active"
+      "order-road__semaphore active"
     else
       "order-road__semaphore"
+    end
+  end
+
+  def picture_lock_actions(order) do
+    if order.status == "ReportedLock"
+    || order.status == "Stored"
+    || order.status == "OnRoute"
+    || order.status == "OnTracking"
+    || order.status == "Signed" do
+      "visibility: visible"
+    else
+      "visibility: hidden"
     end
   end
 
@@ -67,6 +93,17 @@ defmodule UcargoWeb.AssignmentView  do
       "order-road__semaphore active"
     else
       "order-road__semaphore"
+    end
+  end
+
+  def store_merchandise_actions(order) do
+    if order.status == "Stored"
+    || order.status == "OnRoute"
+    || order.status == "OnTracking"
+    || order.status == "Signed" do
+      "visibility: visible"
+    else
+      "visibility: hidden"
     end
   end
 

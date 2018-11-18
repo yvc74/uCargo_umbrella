@@ -3,9 +3,13 @@ export class ImportUpdateStatus {
   constructor(assigmentchannel) {
     this.assigmentchannel = assigmentchannel
     this.roadToCustomStatus = document.querySelector("#roadToCustomStatus")
+    this.shareOnRouteActions = document.querySelector("#customRouteActions")
     this.semaphoreLightStatus = document.querySelector("#semaphoreLightStatus")
+    this.semaphoreLightActions = document.querySelector("#semaphoreLightActions")
     this.lockPictureStatus = document.querySelector("#lockPictureStatus")
+    this.pictureLockActions = document.querySelector("#pictureLockActions")
     this.storeMerchandiseStatus = document.querySelector("#storeMerchandiseStatus")
+    this.storeMerchandiseActions = document.querySelector("#storeMerchandiseActions")
     this.onRouteStatus = document.querySelector("#onRouteStatus")
     this.arrivalStatus = document.querySelector("#arrivalStatus")
     this.deliveredToClient = document.querySelector("#deliveredToClient")
@@ -18,16 +22,20 @@ export class ImportUpdateStatus {
       let event = payload.body
       switch(event.name) {
         case "BeginCustom":
-          this.roadToCustomStatus.className = "order-road__semaphore active"
+          this.roadToCustomStatus.className = "order-road__semaphore active";
+          this.shareOnRouteActions.style.visibility = "visible";
           break;
         case "ReportGreen":
-          this.semaphoreLightStatus.className = "order-road__semaphore active"
+          this.semaphoreLightStatus.className = "order-road__semaphore active";
+          this.semaphoreLightActions.style.visibility = "visible";
           break;
         case "ReportLock":
-          this.lockPictureStatus.className = "order-road__semaphore active"
+          this.lockPictureStatus.className = "order-road__semaphore active";
+          this.pictureLockActions.style.visibility = "visible";
           break;
         case "Store":
           this.storeMerchandiseStatus.className = "order-road__semaphore active"
+          this.storeMerchandiseActions.style.visibility = "visible";
           break;
         case "BeginRoute":
           this.onRouteStatus.className = "order-road__semaphore active"
