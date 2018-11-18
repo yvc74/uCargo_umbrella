@@ -14,6 +14,21 @@ defmodule UcargoWeb.AssignmentView  do
     String.upcase(string)
   end
 
+  def custom_route_status_share_action(order) do
+    if order.status == "OnRouteToCustom"
+    || order.status == "ReportedGreen"
+    || order.status == "ReportedRed"
+    || order.status == "ReportedLock"
+    || order.status == "Stored"
+    || order.status == "OnRoute"
+    || order.status == "OnTracking"
+    || order.status == "Signed" do
+      "visibility: visible"
+    else
+      "visibility: hidden"
+    end
+  end
+
   def custom_route_status(order) do
     if order.status == "OnRouteToCustom"
     || order.status == "ReportedGreen"

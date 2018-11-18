@@ -5,6 +5,7 @@
 // and connect at the socket path in "lib/web/endpoint.ex":
 import {Socket} from "phoenix"
 import {Payment} from "./payment"
+import {ImportShareStatus} from "./share_import_status"
 let socket = new Socket("/socket", {params: {token: window.userToken}})
 
 // When you connect, you'll often need to authenticate the client.
@@ -223,14 +224,14 @@ if (map != null) {
     title: 'Truck',
   });
 
-  shareOnRouteToCustom.onclick = function(){
-    let modal = $('[data-remodal-id=shared]').remodal();
-    let emails = $('.input-emails__shared').val();
-    let ucargoOrderId = document.querySelector("#ucargoOrderId")
-    let shareMyMail = document.querySelector("#checkboxOnRouteToCustom");
-    sendMails(emails, shareMyMail.checked, ucargoOrderId)
-    modal.close();
-  };
+  // shareOnRouteToCustom.onclick = function(){
+  //   let modal = $('[data-remodal-id=shared]').remodal();
+  //   let emails = $('.input-emails__shared').val();
+  //   let ucargoOrderId = document.querySelector("#ucargoOrderId")
+  //   let shareMyMail = document.querySelector("#checkboxOnRouteToCustom");
+  //   sendMails(emails, shareMyMail.checked, ucargoOrderId)
+  //   modal.close();
+  // };
 
   function sendMails(emails, sendToMe, orderId) {
     let payload = {emails: emails,
@@ -301,11 +302,13 @@ class FormActions {
           let payment = new Payment(paymentChannel, shareChannel)
           break;
         case "signIn":
-        console.log(session_error)
-        if (session_error) {
-          let modal = $('[data-remodal-id=session_error]').remodal();
-          modal.open();
-        }
+          console.log(session_error)
+          if (session_error) {
+            let modal = $('[data-remodal-id=session_error]').remodal();
+            modal.open();
+          }
+        case "trackingImport":
+          let notifications = new ImportShareStatus(shareChannel)
         default:
           break;
       }

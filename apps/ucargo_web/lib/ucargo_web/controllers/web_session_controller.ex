@@ -10,7 +10,7 @@ defmodule UcargoWeb.WebSessionController do
     render conn, "index.html"
   end
 
-  def logout(conn, params) do
+  def logout(conn, _params) do
     conn
       |> Guardian.Plug.sign_out()
       |> redirect(to: "/signin")

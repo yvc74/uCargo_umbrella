@@ -7,6 +7,7 @@
 <section class="container" id="details">
   <div class="details-container">
     <input type="hidden" name="ucargoOrderId" id="ucargoOrderId" value="<%= @order.id %>">
+    <input type="hidden" name="form_name" id="form_name" value="trackingImport">
     <div class="details-header shell-header">
       <div class="details-header__eyelash header__eyelash">
         <p>Seguimiento Cargamento</p>
@@ -184,7 +185,7 @@
               <div class="order-road__step">
                 <p>CAMINO A ADUANA</p>
               </div>
-              <div class="order-road__actions">
+              <div class="order-road__actions" style="<%= custom_route_status_share_action(@order) %>">
                 <div class="road-actions__icon" data-remodal-target="shared">
                   <img src="/images/shared.png" alt="">
                 </div>
