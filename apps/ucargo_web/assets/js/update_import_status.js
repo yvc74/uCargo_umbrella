@@ -11,8 +11,11 @@ export class ImportUpdateStatus {
     this.storeMerchandiseStatus = document.querySelector("#storeMerchandiseStatus")
     this.storeMerchandiseActions = document.querySelector("#storeMerchandiseActions")
     this.onRouteStatus = document.querySelector("#onRouteStatus")
+    this.onRouteActions = document.querySelector("#onRouteActions")
     this.arrivalStatus = document.querySelector("#arrivalStatus")
+    this.arrivalActions = document.querySelector("#arrivalActions")
     this.deliveredToClient = document.querySelector("#deliveredToClient")
+    this.deliveredActions = document.querySelector("#deliveredActions")
     this.setupMap()
     this.setupUpdates()
   }
@@ -39,6 +42,7 @@ export class ImportUpdateStatus {
           break;
         case "BeginRoute":
           this.onRouteStatus.className = "order-road__semaphore active"
+          this.onRouteActions.style.visibility = "visible";
           break;
         case "ReportLocation":
           this.onRouteStatus.className = "order-road__semaphore active"
@@ -49,8 +53,10 @@ export class ImportUpdateStatus {
           this.map.setZoom(17);
           break;
         case "ReportSign":
-          this.arrivalStatus.className = "order-road__semaphore active"
+          this.arrivalStatus.className = "order-road__semaphore active";
+          this.arrivalActions.style.visibility = "visible";
           this.deliveredToClient.className = "order-road__semaphore active"
+          this.deliveredActions.style.visibility = "visible";
           break;
         default:
           console.log(event)

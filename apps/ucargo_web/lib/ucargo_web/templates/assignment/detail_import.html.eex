@@ -240,7 +240,7 @@
               <div class="order-road__step">
                 <p>INICIO DE RUTA HACIA DESTINO</p>
               </div>
-              <div class="order-road__actions">
+              <div id="onRouteActions" class="order-road__actions" style="<%= on_route_actions(@order) %>">
                 <div class="road-actions__icon" data-remodal-target="shared">
                   <img src="/images/shared.png" alt="">
                 </div>
@@ -253,7 +253,7 @@
               <div class="order-road__step">
                 <p>LLEGADA A DESTINO</p>
               </div>
-              <div class="order-road__actions">
+              <div id="arrivalActions" class="order-road__actions" style="<%= arrival_actions(@order) %>">
                 <div class="road-actions__icon" data-remodal-target="shared">
                   <img src="/images/shared.png" alt="">
                 </div>
@@ -266,7 +266,7 @@
               <div class="order-road__step">
                 <p>ENTREGADO A CLIENTE</p>
               </div>
-              <div class="order-road__actions">
+              <div id="deliveredActions" class="order-road__actions" style="<%= delivered_to_client_actions(@order) %>">
                 <div class="road-actions__icon" data-remodal-target="shared">
                   <img src="/images/shared.png" alt="">
                 </div>

@@ -118,6 +118,16 @@ defmodule UcargoWeb.AssignmentView  do
     end
   end
 
+  def on_route_actions(order) do
+    if order.status == "OnRoute"
+    || order.status == "OnTracking"
+    || order.status == "Signed" do
+      "visibility: visible"
+    else
+      "visibility: hidden"
+    end
+  end
+
   def on_route_status(order) do
     if order.status == "OnRoute"
     || order.status == "OnTracking"
@@ -128,11 +138,27 @@ defmodule UcargoWeb.AssignmentView  do
     end
   end
 
+  def arrival_actions(order) do
+    if order.status == "Signed" do
+      "visibility: visible"
+    else
+      "visibility: hidden"
+    end
+  end
+
   def arrival_status(order) do
     if order.status == "Signed" do
       "order-road__semaphore active"
     else
       "order-road__semaphore"
+    end
+  end
+
+  def delivered_to_client_actions(order) do
+    if order.status == "Signed" do
+      "visibility: visible"
+    else
+      "visibility: hidden"
     end
   end
 
