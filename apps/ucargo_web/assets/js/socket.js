@@ -6,6 +6,8 @@
 import {Socket} from "phoenix"
 import {Payment} from "./payment"
 import {ImportShareStatus} from "./share_import_status"
+import {ImportUpdateStatus} from "./update_import_status"
+
 let socket = new Socket("/socket", {params: {token: window.userToken}})
 
 // When you connect, you'll often need to authenticate the client.
@@ -172,122 +174,101 @@ function update_custom_neighborhood_combo(msg) {
   })
 }
 
-let map = document.querySelector("#map")
-if (map != null) {
-  let roadToCustomStatus = document.querySelector("#roadToCustomStatus")
-  let semaphoreLightStatus = document.querySelector("#semaphoreLightStatus")
-  let lockPictureStatus = document.querySelector("#lockPictureStatus")
-  let storeMerchandiseStatus = document.querySelector("#storeMerchandiseStatus")
-  let onRouteStatus = document.querySelector("#onRouteStatus")
-  let arrivalStatus = document.querySelector("#arrivalStatus")
-  let deliveredToClient = document.querySelector("#deliveredToClient")
-  let shareOnRouteToCustom = document.querySelector("#shareOnRouteToCustom")
+// let map = document.querySelector("#map")
+// if (map != null) {
+//   let roadToCustomStatus = document.querySelector("#roadToCustomStatus")
+//   let semaphoreLightStatus = document.querySelector("#semaphoreLightStatus")
+//   let lockPictureStatus = document.querySelector("#lockPictureStatus")
+//   let storeMerchandiseStatus = document.querySelector("#storeMerchandiseStatus")
+//   let onRouteStatus = document.querySelector("#onRouteStatus")
+//   let arrivalStatus = document.querySelector("#arrivalStatus")
+//   let deliveredToClient = document.querySelector("#deliveredToClient")
 
-  map = new GMaps({
-    div: '.ship-map',
-    lat: 19.3204969,
-    lng: -99.2840411,
-    zoom: 6
-  });
+//   map = new GMaps({
+//     div: '.ship-map',
+//     lat: 19.3204969,
+//     lng: -99.2840411,
+//     zoom: 6
+//   });
 
-  map.addMarker({
-    lat: customLatitude,
-    lng: customLongitude,
-    title: 'Aduanda Veracruz',
-    click: function(e) {
-      alert('Dirección de Destino');
-    }
-  });
-  var image = {
-    url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-    // This marker is 20 pixels wide by 32 pixels high.
-    size: new google.maps.Size(20, 32),
-    // The origin for this image is (0, 0).
-    origin: new google.maps.Point(0, 0),
-    // The anchor for this image is the base of the flagpole at (0, 32).
-    anchor: new google.maps.Point(0, 32)
-  };
+//   map.addMarker({
+//     lat: customLatitude,
+//     lng: customLongitude,
+//     title: 'Aduanda Veracruz',
+//     click: function(e) {
+//       alert('Dirección de Destino');
+//     }
+//   });
+//   var image = {
+//     url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+//     // This marker is 20 pixels wide by 32 pixels high.
+//     size: new google.maps.Size(20, 32),
+//     // The origin for this image is (0, 0).
+//     origin: new google.maps.Point(0, 0),
+//     // The anchor for this image is the base of the flagpole at (0, 32).
+//     anchor: new google.maps.Point(0, 32)
+//   };
 
-  map.addMarker({
-    lat: deliveryLatitude,
-    lng: deliveryLongitude,
-    title: 'Destino',
-    click: function(e) {
-      alert('Dirección de Entrega');
-    }
-  });
+//   map.addMarker({
+//     lat: deliveryLatitude,
+//     lng: deliveryLongitude,
+//     title: 'Destino',
+//     click: function(e) {
+//       alert('Dirección de Entrega');
+//     }
+//   });
 
-  var truck = map.addMarker({
-    lat: 19.3775314,
-    lng: -99.047558,
-    icon: image,
-    title: 'Truck',
-  });
+//   var truck = map.addMarker({
+//     lat: 19.3775314,
+//     lng: -99.047558,
+//     icon: image,
+//     title: 'Truck',
+//   });
 
-  // shareOnRouteToCustom.onclick = function(){
-  //   let modal = $('[data-remodal-id=shared]').remodal();
-  //   let emails = $('.input-emails__shared').val();
-  //   let ucargoOrderId = document.querySelector("#ucargoOrderId")
-  //   let shareMyMail = document.querySelector("#checkboxOnRouteToCustom");
-  //   sendMails(emails, shareMyMail.checked, ucargoOrderId)
-  //   modal.close();
-  // };
+//   assigmentchannel.on("updateOrderStatus", payload => {
+//     let event = payload.body
+//     switch(event.name) {
+//       case "BeginCustom":
+//         roadToCustomStatus.className = "order-road__semaphore active"
+//         break;
+//       case "ReportGreen":
+//         semaphoreLightStatus.className = "order-road__semaphore active"
+//         break;
+//       case "ReportLock":
+//         lockPictureStatus.className = "order-road__semaphore active"
+//         break;
+//       case "Store":
+//         storeMerchandiseStatus.className = "order-road__semaphore active"
+//         break;
+//       case "BeginRoute":
+//         onRouteStatus.className = "order-road__semaphore active"
+//         break;
+//       case "ReportLocation":
+//         onRouteStatus.className = "order-road__semaphore active"
+//         let lat = event.latitude
+//         let long = event.longitude
+//         truck.setPosition( new google.maps.LatLng( lat, long));
+//         map.panTo( new google.maps.LatLng(lat, long));
+//         map.setZoom(17);
+//         break;
+//       case "ReportSign":
+//         arrivalStatus.className = "order-road__semaphore active"
+//         deliveredToClient.className = "order-road__semaphore active"
+//         break;
+//       default:
+//         console.log(event)
+//     }
+//   })
 
-  function sendMails(emails, sendToMe, orderId) {
-    let payload = {emails: emails,
-                 sendToMe: sendToMe,
-                  orderId: orderId.value,
-                   userId: window.userId}
-    shareChannel.push("shareOnRouteToCustom", {body: payload}, 50000)
-          .receive("ok", (msg) => "sent")
-          .receive("error", (reasons) => console.log("create failed", reasons) )
-          .receive("timeout", () => console.log("Networking issue...") )
-  }
-
-  assigmentchannel.on("updateOrderStatus", payload => {
-    let event = payload.body
-    switch(event.name) {
-      case "BeginCustom":
-        roadToCustomStatus.className = "order-road__semaphore active"
-        break;
-      case "ReportGreen":
-        semaphoreLightStatus.className = "order-road__semaphore active"
-        break;
-      case "ReportLock":
-        lockPictureStatus.className = "order-road__semaphore active"
-        break;
-      case "Store":
-        storeMerchandiseStatus.className = "order-road__semaphore active"
-        break;
-      case "BeginRoute":
-        onRouteStatus.className = "order-road__semaphore active"
-        break;
-      case "ReportLocation":
-        onRouteStatus.className = "order-road__semaphore active"
-        let lat = event.latitude
-        let long = event.longitude
-        truck.setPosition( new google.maps.LatLng( lat, long));
-        map.panTo( new google.maps.LatLng(lat, long));
-        map.setZoom(17);
-        break;
-      case "ReportSign":
-        arrivalStatus.className = "order-road__semaphore active"
-        deliveredToClient.className = "order-road__semaphore active"
-        break;
-      default:
-        console.log(event)
-    }
-  })
-
-  map.drawRoute({
-    origin: [customLatitude, customLongitude],
-    destination: [deliveryLatitude, deliveryLongitude],
-    travelMode: 'driving',
-    strokeColor: '#131540',
-    strokeOpacity: 0.6,
-    strokeWeight: 6
-  });
-}
+//   map.drawRoute({
+//     origin: [customLatitude, customLongitude],
+//     destination: [deliveryLatitude, deliveryLongitude],
+//     travelMode: 'driving',
+//     strokeColor: '#131540',
+//     strokeOpacity: 0.6,
+//     strokeWeight: 6
+//   });
+// }
 
 class FormActions {
   setup() {
@@ -309,6 +290,7 @@ class FormActions {
           }
         case "trackingImport":
           let notifications = new ImportShareStatus(shareChannel)
+          let updateStatus = new ImportUpdateStatus(assigmentchannel)
         default:
           break;
       }
