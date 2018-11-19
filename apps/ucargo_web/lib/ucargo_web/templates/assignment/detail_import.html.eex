@@ -186,8 +186,10 @@
                 <p>CAMINO A ADUANA</p>
               </div>
               <div id="customRouteActions" class="order-road__actions" style="<%= custom_route_status_share_action(@order) %>">
-                <div class="road-actions__icon" data-remodal-target="shared">
-                  <img src="/images/shared.png" alt="">
+                <div class="road-actions__icon">
+                  <a id="shareRoadToCustom" href="#">
+                    <img src="/images/shared.png" alt="">
+                  </a>
                 </div>
               </div>
             </div>
@@ -199,8 +201,10 @@
                 <p>REPORTE DE SEMÁFORO</p>
               </div>
               <div id="semaphoreLightActions" class="order-road__actions" style="<%= semaphore_light_status_share_action(@order) %>">
-                <div class="road-actions__icon" data-remodal-target="shared">
-                  <img src="/images/shared.png" alt="">
+                <div class="road-actions__icon">
+                  <a id="shareReportLigth" href="#">
+                    <img src="/images/shared.png" alt="">
+                  </a>
                 </div>
               </div>
             </div>
@@ -302,9 +306,9 @@
   </div>
 </section>
 
-<div class="remodal ucargo-modal" data-remodal-id="shared" data-remodal-options="hashTracking: false">
+<div class="remodal ucargo-modal" data-remodal-id="share-content" data-remodal-options="hashTracking: false">
   <img class="ucargo-modal__closed" src="/images/closed.png" data-remodal-action="close" alt="">
-  <p class="ucargo-modal__title">CAMINO A ADUANA</p>
+  <p id="shareTitle" class="ucargo-modal__title">CAMINO A ADUANA</p>
   <div class="ucargo-modal__content">
     <div class="details-modal__shared">
       <div class="details-emails__container">
