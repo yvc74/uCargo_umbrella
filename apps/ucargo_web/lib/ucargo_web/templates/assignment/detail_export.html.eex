@@ -1,4 +1,11 @@
+<script>
+  var customLatitude = <%=@order.custom.latitude%>
+  var customLongitude = <%=@order.custom.longitude%>
+  var deliveryLatitude = <%=@order.delivery.latitude%>
+  var deliveryLongitude = <%=@order.delivery.longitude%>
+</script>
 <section class="container" id="details">
+   <input type="hidden" name="form_name" id="form_name" value="trackingExport">
   <div class="details-container">
     <div class="details-header shell-header">
       <div class="details-header__eyelash header__eyelash">
@@ -178,8 +185,10 @@
                 <p>MERCANCÍA RECOLECTADA</p>
               </div>
               <div class="order-road__actions">
-                <div class="road-actions__icon" data-remodal-target="shared">
-                  <img src="/images/shared.png" alt="">
+                <div class="road-actions__icon">
+                  <a id="shareMerchStored" href="#">
+                    <img src="/images/shared.png" alt="">
+                  </a>
                 </div>
               </div>
             </div>
@@ -191,7 +200,7 @@
                 <p>FOTOGRAFÍA DE CANDADO ENVIADA</p>
               </div>
               <div class="order-road__actions">
-                <div class="road-actions__icon" data-remodal-target="photos">
+                <div class="road-actions__icon">
                   <img src="/images/camera.png" alt="">
                 </div>
                 <div class="road-actions__icon" data-remodal-target="shared">
@@ -312,17 +321,17 @@
   </div>
 </section>
 
-<div class="remodal ucargo-modal" data-remodal-id="shared" data-remodal-options="hashTracking: false">
+<div class="remodal ucargo-modal" data-remodal-id="share-content" data-remodal-options="hashTracking: false">
   <img class="ucargo-modal__closed" src="/images/closed.png" data-remodal-action="close" alt="">
-  <p class="ucargo-modal__title">CAMINO A ADUANA</p>
+  <p id="shareTitle" class="ucargo-modal__title">CAMINO A ADUANA</p>
   <div class="ucargo-modal__content">
     <div class="details-modal__shared">
       <div class="details-emails__container">
         <input class="details-modal__emails input-emails input-emails__shared" />
       </div>
       <div class="checkbox">
-        <input type="checkbox" id="checkbox-sharedMyMailOnRouteToCustom" />
-        <label for="checkbox-sharedMyMailOnRouteToCustom">
+        <input type="checkbox" id="checkboxOnRouteToCustom" />
+        <label for="checkboxOnRouteToCustom">
           <span class="checkbox__icon details-checkbox__icon">
               <span class="checkbox__dot"></span>
           </span>
@@ -330,7 +339,7 @@
         </label>
       </div>
       <div class="ucargo-modal__actions">
-        <button onclick="onSendEmails()" class="btn ucargo-actions__send">ENVIAR</button>
+        <button id="shareOnRouteToCustom" class="btn ucargo-actions__send">ENVIAR</button>
       </div>
     </div>
   </div>
@@ -346,17 +355,7 @@
         <div class="details-slick">
           <div class="details-slick__image">
             <div>
-              <img src="http://via.placeholder.com/100x150"/>
-            </div>
-          </div>
-          <div class="details-slick__image">
-            <div>
-              <img src="http://via.placeholder.com/100x150"/>
-            </div>
-          </div>
-          <div class="details-slick__image">
-            <div>
-              <img src="http://via.placeholder.com/100x150"/>
+              <img src="<%= @order.lock_picture %>"/>
             </div>
           </div>
         </div>
@@ -379,46 +378,3 @@
     </div>
   </div>
 </div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function(event) {
-    $(document).on('opening', '[data-remodal-id=photos]', function () {
-      $('.details-slick').slick({
-        dots: true,
-        infinite: true,
-        speed: 500,
-        fade: true,
-        cssEase: 'linear'
-      })
-    })
-    new GMaps({
-      div: '.ship-map',
-      lat: -12.043333,
-      lng: -77.028333
-    });
-  })
-  
-  function onSendEmails(){
-    const modal = $('[data-remodal-id=shared]').remodal();
-    const emails = $('.input-emails__shared').val();
-
-    if(emails === ''){
-      console.log('error');
-    }else{
-      modal.close();
-      console.log(emails)
-    }
-  }
-
-  function onSendPhotos(){
-    const modal = $('[data-remodal-id=photos]').remodal();
-    const emails = $('.input-emails__photos').val();
-
-    if(emails === ''){
-      console.log('error');
-    }else{
-      modal.close();
-      console.log(emails)
-    }
-  }
-</script>

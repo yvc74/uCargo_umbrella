@@ -7,6 +7,8 @@ import {Socket} from "phoenix"
 import {Payment} from "./payment"
 import {ImportShareStatus} from "./share_import_status"
 import {ImportUpdateStatus} from "./update_import_status"
+import {ExportShareStatus} from "./share_export_status"
+import {ExportUpdateStatus} from "./update_export_status"
 
 let socket = new Socket("/socket", {params: {token: window.userToken}})
 
@@ -195,6 +197,9 @@ class FormActions {
         case "trackingImport":
           let notifications = new ImportShareStatus(shareChannel)
           let updateStatus = new ImportUpdateStatus(assigmentchannel)
+        case "trackingExport":
+          let exportNotifications = new ExportShareStatus(shareChannel)
+          let exportUpdateStatus = new ExportUpdateStatus(assigmentchannel)
         default:
           break;
       }
