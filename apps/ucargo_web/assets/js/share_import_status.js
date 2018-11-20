@@ -24,19 +24,50 @@ export class ImportShareStatus {
     });
 
     $('#shareReportLigth').on('click', function(event) {
-      shareTitle.innerHTML = "REPORTE DE SEMÁFORO"
-      self.shareContent = "reportLight"
+      shareTitle.innerHTML = "REPORTE DE SEMÁFORO";
+      self.shareContent = "reportLight";
       self.share_modal.open();
     });
+
+    $('#shareReportLock').on('click', function(event) {
+      shareTitle.innerHTML = "REPORTE DE CANDADO";
+      self.shareContent = "reportLock";
+      self.share_modal.open();
+    });
+
+    $('#shareMerchStored').on('click', function(event) {
+      shareTitle.innerHTML = "MERCANCÍA ALMACENADA";
+      self.shareContent = "reportMerchStored";
+      self.share_modal.open();
+    });
+
+    $('#shareBeginRoute').on('click', function(event) {
+      shareTitle.innerHTML = "INICIO DE RUTA";
+      self.shareContent = "reportBeginRoute";
+      self.share_modal.open();
+    });
+
+    $('#shareArriving').on('click', function(event) {
+      shareTitle.innerHTML = "LLEGADA A DESTINO";
+      self.shareContent = "reportArriving";
+      self.share_modal.open();
+    });
+
+    $('#shareDeliver').on('click', function(event) {
+      shareTitle.innerHTML = "LLEGADA A DESTINO";
+      self.shareContent = "reportDeliver";
+      self.share_modal.open();
+    });
+
   }
 
   setupNotifications() {
     var self = this;
     this.shareOnRouteToCustom.onclick = function(){
       let emails = $('.input-emails__shared').val();
-      let ucargoOrderId = document.querySelector("#ucargoOrderId")
+      let ucargoOrderId = document.querySelector("#ucargoOrderId");
       let shareMyMail = document.querySelector("#checkboxOnRouteToCustom");
-      self.sendMails(emails, shareMyMail.checked, ucargoOrderId)
+      self.sendMails(emails, shareMyMail.checked, ucargoOrderId);
       self.share_modal.close();
     };
   }
@@ -45,7 +76,8 @@ export class ImportShareStatus {
     let payload = {emails: emails,
                  sendToMe: sendToMe,
                   orderId: orderId.value,
-                   userId: window.userId}
+                   userId: window.userId,
+                    stage: this.shareContent}
     this.shareChannel.push("shareOnRouteToCustom", {body: payload}, 50000)
           .receive("ok", (msg) => "sent")
           .receive("error", (reasons) => console.log("create failed", reasons) )

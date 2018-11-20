@@ -220,7 +220,9 @@
                   <img src="/images/camera.png" alt="">
                 </div>
                 <div class="road-actions__icon" data-remodal-target="shared">
-                  <img src="/images/shared.png" alt="">
+                  <a id="shareReportLock" href="#">
+                    <img src="/images/shared.png" alt="">
+                  </a>
                 </div>
               </div>
             </div>
@@ -233,7 +235,9 @@
               </div>
               <div id="storeMerchandiseActions" class="order-road__actions" style="<%= store_merchandise_actions(@order) %>">
                 <div class="road-actions__icon" data-remodal-target="shared">
-                  <img src="/images/shared.png" alt="">
+                  <a id="shareMerchStored" href="#">
+                    <img src="/images/shared.png" alt="">
+                  </a>
                 </div>
               </div>
             </div>
@@ -246,7 +250,9 @@
               </div>
               <div id="onRouteActions" class="order-road__actions" style="<%= on_route_actions(@order) %>">
                 <div class="road-actions__icon" data-remodal-target="shared">
-                  <img src="/images/shared.png" alt="">
+                  <a id="shareBeginRoute" href="#">
+                    <img src="/images/shared.png" alt="">
+                  </a>
                 </div>
               </div>
             </div>
@@ -259,7 +265,9 @@
               </div>
               <div id="arrivalActions" class="order-road__actions" style="<%= arrival_actions(@order) %>">
                 <div class="road-actions__icon" data-remodal-target="shared">
-                  <img src="/images/shared.png" alt="">
+                  <a id="shareArriving" href="#">
+                    <img src="/images/shared.png" alt="">
+                  </a>
                 </div>
               </div>
             </div>
@@ -272,7 +280,9 @@
               </div>
               <div id="deliveredActions" class="order-road__actions" style="<%= delivered_to_client_actions(@order) %>">
                 <div class="road-actions__icon" data-remodal-target="shared">
-                  <img src="/images/shared.png" alt="">
+                  <a id="shareDeliver" href="#">
+                    <img src="/images/shared.png" alt="">
+                  </a>
                 </div>
               </div>
             </div>
