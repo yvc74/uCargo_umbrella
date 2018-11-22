@@ -17,6 +17,7 @@ export class ExportShareStatus {
     this.shareTitle = document.querySelector("#shareTitle")
     this.shareContent = "shareValue"
     var self = this;
+
     $('#shareMerchStored').on('click', function(event) {
       shareTitle.innerHTML = "MERCANCÍA RECOLECTADA"
       self.shareContent = "roadToCustom"

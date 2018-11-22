@@ -184,9 +184,9 @@
               <div class="order-road__step">
                 <p>MERCANCÍA RECOLECTADA</p>
               </div>
-              <div class="order-road__actions">
+              <div id="shareMerchStoredActions" class="order-road__actions" style="<%= export_store_merchandise_actions(@order) %>">
                 <div class="road-actions__icon">
-                  <a id="shareMerchStoredActions" href="#">
+                  <a id="shareMerchStored" href="#">
                     <img src="/images/shared.png" alt="">
                   </a>
                 </div>
@@ -199,25 +199,25 @@
               <div class="order-road__step">
                 <p>FOTOGRAFÍA DE CANDADO ENVIADA</p>
               </div>
-              <div class="order-road__actions">
+              <div id="lockPictureStatusActions" class="order-road__actions" style="<%= export_lock_picture_actions(@order) %>">
                 <div class="road-actions__icon">
                   <img src="/images/camera.png" alt="">
                 </div>
                 <div class="road-actions__icon">
-                  <a id="lockPictureStatusActions" href="#">
+                  <a id="shareReportLock" href="#">
                     <img src="/images/shared.png" alt="">
                   </a>
                 </div>
               </div>
             </div>
             <div class="order-road__item">
-              <div class="order-road__semaphore">
+              <div id="onRouteStatus" class="<%= on_route_actions_status(@order) %>" >
                 <span></span>
               </div>
               <div class="order-road__step">
                 <p>EN RUTA HACIA ADUANA</p>
               </div>
-              <div class="order-road__actions">
+              <div class="order-road__actions" style="<%= on_route_actions_actions(@order) %>">
                 <div class="road-actions__icon">
                   <img src="/images/download.png" alt="">
                 </div>
@@ -230,7 +230,7 @@
               </div>
             </div>
             <div class="order-road__item">
-              <div class="order-road__semaphore">
+              <div id="onCustomArrivalStatus" class="<%= on_custom_arrival_status(@order) %>">
                 <span></span>
               </div>
               <div class="order-road__step">

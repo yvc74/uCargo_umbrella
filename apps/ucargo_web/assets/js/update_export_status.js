@@ -6,6 +6,8 @@ export class ExportUpdateStatus {
     this.shareMerchStoredActions = document.querySelector("#shareMerchStoredActions")
     this.lockPictureStatus = document.querySelector("#lockPictureStatus")
     this.lockPictureStatusActions = document.querySelector("#lockPictureStatusActions")
+    this.onRouteStatus = document.querySelector("#onRouteStatus")
+    this.onRouteActions = document.querySelector("#onRouteActions")
 
     // this.semaphoreLightStatus = document.querySelector("#semaphoreLightStatus")
     // this.semaphoreLightActions = document.querySelector("#semaphoreLightActions")
@@ -13,8 +15,7 @@ export class ExportUpdateStatus {
     // this.pictureLockActions = document.querySelector("#pictureLockActions")
     // this.storeMerchandiseStatus = document.querySelector("#storeMerchandiseStatus")
     // this.storeMerchandiseActions = document.querySelector("#storeMerchandiseActions")
-    // this.onRouteStatus = document.querySelector("#onRouteStatus")
-    // this.onRouteActions = document.querySelector("#onRouteActions")
+    
     // this.arrivalStatus = document.querySelector("#arrivalStatus")
     // this.arrivalActions = document.querySelector("#arrivalActions")
     // this.deliveredToClient = document.querySelector("#deliveredToClient")
@@ -31,13 +32,13 @@ export class ExportUpdateStatus {
           this.storeMerchandiseStatus.className = "order-road__semaphore active";
           this.shareMerchStoredActions.style.visibility = "visible";
           break;
-        case "ReportedLock":
+        case "ReportLock":
           this.lockPictureStatus.className = "order-road__semaphore active";
           this.lockPictureStatusActions.style.visibility = "visible";
           break;
-        case "ReportLock":
-          this.lockPictureStatus.className = "order-road__semaphore active";
-          this.pictureLockActions.style.visibility = "visible";
+        case "BeginCustom":
+          this.onRouteStatus.className = "order-road__semaphore active";
+          this.onRouteActions.style.visibility = "visible";
           break;
         case "Store":
           this.storeMerchandiseStatus.className = "order-road__semaphore active"
