@@ -23,17 +23,18 @@ export class ExportShareStatus {
       self.share_modal.open();
     });
 
+    $('#shareReportLock').on('click', function(event) {
+      shareTitle.innerHTML = "REPORTE DE CANDADO";
+      self.shareContent = "reportLock";
+      self.share_modal.open();
+    });
+
     // $('#shareReportLigth').on('click', function(event) {
     //   shareTitle.innerHTML = "REPORTE DE SEMÁFORO";
     //   self.shareContent = "reportLight";
     //   self.share_modal.open();
     // });
 
-    // $('#shareReportLock').on('click', function(event) {
-    //   shareTitle.innerHTML = "REPORTE DE CANDADO";
-    //   self.shareContent = "reportLock";
-    //   self.share_modal.open();
-    // });
 
     // $('#shareMerchStored').on('click', function(event) {
     //   shareTitle.innerHTML = "MERCANCÍA ALMACENADA";

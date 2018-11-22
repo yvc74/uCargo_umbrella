@@ -178,7 +178,7 @@
           </div>
           <div class="order-road__information">
             <div class="order-road__item">
-              <div class="order-road__semaphore active">
+              <div id="storeMerchandiseStatus" class="<%= export_store_merchandise_status(@order) %>">
                 <span></span>
               </div>
               <div class="order-road__step">
@@ -186,14 +186,14 @@
               </div>
               <div class="order-road__actions">
                 <div class="road-actions__icon">
-                  <a id="shareMerchStored" href="#">
+                  <a id="shareMerchStoredActions" href="#">
                     <img src="/images/shared.png" alt="">
                   </a>
                 </div>
               </div>
             </div>
             <div class="order-road__item">
-              <div class="order-road__semaphore">
+              <div id="lockPictureStatus" class="<%= export_lock_picture_status(@order) %>">
                 <span></span>
               </div>
               <div class="order-road__step">
@@ -203,8 +203,10 @@
                 <div class="road-actions__icon">
                   <img src="/images/camera.png" alt="">
                 </div>
-                <div class="road-actions__icon" data-remodal-target="shared">
-                  <img src="/images/shared.png" alt="">
+                <div class="road-actions__icon">
+                  <a id="lockPictureStatusActions" href="#">
+                    <img src="/images/shared.png" alt="">
+                  </a>
                 </div>
               </div>
             </div>

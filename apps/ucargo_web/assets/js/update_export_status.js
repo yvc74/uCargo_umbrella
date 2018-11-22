@@ -2,20 +2,23 @@ export class ExportUpdateStatus {
 
   constructor(assigmentchannel) {
     this.assigmentchannel = assigmentchannel
-    this.roadToCustomStatus = document.querySelector("#roadToCustomStatus")
-    this.shareOnRouteActions = document.querySelector("#customRouteActions")
-    this.semaphoreLightStatus = document.querySelector("#semaphoreLightStatus")
-    this.semaphoreLightActions = document.querySelector("#semaphoreLightActions")
-    this.lockPictureStatus = document.querySelector("#lockPictureStatus")
-    this.pictureLockActions = document.querySelector("#pictureLockActions")
     this.storeMerchandiseStatus = document.querySelector("#storeMerchandiseStatus")
-    this.storeMerchandiseActions = document.querySelector("#storeMerchandiseActions")
-    this.onRouteStatus = document.querySelector("#onRouteStatus")
-    this.onRouteActions = document.querySelector("#onRouteActions")
-    this.arrivalStatus = document.querySelector("#arrivalStatus")
-    this.arrivalActions = document.querySelector("#arrivalActions")
-    this.deliveredToClient = document.querySelector("#deliveredToClient")
-    this.deliveredActions = document.querySelector("#deliveredActions")
+    this.shareMerchStoredActions = document.querySelector("#shareMerchStoredActions")
+    this.lockPictureStatus = document.querySelector("#lockPictureStatus")
+    this.lockPictureStatusActions = document.querySelector("#lockPictureStatusActions")
+
+    // this.semaphoreLightStatus = document.querySelector("#semaphoreLightStatus")
+    // this.semaphoreLightActions = document.querySelector("#semaphoreLightActions")
+    // this.lockPictureStatus = document.querySelector("#lockPictureStatus")
+    // this.pictureLockActions = document.querySelector("#pictureLockActions")
+    // this.storeMerchandiseStatus = document.querySelector("#storeMerchandiseStatus")
+    // this.storeMerchandiseActions = document.querySelector("#storeMerchandiseActions")
+    // this.onRouteStatus = document.querySelector("#onRouteStatus")
+    // this.onRouteActions = document.querySelector("#onRouteActions")
+    // this.arrivalStatus = document.querySelector("#arrivalStatus")
+    // this.arrivalActions = document.querySelector("#arrivalActions")
+    // this.deliveredToClient = document.querySelector("#deliveredToClient")
+    // this.deliveredActions = document.querySelector("#deliveredActions")
     this.setupMap()
     this.setupUpdates()
   }
@@ -24,13 +27,13 @@ export class ExportUpdateStatus {
     this.assigmentchannel.on("updateOrderStatus", payload => {
       let event = payload.body
       switch(event.name) {
-        case "BeginCustom":
-          this.roadToCustomStatus.className = "order-road__semaphore active";
-          this.shareOnRouteActions.style.visibility = "visible";
+        case "Collect":
+          this.storeMerchandiseStatus.className = "order-road__semaphore active";
+          this.shareMerchStoredActions.style.visibility = "visible";
           break;
-        case "ReportGreen":
-          this.semaphoreLightStatus.className = "order-road__semaphore active";
-          this.semaphoreLightActions.style.visibility = "visible";
+        case "ReportedLock":
+          this.lockPictureStatus.className = "order-road__semaphore active";
+          this.lockPictureStatusActions.style.visibility = "visible";
           break;
         case "ReportLock":
           this.lockPictureStatus.className = "order-road__semaphore active";

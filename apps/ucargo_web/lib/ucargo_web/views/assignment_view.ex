@@ -170,4 +170,33 @@ defmodule UcargoWeb.AssignmentView  do
     end
   end
 
+  ##EXPORT
+
+  def export_store_merchandise_status(order) do
+    if order.status == "Collected"
+    || order.status == "ReportedLock"
+    || order.status == "OnRouteToCustom"
+    || order.status == "OnTracking"
+    || order.status == "ReportedLockExport"
+    || order.status == "ReportedSign"
+    || order.status == "Signed" do
+      "order-road__semaphore active"
+    else
+      "order-road__semaphore"
+    end
+  end
+
+  def export_lock_picture_status(order) do
+    if order.status == "ReportedLock"
+    || order.status == "OnRouteToCustom"
+    || order.status == "OnTracking"
+    || order.status == "ReportedLockExport"
+    || order.status == "ReportedSign"
+    || order.status == "Signed" do
+      "order-road__semaphore active"
+    else
+      "order-road__semaphore"
+    end
+  end
+
 end
