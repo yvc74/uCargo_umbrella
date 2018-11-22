@@ -251,7 +251,7 @@ defmodule UcargoWeb.AssignmentView  do
   end
 
   def on_custom_arrival_status(order) do
-    if order.status == "OnTracking"
+    if order.status == "ReportedGreen"
     || order.status == "ReportedLockExport"
     || order.status == "ReportedSign"
     || order.status == "Signed" do
@@ -262,7 +262,7 @@ defmodule UcargoWeb.AssignmentView  do
   end
 
   def on_custom_arrival_actions(order) do
-    if order.status == "OnTracking"
+    if order.status == "ReportedGreen"
     || order.status == "ReportedLockExport"
     || order.status == "ReportedSign"
     || order.status == "Signed" do
