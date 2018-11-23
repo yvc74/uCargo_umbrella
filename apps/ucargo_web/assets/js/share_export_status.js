@@ -30,6 +30,18 @@ export class ExportShareStatus {
       self.share_modal.open();
     });
 
+    $('#shareOnCustomRoute').on('click', function(event) {
+      shareTitle.innerHTML = "EN RUTA HACIA ADUANA";
+      self.shareContent = "reportOnCustomRoute";
+      self.share_modal.open();
+    });
+
+    $('#shareOnCustomArrival').on('click', function(event) {
+      shareTitle.innerHTML = "LLEGADA A ADUANA";
+      self.shareContent = "reportOnCustomArrival";
+      self.share_modal.open();
+    });
+
     // $('#shareReportLigth').on('click', function(event) {
     //   shareTitle.innerHTML = "REPORTE DE SEMÁFORO";
     //   self.shareContent = "reportLight";

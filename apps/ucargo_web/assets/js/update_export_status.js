@@ -8,6 +8,9 @@ export class ExportUpdateStatus {
     this.lockPictureStatusActions = document.querySelector("#lockPictureStatusActions")
     this.onRouteStatus = document.querySelector("#onRouteStatus")
     this.onRouteActions = document.querySelector("#onRouteActions")
+    this.onCustomArrivalStatus = document.querySelector("#onCustomArrivalStatus")
+    this.onCustomArrivalActions = document.querySelector("#onCustomArrivalActions")
+
 
     // this.semaphoreLightStatus = document.querySelector("#semaphoreLightStatus")
     // this.semaphoreLightActions = document.querySelector("#semaphoreLightActions")
@@ -40,9 +43,9 @@ export class ExportUpdateStatus {
           this.onRouteStatus.className = "order-road__semaphore active";
           this.onRouteActions.style.visibility = "visible";
           break;
-        case "Store":
-          this.storeMerchandiseStatus.className = "order-road__semaphore active"
-          this.storeMerchandiseActions.style.visibility = "visible";
+        case "ReportGreen":
+          this.onCustomArrivalStatus.className = "order-road__semaphore active"
+          this.onCustomArrivalActions.style.visibility = "visible";
           break;
         case "BeginRoute":
           this.onRouteStatus.className = "order-road__semaphore active"

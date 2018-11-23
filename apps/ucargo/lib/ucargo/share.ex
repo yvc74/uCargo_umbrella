@@ -21,24 +21,21 @@ defmodule Ucargo.Share do
     end
   end
 
-  defp compose_message(stage) do
-    case stage do
-      "roadToCustom" ->
-        "Tu cargamento va rumbo a la aduana"
-      "reportLight" ->
-        "El cargamento obtuvo la luz verde en el semafóro de la aduana"
-      "reportLock" ->
-        "Se ha enviado la fotografía del candado del cargamento"
-      "reportMerchStored" ->
-        "La mercancía ha sido almacenada"
-      "reportBeginRoute" ->
-        "La mercancía empezo su recorrido a su destino"
-      "reportArriving" ->
-        "La mercancía ha llegado a su destino"
-      "reportDeliver" ->
-        "La mercancía ha sido resibida por el cliente"
-    end
-  end
+  defp compose_message("roadToCustom"), do: "Tu cargamento va rumbo a la aduana"
+
+  defp compose_message("reportLight"), do: "El cargamento obtuvo la luz verde en el semafóro de la aduana"
+
+  defp compose_message("reportLock"), do: "Se ha enviado la fotografía del candado del cargamento"
+
+  defp compose_message("reportBeginRoute"), do: "La mercancía empezo su recorrido a su destino"
+
+  defp compose_message("reportArriving"), do: "La mercancía ha llegado a su destino"
+
+  defp compose_message("reportDeliver"), do: "La mercancía ha sido resibida por el cliente"
+
+  defp compose_message("reportOnCustomRoute"), do: "La mercancía va en camino a la aduana"
+
+  defp compose_message("reportOnCustomArrival"), do: "La mercancía ha llegado a la aduana"
 
   def share_invoice(mails, user_id, send_to_self, order_id) do
     order = Order.find_by(:id, order_id)

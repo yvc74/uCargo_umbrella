@@ -217,15 +217,17 @@
               <div class="order-road__step">
                 <p>EN RUTA HACIA ADUANA</p>
               </div>
-              <div class="order-road__actions" style="<%= on_route_actions_actions(@order) %>">
+              <div id="onRouteActions" class="order-road__actions" style="<%= on_route_actions_actions(@order) %>">
                 <div class="road-actions__icon">
                   <img src="/images/download.png" alt="">
                 </div>
                 <div class="road-actions__icon" data-remodal-target="photos">
                   <img src="/images/camera.png" alt="">
                 </div>
-                <div class="road-actions__icon" data-remodal-target="shared">
-                  <img src="/images/shared.png" alt="">
+                <div class="road-actions__icon">
+                  <a id="shareOnCustomRoute" href="#">
+                    <img src="/images/shared.png" alt="">
+                  </a>
                 </div>
               </div>
             </div>
@@ -236,14 +238,16 @@
               <div class="order-road__step">
                 <p>LLEGADA A ADUANA</p>
               </div>
-              <div class="order-road__actions">
-                <div class="road-actions__icon" data-remodal-target="shared">
-                  <img src="/images/shared.png" alt="">
+              <div id="onCustomArrivalActions" class="order-road__actions">
+                <div class="road-actions__icon">
+                  <a id="shareOnCustomArrival" href="#">
+                    <img src="/images/shared.png" alt="">
+                  </a>
                 </div>
               </div>
             </div>
             <div class="order-road__item">
-              <div class="order-road__semaphore">
+              <div id="semaphoreLightStatus" class="<%= export_semaphore_light_status(@order) %>">
                 <span></span>
               </div>
               <div class="order-road__step">
