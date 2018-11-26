@@ -10,15 +10,14 @@ export class ExportUpdateStatus {
     this.onRouteActions = document.querySelector("#onRouteActions")
     this.onCustomArrivalStatus = document.querySelector("#onCustomArrivalStatus")
     this.onCustomArrivalActions = document.querySelector("#onCustomArrivalActions")
-
-
-    // this.semaphoreLightStatus = document.querySelector("#semaphoreLightStatus")
-    // this.semaphoreLightActions = document.querySelector("#semaphoreLightActions")
+    this.semaphoreLightStatus = document.querySelector("#semaphoreLightStatus")
+    this.semaphoreLightActions = document.querySelector("#semaphoreLightActions")
+    this.exportLockPictureStatus = document.querySelector("#exportLockPictureStatus")
+    this.exportLockPictureStatusActions = document.querySelector("#exportLockPictureStatusActions")
     // this.lockPictureStatus = document.querySelector("#lockPictureStatus")
     // this.pictureLockActions = document.querySelector("#pictureLockActions")
     // this.storeMerchandiseStatus = document.querySelector("#storeMerchandiseStatus")
     // this.storeMerchandiseActions = document.querySelector("#storeMerchandiseActions")
-    
     // this.arrivalStatus = document.querySelector("#arrivalStatus")
     // this.arrivalActions = document.querySelector("#arrivalActions")
     // this.deliveredToClient = document.querySelector("#deliveredToClient")
@@ -46,10 +45,12 @@ export class ExportUpdateStatus {
         case "ReportGreen":
           this.onCustomArrivalStatus.className = "order-road__semaphore active"
           this.onCustomArrivalActions.style.visibility = "visible";
+          this.semaphoreLightStatus.className = "order-road__semaphore active"
+          this.semaphoreLightActions.style.visibility = "visible";
           break;
-        case "BeginRoute":
-          this.onRouteStatus.className = "order-road__semaphore active"
-          this.onRouteActions.style.visibility = "visible";
+        case "ReportLockExport":
+          this.exportLockPictureStatus.className = "order-road__semaphore active"
+          this.exportLockPictureStatusActions.style.visibility = "visible";
           break;
         case "ReportLocation":
           this.onRouteStatus.className = "order-road__semaphore active"

@@ -253,33 +253,37 @@
               <div class="order-road__step">
                 <p>REPORTE DE SEMÁFORO</p>
               </div>
-              <div class="order-road__actions">
-                <div class="road-actions__icon" data-remodal-target="shared">
-                  <img src="/images/shared.png" alt="">
+              <div id="semaphoreLightActions" class="order-road__actions">
+                <div class="road-actions__icon">
+                  <a id="shareReportLigth" href="#">
+                    <img src="/images/shared.png" alt="">
+                  </a>
                 </div>
               </div>
             </div>
             <div class="order-road__item">
-              <div class="order-road__semaphore">
+              <div id="lockExportPictureStatus" class="<%= export_second_lock_picture_status(@order) %>">
                 <span></span>
               </div>
               <div class="order-road__step">
                 <p>FOTOGRAFÍA DE CANDADO ENVIADA</p>
               </div>
-              <div class="order-road__actions">
-                <div class="road-actions__icon" data-remodal-target="shared">
-                  <img src="/images/shared.png" alt="">
+              <div id="exportLockPictureStatusActions" class="order-road__actions">
+                <div class="road-actions__icon">
+                  <a id="shareReportExportLock" href="#">
+                    <img src="/images/shared.png" alt="">
+                  </a>
                 </div>
               </div>
             </div>
             <div class="order-road__item">
-              <div class="order-road__semaphore">
+              <div id="arrivalStatus" class="<%= export_arrival_status(@order) %>">
                 <span></span>
               </div>
               <div class="order-road__step">
                 <p>ENTREGADO EN ADUANA</p>
               </div>
-              <div class="order-road__actions">
+              <div id="arrivalActions" class="order-road__actions">
                 <div class="road-actions__icon">
                   <img src="/images/download.png" alt="">
                 </div>
@@ -287,7 +291,9 @@
                   <img src="/images/camera.png" alt="">
                 </div>
                 <div class="road-actions__icon" data-remodal-target="shared">
-                  <img src="/images/shared.png" alt="">
+                  <a id="shareArriving" href="#">
+                    <img src="/images/shared.png" alt="">
+                  </a>
                 </div>
               </div>
             </div>

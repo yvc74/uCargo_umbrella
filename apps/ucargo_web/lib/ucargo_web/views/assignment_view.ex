@@ -283,4 +283,22 @@ defmodule UcargoWeb.AssignmentView  do
     end
   end
 
+  def export_second_lock_picture_status(order) do
+    if order.status == "ReportedLockExport"
+    || order.status == "ReportedSign"
+    || order.status == "Signed" do
+      "order-road__semaphore active"
+    else
+      "order-road__semaphore"
+    end
+  end
+
+  def export_arrival_status(order) do
+    if order.status == "Signed" do
+      "order-road__semaphore active"
+    else
+      "order-road__semaphore"
+    end
+  end
+
 end

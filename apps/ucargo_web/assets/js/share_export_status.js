@@ -42,37 +42,23 @@ export class ExportShareStatus {
       self.share_modal.open();
     });
 
-    // $('#shareReportLigth').on('click', function(event) {
-    //   shareTitle.innerHTML = "REPORTE DE SEMÁFORO";
-    //   self.shareContent = "reportLight";
-    //   self.share_modal.open();
-    // });
+    $('#shareReportLigth').on('click', function(event) {
+      shareTitle.innerHTML = "REPORTE DE SEMÁFORO";
+      self.shareContent = "reportLight";
+      self.share_modal.open();
+    });
 
+    $('#shareReportExportLock').on('click', function(event) {
+      shareTitle.innerHTML = "REPORTE DE CANDADO";
+      self.shareContent = "reportMerchStored";
+      self.share_modal.open();
+    });
 
-    // $('#shareMerchStored').on('click', function(event) {
-    //   shareTitle.innerHTML = "MERCANCÍA ALMACENADA";
-    //   self.shareContent = "reportMerchStored";
-    //   self.share_modal.open();
-    // });
-
-    // $('#shareBeginRoute').on('click', function(event) {
-    //   shareTitle.innerHTML = "INICIO DE RUTA";
-    //   self.shareContent = "reportBeginRoute";
-    //   self.share_modal.open();
-    // });
-
-    // $('#shareArriving').on('click', function(event) {
-    //   shareTitle.innerHTML = "LLEGADA A DESTINO";
-    //   self.shareContent = "reportArriving";
-    //   self.share_modal.open();
-    // });
-
-    // $('#shareDeliver').on('click', function(event) {
-    //   shareTitle.innerHTML = "LLEGADA A DESTINO";
-    //   self.shareContent = "reportDeliver";
-    //   self.share_modal.open();
-    // });
-
+    $('#shareArriving').on('click', function(event) {
+      shareTitle.innerHTML = "LLEGADA A DESTINO";
+      self.shareContent = "reportArriving";
+      self.share_modal.open();
+    });
   }
 
   setupNotifications() {
