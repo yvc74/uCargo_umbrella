@@ -14,6 +14,21 @@ defmodule UcargoWeb.AssignmentView  do
     String.upcase(string)
   end
 
+  def custom_route_status_share_action(order) do
+    if order.status == "OnRouteToCustom"
+    || order.status == "ReportedGreen"
+    || order.status == "ReportedRed"
+    || order.status == "ReportedLock"
+    || order.status == "Stored"
+    || order.status == "OnRoute"
+    || order.status == "OnTracking"
+    || order.status == "Signed" do
+      "visibility: visible"
+    else
+      "visibility: hidden"
+    end
+  end
+
   def custom_route_status(order) do
     if order.status == "OnRouteToCustom"
     || order.status == "ReportedGreen"
@@ -29,6 +44,20 @@ defmodule UcargoWeb.AssignmentView  do
     end
   end
 
+  def semaphore_light_status_share_action(order) do
+    if order.status == "ReportedGreen"
+    || order.status == "ReportedRed"
+    || order.status == "ReportedLock"
+    || order.status == "Stored"
+    || order.status == "OnRoute"
+    || order.status == "OnTracking"
+    || order.status == "Signed" do
+      "visibility: visible"
+    else
+      "visibility: hidden"
+    end
+  end
+
   def semaphore_light_status(order) do
     if order.status == "ReportedGreen"
     || order.status == "ReportedRed"
@@ -37,9 +66,21 @@ defmodule UcargoWeb.AssignmentView  do
     || order.status == "OnRoute"
     || order.status == "OnTracking"
     || order.status == "Signed" do
-    "order-road__semaphore active"
+      "order-road__semaphore active"
     else
       "order-road__semaphore"
+    end
+  end
+
+  def picture_lock_actions(order) do
+    if order.status == "ReportedLock"
+    || order.status == "Stored"
+    || order.status == "OnRoute"
+    || order.status == "OnTracking"
+    || order.status == "Signed" do
+      "visibility: visible"
+    else
+      "visibility: hidden"
     end
   end
 
@@ -55,6 +96,17 @@ defmodule UcargoWeb.AssignmentView  do
     end
   end
 
+  def store_merchandise_actions(order) do
+    if order.status == "Stored"
+    || order.status == "OnRoute"
+    || order.status == "OnTracking"
+    || order.status == "Signed" do
+      "visibility: visible"
+    else
+      "visibility: hidden"
+    end
+  end
+
   def store_merchandise_status(order) do
     if order.status == "Stored"
     || order.status == "OnRoute"
@@ -63,6 +115,16 @@ defmodule UcargoWeb.AssignmentView  do
       "order-road__semaphore active"
     else
       "order-road__semaphore"
+    end
+  end
+
+  def on_route_actions(order) do
+    if order.status == "OnRoute"
+    || order.status == "OnTracking"
+    || order.status == "Signed" do
+      "visibility: visible"
+    else
+      "visibility: hidden"
     end
   end
 
@@ -76,6 +138,14 @@ defmodule UcargoWeb.AssignmentView  do
     end
   end
 
+  def arrival_actions(order) do
+    if order.status == "Signed" do
+      "visibility: visible"
+    else
+      "visibility: hidden"
+    end
+  end
+
   def arrival_status(order) do
     if order.status == "Signed" do
       "order-road__semaphore active"
@@ -84,7 +154,146 @@ defmodule UcargoWeb.AssignmentView  do
     end
   end
 
+  def delivered_to_client_actions(order) do
+    if order.status == "Signed" do
+      "visibility: visible"
+    else
+      "visibility: hidden"
+    end
+  end
+
   def delivered_to_client_status(order) do
+    if order.status == "Signed" do
+      "order-road__semaphore active"
+    else
+      "order-road__semaphore"
+    end
+  end
+
+  ##EXPORT
+
+  def export_store_merchandise_actions(order) do
+    if order.status == "Collected"
+    || order.status == "ReportedLock"
+    || order.status == "OnRouteToCustom"
+    || order.status == "OnTracking"
+    || order.status == "ReportedLockExport"
+    || order.status == "ReportedSign"
+    || order.status == "Signed" do
+      "visibility: visible"
+    else
+      "visibility: hidden"
+    end
+  end
+
+  def export_store_merchandise_status(order) do
+    if order.status == "Collected"
+    || order.status == "ReportedLock"
+    || order.status == "OnRouteToCustom"
+    || order.status == "OnTracking"
+    || order.status == "ReportedLockExport"
+    || order.status == "ReportedSign"
+    || order.status == "Signed" do
+      "order-road__semaphore active"
+    else
+      "order-road__semaphore"
+    end
+  end
+
+  def export_lock_picture_status(order) do
+    if order.status == "ReportedLock"
+    || order.status == "OnRouteToCustom"
+    || order.status == "OnTracking"
+    || order.status == "ReportedLockExport"
+    || order.status == "ReportedSign"
+    || order.status == "Signed" do
+      "order-road__semaphore active"
+    else
+      "order-road__semaphore"
+    end
+  end
+
+  def export_lock_picture_actions(order) do
+    if order.status == "ReportedLock"
+    || order.status == "OnRouteToCustom"
+    || order.status == "OnTracking"
+    || order.status == "ReportedLockExport"
+    || order.status == "ReportedSign"
+    || order.status == "Signed" do
+      "visibility: visible"
+    else
+      "visibility: hidden"
+    end
+  end
+
+  def on_route_actions_status(order) do
+    if order.status == "OnRouteToCustom"
+    || order.status == "OnTracking"
+    || order.status == "ReportedLockExport"
+    || order.status == "ReportedSign"
+    || order.status == "Signed" do
+      "order-road__semaphore active"
+    else
+      "order-road__semaphore"
+    end
+  end
+
+  def on_route_actions_actions(order) do
+    if order.status == "OnRouteToCustom"
+    || order.status == "OnTracking"
+    || order.status == "ReportedLockExport"
+    || order.status == "ReportedSign"
+    || order.status == "Signed" do
+      "visibility: visible"
+    else
+      "visibility: hidden"
+    end
+  end
+
+  def on_custom_arrival_status(order) do
+    if order.status == "ReportedGreen"
+    || order.status == "ReportedLockExport"
+    || order.status == "ReportedSign"
+    || order.status == "Signed" do
+      "order-road__semaphore active"
+    else
+      "order-road__semaphore"
+    end
+  end
+
+  def on_custom_arrival_actions(order) do
+    if order.status == "ReportedGreen"
+    || order.status == "ReportedLockExport"
+    || order.status == "ReportedSign"
+    || order.status == "Signed" do
+      "visibility: visible"
+    else
+      "visibility: hidden"
+    end
+  end
+
+  def export_semaphore_light_status(order) do
+    if order.status == "ReportedGreen"
+    || order.status == "ReportedLockExport"
+    || order.status == "ReportedSign"
+    || order.status == "Signed" do
+      "order-road__semaphore active"
+    else
+      "order-road__semaphore"
+    end
+  end
+
+  def export_second_lock_picture_status(order) do
+    if order.status == "ReportedLockExport"
+    || order.status == "ReportedSign"
+    || order.status == "Signed" do
+      "order-road__semaphore active"
+    else
+      "order-road__semaphore"
+    end
+  end
+
+  def export_arrival_status(order) do
     if order.status == "Signed" do
       "order-road__semaphore active"
     else

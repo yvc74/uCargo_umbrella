@@ -7,6 +7,7 @@
 <section class="container" id="details">
   <div class="details-container">
     <input type="hidden" name="ucargoOrderId" id="ucargoOrderId" value="<%= @order.id %>">
+    <input type="hidden" name="form_name" id="form_name" value="trackingImport">
     <div class="details-header shell-header">
       <div class="details-header__eyelash header__eyelash">
         <p>Seguimiento Cargamento</p>
@@ -184,9 +185,11 @@
               <div class="order-road__step">
                 <p>CAMINO A ADUANA</p>
               </div>
-              <div class="order-road__actions">
-                <div class="road-actions__icon" data-remodal-target="shared">
-                  <img src="/images/shared.png" alt="">
+              <div id="customRouteActions" class="order-road__actions" style="<%= custom_route_status_share_action(@order) %>">
+                <div class="road-actions__icon">
+                  <a id="shareRoadToCustom" href="#">
+                    <img src="/images/shared.png" alt="">
+                  </a>
                 </div>
               </div>
             </div>
@@ -197,12 +200,11 @@
               <div class="order-road__step">
                 <p>REPORTE DE SEMÁFORO</p>
               </div>
-              <div class="order-road__actions">
-                <div class="road-actions__icon" data-remodal-target="photos">
-                  <img src="/images/camera.png" alt="">
-                </div>
-                <div class="road-actions__icon" data-remodal-target="shared">
-                  <img src="/images/shared.png" alt="">
+              <div id="semaphoreLightActions" class="order-road__actions" style="<%= semaphore_light_status_share_action(@order) %>">
+                <div class="road-actions__icon">
+                  <a id="shareReportLigth" href="#">
+                    <img src="/images/shared.png" alt="">
+                  </a>
                 </div>
               </div>
             </div>
@@ -213,12 +215,14 @@
               <div class="order-road__step">
                 <p>FOTOGRAFÍA DE CANDADO ENVIADA</p>
               </div>
-              <div class="order-road__actions">
+              <div id="pictureLockActions" class="order-road__actions" style="<%= picture_lock_actions(@order) %>">
                 <div class="road-actions__icon" data-remodal-target="photos">
                   <img src="/images/camera.png" alt="">
                 </div>
                 <div class="road-actions__icon" data-remodal-target="shared">
-                  <img src="/images/shared.png" alt="">
+                  <a id="shareReportLock" href="#">
+                    <img src="/images/shared.png" alt="">
+                  </a>
                 </div>
               </div>
             </div>
@@ -229,15 +233,11 @@
               <div class="order-road__step">
                 <p>MERCANCÍA ALMACENADA</p>
               </div>
-              <div class="order-road__actions">
-                <div class="road-actions__icon">
-                  <img src="/images/download.png" alt="">
-                </div>
-                <div class="road-actions__icon" data-remodal-target="photos">
-                  <img src="/images/camera.png" alt="">
-                </div>
+              <div id="storeMerchandiseActions" class="order-road__actions" style="<%= store_merchandise_actions(@order) %>">
                 <div class="road-actions__icon" data-remodal-target="shared">
-                  <img src="/images/shared.png" alt="">
+                  <a id="shareMerchStored" href="#">
+                    <img src="/images/shared.png" alt="">
+                  </a>
                 </div>
               </div>
             </div>
@@ -248,9 +248,11 @@
               <div class="order-road__step">
                 <p>INICIO DE RUTA HACIA DESTINO</p>
               </div>
-              <div class="order-road__actions">
+              <div id="onRouteActions" class="order-road__actions" style="<%= on_route_actions(@order) %>">
                 <div class="road-actions__icon" data-remodal-target="shared">
-                  <img src="/images/shared.png" alt="">
+                  <a id="shareBeginRoute" href="#">
+                    <img src="/images/shared.png" alt="">
+                  </a>
                 </div>
               </div>
             </div>
@@ -261,9 +263,11 @@
               <div class="order-road__step">
                 <p>LLEGADA A DESTINO</p>
               </div>
-              <div class="order-road__actions">
+              <div id="arrivalActions" class="order-road__actions" style="<%= arrival_actions(@order) %>">
                 <div class="road-actions__icon" data-remodal-target="shared">
-                  <img src="/images/shared.png" alt="">
+                  <a id="shareArriving" href="#">
+                    <img src="/images/shared.png" alt="">
+                  </a>
                 </div>
               </div>
             </div>
@@ -274,9 +278,11 @@
               <div class="order-road__step">
                 <p>ENTREGADO A CLIENTE</p>
               </div>
-              <div class="order-road__actions">
+              <div id="deliveredActions" class="order-road__actions" style="<%= delivered_to_client_actions(@order) %>">
                 <div class="road-actions__icon" data-remodal-target="shared">
-                  <img src="/images/shared.png" alt="">
+                  <a id="shareDeliver" href="#">
+                    <img src="/images/shared.png" alt="">
+                  </a>
                 </div>
               </div>
             </div>
@@ -310,9 +316,9 @@
   </div>
 </section>
 
-<div class="remodal ucargo-modal" data-remodal-id="shared" data-remodal-options="hashTracking: false">
+<div class="remodal ucargo-modal" data-remodal-id="share-content" data-remodal-options="hashTracking: false">
   <img class="ucargo-modal__closed" src="/images/closed.png" data-remodal-action="close" alt="">
-  <p class="ucargo-modal__title">CAMINO A ADUANA</p>
+  <p id="shareTitle" class="ucargo-modal__title">CAMINO A ADUANA</p>
   <div class="ucargo-modal__content">
     <div class="details-modal__shared">
       <div class="details-emails__container">
@@ -367,45 +373,3 @@
     </div>
   </div>
 </div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function(event) {
-    $(document).on('opening', '[data-remodal-id=photos]', function () {
-      $('.details-slick').slick({
-        dots: true,
-        infinite: true,
-        speed: 500,
-        fade: true,
-        cssEase: 'linear'
-      })
-    })
-  })
-
-  function onSendEmails(){
-    const modal = $('[data-remodal-id=shared]').remodal();
-    const emails = $('.input-emails__shared').val();
-
-    if(emails === ''){
-      console.log('error');
-    }else{
-      modal.close();
-      console.log(emails)
-    }
-  }
-
-  function onSendPhotos(){
-    const modal = $('[data-remodal-id=photos]').remodal();
-    const emails = $('.input-emails__photos').val();
-
-    if(emails === ''){
-      console.log('error');
-    }else{
-      modal.close();
-      console.log(emails)
-    }
-  }
-
-  infoWindow: {
-    content: '<p>HTML Content</p>'
-  }
-</script>

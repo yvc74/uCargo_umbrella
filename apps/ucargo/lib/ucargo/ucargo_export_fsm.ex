@@ -22,18 +22,6 @@ defmodule Ucargo.ExportFsm do
     end
   end
 
-  
-
-  # defstate merchandise_collected do
-  #   defevent report_green do
-  #     next_state(:take_picture)
-  #   end
-
-  #   defevent report_red do
-  #     next_state(:pama)
-  #   end
-  # end
-
   defstate take_picture do
     defevent report_lock_picture do
       next_state(:wait_for_custom_picking)
@@ -45,7 +33,6 @@ defmodule Ucargo.ExportFsm do
       next_state(:on_route)
     end
   end
-
 
   defstate on_route_to_storage do
     defevent store_merchandise do
@@ -64,12 +51,14 @@ defmodule Ucargo.ExportFsm do
       next_state(:on_route)
     end
 
-    defevent report_export_lock_picture do
-      next_state(:reported_export_lock_picture)
+    defevent report_green do
+      next_state(:take_export_picture)
     end
+  end
 
-    defevent report_sign do
-      next_state(:signed)
+  defstate take_export_picture do
+    defevent report_export_lock_picture do
+      next_state(:wait_for_signing)
     end
   end
 
@@ -96,13 +85,11 @@ defmodule Ucargo.ExportFsm do
       "Quoted" => :driver_quoted,
       "Approved" => :wait_for_collect_merchandise, #**
       "Collected" => :take_picture,
-      
-      # "ReportedGreen" => :take_picture,
       "ReportedLock" => :wait_for_custom_picking,
       "OnRouteToCustom" => :on_route,
-      #"Stored" => :begin_delivery_route,
       "OnRoute" => :on_route,
       "OnTracking" => :on_route,
+      "ReportedGreen" => :take_export_picture,
       "ReportedLockExport" => :wait_for_signing,
       "ReportedSign" => :on_route,
       "Signed" => :finish}

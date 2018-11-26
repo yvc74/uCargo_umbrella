@@ -14,7 +14,8 @@ defmodule UcargoWeb.ShareChannel do
     Share.share_on_route_to_custom(share_body["emails"],
                                    share_body["userId"],
                                    share_body["sendToMe"],
-                                   share_body["orderId"])
+                                   share_body["orderId"],
+                                   share_body["stage"])
     {:reply, {:ok, %{}}, socket}
   end
 
