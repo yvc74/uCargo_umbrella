@@ -49,15 +49,15 @@ defmodule UcargoWeb.OrderView do
                   schedule: order.delivery.schedule,
                   label: "delivery"
                   },
-      details: [%{label: "distance", value: order.distance},
-                %{label: "merchandise_type", value: order.merchandise_type},
-                %{label: "order_number", value: order.order_number},
-                %{label: "transport", value: order.transport},
-                %{label: "weight", value: order.weight},
-                %{label: "house_reference", value: order.planning.house_reference},
-                %{label: "master_reference", value: order.planning.master_reference},
-                %{label: "shipment_responsable", value: order.planning.custom_broker.company},
-                %{label: "ucargo_reference", value: order.id}
+      details: [%{label: "distance", value: default(order.distance)},
+                %{label: "merchandise_type", value: default(order.merchandise_type)},
+                %{label: "order_number", value: default(order.order_number)},
+                %{label: "transport", value: default(order.transport)},
+                %{label: "weight", value: default(order.weight)},
+                %{label: "house_reference", value: default(order.planning.house_reference)},
+                %{label: "master_reference", value: default(order.planning.master_reference)},
+                %{label: "shipment_responsable", value: default(order.planning.custom_broker.company)},
+                %{label: "ucargo_reference", value: default(order.id)}
                ],
      }
     if order.type == 1 do
@@ -71,6 +71,15 @@ defmodule UcargoWeb.OrderView do
       Map.put(order_map, :pickup, payload)
     else
       order_map
+    end
+  end
+
+  defp default(value) do
+    case value do
+      nil ->
+        ""
+      _ ->
+        value
     end
   end
 
