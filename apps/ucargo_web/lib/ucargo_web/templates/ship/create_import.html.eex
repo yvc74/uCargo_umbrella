@@ -1,5 +1,6 @@
 <section class="container" id="import">
   <div class="import-container">
+    <input type="hidden" name="form_name" id="form_name" value="createImport">
     <div class="import-header">
       <div class="import-header__eyelash header__eyelash">
         <p>Nuevo Cargamento Importación</p>
@@ -256,32 +257,3 @@
     </div>
   </div>
 </section>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function(event) {
-      flatpickr('.picker-container input[type=text]', {
-         minDate: new Date(),
-         static: true,
-         locale: 'es'
-      });
-      map = new GMaps({
-        div: '.ship-map',
-        lat: 19.1611614,
-        lng: -96.2052841,
-        zoom: 10
-      });
-
-      map.addMarker({
-        lat: 19.1611614,
-        lng: -96.2052841,
-        title: 'Aduanda Veracruz',
-        click: function(e) {
-          alert('Dirección de Origen');
-        }
-      });
-
-      infoWindow: {
-        content: '<p>HTML Content</p>'
-      }
-  })
-</script>

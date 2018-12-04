@@ -9,6 +9,7 @@ import {ImportShareStatus} from "./share_import_status"
 import {ImportUpdateStatus} from "./update_import_status"
 import {ExportShareStatus} from "./share_export_status"
 import {ExportUpdateStatus} from "./update_export_status"
+import {CreateImportAddress} from "./create_import_address.js"
 
 let socket = new Socket("/socket", {params: {token: window.userToken}})
 
@@ -181,6 +182,13 @@ class FormActions {
     let formIndentifier = document.querySelector("#form_name")
     if (formIndentifier != null) {
       switch(formIndentifier.value) {
+        case "createImport":
+          let addressChannel = socket.channel("address:creation", {})
+          addressChannel.join()
+            .receive("ok", resp => { console.log("Joined successfully", resp) })
+            .receive("error", resp => { console.log("Unable to join", resp) })
+          let createImport = new CreateImportAddress(addressChannel)
+          break;
         case "paymentForm":
           let paymentChannel = socket.channel("payment:charge", {})
           paymentChannel.join()
