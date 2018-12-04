@@ -58,6 +58,8 @@
         </div>
         <div class="import-news__item">
           <%= inputs_for order, :delivery, fn delivery -> %>
+          <%= text_input delivery, :latitude, hidden: 'true' %>
+          <%= text_input delivery, :longitude, hidden: 'true' %>
           <p class="news-item__title">DIRECCIÓN DE DESTINO</p>
           <div class="new-field">
             <div class="new-field__group">
@@ -257,3 +259,13 @@
     </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+      flatpickr('.picker-container input[type=text]', {
+         minDate: new Date(),
+         static: true,
+         locale: 'es'
+      });
+  })
+</script>

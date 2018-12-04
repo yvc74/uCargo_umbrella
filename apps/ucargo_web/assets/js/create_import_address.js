@@ -3,6 +3,8 @@ export class CreateImportAddress {
     this.addressChannel = addressChannel
     this.streetTextField = document.querySelector("#planning_order_delivery_street")
     this.extNumberTextField = document.querySelector("#planning_order_delivery_ext")
+    this.planning_order_delivery_latitude = document.querySelector("#planning_order_delivery_latitude")
+    this.planning_order_delivery_longitude = document.querySelector("#planning_order_delivery_longitude")
     this.setupEditTextContent()
     this.setupMap()
   }
@@ -24,6 +26,8 @@ export class CreateImportAddress {
 
   updateMap(msg) {
     let location = msg.data
+    this.planning_order_delivery_latitude.value =  `${location.lat}`
+    this.planning_order_delivery_longitude.value = `${location.long}`
     this.addDestinationMarker(location)
     this.drawRoute({lat: 19.1611614, long: -96.2052841}, location)
   }

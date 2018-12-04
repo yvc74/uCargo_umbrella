@@ -17,9 +17,14 @@ defmodule Kraken.Geocoding do
   end
 
   defp parse_result(body) do
-    %{"results" => [component|_]} = body
-    %{"geometry" => %{"location" => %{"lat" => lat, "lng" => long}}} = component
-    %{lat: lat, long: long}
+    %{"results" => results} = body
+    case results do
+      [] ->
+        %{lat: 19.4326018, long: -99.1353989}
+      [component|_] ->
+        %{"geometry" => %{"location" => %{"lat" => lat, "lng" => long}}} = component
+        %{lat: lat, long: long}
+    end
   end
 
   defp perform_geocoding_request(address) do
