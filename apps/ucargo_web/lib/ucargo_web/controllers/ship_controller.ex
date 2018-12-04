@@ -87,8 +87,6 @@ defmodule UcargoWeb.ShipController do
       |> Map.put("address", "#{custom_catalog.address}")
 
     dvl_up_prms = delivery_params
-      |> Map.put("latitude", 20.5848521)
-      |> Map.put("longitude", -100.3965839)
       |> Map.put("name", "#{delivery_params["street"]} #{delivery_params["ext"]} #{delivery_params["int"]}, #{delivery_params["zipcode"]}, #{delivery_params["neighborhood"]},#{delivery_params["delegation"]},#{delivery_params["city"]},#{delivery_params["state"]}")
       |> Map.put("address", "#{delivery_params["street"]} #{delivery_params["ext"]} #{delivery_params["int"]}, #{delivery_params["zipcode"]}, #{delivery_params["neighborhood"]},#{delivery_params["delegation"]},#{delivery_params["city"]},#{delivery_params["state"]}")
 
