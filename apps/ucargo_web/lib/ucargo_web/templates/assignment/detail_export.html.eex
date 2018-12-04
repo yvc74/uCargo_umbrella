@@ -305,22 +305,22 @@
           </div>
           <div class="order-details__information">
             <div class="details-information__text">
-              <p>Dirección de Destino:<span>Aduana Veracruz</span></p>
-              <p>Fecha de Recolección:<span>Marzo, 03</span></p>
+              <p>Dirección de Destino:<span><%= render_uppercase(@order.delivery.name) %></span></p>
+              <p>Fecha de Recolección:<span><%= @order.delivery.date %></span></p>
               <p>Horario de Recolección:<span>08:30 - 14:00 horas</span></p>
-              <p>Responsable:<span>Joel Peréz</span></p>
+              <p>Responsable:<span><%= render_uppercase(@order.delivery.responsible) %></span></p>
             </div>
             <div class="details-information__text">
-              <p>Dirección de Recolección del Vacío:<span>Oceano Pacífico 423-B La Fé 66477, San Nicolás de los Garza, Monterrey, Nuevo León</span></p>
-              <p>Fecha de Recolección:<span>Marzo, 08</span></p>
+              <p>Dirección de Recolección del Vacío:<span><%= render_uppercase(@order.pickup.name) %></span></p>
+              <p>Fecha de Recolección:<span><%= @order.pickup.date %></span></p>
               <p>Horario de Recolección:<span>08:30 - 14:00 horas</span></p>
-              <p>Responsable:<span>María Santos 818 345 7824</span></p>
+              <p>Responsable:<span><%= render_uppercase(@order.pickup.responsible) %></span></p>
             </div>
             <div class="details-information__text">
-              <p>Dirección de Recolección de Mercancía:<span>Avenida José Palomo Martínes 502-8 Parque Industrial Omalap 66605, Apodaca, Monterrey, Nuevo León (Frente a gasolinera Pemex, Edificio verde)</span></p>
-              <p>Fecha de Recolección:<span>Marzo, 08</span></p>
+              <p>Dirección de Recolección de Mercancía:<span><%= render_uppercase(@order.custom.name) %></span></p>
+              <p>Fecha de Recolección:<span><%= @order.custom.date %></span></p>
               <p>Horario de Recolección:<span>08:30 - 14:00 horas</span></p>
-              <p>Responsable:<span>Carmen Farid 55 5785 8016</span></p>
+              <p>Responsable:<span><%= render_uppercase(@order.custom.responsible) %></span></p>
             </div>
           </div>
         </div>
