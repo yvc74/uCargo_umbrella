@@ -104,7 +104,7 @@ defmodule UcargoWeb.ShipController do
     custom = %Custom{}
     delivery = %Delivery{}
     pickup = %Pickup{}
-    {:ok, _custom_catalog} = CustomCatalog.get_by_name(delivery_params["name"])
+    {:ok, custom_catalog} = CustomCatalog.get_by_name(delivery_params["name"])
     order_up_prms = order_params
       |> Map.put("score", 4)
       |> Map.put("distance", "500")
@@ -115,20 +115,16 @@ defmodule UcargoWeb.ShipController do
     order_with_drivers_chs = Ecto.Changeset.put_assoc(order_chs, :drivers, drivers)
 
     ct_up_prms = custom_params
-      |> Map.put("latitude", 32.5498703)
-      |> Map.put("longitude", -116.9378327)
       |> Map.put("name", "#{custom_params["street"]} custom")
       |> Map.put("address", "#{custom_params["street"]} #{custom_params["ext"]} #{custom_params["int"]}, #{custom_params["zipcode"]}, #{custom_params["neighborhood"]},#{custom_params["delegation"]},#{custom_params["city"]},#{custom_params["state"]}")
 
     dvl_up_prms = delivery_params
-      |> Map.put("latitude", 20.5848521)
-      |> Map.put("longitude", -100.3965839)
+      |> Map.put("latitude", custom_catalog.latitude)
+      |> Map.put("longitude", custom_catalog.longitude)
       |> Map.put("name", "#{delivery_params["street"]} delivery")
       |> Map.put("address", "#{delivery_params["street"]} #{delivery_params["ext"]} #{delivery_params["int"]}, #{delivery_params["zipcode"]}, #{delivery_params["neighborhood"]},#{delivery_params["delegation"]},#{delivery_params["city"]},#{delivery_params["state"]}")
 
     pck_up_prms = pickup_params
-      |> Map.put("latitude", 20.5848521)
-      |> Map.put("longitude", -100.3965839)
       |> Map.put("name", "#{pickup_params["street"]} pickup")
       |> Map.put("address", "#{pickup_params["street"]} #{pickup_params["ext"]} #{pickup_params["int"]}, #{pickup_params["zipcode"]}, #{pickup_params["neighborhood"]},#{pickup_params["delegation"]},#{pickup_params["city"]},#{pickup_params["state"]}")      
 
