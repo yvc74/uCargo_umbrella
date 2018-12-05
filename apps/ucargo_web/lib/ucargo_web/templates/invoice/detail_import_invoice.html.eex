@@ -214,18 +214,42 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function(event) {
-    $('.details-rating').raty({
-      starOn: 'fas fa-star',
-      starOff: 'far fa-star',
-      score: function() {
-        return $(this).attr('data-score');
-      }
-    });
+      map = new GMaps({
+        div: '.ship-map',
+        lat: 19.3204969,
+        lng: -99.2840411,
+        zoom: 6
+      });
 
-    new GMaps({
-      div: '.ship-map',
-      lat: -12.043333,
-      lng: -77.028333
-    });
+      map.addMarker({
+        lat: <%=@order.custom.latitude%>,
+        lng: <%=@order.custom.longitude%>,
+        title: 'Aduanda Veracruz',
+        click: function(e) {
+          alert('Dirección de Destino');
+        }
+      });
+
+      map.addMarker({
+        lat: <%=@order.delivery.latitude%>,
+        lng: <%=@order.delivery.longitude%>,
+        title: 'Destino',
+        click: function(e) {
+          alert('Dirección de Entrega');
+        }
+      });
+
+      map.drawRoute({
+        origin: [<%=@order.custom.latitude%>, <%=@order.custom.longitude%>],
+        destination: [<%=@order.delivery.latitude%>, <%=@order.delivery.longitude%>],
+        travelMode: 'driving',
+        strokeColor: '#131540',
+        strokeOpacity: 0.6,
+        strokeWeight: 6
+      });
+
+      infoWindow: {
+        content: '<p>HTML Content</p>'
+      }
   })
 </script>
