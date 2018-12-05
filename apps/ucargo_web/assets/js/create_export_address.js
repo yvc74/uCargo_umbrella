@@ -2,13 +2,17 @@ export class CreateExportAddress {
   constructor(addressChannel) {
     this.addressChannel = addressChannel
     this.streetPickUpTextField = document.querySelector("#planning_order_pickup_street")
-    this.streetTextField = document.querySelector("#planning_order_delivery_street")
+    this.planning_order_custom_street = document.querySelector("#planning_order_custom_street")
     this.extNumberPickUpTextField = document.querySelector("#planning_order_pickup_ext")
     this.extNumberTextField = document.querySelector("#planning_order_delivery_ext")
-    this.planning_order_delivery_latitude = document.querySelector("#planning_order_delivery_latitude")
-    this.planning_order_delivery_longitude = document.querySelector("#planning_order_delivery_longitude")
+    this.planning_order_custom_ext = document.querySelector("#planning_order_custom_ext")
+
+    this.planning_order_custom_latitude = document.querySelector("#planning_order_custom_latitude")
+    this.planning_order_custom_longitude = document.querySelector("#planning_order_custom_longitude")
+
     this.planning_order_pickup_latitude = document.querySelector("#planning_order_pickup_latitude")
     this.planning_order_pickup_longitude = document.querySelector("#planning_order_pickup_longitude")
+    this.intermediate_location = {lat: 19.1611614, long: -96.2052841}
     this.setupEditTextContent()
     this.setupPickUpEditTextContent()
     this.setupMap()
@@ -24,9 +28,9 @@ export class CreateExportAddress {
 
   setupEditTextContent() {
     var self = this;
-    $('#planning_order_delivery_responsible').on('click', function(event) {
-      console.log(self.streetTextField.value)
-      self.sendAddressToGeocoding(self.streetTextField.value + " " + "#" + self.extNumberTextField.value)
+    $('#planning_order_custom_responsible').on('click', function(event) {
+      console.log(self.planning_order_custom_street.value)
+      self.sendAddressToGeocoding(self.planning_order_custom_street.value + " " + "#" + self.planning_order_custom_ext.value)
     });
   }
 
@@ -49,15 +53,16 @@ export class CreateExportAddress {
     this.planning_order_pickup_latitude.value =  `${location.lat}`
     this.planning_order_pickup_longitude.value = `${location.long}`
     this.addDestinationMarker(location)
+    this.intermediate_location = location
     this.drawRoute({lat: 19.1611614, long: -96.2052841}, location)
   }
 
   updateMap(msg) {
     let location = msg.data
-    this.planning_order_delivery_latitude.value =  `${location.lat}`
-    this.planning_order_delivery_longitude.value = `${location.long}`
+    this.planning_order_custom_latitude.value =  `${location.lat}`
+    this.planning_order_custom_longitude.value = `${location.long}`
     this.addDestinationMarker(location)
-    this.drawRoute({lat: 19.1611614, long: -96.2052841}, location)
+    this.drawRoute(this.intermediate_location, location)
   }
 
   setupMap() {

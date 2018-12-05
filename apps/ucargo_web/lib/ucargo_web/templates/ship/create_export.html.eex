@@ -166,6 +166,8 @@
                </div>
                <div class="export-news__item">
                   <%= inputs_for order, :custom, fn custom -> %>
+                  <%= text_input custom, :latitude, hidden: 'true' %>
+                  <%= text_input custom, :longitude, hidden: 'true' %>
                   <p class="news-item__title">DIRECCIÓN DE RECOLECCION DE MERCANCÍA</p>
                   <div class="new-field">
                      <div class="new-field__group">
