@@ -10,6 +10,10 @@ defmodule UcargoWeb.InvoiceView  do
     Integer.floor_div(difference, 3600)
   end
 
+  def render_uppercase(nil) do
+    ""
+  end
+
   def render_uppercase(string) do
     String.upcase(string)
   end
