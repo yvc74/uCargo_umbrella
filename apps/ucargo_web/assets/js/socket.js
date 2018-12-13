@@ -76,49 +76,55 @@ shareChannel.join()
     .receive("ok", resp => { console.log("Joined successfully", resp) })
     .receive("error", resp => { console.log("Unable to join", resp) })
 
-$('#planning_order_delivery_state').on('select2:select', function (e) {
-    console.log(e.params.data.id);
-    channel.push("update_state_combo", {body: e.params.data.id}, 10000)
+$('#planning_order_delivery_state').on("select2:close", function (e) {
+    var combo = $('#planning_order_delivery_state').select2();
+    var combo_id = combo.find(':selected').val();
+    channel.push("update_state_combo", {body: combo_id}, 10000)
          .receive("ok", (msg) => update_delivery_city_combo(msg))
          .receive("error", (reasons) => console.log("create failed", reasons) )
          .receive("timeout", () => console.log("Networking issue...") )
   });
 
-$('#planning_order_custom_state').on('select2:select', function (e) {
-    console.log(e.params.data.id);
-    channel.push("update_state_combo", {body: e.params.data.id}, 10000)
+$('#planning_order_custom_state').on('select2:close', function (e) {
+    var combo = $('#planning_order_custom_state').select2();
+    var combo_id = combo.find(':selected').val();
+    channel.push("update_state_combo", {body: combo_id}, 10000)
          .receive("ok", (msg) => update_custom_city_combo(msg))
          .receive("error", (reasons) => console.log("create failed", reasons) )
          .receive("timeout", () => console.log("Networking issue...") )
   });
 
-$('#planning_order_pickup_state').on('select2:select', function (e) {
-  console.log(e.params.data.id);
-  channel.push("update_state_combo", {body: e.params.data.id}, 10000)
+$('#planning_order_pickup_state').on('select2:close', function (e) {
+  var combo = $('#planning_order_pickup_state').select2();
+  var combo_id = combo.find(':selected').val();
+  channel.push("update_state_combo", {body: combo_id}, 10000)
        .receive("ok", (msg) => update_pickup_city_combo(msg))
        .receive("error", (reasons) => console.log("create failed", reasons) )
        .receive("timeout", () => console.log("Networking issue...") )
 });
 
-$('#planning_order_delivery_city').on('select2:select', function (e) {
-  console.log(e.params.data.id);
-  channel.push("update_city_combo", {body: e.params.data.id}, 10000)
+$('#planning_order_delivery_city').on('select2:close', function (e) {
+  var combo = $('#planning_order_delivery_city').select2();
+  var combo_id = combo.find(':selected').val();
+  channel.push("update_city_combo", {body: combo_id}, 10000)
        .receive("ok", (msg) => update_delivery_neighborhood_combo(msg))
        .receive("error", (reasons) => console.log("create failed", reasons) )
        .receive("timeout", () => console.log("Networking issue...") )
 });
 
-$('#planning_order_pickup_city').on('select2:select', function (e) {
-  console.log(e.params.data.id);
-  channel.push("update_city_combo", {body: e.params.data.id}, 10000)
+$('#planning_order_pickup_city').on('select2:close', function (e) {
+  var combo = $('#planning_order_pickup_city').select2();
+  var combo_id = combo.find(':selected').val();
+  channel.push("update_city_combo", {body: combo_id}, 10000)
        .receive("ok", (msg) => update_pickup_neighborhood_combo(msg))
        .receive("error", (reasons) => console.log("create failed", reasons) )
        .receive("timeout", () => console.log("Networking issue...") )
 });
 
-$('#planning_order_custom_city').on('select2:select', function (e) {
-  console.log(e.params.data.id);
-  channel.push("update_city_combo", {body: e.params.data.id}, 10000)
+$('#planning_order_custom_city').on('select2:close', function (e) {
+  var combo = $('#planning_order_custom_city').select2();
+  var combo_id = combo.find(':selected').val();
+  channel.push("update_city_combo", {body: combo_id}, 10000)
        .receive("ok", (msg) => update_custom_neighborhood_combo(msg))
        .receive("error", (reasons) => console.log("create failed", reasons) )
        .receive("timeout", () => console.log("Networking issue...") )

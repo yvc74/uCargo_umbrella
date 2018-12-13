@@ -1,5 +1,6 @@
 $('select').select2({
-  minimumResultsForSearch: -1
+  minimumResultsForSearch: -1,
+  selectOnClose: true
 });
 
 $('.header-nav__button i').click(function(){

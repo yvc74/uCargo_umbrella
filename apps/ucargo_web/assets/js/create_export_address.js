@@ -22,15 +22,34 @@ export class CreateExportAddress {
     var self = this;
     $('#planning_order_pickup_responsible').on('click', function(event) {
       console.log(self.streetPickUpTextField.value)
-      self.sendPickUpAddressToGeocoding(self.streetPickUpTextField.value + " " + "#" + self.extNumberPickUpTextField.value)
+      var state_combo = $('#planning_order_pickup_state').select2();
+      var state = state_combo.find(':selected').text();
+      var city_combo = $('#planning_order_pickup_city').select2();
+      var city = city_combo.find(':selected').text();
+      var delegation_combo = $('#planning_order_pickup_delegation').select2();
+      var delegation = delegation_combo.find(':selected').text();
+      self.sendPickUpAddressToGeocoding(self.streetPickUpTextField.value + " " + "#" +
+                                        self.extNumberPickUpTextField.value + " " +
+                                        state + " " +
+                                        city + " " +
+                                        delegation)
     });
   }
 
   setupEditTextContent() {
     var self = this;
     $('#planning_order_custom_responsible').on('click', function(event) {
-      console.log(self.planning_order_custom_street.value)
-      self.sendAddressToGeocoding(self.planning_order_custom_street.value + " " + "#" + self.planning_order_custom_ext.value)
+      var state_combo = $('#planning_order_custom_state').select2();
+      var state = state_combo.find(':selected').text();
+      var city_combo = $('#planning_order_custom_city').select2();
+      var city = city_combo.find(':selected').text();
+      var delegation_combo = $('#planning_order_custom_delegation').select2();
+      var delegation = delegation_combo.find(':selected').text();
+      self.sendAddressToGeocoding(self.planning_order_custom_street.value + " " + "#" +
+                                  self.planning_order_custom_ext.value + " " +
+                                  state + " " +
+                                  city + " " +
+                                  delegation)
     });
   }
 
