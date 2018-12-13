@@ -13,7 +13,18 @@ export class CreateImportAddress {
     var self = this;
     $('#planning_order_delivery_responsible').on('click', function(event) {
       console.log(self.streetTextField.value)
-      self.sendAddressToGeocoding(self.streetTextField.value + " " + "#" + self.extNumberTextField.value)
+      var state_combo = $('#planning_order_delivery_state').select2();
+      var state = state_combo.find(':selected').text();
+      var city_combo = $('#planning_order_delivery_city').select2();
+      var city = city_combo.find(':selected').text();
+      var delegation_combo = $('#planning_order_delivery_delegation').select2();
+      var delegation = delegation_combo.find(':selected').text();
+      console.log(state)
+      self.sendAddressToGeocoding(self.streetTextField.value + " " + "#" +
+                                  self.extNumberTextField.value + " " +
+                                  state + " " +
+                                  city + " " +
+                                  delegation)
     });
   }
 
