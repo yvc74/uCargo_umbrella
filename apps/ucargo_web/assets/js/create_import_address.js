@@ -37,6 +37,8 @@ export class CreateImportAddress {
     let location = msg.data
     this.planning_order_delivery_latitude.value =  `${location.lat}`
     this.planning_order_delivery_longitude.value = `${location.long}`
+    this.removeMarkers()
+    this.addOriginMarker("origin")
     this.addDestinationMarker(location)
     this.drawRoute({lat: 19.1611614, long: -96.2052841}, location)
   }
@@ -49,7 +51,19 @@ export class CreateImportAddress {
       zoom: 6
     });
 
-    this.map.addMarker({
+    this.addOriginMarker("origin")
+  }
+
+  removeMarkers() {
+    this.origin_marker.setMap(null);
+    if (this.destination_marker != null) {
+      this.destination_marker.setMap(null);
+    }
+    this.map.cleanRoute();
+  }
+
+  addOriginMarker(_location) {
+    this.origin_marker = this.map.addMarker({
       lat: 19.1611614,
       lng: -96.2052841,
       title: 'Aduanda Veracruz',
@@ -60,7 +74,7 @@ export class CreateImportAddress {
   }
 
   addDestinationMarker(location) {
-    this.map.addMarker({
+    this.destination_marker = this.map.addMarker({
       lat: location.lat,
       lng: location.long,
       title: 'Destino',
