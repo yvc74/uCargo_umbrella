@@ -71,7 +71,10 @@ export class CreateExportAddress {
     let location = msg.data
     this.planning_order_pickup_latitude.value =  `${location.lat}`
     this.planning_order_pickup_longitude.value = `${location.long}`
-    this.addDestinationMarker(location)
+    this.map.removeMarkers();
+    this.map.cleanRoute();
+    this.addOriginMarker("origin");
+    this.addDestinationMarker(location);
     this.intermediate_location = location
     this.drawRoute({lat: 19.1611614, long: -96.2052841}, location)
   }
@@ -80,7 +83,12 @@ export class CreateExportAddress {
     let location = msg.data
     this.planning_order_custom_latitude.value =  `${location.lat}`
     this.planning_order_custom_longitude.value = `${location.long}`
-    this.addDestinationMarker(location)
+    if (this.final_marker != null) {
+      this.final_marker.setMap(null);
+    }
+    this.map.cleanRoute();
+    this.addFinalDestinationMarker(location)
+    this.drawRoute({lat: 19.1611614, long: -96.2052841}, this.intermediate_location)
     this.drawRoute(this.intermediate_location, location)
   }
 
@@ -92,7 +100,11 @@ export class CreateExportAddress {
       zoom: 6
     });
 
-    this.map.addMarker({
+    this.addOriginMarker("Origin")
+  }
+
+  addOriginMarker(_location) {
+    this.origin_marker = this.map.addMarker({
       lat: 19.1611614,
       lng: -96.2052841,
       title: 'Aduanda Veracruz',
@@ -102,8 +114,27 @@ export class CreateExportAddress {
     });
   }
 
+  removeMarkers() {
+    this.origin_marker.setMap(null);
+    if (this.destination_marker != null) {
+      this.destination_marker.setMap(null);
+    }
+    this.map.cleanRoute();
+  }
+
   addDestinationMarker(location) {
     this.map.addMarker({
+      lat: location.lat,
+      lng: location.long,
+      title: 'Destino',
+      click: function(e) {
+        alert('Dirección de Entrega');
+      }
+    });
+  }
+
+  addFinalDestinationMarker(location) {
+    this.final_marker = this.map.addMarker({
       lat: location.lat,
       lng: location.long,
       title: 'Destino',
