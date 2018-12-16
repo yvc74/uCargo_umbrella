@@ -52,12 +52,6 @@ defmodule Ucargo.ExportFsm do
     end
 
     defevent report_green do
-      next_state(:take_export_picture)
-    end
-  end
-
-  defstate take_export_picture do
-    defevent report_export_lock_picture do
       next_state(:wait_for_signing)
     end
   end
@@ -89,8 +83,7 @@ defmodule Ucargo.ExportFsm do
       "OnRouteToCustom" => :on_route,
       "OnRoute" => :on_route,
       "OnTracking" => :on_route,
-      "ReportedGreen" => :take_export_picture,
-      "ReportedLockExport" => :wait_for_signing,
+      "ReportedGreen" => :wait_for_signing,
       "ReportedSign" => :on_route,
       "Signed" => :finish}
   end
