@@ -262,21 +262,6 @@
               </div>
             </div>
             <div class="order-road__item">
-              <div id="lockExportPictureStatus" class="<%= export_second_lock_picture_status(@order) %>">
-                <span></span>
-              </div>
-              <div class="order-road__step">
-                <p>FOTOGRAFÍA DE CANDADO ENVIADA</p>
-              </div>
-              <div id="exportLockPictureStatusActions" class="order-road__actions">
-                <div class="road-actions__icon">
-                  <a id="shareReportExportLock" href="#">
-                    <img src="/images/shared.png" alt="">
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="order-road__item">
               <div id="arrivalStatus" class="<%= export_arrival_status(@order) %>">
                 <span></span>
               </div>
