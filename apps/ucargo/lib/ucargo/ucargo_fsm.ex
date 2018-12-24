@@ -92,6 +92,7 @@ defmodule Ucargo.Fsm do
       "Approve" => :approve,
       "BeginCustom" => :begin_custom,
       "ReportGreen" => :report_green,
+      "ReportRed" => :report_red,
       "ReportLock" => :report_lock_picture,
       "Store" => :store_merchandise,
       "BeginRoute" => :start_route,

@@ -52,6 +52,17 @@ defmodule Ucargo.EventDispatcher do
     end
   end
 
+  def dispatch(%{"id" => uuid, "name" => "ReportRed"}, date, _driver, available_order, fsm_mod) do
+    order_fsm = fsm_mod.load(available_order.status)
+    changeset = Event.changeset(%Event{}, %{uuid: uuid, name: "ReportRed", date: date})
+    case changeset.valid? do
+       true ->
+        report_green_status({"ReportRed", "ReportedRed", order_fsm, changeset, available_order}, fsm_mod)
+       false ->
+        {:error, changeset.errors}
+    end
+  end
+
   def dispatch(%{"id" => uuid, "name" => "ReportLockExport", "picture" => lock_picture}, date, _driver, available_order, fsm_mod) do
     order_fsm = fsm_mod.load(available_order.status)
     changeset = Event.changeset(%Event{}, %{uuid: uuid, name: "ReportLock", date: date, picture: lock_picture})
@@ -175,6 +186,19 @@ defmodule Ucargo.EventDispatcher do
   end
 
   def report_green_status({action, status, order_fsm, changeset, available_order}, fsm_mod) do
+    case apply_next_stage(order_fsm, action, fsm_mod) do
+      {:ok, _} ->
+        chs = Order.update_changeset(available_order.order, %{status: status})
+        av_order_changeset = AvailableOrder.update_changeset(available_order, %{status: status})
+        AvailableOrder.update(av_order_changeset)
+        Order.update(chs)
+        Event.save(changeset)
+      {:error, reason} ->
+        {:error, reason}
+    end
+  end
+
+  def report_red_status({action, status, order_fsm, changeset, available_order}, fsm_mod) do
     case apply_next_stage(order_fsm, action, fsm_mod) do
       {:ok, _} ->
         chs = Order.update_changeset(available_order.order, %{status: status})

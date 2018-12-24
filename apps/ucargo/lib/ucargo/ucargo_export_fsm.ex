@@ -54,6 +54,10 @@ defmodule Ucargo.ExportFsm do
     defevent report_green do
       next_state(:wait_for_signing)
     end
+
+    defevent report_red do
+      next_state(:finish)
+    end
   end
 
   defstate wait_for_signing do
@@ -95,6 +99,7 @@ defmodule Ucargo.ExportFsm do
       "Collect" => :collect,
       "BeginCustom" => :begin_custom,
       "ReportGreen" => :report_green,
+      "ReportRed" => :report_red,
       "ReportLock" => :report_lock_picture,
       "Store" => :store_merchandise,
       "BeginRoute" => :start_route,
