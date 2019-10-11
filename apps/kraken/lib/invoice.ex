@@ -44,7 +44,7 @@ defmodule Kraken.Invoice do
     HTTPotion.get(
       "https://test.facturagorila.com/v2/api/documentos/#{document_id}/#{type}",
       headers: headers,
-      timeout: 10_000
+      timeout: 50_000
     )
   end
 
@@ -58,7 +58,7 @@ defmodule Kraken.Invoice do
       "https://test.facturagorila.com/v2/api/documentos/Crear/Simple",
       body: Jason.encode!(body),
       headers: headers,
-      timeout: 10_000
+      timeout: 50_000
     )
   end
 
