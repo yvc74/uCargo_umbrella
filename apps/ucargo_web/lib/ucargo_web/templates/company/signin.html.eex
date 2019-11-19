@@ -1,0 +1,59 @@
+<script>
+	var session_error = <%= @session_error %>
+</script>
+<section class="signin">
+	<div class="signin__logo">
+		<img src="../images/brand.png" />
+	</div>
+	<div class="signin__slogan">
+		<p>Bienvenido <%=@company_name%> inovando la manera de mover <br/> tu carga, siempre segura.</p>
+	</div>
+	<input type="hidden" name="form_name" id="form_name" value="signIn">
+	<%= form_for @changeset, "/login", [class: 'signin-form'], fn f -> %>
+		<div class="signin__user-box">
+			<div class="signin__icon">
+				<img src="../images/user_icon.svg" />
+			</div>
+			<div class="user-box__user">
+				<%= text_input f, :username, placeholder: "Nombre de usuario", autofocus: "autofocus" %>
+			</div>
+		</div>
+		<div class="signin__password-box">
+			<div class="signin__icon">
+				<img src="../images/password_icon.svg" />
+			</div>
+			<div class="password-box__password">
+				<%= password_input f, :password, placeholder: "Contraseña", autofocus: "autofocus" %>
+			</div>
+		</div>
+		<div class="signin__forgotten-password">
+			<a href="#">¿Olvidaste tu contraseña?</a>
+		</div>
+		<div class="signin__keep-login">
+			<div class="checkbox">
+				<input type="checkbox" id="checkbox" />
+				<label for="checkbox">
+					<span class="checkbox__icon signin-checkbox__icon">
+						<span class="checkbox__dot"></span>
+					</span>
+					<span class="checkbox__text">Mantener inicio de sesión</span>
+				</label>
+			</div>
+		</div>
+		<div class="signin__button">
+			<input class="btn" type="submit" value="ENTRAR"  />
+		</div>
+	<% end %>
+	<div class="signin__question">
+		<label>¿Aún no eres miembro?</label>
+	</div>
+	<div class="signin__create-account">
+		<a href="#">Crea una cuenta.</a>
+	</div>
+</section>
+<div id="process-payment" class="remodal ucargo-modal" data-remodal-id="session_error" data-remodal-options="hashTracking: false">
+	<p class="payment-finish__title">Usuario o contraseña incorrectos</p>
+	<button data-remodal-action="confirm" class="btn payment-finish__send">
+		ACEPTAR
+	</button>
+</div>

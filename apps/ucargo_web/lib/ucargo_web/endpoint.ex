@@ -38,6 +38,7 @@ defmodule UcargoWeb.Endpoint do
     key: "_ucargo_web_key",
     signing_salt: "xU3q1/C9"
 
+  plug UcargoWeb.Plug.Subdomain, UcargoWeb.SubdomainRouter
   plug UcargoWeb.Router
 
   @doc """
